@@ -1,0 +1,725 @@
+% !TeX program = xelatex
+\documentclass[11pt,a4paper,fontset=fandol]{ctexrep}
+\usepackage{amsmath,amssymb,geometry,enumitem,fancyhdr,hyperref}
+\geometry{margin=23mm}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\setlist[enumerate]{leftmargin=2em,itemsep=6pt}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{第四版上册课后练习答案}\fancyfoot[C]{\thepage}
+\setlength{\headheight}{15pt}\hypersetup{hidelinks}
+\begin{document}
+\begin{titlepage}\centering
+{\Huge 工科数学分析基础\par}\vspace{8mm}
+{\LARGE 第四版上册\quad 逐小节答案与提示\par}\vspace{10mm}
+85个细分小节\quad 425题对应解答\par
+\vfill\raggedright
+本册与《分节课后练习》按“章.节.小节”和组内题号对应，给出关键过程，不代替独立作答。证明题须补齐所用定理的条件；只有结果而没有理由的答案不代表已经掌握。
+
+标题略作简化，顺序对应马知恩、王绵森主编教材第四版上册。星号内容及第4章按教师授课进度选做。数学方法尽量限制在相应小节及此前知识。
+\end{titlepage}
+\tableofcontents
+\chapter{函数、极限与连续}
+\section{集合、映射与函数}
+\subsection{集合运算}
+\begin{enumerate}
+\item $(0,2)$；$[-1,3]$；$[-1,0]$。注意$0\notin B$。
+\item $x\notin A\cup B$等价于$x\notin A$且$x\notin B$，亦即$x\in A^c\cap B^c$。逐点等价即集合相等。
+\item $(-1,3)\cap\bigl((-\infty,-1]\cup[1,+\infty)\bigr)=[1,3)$。
+\item $[-1,0]\cup[2,3]$，其中$2\notin A$但$2\in B$。
+\item 两侧都表示$x\in A$并且$x\notin B$、$x\notin C$，按元素判别即得。
+\end{enumerate}
+\subsection{实数完备性与确界}
+\begin{enumerate}
+\item 上确界$1$，取不到；下确界$1/2$，在$n=1$取到。$1-n/(n+1)=1/(n+1)$可任意小，说明任何小于1的数都不是上界。
+\item $S=(0,\sqrt2)$，故上确界$\sqrt2$、下确界$0$。它们分别为上、下界，区间中能找到任意接近这两个端点的点，且两端点都不属于$S$。
+\item 记$M=\sup A$。对$a\in A$有$a+c\le M+c$；任意$\varepsilon>0$存在$a\in A$满足$a>M-\varepsilon$，因而$a+c>M+c-\varepsilon$。由确界定义得结论。
+\item 偶数项$1+1/(2k)$最大为$3/2$；奇数项$-1+1/(2k-1)$都大于$-1$且趋于$-1$。故上确界与最大元均为$3/2$，下确界$-1$，无最小元。
+\item 右侧是并集的上界；任何并集上界同时为$A,B$上界，故不小于两者确界的最大值。
+\end{enumerate}
+\subsection{映射与函数}
+\begin{enumerate}
+\item 值域$[0,+\infty)$；$f(1)=f(-1)$，非单射；负数没有原像，非满射到$\mathbb R$。
+\item 不是。前者定义域$\mathbb R\setminus\{0\}$，后者为$\mathbb R$；函数相同要求定义域与对应规则均相同。
+\item 单射，因为$2m=2n\Rightarrow m=n$；非满射，因为奇数无原像。
+\item 是双射：非负半轴上平方严格递增，且每个$y\ge0$有唯一原像$\sqrt y$。
+\item 原像为$[-2,-1]\cup[1,2]$；原像表示所有满足$f(x)\in[1,4]$的$x$，不要求单射。
+\end{enumerate}
+\subsection{线性函数的属性}
+\begin{enumerate}
+\item $2(x+y)=2x+2y$，$2\lambda x=\lambda(2x)$。
+\item 必须$b=0$，因为线性映射$f(0)=0$；此条件也充分。$a$可为任意实数，包括0。
+\item $f(1)=f(3)/3=2$；由实齐次性$f(x)=xf(1)=2x$。仅有整数上的可加性不能直接替代实齐次性。
+\item $f(0)=f(0)+f(0)$，所以$f(0)=0$；$0=f(x+(-x))=f(x)+f(-x)$。
+\item 两侧均为$atx+a(1-t)y+b$。不能推出线性，因为任意$b\ne0$仍满足此恒等式，却有$f(0)\ne0$。
+\end{enumerate}
+\subsection{复合函数}
+\begin{enumerate}
+\item $(f\circ g)(x)=\sqrt{1-\ln x}$，定义域$(0,e]$；$(g\circ f)(x)=\ln\sqrt{1-x}$，定义域$(-\infty,1)$。
+\item 分别为$(x+1)^2$与$x^2+1$，通常不同；只在$x=0$取相同值。
+\item 若$f(x_1)=f(x_2)$，则$g(f(x_1))=g(f(x_2))$，由复合映射单射得$x_1=x_2$。反例取$f(x)=e^x$、$g(u)=|u|$，二者定义域均为$\mathbb R$；复合为$e^x$，但$g$非单射。
+\item $1/(x^2-1)$，定义域$\mathbb R\setminus\{-1,1\}$。
+\item 对定义域中的每个$x$，两侧取值都为$h(g(f(x)))$，且复合所需的取值条件相同。
+\end{enumerate}
+\subsection{反函数}
+\begin{enumerate}
+\item $f^{-1}(y)=(\ln y-1)/2$，$y>0$。
+\item $f^{-1}(y)=\sqrt y$，$y\ge0$。原函数在$\mathbb R$上非单射。
+\item 对$c\in C$，先用$g^{-1}$还原到$B$，再用$f^{-1}$还原到$A$；验证与$g\circ f$左右复合均为恒等映射即可。
+\item 原定义域$x\ne-1$，值域$y\ne2$；解得$f^{-1}(y)=(y+1)/(2-y)$。
+\item 若$y_1<y_2$但$f^{-1}(y_1)\ge f^{-1}(y_2)$，应用$f$的严格递增性得$y_1\ge y_2$，矛盾。
+\end{enumerate}
+\subsection{初等函数与双曲函数}
+\begin{enumerate}
+\item 展开平方，相减为$[(e^x+e^{-x})^2-(e^x-e^{-x})^2]/4=1$。
+\item $e^{2x}=(1+y)/(1-y)$，故$x=\frac12\ln\frac{1+y}{1-y}$。当且仅当$-1<y<1$可解，值域为$(-1,1)$。
+\item 对数要求$\sqrt{4-x^2}>0$，即$|x|<2$，已满足反正弦条件；定义域为$(-2,2)$。
+\item 令$u=e^x>0$，得$u^2-\frac32u-1=0$，正根为2，故$x=\ln2$。
+\item $\sinh$为奇函数，$\cosh$为偶函数；$\cosh0=1$、$\sinh0=0$。
+\end{enumerate}
+\section{数列极限}
+\subsection{数列极限的定义}
+\begin{enumerate}
+\item 取$N=\lfloor2/\varepsilon\rfloor+1$，则$n>N$时$|3+2/n-3|=2/n<\varepsilon$。
+\item 偶子列恒为1，奇子列恒为$-1$；若原列收敛，两者应有相同极限，矛盾。
+\item 与2的差为$-5/(n+3)$。取$N=\lfloor5/\varepsilon\rfloor+1$即可满足定义。
+\item 绝对值不超过$2/n$，取$N>2/\varepsilon$。
+\item 偶子列趋于1、奇子列趋于$-1$，故不收敛。
+\end{enumerate}
+\subsection{收敛数列的性质}
+\begin{enumerate}
+\item 取$\varepsilon=1$，尾项满足$|a_n|\le|a|+1$，前有限项的绝对值有最大值，合并即得全列有界。反例$(-1)^n$。
+\item 最终有$|a_n-2|<1$，故$|a_n+2|<5$，于是$|a_n^2-4|<5|a_n-2|\to0$。
+\item 只能断言$a\ge0$；$a_n=1/n$给出$a=0$。若$a<0$，取$\varepsilon=-a/2$，最终$a_n<a/2<0$，矛盾。
+\item 若$a>b$，取$\varepsilon=(a-b)/3$，充分大时$a_n>a-\varepsilon>b+\varepsilon>b_n$，矛盾。
+\item $|a_n/n|\le M/n\to0$；不需要$a_n$收敛。
+\end{enumerate}
+\subsection{数列收敛判别}
+\begin{enumerate}
+\item 归纳得$0\le a_n<2$，并且$a_{n+1}-a_n=(2-a_n)/2>0$，所以收敛。极限满足$L=(L+2)/2$，得$L=2$。
+\item $|\sin n/(n+1)|\le1/(n+1)\to0$，由夹逼准则极限为0。
+\item 对$m,n>N$，$|1/m-1/n|\le1/m+1/n<2/N$。取正整数$N>2/\varepsilon$即可。
+\item 归纳$1\le a_n<2$；$a_{n+1}^2-a_n^2=(2-a_n)(a_n+1)>0$，故递增。取极限得$L^2=L+2$，结合$L\ge1$得$L=2$。
+\item $b_n$递增，且$b_n\le1+\sum_{k=2}^n(1/(k-1)-1/k)=2-1/n<2$。由单调有界准则收敛，不要求在本题求精确值。
+\end{enumerate}
+\section{函数极限}
+\subsection{函数极限的定义}
+\begin{enumerate}
+\item 给定$\varepsilon>0$，取$\delta=\varepsilon/3$；当$0<|x-1|<\delta$时，$|(3x-2)-1|=3|x-1|<\varepsilon$。
+\item 左极限$-1$，右极限1，所以双侧极限不存在。
+\item 取$x_n=1/(2\pi n+\pi/2)$、$y_n=1/(2\pi n+3\pi/2)$，函数值分别恒为1与$-1$。
+\item 给定$M>0$，取$\delta=1/\sqrt M$，$0<|x|<\delta$时$1/x^2>M$。
+\item 左极限$m-1$，右极限$m$，双侧极限不存在。
+\end{enumerate}
+\subsection{函数极限的运算性质}
+\begin{enumerate}
+\item 穿孔邻域内约为$x+2$，极限为4。
+\item 不能。取$x\to0$，$f(x)=\mathbf1_{\mathbb Q}(x)$（有理点取1、无理点取0），$g(x)=1-f(x)$：乘积恒0，而两者均无极限，也均不趋于0。
+\item $f=\frac12[(f+g)+(f-g)]\to(A+B)/2$，$g\to(A-B)/2$。
+\item 约去$x-1$后为$(x^2+x+1)/(x+1)$，结果$3/2$。
+\item 两个定义中的误差都为$|f|$，所以等价；也可用$-|f|\le f\le|f|$。
+\end{enumerate}
+\subsection{两个重要极限}
+\begin{enumerate}
+\item $5\lim\sin(5x)/(5x)=5$。
+\item 在$|x|<1/2$底数为正。令$u=2x$，原式$[(1+u)^{1/u}]^6\to e^6$。
+\item 由$(1+u)^{1/u}\to e$取对数得$\ln(1+u)/u\to1$；令$u=3x$，结果为3。
+\item 令$t=1/x\to0^+$，转化为$(1+t)^{1/t}\to e$。
+\item 用$\sin x\sim x$、$\tan3x\sim3x$得$1/3$。
+\end{enumerate}
+\subsection{函数极限的存在判别}
+\begin{enumerate}
+\item 绝对值不超过$x^2$，故极限为0。
+\item 取$x_n=1/(2\pi n)$、$y_n=1/((2n+1)\pi)$，函数值为1与$-1$。由Heine定理极限不存在。
+\item 记$m=\inf f$。任意$\varepsilon>0$，可取$t_0\in(0,1)$使$f(t_0)<m+\varepsilon$。当$0<x<t_0$，单调性给出$m\le f(x)\le f(t_0)<m+\varepsilon$，故极限为$m$。
+\item 绝对值不超过$1-\cos x=2\sin^2(x/2)\to0$，极限0。
+\item $\ln x$在$(0,1)$递增但无下界，$x\to0^+$时趋于$-\infty$，没有有限极限。
+\end{enumerate}
+\section{无穷小与无穷大}
+\subsection{无穷小的基本性质}
+\begin{enumerate}
+\item $|\alpha+\beta|\le|\alpha|+|\beta|\to0$。最终$|\beta|\le1$，则$|\alpha\beta|\le|\alpha|\to0$。
+\item $|x\sin(1/x)|\le|x|\to0$。
+\item 当$x\to0$，指定因子$1/x$无界，但$(1/x)x^2=x\to0$。
+\item 对固定$k$项，每项误差取小于$\varepsilon/k$。项数变化则不成立，例如$n$个$1/n$相加恒为1。
+\item 比值分别为$\beta\to0$与$\alpha\to0$，直接应用小$o$定义。
+\end{enumerate}
+\subsection{无穷小的阶}
+\begin{enumerate}
+\item 依次为$3x$、$2x^2$、$x/2$；最后一项用有理化。
+\item $x^2/|x|=|x|\to0$，所以$x^2=o(|x|)$；$[x\sin(1/x)]/x=\sin(1/x)$没有极限，故不等价。
+\item $(\alpha-\beta)/\beta=\alpha/\beta-1\to0$，即小$o$定义。
+\item 均为1，分别来自$\sin x/x\to1$、$\cos x\to1$与对数重要极限。
+\item 比值为$1/3$，所以同阶但不等价；等价要求比值趋于1。
+\end{enumerate}
+\subsection{等价无穷小代换}
+\begin{enumerate}
+\item 等价于$(x/2)/(2x)$，极限$1/4$。
+\item 分子等价于$\sin x\sim x$，分母等价于$x$，极限1。
+\item $\alpha/\beta=1+x\to1$，但$\alpha-\beta=x^2$；直接代换成$\beta-\beta$会丢失实际存在的二阶项。等价关系不能无条件用于抵消型加减。
+\item $2/5$。
+\item 分子等价于$x/2$，分母等价于$x$，故结果$1/2$。
+\end{enumerate}
+\subsection{无穷大量}
+\begin{enumerate}
+\item $1/x^2$的左右极限均为$+\infty$；$1/x$的左极限为$-\infty$、右极限为$+\infty$，无共同的有符号双侧极限，但其绝对值趋于无穷。
+\item 最终$f>0$。条件$f>M$与$0<1/f<1/M$互换；对任意正阈值应用定义即可。
+\item 取$a_{2n}=2n$、$a_{2n-1}=1$。它有任意大项，但奇子列始终为1，故不趋于$+\infty$。
+\item $n^2+\cos n\ge n^2-1$，给定$M$，取$n>\sqrt{M+1}$即可。
+\item 无界，例如$x=2\pi n+\pi/2$时函数值趋于$+\infty$；但$x=n\pi$时恒为0，绝对值不趋于无穷，故不是无穷大量。
+\end{enumerate}
+\section{连续函数}
+\subsection{连续性与间断点}
+\begin{enumerate}
+\item $f(0)=1$。
+\item 左右极限为0与1，是跳跃间断点。
+\item 两侧都振荡，无单侧极限，是第二类中的振荡间断；改变单点值不能改变穿孔邻域中的极限行为，故不能消除。
+\item 全部整数，均为跳跃间断点；非整数附近取整值不变，因而连续。
+\item 仅在0连续，因为$|f(x)|\le|x|$。在$x_0\ne0$，有理与无理自变量序列使函数值分别趋于$x_0$与0，故不连续。
+\end{enumerate}
+\subsection{连续函数的运算}
+\begin{enumerate}
+\item $1+x^2$连续且恒正，$\ln$在$(0,+\infty)$连续，复合函数连续。
+\item 连续要求$a+1=1$，故$a=0$。其他点各分支均连续。
+\item $\max\{f,g\}=(f+g+|f-g|)/2$；连续函数经四则与绝对值复合仍连续。
+\item 分母连续且$2+\cos x\ge1$，所以倒数处处连续。
+\item 取$\varepsilon=-f(x_0)/2>0$，连续性保证邻域内$f(x)<f(x_0)/2<0$。
+\end{enumerate}
+\subsection{闭区间连续函数的性质}
+\begin{enumerate}
+\item $p(0)=-1<0$、$p(1)=1>0$，故有根。若$y>x$，$p(y)-p(x)=(y-x)(y^2+xy+x^2+1)>0$，故根唯一。
+\item 最小值定理给出$x_0\in[a,b]$使$m=f(x_0)=\min f$；处处正保证$m>0$。
+\item $1/x$在$(0,1)$连续但无界；$x$在$(0,1)$连续有界，却既不取到上确界1，也不取到下确界0。
+\item 令$g(x)=f(x)-x$，有$g(0)\ge0$、$g(1)\le0$；端点取零即得，否则由介值定理得内点零点。
+\item 连续函数$|f|$在闭区间取正的最小值$m$，所以$|1/f|\le1/m$。
+\end{enumerate}
+\subsection{一致连续}
+\begin{enumerate}
+\item 对$x,y\in[0,2]$，$|x^2-y^2|\le4|x-y|$，取$\delta=\varepsilon/4$。
+\item $|x_n-y_n|=1/n\to0$，但$y_n^2-x_n^2=2+1/n^2\ge2$。取固定$\varepsilon_0=1$即可否定一致连续。
+\item $|\sin x-\sin y|=2|\cos((x+y)/2)\sin((x-y)/2)|\le|x-y|$，取$\delta=\varepsilon$。
+\item 当$x,y\ge1$，$|1/x-1/y|=|x-y|/(xy)\le|x-y|$，取$\delta=\varepsilon$。
+\item 自变量之差$1/[n(n+1)]\to0$，函数值之差恒为1；取$\varepsilon_0=1/2$即否定一致连续。
+\end{enumerate}
+\subsection{压缩映射与迭代（星号选做）}
+\begin{enumerate}
+\item $T([0,1])=[2/3,1]\subset[0,1]$；$|T(x)-T(y)|=|x-y|/3$，可取$q=1/3$，不动点为1。
+\item $x_n-1=(x_{n-1}-1)/3$，所以$x_n=1-3^{-n}$，误差$3^{-n}$。
+\item $(0,1)$不闭，在通常距离下不完备；唯一可能的不动点0不在定义域，缺少原理所需的完整空间条件。
+\item 需$3^{-n}<10^{-3}$，最小为$n=7$。
+\item 不动点为$1/2$；从0出发在0与1之间交替，不收敛。该映射只能取Lipschitz常数1，不能用压缩原理保证迭代收敛。
+\end{enumerate}
+\chapter{一元微分及应用}
+\section{导数概念}
+\subsection{导数定义}
+\begin{enumerate}
+\item 差商$[(a+h)^2-a^2]/h=2a+h\to2a$。
+\item 左导数$-1$、右导数1，不可导。
+\item 差商$1/(\sqrt{1+h}+1)\to1/2$。
+\item 差商$\sin(1/h)$无极限，故导数不存在。
+\item 差商$h\sin(1/h)\to0$，所以$f'(0)=0$。
+\end{enumerate}
+\subsection{导数的几何意义}
+\begin{enumerate}
+\item 切线$y-1=2(x-1)$；法线$y-1=-(x-1)/2$。
+\item $y-1=(x-e)/e$。
+\item 导数$3x^2=0$仅在0，水平切线为$y=0$。
+\item $e^x=2$，所以点为$(\ln2,2)$。
+\item 切线$y-1=-(x-1)$，法线$y=x$。
+\end{enumerate}
+\subsection{可导与连续}
+\begin{enumerate}
+\item $|x|\to0$说明在0连续，但左右导数不同。
+\item 对任意$a,b$都连续；左导数0、右导数$b$，故可导当且仅当$b=0$，$a$任意。
+\item $f'(0)=0$，非零处$f'=2x\sin(1/x)-\cos(1/x)$；沿$1/(2\pi n)$函数值为$-1$，不趋于$f'(0)$，故不连续。
+\item 写成$f(x)-f(x_0)=[(f(x)-f(x_0))/(x-x_0)](x-x_0)$，第一因子趋于有限值，第二趋于0。
+\item $f'(0)=\lim_{h\to0}|h|=0$，非零处$f'(x)=2|x|$，故$f'$在0连续。
+\end{enumerate}
+\subsection{变化率}
+\begin{enumerate}
+\item $v(t)=3t^2-12t+9$，$a(t)=6t-12$；$v(2)=-3$米/秒，$a(2)=0$米/秒$^2$。
+\item $A'=2\pi rr'$，所以$A'(0)=0.4\pi$平方厘米/秒。
+\item $c'(0)=-20$毫克/(升$\cdot$分)。
+\item $R'=100-4q$，在10处为60元/单位销量。
+\item 平均速度$[\sqrt{1+h}-1]/h=1/(\sqrt{1+h}+1)$，极限$1/2$。
+\end{enumerate}
+\section{求导法则}
+\subsection{和差积商法则}
+\begin{enumerate}
+\item $2x\sin x+(x^2+1)\cos x$。
+\item $(x^2-2x-1)/(x-1)^2$，$x\ne1$。
+\item 将$1/f$与常数1作商，或对$f(1/f)=1$求导，得$-f'/f^2$；前提是所考察点$f\ne0$。
+\item $3x^2\ln x+x^2$。
+\item 增减$f(x+h)g(x)$，差商成为$f(x+h)[g(x+h)-g(x)]/h+g(x)[f(x+h)-f(x)]/h$。可导蕴含连续，取极限得$fg'+f'g$。
+\end{enumerate}
+\subsection{复合函数求导}
+\begin{enumerate}
+\item $2x\cos(x^2)$。
+\item $2e^{2x}/(1+e^{2x})$。
+\item $-\sin x\cos x/\sqrt{1+\cos^2x}$。
+\item $f'(g(1))g'(1)=3(-1)=-3$。
+\item 设$y=x^x$，$\ln y=x\ln x$，故$y'=x^x(\ln x+1)$；底数与指数都依赖$x$。
+\end{enumerate}
+\subsection{反函数求导}
+\begin{enumerate}
+\item $f^{-1}(8)=2$，导数为$1/f'(2)=1/12$。
+\item 令$y=\arcsin x\in(-\pi/2,\pi/2)$，由$\cos y\,y'=1$得$y'=1/\sqrt{1-x^2}$。
+\item 令$y=\arctan x$，由$\sec^2y\,y'=1$得$y'=1/(1+x^2)$。
+\item 令$y=\ln x$，$e^y=x$，所以$e^y y'=1$，得$y'=1/x$。
+\item 反函数为立方根，0处差商$\sqrt[3]h/h=|h|^{-2/3}\to+\infty$，无有限导数；原函数$f'(0)=0$，缺少非零条件。
+\end{enumerate}
+\subsection{初等函数求导}
+\begin{enumerate}
+\item $e^x(x^2+2x)$。
+\item $\cot x$，定义域为$\bigcup_{k\in\mathbb Z}(2k\pi,(2k+1)\pi)$。
+\item 直接对指数表达式求导，分别为$\cosh x$、$\sinh x$。
+\item $1/\sqrt{1+x^2}$；对数真数恒正。
+\item $1/\sqrt{x^2-1}$，$x>1$。
+\end{enumerate}
+\subsection{高阶导数}
+\begin{enumerate}
+\item $2^n e^{2x}$。
+\item $\sin(x+n\pi/2)$。
+\item $(-1)^{n-1}(n-1)!/(1+x)^n$。
+\item 由Leibniz公式，只有$x^2$的前二阶导数非零，结果为$e^x[x^2+2nx+n(n-1)]$。
+\item $n=1$直接成立；若$n$阶式成立，对其求导乘入$n+1$即得$(n+1)!/(1-x)^{n+2}$。
+\end{enumerate}
+\subsection{隐函数求导}
+\begin{enumerate}
+\item $2x+2yy'=0$，所以$y'=-x/y$，在指定点为$-1/\sqrt3$。
+\item $1+(y')^2+yy''=0$，用$x^2+y^2=4$得$y''=-4/y^3$。
+\item 一次式$y'/y+y+xy'=0$；二次式$y''/y-(y')^2/y^2+2y'+xy''=0$。代入得$y'=-e^2$、$y''=3e^3$。隐函数条件为$1/y+x=1/e\ne0$。
+\item $y'=1/(3y^2+1)$，$y''=-6y/(3y^2+1)^3$。
+\item $G_y(0,0)=1+\cos0=2\ne0$，可确定局部隐函数。$(1+\cos y)y'=-1$，故$y'(0)=-1/2$；再次求导得$(1+\cos y)y''-\sin y(y')^2=0$，故$y''(0)=0$。
+\end{enumerate}
+\subsection{参数曲线求导}
+\begin{enumerate}
+\item $dy/dx=3t/2$，$d^2y/dx^2=3/(4t)$。
+\item $dy/dx=-\cot t$，$d^2y/dx^2=-1/\sin^3t$。
+\item 点$(\pi,2)$，$x'_t=2$、$y'_t=0$，故切线$y=2$。
+\item 一阶$e^{-t}$，二阶$-e^{-2t}$。
+\item 要求$x'_t\ne0$并有二阶参数导数。先对$y'_t/x'_t$按$t$求导，再除以$x'_t$，即得题式。
+\end{enumerate}
+\subsection{相关变化率}
+\begin{enumerate}
+\item $V'=4\pi r^2r'=72\pi$立方厘米/秒。
+\item $x^2+y^2=25$，此时$y=4$；$y'=-xx'/y=-3/2$米/秒，下降速度大小为$3/2$米/秒。
+\item $V=\pi h^3/12$，$V'=\pi h^2h'/4$，代入$h=2$得$h'=1/\pi$米/分。
+\item $P'V+PV'=0$，得$P'=-5$，单位为压力单位/输入的时间单位。
+\item $d=\sqrt{x^2+9}$，$d'=xx'/d=8/5$米/秒。
+\end{enumerate}
+\section{微分}
+\subsection{微分概念}
+\begin{enumerate}
+\item $dy=3x^2dx=0.12$。
+\item $dy=dx/(2\sqrt x)=0.005$。
+\item 若$|h|=Ah+o(h)$，右侧差商要求$A=1$，左侧要求$A=-1$，矛盾，故无微分。
+\item $df=0\cdot dx=0$，余项$h^2\sin(1/h)$除以$h$趋于0，确为$o(h)$。
+\item 两式相减、除以非零$\Delta x$得$A-B=o(1)$，取极限得$A=B$。
+\end{enumerate}
+\subsection{微分运算}
+\begin{enumerate}
+\item $2x\,dx/(1+x^2)$。
+\item $d(u/v)=(v\,du-u\,dv)/v^2$，要求$u,v$可微且$v\ne0$。
+\item $dy=\cos u\,du=2x\cos(x^2)\,dx$。
+\item $dy=2x\,dx=2t^2\cdot2t\,dt=4t^3\,dt$。
+\item $dy=f'(\varphi(t))\varphi'(t)dt$，而$dx=\varphi'(t)dt$，代入仍得$dy=f'(x)dx$。
+\end{enumerate}
+\subsection{高阶微分}
+\begin{enumerate}
+\item $12x^2(dx)^2$。
+\item $-\cos x\,(dx)^3$。
+\item $y=t^4$，所以$d^2y=12t^2(dt)^2$。
+\item $a^n e^{ax}(dx)^n$。
+\item $f''=2$、$dx=2t\,dt$、$f'=2t^2$、$d^2x=2(dt)^2$，两项分别为$8t^2(dt)^2$与$4t^2(dt)^2$。省略第二项会把正确系数12误写为8。
+\end{enumerate}
+\subsection{微分近似}
+\begin{enumerate}
+\item 在$x=4$线性化，$\sqrt{4.04}\approx2+0.04/4=2.01$。
+\item 在1处线性化，$\ln1.02\approx0.02$。
+\item 在1处线性化，$(1.01)^5\approx1+5(0.01)=1.05$。
+\item $dV/V=3\,dr/r$，约3\%。这是小误差的一阶估计。
+\item 在1处线性化得$1/1.02\approx1-0.02=0.98$，不为严格等式。
+\end{enumerate}
+\section{微分中值定理及应用}
+\subsection{极值的必要条件}
+\begin{enumerate}
+\item 0为驻点，但函数严格递增，无局部极值。
+\item 在0不可导，Fermat定理的可导条件不满足。
+\item 驻点$-1,1$；局部极大值2在$-1$取得，局部极小值$-2$在1取得。
+\item 最小点0是区间端点，缺少内点条件。
+\item 在内点局部极大处，$h>0$的差商非正，$h<0$的差商非负；若双侧有限导数存在，必同时$\le0$和$\ge0$，故为0。极小情形反向同理。
+\end{enumerate}
+\subsection{Rolle、Lagrange与Cauchy定理}
+\begin{enumerate}
+\item $f'(\xi)=2\xi-1=0$，故$\xi=1/2$。
+\item $1/\xi=1/(e-1)$，故$\xi=e-1\in(1,e)$。
+\item 存在$\xi\in(0,1)$，使$(e-1)2\xi=e^\xi$。两函数闭区间连续、内点可导，且$g'$在内点非零。
+\item 构造$H(x)=e^x f(x)$，其端点均为0。由Rolle定理$0=H'(\xi)=e^\xi[f(\xi)+f'(\xi)]$。
+\item 对$x\ne y$在两点组成的闭区间应用中值定理，$\sin x-\sin y=\cos\xi(x-y)$，取绝对值；两点相同显然成立。
+\end{enumerate}
+\subsection{L'Hospital法则}
+\begin{enumerate}
+\item $0/0$型，两次求导后为$-\sin x/(6x)$，结果$-1/6$。
+\item $\infty/\infty$型，导数比$1/x\to0$，结果0。
+\item 写成$\ln x/(1/x)$，导数比$-x\to0$，结果0。
+\item 令对数为$\ln(1+1/x)/(1/x)$，为$0/0$型，导数比$x/(x+1)\to1$，所以原极限$e$。
+\item 原比为$1+\sin x/x\to1$。原比极限存在不能反推导数比极限存在；本法则给出的是在条件满足时从导数比到原比的结论。
+\end{enumerate}
+\section{Taylor公式及应用}
+\subsection{Taylor定理}
+\begin{enumerate}
+\item $e^x=1+x+x^2/2+e^\xi x^3/6$，$\xi$介于0与$x$之间。
+\item $\sin x=x-x^3/6+o(x^3)$。
+\item 不是。$|x|^{n+1/2}/|x|^n\to0$，但与$|x|^{n+1}$的比值$|x|^{-1/2}$无界。
+\item 用$n$阶Peano公式，所有多项式系数都为0，剩下$o(x^n)$。
+\item $f(a+h)=f(a)+f'(a)h+f''(a)h^2/2+o(h^2)$；例如$f$在$a$附近二阶可导即可。
+\end{enumerate}
+\subsection{常见Maclaurin公式}
+\begin{enumerate}
+\item $1+x+x^2/2+x^3/6+o(x^3)$。
+\item $\sin x=x-x^3/6+x^5/120+o(x^5)$；$\cos x=1-x^2/2+x^4/24+o(x^4)$。
+\item $x-x^2/2+x^3/3-x^4/4+o(x^4)$。
+\item $1+\alpha x+\alpha(\alpha-1)x^2/2+\alpha(\alpha-1)(\alpha-2)x^3/6+o(x^3)$，在0附近$1+x>0$。
+\item $x-x^3/3+x^5/5+o(x^5)$，可逐阶求导核对0处系数。
+\end{enumerate}
+\subsection{Taylor公式应用}
+\begin{enumerate}
+\item 用指数函数三阶展开，结果$1/6$。
+\item 用正弦三阶展开，结果$-1/6$。
+\item 近似值$1-0.1^2/2+0.1^4/24=0.995004166\ldots$。使用五阶Taylor公式，五次项系数为0；六阶导数绝对值不超过1，故余项不超过$0.1^6/6!$。
+\item 分子为$-x^2/2+o(x^2)$，分母为$x^2/2+o(x^2)$，极限$-1$。
+\item $f''(t)=-1/[4(1+t)^{3/2}]$，在$[0,0.1]$上绝对值$\le1/4$；一次Taylor公式的余项绝对值$\le x^2/8$。
+\end{enumerate}
+\section{函数性态}
+\subsection{单调性}
+\begin{enumerate}
+\item 导数$(1-\ln x)/x^2$；在$(0,e)$递增，在$(e,+\infty)$递减。
+\item 导数$3(x^2-1)$；在$(-\infty,-1)$、$(1,+\infty)$递增，在$(-1,1)$递减。
+\item 导数$1+\cos x\ge0$，所以单调不减。任意非退化区间内有一段导数严格为正，故该小段严格增加，结合其余部分不减，得到全区间严格递增。
+\item 不正确，$x^3$严格递增，但在0导数为0。
+\item 任取$x<y$，中值定理给出$f(y)-f(x)=f'(\xi)(y-x)\ge0$。
+\end{enumerate}
+\subsection{局部极值}
+\begin{enumerate}
+\item 在0取严格局部极小值0，无局部极大值。
+\item 没有局部极值，因为它严格递增。
+\item 在0取严格局部极小值0；此点不可导。
+\item 在$-1$取局部极大值2，在1取局部极小值$-2$。
+\item $f(x_0+h)-f(x_0)=h^2[f''(x_0)/2+o(1)]$；括号在充分小的非零$h$下为正，因此是严格局部极小点。
+\end{enumerate}
+\subsection{全局最值}
+\begin{enumerate}
+\item $x(6-x)=9-(x-3)^2$，最大9在3，最小0在0或6。
+\item 最大$1/e$在$e$；当$x\to0^+$函数趋于$-\infty$，所以无最小值。
+\item $h=V/(\pi r^2)$，$S=2\pi r^2+2V/r$，$S'=4\pi r-2V/r^2$。唯一极小且全局最小处$r^3=V/(2\pi)$，因此$h=2r$；两端$S\to+\infty$。
+\item $V(x)=x(12-2x)^2$，$0<x<6$；导数$(12-2x)(12-6x)$，最大在$x=2$，体积128立方厘米。
+\item $xy=x(10-x)=25-(x-5)^2\le25$，等号$x=y=5$。
+\end{enumerate}
+\subsection{凹凸性与拐点}
+\begin{enumerate}
+\item 二阶导数$6x$在0两侧异号，拐点$(0,0)$。
+\item 不是。$f''=12x^2$两侧均为正，凹凸性没有变化。
+\item $f''=2x(x^2-3)/(1+x^2)^3$，三个零点均变号；拐点为$(-\sqrt3,-\sqrt3/4)$、$(0,0)$、$(\sqrt3,\sqrt3/4)$。
+\item $f''=(4x^2-2)e^{-x^2}$，拐点$(\pm1/\sqrt2,e^{-1/2})$。
+\item 拐点$(0,0)$，切线$y=-3x$。候选点必须进一步检查二阶导数符号或凹凸变化，$x^4$是零二阶导数但无拐点的反例。
+\end{enumerate}
+\section{曲率}
+\subsection{曲率概念}
+\begin{enumerate}
+\item 圆心角增量$\Delta\varphi$对应弧长$\Delta s=R|\Delta\varphi|$，所以曲率$1/R$。
+\item 0，因为切线方向不变。
+\item 曲率半径为5，单位与弧长单位一致。
+\item $|d\varphi/ds|=2$。
+\item 两段圆弧都满足$|\Delta\varphi|/\Delta s=1/2$，与长度无关，故曲率恒为$1/2$。
+\end{enumerate}
+\subsection{曲率计算}
+\begin{enumerate}
+\item $\kappa=|y''|/[1+(y')^2]^{3/2}$，在0为2，曲率半径$1/2$。
+\item $y'(1)=1$、$y''(1)=-1$，曲率$1/(2\sqrt2)$。
+\item $y'=0$、$y''=-1$，曲率1。
+\item $\kappa=ab/(a^2\sin^2t+b^2\cos^2t)^{3/2}$；两点分别为$a/b^2$与$b/a^2$。
+\item $\kappa(x)=6|x|/(1+9x^4)^{3/2}$，0处曲率为0，没有有限的曲率半径；通常记其半径为无穷大。
+\end{enumerate}
+\chapter{一元积分及应用}
+\section{定积分的概念与性质}
+\subsection{积分建模举例}
+\begin{enumerate}
+\item 面积$\int_0^2x^2\,dx$。
+\item 路程$\int_0^4(3+2t)\,dt$，因为速度始终为正。
+\item 质量$\int_0^1(1+x)\,dx$千克。
+\item 水量增量$\int_0^2[(2t+1)-t]\,dt$升。
+\item 左和$L_n=(n-1)/(2n)$，右和$R_n=(n+1)/(2n)$；面积在其间，两者趋于$1/2$。
+\end{enumerate}
+\subsection{定积分定义}
+\begin{enumerate}
+\item $\frac1n\sum_{k=1}^n(k/n)^2=n(n+1)(2n+1)/(6n^3)\to1/3$。
+\item 是$f(x)=x$在$[0,1]$的右端点和，极限$\int_0^1x\,dx=1/2$。
+\item 任意分割与取点的积分和都为$2\sum\Delta x_i=2(b-a)$。
+\item 除包含$1/2$的微小区间外，各小区间上振幅为0；上下和差可压至任意小，积分为右半区间长度$1/2$。
+\item 任意非退化区间都有有理、无理点，上确界1、下确界0；任意分割的上下和为1与0，不能趋于同一数。
+\end{enumerate}
+\subsection{可积条件}
+\begin{enumerate}
+\item 闭区间连续函数可积。其有界性与一致连续性可保证充分细分割下上下和差任意小。
+\item 只有0一个间断点且有界，所以可积；奇性或分段计算得积分0。
+\item 不能。它在$[0,1]$无界，不满足普通Riemann可积的必要条件；改变0处单点值不改变无界性。
+\item 不一定，上一小节的有理点示性函数有界但上下和始终相差1。
+\item 若$|f|\le M$，以总长度小于$\varepsilon/(2M+1)$的有限小区间覆盖这些点；其余区间函数为0，积分和绝对值及上下和差均可任意小，故可积且积分0。
+\end{enumerate}
+\subsection{定积分性质}
+\begin{enumerate}
+\item 奇函数在对称区间积分为0。
+\item $0\le\sin x\le1$，积分得$0\le\int_0^\pi\sin x\,dx\le\pi$。
+\item $m=\min f>0$，故积分$\ge m(b-a)>0$。
+\item 设$m=\min f$、$M=\max f$，则积分平均值处于$[m,M]$；由连续函数介值性可取$c$使$f(c)$为该平均值。
+\item 由$-|f|\le f\le|f|$与保序性得$-\int|f|\le\int f\le\int|f|$，从而取绝对值。不定积分常数不参与此式。
+\end{enumerate}
+\section{微积分基本公式与定理}
+\subsection{Newton--Leibniz公式}
+\begin{enumerate}
+\item $[x^3/3]_0^2=8/3$。
+\item $[\sin x]_0^{\pi/2}=1$。
+\item $\int_{-1}^0(-x)\,dx+\int_0^1x\,dx=1$。
+\item 不能。$1/x$在内部0无界，普通定积分不存在，$\ln|x|$也不是跨越0的整个区间上的原函数。对称端点差0不能用来证明普通积分存在。
+\item $(F-G)'=0$，对区间内任意两点用Lagrange中值定理，差值为0，故为常数。
+\end{enumerate}
+\subsection{微积分基本定理}
+\begin{enumerate}
+\item $e^{-x^2}$。
+\item $2x\sin(x^2)-\sin x$。
+\item $F(x)=x|x|/2$，$F'(x)=|x|$，但$F''(0)$不存在。
+\item 差商与$f(x)$之差为$h^{-1}\int_x^{x+h}[f(t)-f(x)]dt$，其绝对值不超过该小区间上$|f(t)-f(x)|$的上确界，由连续性趋于0；$h<0$同样成立。
+\item 是$F'(0)$，其中$F(x)=\int_0^x\cos t\,dt$，结果1。
+\end{enumerate}
+\subsection{不定积分}
+\begin{enumerate}
+\item $x^3-2\ln|x|+C$，在不跨越0的区间上使用，各连通区间常数可独立。
+\item $\arctan x+C$。
+\item $\sinh x+C$。
+\item $\arcsin x+C$。
+\item 任意另一原函数$G$满足$(G-F)'=0$，由中值定理在同一区间为常数。断开的定义域不同分支可取不同常数。
+\end{enumerate}
+\section{基本积分方法}
+\subsection{换元法}
+\begin{enumerate}
+\item 令$u=1+x^2$，结果$\ln(1+x^2)+C$。
+\item 令$u=1+x^3$，积分限1至2，结果$\ln2/3$。
+\item 令$x=2\sin t$，结果$\arcsin(x/2)+C$。
+\item 令$u=\cos x$，得到$\int_0^1(1-u^2)du=2/3$。
+\item 令$u=\ln x$，结果$2\sqrt{\ln x}+C$。
+\end{enumerate}
+\subsection{分部积分法}
+\begin{enumerate}
+\item $(x-1)e^x+C$，取$u=x$、$dv=e^x dx$。
+\item $x\ln x-x+C$，取$u=\ln x$、$dv=dx$。
+\item $[x^2\arctan x/2]_0^1-\frac12\int_0^1x^2/(1+x^2)dx=\pi/4-1/2$。
+\item 记为$I$，两次分部积分得$I=e^x\cos x+e^x\sin x-I$，故$I=e^x(\sin x+\cos x)/2+C$。
+\item 取$u=\sin^{n-1}x$、$dv=\sin x\,dx$，边界项为0，得$I_n=(n-1)(I_{n-2}-I_n)$。所以$I_n=(n-1)I_{n-2}/n$；$I_0=\pi/2$、$I_1=1$。
+\end{enumerate}
+\subsection{初等积分的综合处理}
+\begin{enumerate}
+\item $1/[x(x+1)]=1/x-1/(x+1)$，结果$\ln|x|-\ln|x+1|+C$。
+\item 分母$(x+1)^2+1$，结果$\arctan(x+1)+C$。
+\item 令$u=\sqrt x$，$dx=2u\,du$，结果$2\sqrt x-2\ln(1+\sqrt x)+C$。
+\item 用$\tan^2x=\sec^2x-1$，结果$\tan x-x+C$。
+\item 连续性保证$F(x)=\int_0^xe^{-t^2}dt$为原函数，但它不能写成有限次初等运算与初等函数复合的表达式；非初等性在本题中已给定，无须证明。
+\end{enumerate}
+\section{积分应用}
+\subsection{微元建模}
+\begin{enumerate}
+\item $dm=(2+x)dx$，质量$\int_0^3(2+x)dx=21/2$千克。
+\item $dS=x\,dx$，面积$\int_0^2x\,dx=2$。
+\item $dV=\pi(1+x)^2dx$，体积$7\pi/3$。
+\item $dW=F(x)dx$，功$\int_0^23x^2dx=8$焦耳。
+\item $dV=(1+h)dh$，容积$\int_0^2(1+h)dh=4$立方米。
+\end{enumerate}
+\subsection{几何应用}
+\begin{enumerate}
+\item 交点0与1，面积$\int_0^1(x-x^2)dx=1/6$。
+\item 圆环法$\pi\int_0^1(x^2-x^4)dx=2\pi/15$。
+\item $y'=\sqrt x$，弧长$\int_0^1\sqrt{1+x}dx=\frac23(2\sqrt2-1)$。
+\item 面积$\frac12\int_{-\pi/2}^{\pi/2}4\cos^2\theta\,d\theta=\pi$，该曲线是半径1的圆。
+\item 面积$\int_0^\pi\sin x\,dx=2$；因区间内$\sin x\ge0$，积分即面积。
+\end{enumerate}
+\subsection{物理应用}
+\begin{enumerate}
+\item $W=\int_0^{0.2}100x\,dx=2$焦耳。
+\item 以离底高度$y$取微元，提升距离$3-y$，$W=1000\cdot9.8\int_0^3(3-y)dy=44100$焦耳。
+\item 以水深$y$取水平条，$dF=1000\cdot9.8\,y\cdot2dy$，合力88200牛顿。
+\item 总质量$\int_0^1x\,dx=1/2$，一阶矩$\int_0^1x^2dx=1/3$，故质心横坐标$2/3$。
+\item $I=\int_0^Lx^2dx=L^3/3$；总质量$M=L$，也可写为$ML^2/3$。
+\end{enumerate}
+\section{反常积分}
+\subsection{无穷区间积分}
+\begin{enumerate}
+\item $\lim_{R\to\infty}[-1/x]_1^R=1$。
+\item 截断积分$\ln R\to+\infty$，发散。
+\item 截断积分$(1-e^{-aR})/a\to1/a$。
+\item 截断积分$1-\cos R$没有极限，发散。
+\item 右侧积分趋于$+\infty$，左侧趋于$-\infty$，普通双侧反常积分发散。对称截断0只是Cauchy主值，不能代替两侧分别收敛。
+\end{enumerate}
+\subsection{无界函数积分}
+\begin{enumerate}
+\item $\lim_{\varepsilon\to0^+}[2\sqrt x]_{\varepsilon}^1=2$。
+\item 截断积分$-\ln\varepsilon\to+\infty$，发散。
+\item $[x\ln x-x]_{\varepsilon}^1\to-1$，用到$\varepsilon\ln\varepsilon\to0$。
+\item 令$x=\sin^2t$，$t\in(0,\pi/2)$，积分成为$2\int_0^{\pi/2}dt=\pi$，两个端点均按极限处理。
+\item 在0处分开，任一侧$1/x^2$积分都发散，原积分发散。
+\end{enumerate}
+\subsection{无穷区间审敛}
+\begin{enumerate}
+\item 当且仅当$p>1$收敛，值为$1/(p-1)$；$p=1$对数发散，$p<1$由幂函数原函数发散。
+\item $0<1/(x^2+\sin^2x)\le1/x^2$，比较判别得收敛。
+\item 令$u=\ln x$，化为$\int_1^\infty u^{-p}du$，当且仅当$p>1$收敛。
+\item $|\sin x|/x^2\le1/x^2$，后者可积，故绝对收敛。
+\item 与$1/x^2$之比$x^3/(1+x^3)\to1$，故收敛。
+\end{enumerate}
+\subsection{有限奇点审敛}
+\begin{enumerate}
+\item 当且仅当$p<1$收敛，值为$1/(1-p)$。
+\item 收敛。因$x^{1/2}(\ln x)^2\to0$，充分靠近0时$(\ln x)^2\le x^{-1/2}$，其余闭区间上连续。
+\item 被积函数$\le x^{-1/2}$，所以收敛。
+\item 令$u=-\ln x$，成为$\int_{\ln2}^{+\infty}u^{-p}du$，当且仅当$p>1$收敛。
+\item $\sin x/x^{3/2}\sim x^{-1/2}$，且在$(0,1]$为正，极限比较得收敛。
+\end{enumerate}
+\subsection{Gamma函数}
+\begin{enumerate}
+\item 当且仅当$s>0$。0附近等价于$t^{s-1}$；无穷远处指数衰减可控制任意固定幂次。
+\item 在$[\varepsilon,R]$分部积分，端点为$-t^se^{-t}$；$s>0$保证0处趋于0，无穷远也趋于0，故递推成立。
+\item $\Gamma(1)=1$，$\Gamma(5)=4!=24$。
+\item 令$t=\beta x$，结果$\Gamma(\alpha+1)/\beta^{\alpha+1}$。
+\item 令$t=u^2$得$\Gamma(1/2)=2\int_0^\infty e^{-u^2}du=\sqrt\pi$，再由递推得$\Gamma(3/2)=\sqrt\pi/2$。
+\end{enumerate}
+\chapter{常微分方程（按授课进度选做）}
+\section{简单微分方程}
+\subsection{基本概念}
+\begin{enumerate}
+\item 二阶、线性、齐次。
+\item 导数$(e^x)'=e^x$与右侧相等，故为解。
+\item 前者含任意常数，是通解；后者为$C=1$对应特解。
+\item $y=Ce^x$，初值给出$C=2$，故$y=2e^x$。
+\item $y'=-x/y$，在$(-1,1)$可取$y=\pm\sqrt{1-x^2}$。$y=0$时方程右侧无定义，不能把圆的所有点当作同一个全局函数解。
+\end{enumerate}
+\subsection{可分离变量方程}
+\begin{enumerate}
+\item 非零时$dy/y=x\,dx$，得$y=Ce^{x^2/2}$；令$C=0$包含零解。
+\item $\arctan y=x+C$，初值给出$y=\tan x$，包含0的最大区间为$(-\pi/2,\pi/2)$。
+\item 平衡解0和1。对非平衡解积分$dy/[y(1-y)]=dx$，得$y=1/(1+Ce^{-x})$，$C\ne0$且分母非零；$C=0$可包含平衡解1，但仍须另列零解。
+\item 积分得$y^2=x^2+C$，初值给出$C=1$，取正支$y=\sqrt{1+x^2}$。
+\item $y\equiv0$是一解；任意$a\ge0$，取$x\le a$时$y=0$，$x\ge a$时$y=(x-a)^2/4$，拼接处导数为0，同样满足方程和初值，故不唯一。
+\end{enumerate}
+\subsection{一阶线性方程}
+\begin{enumerate}
+\item 乘$e^x$得$(e^xy)'=e^{2x}$，故$y=e^x/2+Ce^{-x}$。
+\item $y=Ce^{2x}-x/2-1/4$，代入可核对。
+\item $(xy)'=x^2$，得$y=x^2/3+C/x$。
+\item $y=3e^{-2x}$。
+\item 取$P(x)=\int_{x_0}^xp(s)ds$，乘$e^P$得$(e^Py)'=e^Pq$，所以$y=e^{-P(x)}[C+\int_{x_0}^xe^{P(t)}q(t)dt]$。
+\end{enumerate}
+\subsection{变量代换法}
+\begin{enumerate}
+\item 非零解令$z=1/y$，得$z'-z=-1$，故$y=1/(1+Ce^x)$，分母非零；另有$y=0$，$C=0$给出$y=1$。
+\item $v+xv'=1+v$，故$v=\ln x+C$，$y=x\ln x+Cx$。
+\item $u'=1+y'=1+u^2$，故$u=\tan(x+C)$，$y=\tan(x+C)-x$，在不含正切极点的区间使用。
+\item $xv'=v^2$；非零时$-1/v=\ln x+C$，得$y=-x/(\ln x+C)$，另有$y=0$。
+\item $u'=-e^{-y}y'=-e^x$，所以$u=C-e^x$；$y=-\ln(C-e^x)$，要求$C-e^x>0$。
+\end{enumerate}
+\subsection{降阶方程}
+\begin{enumerate}
+\item 两次积分得$y=x^3+C_1x+C_2$。
+\item 令$p=y'$，$p'=p^2$。有常数解$y=C$；非零$p$给出$p=-1/(x+C_1)$，故$y=-\ln|x+C_1|+C_2$，区间不跨越$-C_1$。
+\item 局部可用$p\,dp/dy=y$，积分得$p^2-y^2=C$，即$(y')^2-y^2=C$。也可直接对该表达式求导，得到$2y'(y''-y)=0$，验证其沿每个解恒定，避免转折点代换问题。
+\item $y>0$时$(y'/y)'=[yy''-(y')^2]/y^2=0$，所以$y'/y=C_2$，$y=C_1e^{C_2x}$，$C_1>0$。
+\item $y=C_1+C_2x+C_3x^2$，含3个独立常数。
+\end{enumerate}
+\subsection{一阶方程应用}
+\begin{enumerate}
+\item $P(t)=100e^{0.1t}$，翻倍时间$10\ln2$，单位与$t$相同。
+\item $T(t)=20+60e^{-0.2t}$，长期趋于20度。
+\item 盐流入率1千克/分，流出率$2Q/100$，故$Q'=1-Q/50$，$Q(t)=50-40e^{-t/50}$千克。
+\item $P(t)=K/[1+(K/P_0-1)e^{-rt}]$，$t\ge0$时分母为正，长期趋于$K$。
+\item $v'+(k/m)v=g$，故$v=(mg/k)(1-e^{-kt/m})$，终端速度$mg/k$。
+\end{enumerate}
+\section{高阶线性方程}
+\subsection{线性模型与方程识别}
+\begin{enumerate}
+\item 牛顿定律$y''=-4y$，即$y''+4y=0$。
+\item $2y''+3y'+5y=\sin t$。
+\item $q''+2q'+q=E(t)$，使用电流$i=q'$与电容电压$q/C$。
+\item 二阶线性非齐次，系数只依赖$x$，右侧$x^2$不恒为0。
+\item 出现导数的平方，不满足关于未知函数及其导数的线性结构。
+\end{enumerate}
+\subsection{线性解的结构}
+\begin{enumerate}
+\item 两次求导仍为原式，所以$y''-y=0$。
+\item $W=e^x(-e^{-x})-e^xe^{-x}=-2\ne0$，线性无关。
+\item $W=\sin x(-\sin x)-\cos^2x=-1\ne0$，线性无关。
+\item 若线性算子$L$满足$Ly_1=Ly_2=f$，则$L(y_1-y_2)=0$。
+\item $y=C_1e^x+C_2e^{-x}+e^{2x}/3$；任意非齐次解减去特解为齐次解，而两个指数构成齐次基本解组。
+\end{enumerate}
+\subsection{常系数齐次方程}
+\begin{enumerate}
+\item 特征根1、2，$y=C_1e^x+C_2e^{2x}$。
+\item 二重根1，$y=(C_1+C_2x)e^x$。
+\item 根$\pm2i$，$y=C_1\cos2x+C_2\sin2x$。
+\item 根$-1\pm2i$，$y=e^{-x}(C_1\cos2x+C_2\sin2x)$。
+\item 根0、1、$-1$，$y=C_1+C_2e^x+C_3e^{-x}$。
+\end{enumerate}
+\subsection{常系数非齐次方程}
+\begin{enumerate}
+\item $y=C_1e^x+C_2e^{-x}+e^{2x}/3$。
+\item $y=C_1\cos x+C_2\sin x-x\cos x/2$；外力正弦对应特征根$\pm i$，与齐次解共振，特解需乘$x$。
+\item $y=e^x(C_1+C_2x+x^2/2)$；1为特征方程二重根，特解需乘$x^2$。
+\item $y=x^3/6-\sin x+C_1x+C_2$。
+\item $y=C_1\cos x+C_2\sin x+1+x$。
+\end{enumerate}
+\subsection{变系数线性方程}
+\begin{enumerate}
+\item 代入$x^m$得$m(m-1)-2m+2=(m-1)(m-2)=0$，故$y=C_1x+C_2x^2$。
+\item 指标方程$m^2-1=0$，故$y=C_1x+C_2/x$。
+\item 令$Y(t)=y(e^t)$，则$x^2y''+xy'=Y''$，方程为$Y''+Y=0$，故$y=C_1\cos\ln x+C_2\sin\ln x$。
+\item 代入$y=xv$，方程化为$xv''=0$，所以$v=C_1+C_2x$；第二个独立解为$x^2$。
+\item 化为$Y''=e^{2t}$，积分得$Y=e^{2t}/4+C_1t+C_2$，故$y=x^2/4+C_1\ln x+C_2$。
+\end{enumerate}
+\section{线性方程组（星号选做）}
+\subsection{方程组概念}
+\begin{enumerate}
+\item $X'=AX$，$X=(x,y)^T$，$A=\begin{pmatrix}1&2\\3&4\end{pmatrix}$。
+\item 两分量导数均为$e^t$，分别与对应右侧相等。
+\item 两个标量，例如$x(0)=1$、$y(0)=0$；等价于给出一个二维初值向量。
+\item 令$u=y$、$v=y'$，得$u'=v$、$v'=-u-2v$。
+\item 非线性，因为第一式含未知量$y$的平方。
+\end{enumerate}
+\subsection{系统解的结构}
+\begin{enumerate}
+\item 以两向量为列的行列式$e^{3t}\ne0$，线性无关。
+\item $\Phi'=\operatorname{diag}(e^t,2e^{2t})=A\Phi$且行列式非零，故为基本矩阵。
+\item 对$X=\sum c_jX_j$求导，$X'=\sum c_jAX_j=A\sum c_jX_j=AX$。
+\item $(X_1-X_2)'=A(X_1-X_2)$，非齐次项抵消。
+\item $X(t)=\Phi(t)\Phi(t_0)^{-1}X_0$；求导使用$\Phi'=A\Phi$，在$t_0$代入得$X_0$。
+\end{enumerate}
+\subsection{常系数齐次系统}
+\begin{enumerate}
+\item $x=C_1e^t$、$y=C_2e^{2t}$。
+\item $X=C_1e^t(1,1)^T+C_2e^{-t}(1,-1)^T$。
+\item $x=C_1\cos t-C_2\sin t$，$y=C_1\sin t+C_2\cos t$。
+\item 先求$y=C_2e^t$，再得$x=(C_1+C_2t)e^t$。
+\item $x=e^{-t}$、$y=e^{-2t}$，两者都趋于0。
+\end{enumerate}
+\subsection{常系数非齐次系统}
+\begin{enumerate}
+\item $x=e^t-1$、$y=0$。
+\item $x''+x=1$且$x(0)=x'(0)=0$，故$x=1-\cos t$、$y=\sin t$。
+\item $x=e^t(C_1+t)$，$y=1+C_2e^{-t}$。
+\item $X'=\Phi'c+\Phi c'=A\Phi c+b$，抵消齐次部分得$c'=\Phi^{-1}b$；所以$X=\Phi(t)[C+\int_{t_0}^t\Phi(s)^{-1}b(s)ds]$。
+\item $x=C_1e^t-t-1$，$y=C_2e^t$。
+\end{enumerate}
+\subsection{系统应用}
+\begin{enumerate}
+\item $x'=(y-x)/50$、$y'=(x-y)/50$；$x+y=10$，$x-y=10e^{-t/25}$，故$x=5+5e^{-t/25}$、$y=5-5e^{-t/25}$千克。
+\item $(x+y)'=0$，故$x+y=M$。平衡时$k_1x=k_2y$，因此$x_*=Mk_2/(k_1+k_2)$、$y_*=Mk_1/(k_1+k_2)$。
+\item $x=\cos2t$、$v=-2\sin2t$。
+\item $x=e^{-t}$，由$(e^ty)'=1$得$y=te^{-t}$；总量导数$x'+y'=-y=-te^{-t}$，表示由第二室排出。
+\item 特征值为0与$-(k_1+k_2)$。零特征值对应总量守恒，平衡点组成一条直线；固定$M$后它与$x+y=M$相交于唯一平衡点，另一模态衰减。
+\end{enumerate}
+\end{document}

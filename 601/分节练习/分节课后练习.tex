@@ -1,0 +1,818 @@
+% !TeX program = xelatex
+\documentclass[11pt,a4paper,fontset=fandol]{ctexrep}
+\usepackage{amsmath,amssymb,geometry,enumitem,fancyhdr,hyperref}
+\geometry{margin=23mm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlist[enumerate]{leftmargin=2em,itemsep=6pt}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{第四版上册逐小节练习}\fancyfoot[C]{\thepage}
+\setlength{\headheight}{15pt}
+\hypersetup{hidelinks}
+\newcommand{\goal}[1]{\textbf{知识目标：}#1\par}
+\begin{document}
+\begin{titlepage}\centering
+{\Huge 工科数学分析基础\par}\vspace{8mm}
+{\LARGE 第四版上册\quad 逐小节课后练习\par}\vspace{10mm}
+{\Large 对应马知恩、王绵森主编教材\par}\vspace{8mm}
+85个细分小节\quad 每小节5题\quad 共425题\par
+\vfill\raggedright
+本册为原创补充练习。章节顺序依据高等教育出版社公布的第四版上册目录；标题略作简化。编号“1.2.3”表示第1章第2节的第3个细分小节，对应教材该章的2.3。
+
+每组前两题侧重基础，第3、4题侧重巩固，第5题侧重综合或提高。建议每组30—50分钟，证明题可适当延长。未学到的小节暂缓。
+
+星号内容及第4章按教师授课进度选做；本册覆盖范围不等于期中、期末考试范围。题目与答案分册，先独立作答再核对。下文$n$默认为正整数，$\ln$为自然对数，积分中的$C$为任意常数。\par
+\vspace{6mm}
+目录来源：\url{https://xuanshu.hep.com.cn/front/book/findBookDetails?bookId=6862c294e119ac9729f4d766}
+\end{titlepage}
+\tableofcontents
+\chapter{函数、极限与连续}
+\section{集合、映射与函数}
+\subsection{集合运算}
+\goal{区间、交并差与补集。}
+\begin{enumerate}
+\item 设$A=[-1,2)$、$B=(0,3]$，求$A\cap B$、$A\cup B$与$A\setminus B$。
+\item 在全集$U$中证明$(A\cup B)^c=A^c\cap B^c$。
+\item 将$\{x:|x-1|<2,\ |x|\ge1\}$写成区间形式。
+\item 求第1题中$A,B$的对称差$(A\setminus B)\cup(B\setminus A)$。
+\item 证明$A\setminus(B\cup C)=(A\setminus B)\cap(A\setminus C)$。
+\end{enumerate}
+\subsection{实数完备性与确界}
+\goal{用上界、下界及逼近性质确定确界。}
+\begin{enumerate}
+\item 求集合$\{n/(n+1):n\ge1\}$的上确界、下确界，判断能否取到。
+\item 求$S=\{x>0:x^2<2\}$的上确界与下确界，并用确界定义说明。
+\item 设非空集合$A\subset\mathbb R$有上界，$c\in\mathbb R$。证明$\sup\{a+c:a\in A\}=\sup A+c$。
+\item 求$\{(-1)^n+1/n:n\ge1\}$的上、下确界，并判断有无最大、最小元。
+\item 设$A,B$均非空且有上界，证明$\sup(A\cup B)=\max\{\sup A,\sup B\}$。
+\end{enumerate}
+\subsection{映射与函数}
+\goal{区分定义域、陪域、值域、单射和满射。}
+\begin{enumerate}
+\item 对$f:\mathbb R\to\mathbb R$，$f(x)=x^2$，写出值域，判断单射性与满射性。
+\item $f(x)=x/x$与$g(x)=1$在各自最大实定义域上是否是同一个函数？说明理由。
+\item 判断$f:\mathbb Z\to\mathbb Z$，$f(n)=2n$是否为单射、满射。
+\item 判断$f:[0,+\infty)\to[0,+\infty)$，$f(x)=x^2$是否为双射。
+\item 对$f(x)=x^2$，$x\in\mathbb R$，求集合$[1,4]$的原像，并说明原像记号不要求$f$存在反函数。
+\end{enumerate}
+\subsection{线性函数的属性}
+\goal{理解实线性映射的可加性与齐次性。}
+\begin{enumerate}
+\item 验证$f(x)=2x$满足$f(x+y)=f(x)+f(y)$及$f(\lambda x)=\lambda f(x)$。
+\item 对$f(x)=ax+b$，求使$f$成为实线性映射的$b$；此时$a$有何限制？
+\item 设$f:\mathbb R\to\mathbb R$为实线性映射，且$f(3)=6$，求$f(x)$并说明依据。
+\item 仅由线性映射的定义证明$f(0)=0$及$f(-x)=-f(x)$。
+\item 验证任意仿射函数$f(x)=ax+b$满足$f(tx+(1-t)y)=tf(x)+(1-t)f(y)$，$t\in\mathbb R$；这能否说明它一定是线性映射？
+\end{enumerate}
+\subsection{复合函数}
+\goal{先确定复合的顺序与定义域。}
+\begin{enumerate}
+\item 设$f(u)=\sqrt{1-u}$、$g(x)=\ln x$，分别求$f\circ g$、$g\circ f$的表达式与定义域。
+\item 设$f(x)=x^2$、$g(x)=x+1$，比较$f\circ g$与$g\circ f$。
+\item 若$g\circ f$为单射，证明$f$为单射；举例说明$g$不必在它的整个定义域上为单射。
+\item 设$f(x)=1/x$、$g(x)=x^2-1$，求$f\circ g$及其定义域。
+\item 在复合有定义的条件下，证明$h\circ(g\circ f)=(h\circ g)\circ f$。
+\end{enumerate}
+\subsection{反函数}
+\goal{可逆性与定义域限制。}
+\begin{enumerate}
+\item 求$f(x)=e^{2x+1}$的反函数及反函数定义域。
+\item 将$f(x)=x^2$限制在$[0,+\infty)$，求反函数；说明在$\mathbb R$上为何没有反函数。
+\item 设$f:A\to B$、$g:B\to C$均为双射，证明$(g\circ f)^{-1}=f^{-1}\circ g^{-1}$。
+\item 求$f(x)=(2x-1)/(x+1)$的反函数，注明原函数与反函数定义域。
+\item 设$f$为严格递增的双射，证明$f^{-1}$也严格递增。
+\end{enumerate}
+\subsection{初等函数与双曲函数}
+\goal{定义域、双曲恒等式与反函数。}
+\begin{enumerate}
+\item 根据$\sinh x=(e^x-e^{-x})/2$、$\cosh x=(e^x+e^{-x})/2$，证明$\cosh^2x-\sinh^2x=1$。
+\item 解$y=\tanh x$得到$x$的表达式，并确定$\tanh$的值域。
+\item 求$\ln\sqrt{4-x^2}+\arcsin(x/2)$的实定义域。
+\item 解方程$\sinh x=3/4$。
+\item 由指数定义判断$\sinh$、$\cosh$的奇偶性，并求$\cosh0$、$\sinh0$。
+\end{enumerate}
+\section{数列极限}
+\subsection{数列极限的定义}
+\goal{使用$\varepsilon$--$N$语言。}
+\begin{enumerate}
+\item 用定义证明$3+2/n\to3$，写出一个可用的$N(\varepsilon)$。
+\item 利用奇、偶子列证明$(-1)^n$不收敛。
+\item 用定义证明$(2n+1)/(n+3)\to2$。
+\item 用定义证明$[1+(-1)^n]/n\to0$。
+\item 判断$(-1)^n n/(n+1)$是否收敛，并用子列说明。
+\end{enumerate}
+\subsection{收敛数列的性质}
+\goal{有界性、保序性与四则运算。}
+\begin{enumerate}
+\item 证明收敛数列必有界，并给出有界但不收敛的数列。
+\item 已知$a_n\to2$，用估计$|a_n^2-4|$的方法证明$a_n^2\to4$。
+\item 若所有$a_n>0$且$a_n\to a$，能否断言$a>0$？写出正确结论并证明。
+\item 若$a_n\le b_n$最终成立，且$a_n\to a$、$b_n\to b$，证明$a\le b$。
+\item 若$|a_n|\le M$，证明$a_n/n\to0$，并说明是否需要$a_n$收敛。
+\end{enumerate}
+\subsection{数列收敛判别}
+\goal{单调有界、夹逼与Cauchy准则。}
+\begin{enumerate}
+\item 设$a_1=0$、$a_{n+1}=(a_n+2)/2$，证明收敛并求极限。
+\item 求$\lim_{n\to\infty}\sin n/(n+1)$，说明采用的准则。
+\item 直接按Cauchy条件验证数列$1/n$为Cauchy列。
+\item 设$a_1=1$、$a_{n+1}=\sqrt{2+a_n}$，证明其单调有界并求极限。
+\item 证明$b_n=\sum_{k=1}^n1/k^2$收敛。提示：$k\ge2$时$1/k^2\le1/[k(k-1)]$。
+\end{enumerate}
+\section{函数极限}
+\subsection{函数极限的定义}
+\goal{穿孔邻域、左右极限与极限不存在。}
+\begin{enumerate}
+\item 用$\varepsilon$--$\delta$定义证明$\lim_{x\to1}(3x-2)=1$。
+\item 求$|x|/x$在$0$的左右极限，并判断双侧极限。
+\item 构造两列趋于$0$的非零自变量，证明$\sin(1/x)$在$0$没有极限。
+\item 按无穷极限的定义证明$1/x^2\to+\infty$（$x\to0$）。
+\item 对整数$m$，求取整函数$\lfloor x\rfloor$在$x=m$的左右极限。
+\end{enumerate}
+\subsection{函数极限的运算性质}
+\goal{运算规则的适用条件。}
+\begin{enumerate}
+\item 求$\lim_{x\to2}(x^2-4)/(x-2)$。
+\item 若$fg\to0$，能否推出$f\to0$或$g\to0$？给出一个两者均不趋于$0$的反例。
+\item 若$f+g\to A$、$f-g\to B$，证明$f,g$各有极限并求出。
+\item 求$\lim_{x\to1}(x^3-1)/(x^2-1)$。
+\item 证明$f\to0$当且仅当$|f|\to0$。
+\end{enumerate}
+\subsection{两个重要极限}
+\goal{三角极限与指数型极限。}
+\begin{enumerate}
+\item 求$\lim_{x\to0}\sin(5x)/x$。
+\item 求$\lim_{x\to0}(1+2x)^{3/x}$，注意底数的定义域。
+\item 不用求导，利用重要极限求$\lim_{x\to0}\ln(1+3x)/x$。
+\item 求$\lim_{x\to+\infty}(1+1/x)^x$。
+\item 求$\lim_{x\to0}\sin x/\tan3x$。
+\end{enumerate}
+\subsection{函数极限的存在判别}
+\goal{夹逼、Heine定理与单调函数的单侧极限。}
+\begin{enumerate}
+\item 求$\lim_{x\to0}x^2\sin(1/x)$。
+\item 用Heine定理判断$\lim_{x\to0}\cos(1/x)$是否存在。
+\item 设$f$在$(0,1)$单调不减且有下界，证明$\lim_{x\to0^+}f(x)=\inf_{0<t<1}f(t)$。
+\item 求$\lim_{x\to0}(1-\cos x)\sin(1/x)$，只用夹逼方法。
+\item 以$\ln x$为例，说明单调函数缺少下界时，在$0^+$不一定有有限极限。
+\end{enumerate}
+\section{无穷小与无穷大}
+\subsection{无穷小的基本性质}
+\goal{无穷小的加法、乘法与有界因子。}
+\begin{enumerate}
+\item 设$\alpha,\beta\to0$，证明$\alpha+\beta\to0$与$\alpha\beta\to0$。
+\item 证明$x\sin(1/x)$在$x\to0$时为无穷小。
+\item 举例说明“乘积趋于0”并不要求其中一个指定因子有界。
+\item 证明有限个无穷小之和仍为无穷小，并说明“有限个”不能任意换为“项数随自变量变化”。
+\item 设$\alpha,\beta$均为最终非零的无穷小，证明$\alpha\beta=o(\alpha)$且$\alpha\beta=o(\beta)$。
+\end{enumerate}
+\subsection{无穷小的阶}
+\goal{等价、高阶与小$o$记号。}
+\begin{enumerate}
+\item 当$x\to0$，分别给出$\sin3x$、$1-\cos2x$、$\sqrt{1+x}-1$的简单等价无穷小。
+\item 比较$x^2$与$|x|$的阶；判断$x\sin(1/x)$是否与$x$等价。
+\item 证明$\alpha\sim\beta$可推出$\alpha-\beta=o(\beta)$，假设比较时$\beta\ne0$。
+\item 求$\lim_{x\to0}\tan x/x$与$\lim_{x\to0}\ln(1+x)/x$。
+\item 比较$x^2$与$3x^2$：是否同阶、是否等价？说明“同阶”与“等价”的区别。
+\end{enumerate}
+\subsection{等价无穷小代换}
+\goal{乘除中的代换与加减中的限制。}
+\begin{enumerate}
+\item 求$\lim_{x\to0}(\sqrt{1+x}-1)/\sin2x$。
+\item 求$\lim_{x\to0}\ln(1+\sin x)/(e^x-1)$。
+\item 设$\alpha=x+x^2$、$\beta=x$。验证$\alpha\sim\beta$，计算$\alpha-\beta$，解释为何不能把差中的$\alpha$直接换成$\beta$来保留首个非零项。
+\item 求$\lim_{x\to0}\sin2x/\sin5x$。
+\item 求$\lim_{x\to0}(\sqrt{1+x}-1)/(\sqrt{1+2x}-1)$。
+\end{enumerate}
+\subsection{无穷大量}
+\goal{区分无界与趋于无穷大。}
+\begin{enumerate}
+\item 描述$1/x^2$与$1/x$在$x\to0$时的行为，分别写出左右极限。
+\item 对最终为正的$f$，证明$f\to+\infty$当且仅当$1/f\to0$。
+\item 构造一个正数列，它无界但不趋于$+\infty$。
+\item 用定义或夹逼证明$n^2+\cos n\to+\infty$。
+\item 判断$x\sin x$在$x\to+\infty$时是否为无穷大量；区分无界与绝对值趋于无穷。
+\end{enumerate}
+\section{连续函数}
+\subsection{连续性与间断点}
+\goal{可去、跳跃与振荡间断。}
+\begin{enumerate}
+\item 设$f(x)=\sin x/x$（$x\ne0$），求使其在$0$连续的$f(0)$。
+\item 设$f(x)=0$（$x<0$）、$f(x)=1$（$x\ge0$），判断$0$处间断类型。
+\item 设$f(x)=\sin(1/x)$（$x\ne0$）、$f(0)=0$，判断$0$处间断类型及能否通过改变$f(0)$消除。
+\item 找出$\lfloor x\rfloor$的全部间断点并分类。
+\item 设$f(x)=x$（$x$有理）、$f(x)=0$（$x$无理），求全部连续点。
+\end{enumerate}
+\subsection{连续函数的运算}
+\goal{复合、分段拼接与连续性保持。}
+\begin{enumerate}
+\item 说明$\ln(1+x^2)$在$\mathbb R$上连续的依据。
+\item 设$f(x)=ax+1$（$x<1$）、$f(x)=x^2$（$x\ge1$），求使其连续的$a$。
+\item 若$f,g$连续，证明$\max\{f,g\}$连续。提示：用绝对值表示最大值。
+\item 说明$1/(2+\cos x)$在实轴上连续。
+\item 设$f$在$x_0$连续且$f(x_0)<0$，证明$f$在$x_0$某邻域内恒负。
+\end{enumerate}
+\subsection{闭区间连续函数的性质}
+\goal{介值性、最值与正下界。}
+\begin{enumerate}
+\item 证明$x^3+x-1=0$在$(0,1)$恰有一根，可用代数方法说明严格单调。
+\item 设$f\in C[a,b]$且处处$f>0$，证明存在$m>0$使$f(x)\ge m$。
+\item 举例说明将闭区间改为开区间后，连续函数不一定有界或取得最值。
+\item 设$f:[0,1]\to[0,1]$连续，证明存在$x_0\in[0,1]$满足$f(x_0)=x_0$。
+\item 设$f\in C[a,b]$且没有零点，证明$1/f$有界。
+\end{enumerate}
+\subsection{一致连续}
+\goal{全区间统一的$\delta$与反例序列。}
+\begin{enumerate}
+\item 用定义证明$x^2$在$[0,2]$上一致连续。
+\item 利用$x_n=n$、$y_n=n+1/n$证明$x^2$在$[0,+\infty)$不一致连续。
+\item 利用三角恒等式与$|\sin t|\le|t|$证明$\sin x$在$\mathbb R$上一致连续。
+\item 证明$1/x$在$[1,+\infty)$一致连续。
+\item 利用$x_n=1/n$、$y_n=1/(n+1)$证明$1/x$在$(0,1)$不一致连续（取$n\ge2$）。
+\end{enumerate}
+\subsection{压缩映射与迭代（星号选做）}
+\goal{检查闭区间、自映射和压缩常数。}
+\begin{enumerate}
+\item 验证$T(x)=(x+2)/3$将$[0,1]$映入自身，给出压缩常数与唯一不动点。
+\item 取$x_0=0$、$x_{n+1}=T(x_n)$，求$x_n$及$|x_n-1|$。
+\item 映射$T(x)=x/2$在$(0,1)$上为压缩自映射，却无不动点。解释它为何不违反闭区间压缩映射原理。
+\item 对第2题，至少迭代多少次才能保证$|x_n-1|<10^{-3}$？
+\item 设$T(x)=1-x$，$x\in[0,1]$。求不动点；从$x_0=0$迭代是否收敛？说明压缩常数严格小于1的作用。
+\end{enumerate}
+\chapter{一元微分及应用}
+\section{导数概念}
+\subsection{导数定义}
+\goal{从差商计算与判断导数。}
+\begin{enumerate}
+\item 按定义求$f(x)=x^2$在$a$处的导数。
+\item 按左右导数判断$|x|$在0是否可导。
+\item 按定义求$\sqrt x$在1处的导数。
+\item 对$f(x)=x\sin(1/x)$、$f(0)=0$，判断$f'(0)$是否存在。
+\item 对$f(x)=x^2\sin(1/x)$、$f(0)=0$，按定义求$f'(0)$。
+\end{enumerate}
+\subsection{导数的几何意义}
+\goal{切线、法线及斜率条件。}
+\begin{enumerate}
+\item 求$y=x^2$在$(1,1)$的切线与法线。
+\item 求$y=\ln x$在$(e,1)$的切线。
+\item 求$y=x^3$的全部水平切线。
+\item 求$y=e^x$上切线平行于$y=2x$的点。
+\item 求$y=1/x$在$(1,1)$的切线与法线。
+\end{enumerate}
+\subsection{可导与连续}
+\goal{必要条件、分段函数与导函数连续性。}
+\begin{enumerate}
+\item 用$|x|$说明连续不能推出可导。
+\item 设$f(x)=ax^2$（$x<0$）、$f(x)=bx$（$x\ge0$），讨论0处连续、可导的参数条件。
+\item 对$f(x)=x^2\sin(1/x)$、$f(0)=0$，判断导函数在0的连续性。
+\item 证明$f$在$x_0$可导必在$x_0$连续。
+\item 讨论$f(x)=x|x|$在0处的可导性及$f'$的连续性。
+\end{enumerate}
+\subsection{变化率}
+\goal{瞬时速度、边际量与单位。}
+\begin{enumerate}
+\item 位移$s(t)=t^3-6t^2+9t$米，$t$以秒计。求$t=2$时速度与加速度。
+\item 圆的半径$r(t)=2+0.1t$厘米，$t$以秒计，求$t=0$时面积变化率。
+\item 浓度$c(t)=100e^{-0.2t}$毫克/升，$t$以分钟计，求初始浓度变化率。
+\item 单价$p(q)=100-2q$元，销量$q$，求收入$R(q)=qp(q)$在$q=10$的边际收入。
+\item 位移$s(t)=\sqrt{1+t}$，求区间$[0,h]$的平均速度及$h\to0^+$的极限。
+\end{enumerate}
+\section{求导法则}
+\subsection{和差积商法则}
+\goal{基本运算与法则证明。}
+\begin{enumerate}
+\item 求$(x^2+1)\sin x$的导数。
+\item 求$(x^2+1)/(x-1)$的导数。
+\item 已知$f\ne0$且可导，证明$(1/f)'=-f'/f^2$。
+\item 求$x^3\ln x$的导数（$x>0$）。
+\item 用差商与连续性证明乘积求导法则。
+\end{enumerate}
+\subsection{复合函数求导}
+\goal{链式法则与对数求导。}
+\begin{enumerate}
+\item 求$\sin(x^2)$的导数。
+\item 求$\ln(1+e^{2x})$的导数。
+\item 求$\sqrt{1+\cos^2x}$的导数。
+\item 已知$g(1)=2$、$g'(1)=-1$、$f'(2)=3$，求$(f\circ g)'(1)$。
+\item 对$x>0$，求$x^x$的导数并说明为何不能直接把指数视为常数。
+\end{enumerate}
+\subsection{反函数求导}
+\goal{倒数公式及非零导数条件。}
+\begin{enumerate}
+\item 设$f(x)=x^3$，求$(f^{-1})'(8)$。
+\item 由$\sin$的反函数关系推导$(\arcsin x)'$，$|x|<1$。
+\item 由$\tan$的反函数关系推导$(\arctan x)'$。
+\item 由指数函数的反函数关系推导$(\ln x)'$。
+\item $x^3$的反函数在0有有限导数吗？说明反函数求导公式为何不能直接用于该点。
+\end{enumerate}
+\subsection{初等函数求导}
+\goal{指数、对数、双曲与根式。}
+\begin{enumerate}
+\item 求$x^2e^x$的导数。
+\item 求$\ln(\sin x)$的导数，注明实定义域。
+\item 从指数定义求$(\sinh x)'$与$(\cosh x)'$。
+\item 求$\ln(x+\sqrt{1+x^2})$的导数。
+\item 求$\ln(x+\sqrt{x^2-1})$在$x>1$的导数。
+\end{enumerate}
+\subsection{高阶导数}
+\goal{归纳公式与Leibniz公式。}
+\begin{enumerate}
+\item 求$(e^{2x})^{(n)}$。
+\item 求$(\sin x)^{(n)}$。
+\item 求$[\ln(1+x)]^{(n)}$，$x>-1$。
+\item 求$(x^2e^x)^{(n)}$。
+\item 归纳证明$[1/(1-x)]^{(n)}=n!/(1-x)^{n+1}$。
+\end{enumerate}
+\subsection{隐函数求导}
+\goal{一次、二次隐式求导与局部条件。}
+\begin{enumerate}
+\item 对$x^2+y^2=4$，求$(1,\sqrt3)$处的$y'$。
+\item 对同一圆，求$y''$（$y\ne0$）。
+\item 对$\ln y+xy=1$，求$(0,e)$处的$y'$、$y''$。
+\item 对$y^3+y=x$，求$y'$、$y''$。
+\item 对$x+y+\sin y=0$，说明原点附近可确定$y(x)$，并求$y'(0)$、$y''(0)$。
+\end{enumerate}
+\subsection{参数曲线求导}
+\goal{以参数计算一阶和二阶导数。}
+\begin{enumerate}
+\item 对$x=t^2$、$y=t^3$，$t>0$，求$dy/dx$与$d^2y/dx^2$。
+\item 对$x=\cos t$、$y=\sin t$，$\sin t\ne0$，求一阶、二阶导数。
+\item 求$x=t-\sin t$、$y=1-\cos t$在$t=\pi$的切线。
+\item 对$x=e^t$、$y=t$，求一阶、二阶导数。
+\item 推导$d^2y/dx^2=(y''_t x'_t-y'_t x''_t)/(x'_t)^3$的条件与公式。
+\end{enumerate}
+\subsection{相关变化率}
+\goal{先建立关系式，再对时间求导。}
+\begin{enumerate}
+\item 球半径以2厘米/秒增加，半径3厘米时体积增长率为多少？
+\item 5米长梯子靠墙，底端距墙3米并以2米/秒远离墙，求顶端下降速度。
+\item 圆锥水箱中水面半径恒为水深的一半，注水率1立方米/分，水深2米时深度增加率是多少？
+\item 气体满足$PV$为常数，某时$P=100$、$V=2$、$V'=0.1$，求$P'$并注明随输入单位变化的量纲。
+\item 船沿直线以2米/秒行驶，岸上观察点距航线3米；船距垂足4米且继续远离时，求船与观察点距离的增长率。
+\end{enumerate}
+\section{微分}
+\subsection{微分概念}
+\goal{线性主部与高阶余项。}
+\begin{enumerate}
+\item 对$y=x^3$，求$x=2$、$dx=0.01$时的$dy$。
+\item 对$y=\sqrt x$，求$x=4$、$dx=0.02$时的$dy$。
+\item $|x|$在0是否存在微分？用增量的线性表示说明。
+\item 对$f(x)=x^2\sin(1/x)$、$f(0)=0$，写出0处微分并验证余项为$o(dx)$。
+\item 若$\Delta y=A\Delta x+o(\Delta x)=B\Delta x+o(\Delta x)$，证明$A=B$。
+\end{enumerate}
+\subsection{微分运算}
+\goal{微分法则及一阶形式不变性。}
+\begin{enumerate}
+\item 求$d\ln(1+x^2)$。
+\item 写出$d(u/v)$的公式及条件。
+\item 对$y=\sin u$、$u=x^2$，分别用$du$与$dx$表示$dy$。
+\item 对$x=t^2$、$y=x^2$，求用$dt$表示的$dy$。
+\item 设$y=f(x)$、$x=\varphi(t)$，用链式法则解释$dy=f'(x)\,dx$的一阶形式不变性。
+\end{enumerate}
+\subsection{高阶微分}
+\goal{明确独立变量，高阶微分通常不具有形式不变性。}
+\begin{enumerate}
+\item 以$x$为独立变量，求$d^2(x^4)$。
+\item 以$x$为独立变量，求$d^3(\sin x)$。
+\item 对$x=t^2$、$y=x^2$，求以$t$为独立变量的$d^2y$。
+\item 以$x$为独立变量，求$d^n(e^{ax})$。
+\item 用第3题验证$d^2y=f''(x)(dx)^2+f'(x)d^2x$，说明省去第二项会产生什么结果。
+\end{enumerate}
+\subsection{微分近似}
+\goal{近似值、误差量级与相对误差。}
+\begin{enumerate}
+\item 用微分近似计算$\sqrt{4.04}$。
+\item 用微分近似计算$\ln1.02$。
+\item 用微分近似计算$(1.01)^5$。
+\item 球的半径相对测量误差约1\%，体积相对误差约多少？
+\item 用微分近似计算$1/1.02$，指出这里给出的是近似值还是严格等式。
+\end{enumerate}
+\section{微分中值定理及应用}
+\subsection{极值的必要条件}
+\goal{驻点、不可导点与端点。}
+\begin{enumerate}
+\item $x^3$在0为驻点，它是否取极值？
+\item $|x|$在0取极小值，为何不与Fermat定理矛盾？
+\item 求$x^3-3x$的驻点及对应的局部极值。
+\item $f(x)=x$在$[0,1]$的最小值点导数非零，为何不与Fermat定理矛盾？
+\item 从局部极大值处的左右差商符号出发证明Fermat定理。
+\end{enumerate}
+\subsection{Rolle、Lagrange与Cauchy定理}
+\goal{检查区间与可导条件，构造辅助函数。}
+\begin{enumerate}
+\item 对$f(x)=x^2-x$在$[0,1]$求Rolle定理中的点。
+\item 对$\ln x$在$[1,e]$求Lagrange定理中的点。
+\item 对$f(x)=e^x$、$g(x)=x^2$在$[0,1]$，写出Cauchy定理给出的等式，不必求点的精确值。
+\item 若$f\in C[a,b]$、内点可导，$f(a)=f(b)=0$，证明存在$\xi$满足$f'(\xi)+f(\xi)=0$。
+\item 用中值定理证明$|\sin x-\sin y|\le|x-y|$。
+\end{enumerate}
+\subsection{L'Hospital法则}
+\goal{先辨未定式，再检查导数比极限。}
+\begin{enumerate}
+\item 求$\lim_{x\to0}(\sin x-x)/x^3$。
+\item 求$\lim_{x\to+\infty}\ln x/x$。
+\item 求$\lim_{x\to0^+}x\ln x$。
+\item 对$(1+1/x)^x$，$x\to+\infty$，取对数后用本法则求极限。
+\item 原比$(x+\sin x)/x$在$+\infty$的极限存在，但导数比$1+\cos x$无极限。这说明本法则的哪一方向不能反用？
+\end{enumerate}
+\section{Taylor公式及应用}
+\subsection{Taylor定理}
+\goal{区分Peano余项与Lagrange余项。}
+\begin{enumerate}
+\item 写出$e^x$在0处的二阶Taylor公式及Lagrange余项。
+\item 写出$\sin x$在0处的三阶Taylor公式，使用Peano余项。
+\item $o(x^n)$是否必为$O(x^{n+1})$？用$|x|^{n+1/2}$说明。
+\item 若$f$在0附近$n$次可导，且$f(0)=f'(0)=\cdots=f^{(n)}(0)=0$，证明$f(x)=o(x^n)$。
+\item 写出$f(a+h)$的二阶Peano公式，注明所需可导条件。
+\end{enumerate}
+\subsection{常见Maclaurin公式}
+\goal{掌握常用有限阶展开。}
+\begin{enumerate}
+\item 将$e^x$展开至$x^3$项。
+\item 将$\sin x$展开至$x^5$项、$\cos x$展开至$x^4$项。
+\item 将$\ln(1+x)$展开至$x^4$项。
+\item 将$(1+x)^\alpha$展开至$x^3$项，其中$\alpha\in\mathbb R$。
+\item 将$\arctan x$展开至$x^5$项。以上均使用Peano余项。
+\end{enumerate}
+\subsection{Taylor公式应用}
+\goal{极限、近似与严格余项估计。}
+\begin{enumerate}
+\item 求$\lim_{x\to0}(e^x-1-x-x^2/2)/x^3$。
+\item 求$\lim_{x\to0}(\sin x-x)/x^3$，与前一节方法比较。
+\item 用四次多项式近似$\cos0.1$，并证明误差不超过$0.1^6/720$。
+\item 求$\lim_{x\to0}[\ln(1+x)-x]/(1-\cos x)$。
+\item 当$0\le x\le0.1$，用Taylor公式证明$|\sqrt{1+x}-1-x/2|\le x^2/8$。
+\end{enumerate}
+\section{函数性态}
+\subsection{单调性}
+\goal{导数符号与严格单调性。}
+\begin{enumerate}
+\item 求$\ln x/x$的单调区间。
+\item 求$x^3-3x$的单调区间。
+\item 证明$x+\sin x$在实轴上严格递增。
+\item “严格递增必有$f'>0$”是否正确？举例说明。
+\item 设$f$在区间可导且$f'\ge0$，用中值定理证明$f$单调不减。
+\end{enumerate}
+\subsection{局部极值}
+\goal{一阶判别、二阶判别及不充分条件。}
+\begin{enumerate}
+\item 求$x^4$的局部极值。
+\item 判断$x^3$在0有无局部极值。
+\item 求$|x|$的局部极值。
+\item 求$x^3-3x$的局部极值。
+\item 设$f$在$x_0$附近二阶可导，$f'(x_0)=0$、$f''(x_0)>0$，用二阶展开证明$x_0$为严格局部极小点。
+\end{enumerate}
+\subsection{全局最值}
+\goal{比较驻点、端点与边界极限。}
+\begin{enumerate}
+\item 求$x(6-x)$在$[0,6]$的最大、最小值。
+\item 求$\ln x/x$（$x>0$）的全局最大值，并判断是否有最小值。
+\item 体积固定为$V>0$的带上下底圆柱，求表面积最小时的半径与高的关系。
+\item 边长12厘米纸板四角各剪去边长$x$的正方形，折成无盖盒，求最大体积。
+\item 正数$x,y$满足$x+y=10$，用一元函数求$xy$的最大值。
+\end{enumerate}
+\subsection{凹凸性与拐点}
+\goal{用二阶导数的符号变化判定拐点。}
+\begin{enumerate}
+\item 判断$y=x^3$的拐点。
+\item $y=x^4$在0有$f''(0)=0$，它是否为拐点？
+\item 求$y=x/(1+x^2)$的全部拐点。
+\item 求$y=e^{-x^2}$的全部拐点。
+\item 求$y=x^3-3x$的拐点及该点切线，并说明$f''=0$为何只能给出候选点。
+\end{enumerate}
+\section{曲率}
+\subsection{曲率概念}
+\goal{切线转角对弧长的变化率。}
+\begin{enumerate}
+\item 从转角与弧长关系求半径$R$的圆的曲率。
+\item 直线的曲率为多少？说明理由。
+\item 已知某点曲率为$1/5$，求曲率半径。
+\item 已知切线倾角对弧长满足$\varphi(s)=2s$，求曲率。
+\item 对半径2的圆比较两段不同长度圆弧的平均转角变化率，解释圆的曲率为何恒定。
+\end{enumerate}
+\subsection{曲率计算}
+\goal{直角坐标公式与参数曲线公式。}
+\begin{enumerate}
+\item 求$y=x^2$在0的曲率与曲率半径。
+\item 求$y=\ln x$在$x=1$的曲率。
+\item 求$y=\sin x$在$x=\pi/2$的曲率。
+\item 对椭圆$x=a\cos t$、$y=b\sin t$（$a,b>0$），求曲率及$t=0,\pi/2$处的值。
+\item 求$y=x^3$的曲率函数，并说明0处是否存在有限的曲率半径。
+\end{enumerate}
+\chapter{一元积分及应用}
+\section{定积分的概念与性质}
+\subsection{积分建模举例}
+\goal{由累积量建立积分，前四题只列式。}
+\begin{enumerate}
+\item 建立$y=x^2$与$x$轴在$[0,2]$间面积的积分表达式。
+\item 速度$v(t)=3+2t$米/秒，建立前4秒路程的积分表达式。
+\item 长1米细杆的线密度为$\rho(x)=1+x$千克/米，建立质量积分。
+\item 水箱流入率$2t+1$、流出率$t$升/分，建立前2分钟水量增量的积分。
+\item 对$y=x$、$0\le x\le1$，写出$n$等分左、右矩形面积和，并由夹逼求曲边区域面积。
+\end{enumerate}
+\subsection{定积分定义}
+\goal{Riemann和、分割与上下和。}
+\begin{enumerate}
+\item 用右端点等分和求$\int_0^1x^2\,dx$，可使用平方和公式。
+\item 将$\lim_{n\to\infty}\sum_{k=1}^n k/n^2$写成定积分并求值。
+\item 用定义求常数2在$[a,b]$上的积分（$a<b$）。
+\item 用上、下和说明$f(x)=0$（$x<1/2$）、$f(x)=1$（$x\ge1/2$）在$[0,1]$的积分为$1/2$。
+\item 用上、下和证明有理点取1、无理点取0的函数在$[0,1]$不可Riemann积分。
+\end{enumerate}
+\subsection{可积条件}
+\goal{有界性、连续性与有限间断。}
+\begin{enumerate}
+\item 说明$\sin x$在$[0,\pi]$可积的依据。
+\item 说明$\operatorname{sgn}x$在$[-1,1]$可积，并求积分。
+\item 设$f(0)=0$、$f(x)=1/x$（$0<x\le1$），它能否作为普通Riemann积分的被积函数？
+\item 有界函数一定可积吗？给出反例并说明。
+\item 证明一个有界函数若仅在有限个点非零，则在闭区间可积且积分为0。
+\end{enumerate}
+\subsection{定积分性质}
+\goal{保序、绝对值不等式与中值。}
+\begin{enumerate}
+\item 不计算原函数，求$\int_{-2}^2x^3\,dx$。
+\item 用保序性给出$\int_0^\pi\sin x\,dx$的上下界$0$与$\pi$。
+\item 若$f\in C[a,b]$且$f>0$、$a<b$，证明$\int_a^bf>0$。
+\item 对$f\in C[a,b]$，证明存在$c\in[a,b]$使$\int_a^bf=(b-a)f(c)$。
+\item 证明$|\int_a^bf|\le\int_a^b|f|$，假设$f$可积。
+\end{enumerate}
+\section{微积分基本公式与定理}
+\subsection{Newton--Leibniz公式}
+\goal{原函数、端点代入与适用区间。}
+\begin{enumerate}
+\item 求$\int_0^2x^2\,dx$。
+\item 求$\int_0^{\pi/2}\cos x\,dx$。
+\item 分段求$\int_{-1}^1|x|\,dx$。
+\item 能否直接用$\ln|x|$在端点的差来计算普通积分$\int_{-1}^1 dx/x$？说明。
+\item 若$F,G$是同一区间上$f$的原函数，证明$F-G$为常数。
+\end{enumerate}
+\subsection{微积分基本定理}
+\goal{变限积分求导与局部平均值。}
+\begin{enumerate}
+\item 求$\frac{d}{dx}\int_0^x e^{-t^2}\,dt$。
+\item 求$\frac{d}{dx}\int_x^{x^2}\sin t\,dt$。
+\item 设$F(x)=\int_0^x|t|\,dt$，求$F,F'$并判断$F''(0)$是否存在。
+\item 设$f$连续，用差商证明$\frac{d}{dx}\int_a^xf(t)\,dt=f(x)$。
+\item 求$\lim_{x\to0}\frac1x\int_0^x\cos t\,dt$。
+\end{enumerate}
+\subsection{不定积分}
+\goal{基本积分表与任意常数。}
+\begin{enumerate}
+\item 求$\int(3x^2-2/x)\,dx$，注明区间条件。
+\item 求$\int dx/(1+x^2)$。
+\item 求$\int\cosh x\,dx$。
+\item 求$\int dx/\sqrt{1-x^2}$，$|x|<1$。
+\item 若$F$是$f$的一个原函数，说明为何全体原函数可写为$F+C$，以及为何要限定在同一连通区间。
+\end{enumerate}
+\section{基本积分方法}
+\subsection{换元法}
+\goal{识别复合结构并同步更换积分限。}
+\begin{enumerate}
+\item 求$\int 2x\,dx/(1+x^2)$。
+\item 求$\int_0^1 x^2\,dx/(1+x^3)$。
+\item 求$\int dx/\sqrt{4-x^2}$，$|x|<2$。
+\item 求$\int_0^{\pi/2}\sin^3x\,dx$。
+\item 求$\int dx/(x\sqrt{\ln x})$，$x>1$。
+\end{enumerate}
+\subsection{分部积分法}
+\goal{选择微分因子与处理循环、递推。}
+\begin{enumerate}
+\item 求$\int xe^x\,dx$。
+\item 求$\int\ln x\,dx$，$x>0$。
+\item 求$\int_0^1x\arctan x\,dx$。
+\item 求$\int e^x\cos x\,dx$。
+\item 设$I_n=\int_0^{\pi/2}\sin^nx\,dx$，推导$n\ge2$时$I_n=(n-1)I_{n-2}/n$，并写出$I_0,I_1$。
+\end{enumerate}
+\subsection{初等积分的综合处理}
+\goal{部分分式、配方与有理化。}
+\begin{enumerate}
+\item 求$\int dx/[x(x+1)]$。
+\item 求$\int dx/(x^2+2x+2)$。
+\item 求$\int dx/(1+\sqrt x)$，$x>0$。
+\item 求$\int\tan^2x\,dx$。
+\item 连续函数是否一定有初等表达的原函数？以$e^{-x^2}$说明“原函数存在”与“初等可积”的区别，其原函数非初等性可作为已知事实。
+\end{enumerate}
+\section{积分应用}
+\subsection{微元建模}
+\goal{微元、累加区间与物理量纲。}
+\begin{enumerate}
+\item 细杆$0\le x\le3$米，线密度$2+x$千克/米，求质量。
+\item 用竖直面积微元求$y=x$在$[0,2]$下方的面积。
+\item 实体在$x\in[0,1]$处的圆截面半径为$1+x$，求体积。
+\item 力$F(x)=3x^2$牛顿，物体沿力方向从0移动到2米，求做功。
+\item 容器在高度$h$的水平截面积为$1+h$平方米，求从底面到2米的容积。
+\end{enumerate}
+\subsection{几何应用}
+\goal{面积、旋转体、弧长与极坐标面积。}
+\begin{enumerate}
+\item 求$y=x$与$y=x^2$围成面积。
+\item 求上一题区域绕$x$轴旋转所得体积。
+\item 求$y=(2/3)x^{3/2}$在$[0,1]$的弧长。
+\item 求极坐标$r=2\cos\theta$，$-\pi/2\le\theta\le\pi/2$所围区域面积。
+\item 求$\sin x$与$x$轴在$[0,\pi]$间面积，说明为何不需额外取绝对值。
+\end{enumerate}
+\subsection{物理应用}
+\goal{功、液体压力、质心和转动惯量。}
+\begin{enumerate}
+\item 弹簧劲度系数100牛顿/米，从自然长拉长0.2米，求外力所做功。
+\item 高3米、水平截面积1平方米的圆柱水箱装满水，泵至上沿，求功。取水密度1000千克/立方米，$g=9.8$米/秒$^2$。
+\item 宽2米、高3米的竖直矩形闸门上沿在水面，求静水压力合力，取同样水密度与$g$。
+\item 细杆$0\le x\le1$，线密度$\rho(x)=x$，求质心位置。
+\item 长$L$、线密度恒为1的细杆，求绕端点垂直轴的转动惯量，并改写为总质量$M$的形式。
+\end{enumerate}
+\section{反常积分}
+\subsection{无穷区间积分}
+\goal{先取截断积分极限，双侧积分分别收敛。}
+\begin{enumerate}
+\item 求$\int_1^{+\infty}x^{-2}\,dx$。
+\item 判断$\int_1^{+\infty}dx/x$是否收敛。
+\item 对$a>0$求$\int_0^{+\infty}e^{-ax}\,dx$。
+\item 判断$\int_0^{+\infty}\sin x\,dx$是否收敛。
+\item 判断$\int_{-\infty}^{+\infty}x/(1+x^2)\,dx$是否收敛；对称截断值为0能否改变结论？
+\end{enumerate}
+\subsection{无界函数积分}
+\goal{识别奇点并分段取极限。}
+\begin{enumerate}
+\item 求$\int_0^1 dx/\sqrt x$。
+\item 判断$\int_0^1 dx/x$是否收敛。
+\item 求$\int_0^1\ln x\,dx$。
+\item 求$\int_0^1 dx/\sqrt{x(1-x)}$。
+\item 判断$\int_{-1}^1 dx/x^2$是否收敛，说明如何处理内部奇点。
+\end{enumerate}
+\subsection{无穷区间审敛}
+\goal{$p$型、比较与绝对收敛。}
+\begin{enumerate}
+\item 讨论$\int_1^{+\infty}x^{-p}\,dx$随$p$的敛散性，收敛时求值。
+\item 判断$\int_1^{+\infty}dx/(x^2+\sin^2x)$的敛散性。
+\item 讨论$\int_e^{+\infty}dx/[x(\ln x)^p]$的敛散性。
+\item 证明$\int_1^{+\infty}\sin x/x^2\,dx$绝对收敛。
+\item 用极限比较判断$\int_1^{+\infty}x/(1+x^3)\,dx$的敛散性。
+\end{enumerate}
+\subsection{有限奇点审敛}
+\goal{比较端点附近的主导阶。}
+\begin{enumerate}
+\item 讨论$\int_0^1x^{-p}\,dx$的敛散性，收敛时求值。
+\item 判断$\int_0^1(\ln x)^2\,dx$是否收敛，不必求值。
+\item 判断$\int_0^1 dx/[\sqrt x(1+x)]$的敛散性。
+\item 讨论$\int_0^{1/2}dx/[x|\ln x|^p]$的敛散性。
+\item 判断$\int_0^1\sin x/x^{3/2}\,dx$的敛散性。
+\end{enumerate}
+\subsection{Gamma函数}
+\goal{定义域、递推、缩放及半整数值。}
+\begin{enumerate}
+\item 对实参数$s$，判断$\Gamma(s)=\int_0^{+\infty}t^{s-1}e^{-t}\,dt$何时收敛。
+\item 证明$s>0$时$\Gamma(s+1)=s\Gamma(s)$，说明分部积分端点项为何消失。
+\item 求$\Gamma(1)$与$\Gamma(5)$。
+\item 对$\alpha>-1$、$\beta>0$，用Gamma函数表示$\int_0^{+\infty}x^\alpha e^{-\beta x}\,dx$。
+\item 已知$\int_0^{+\infty}e^{-u^2}\,du=\sqrt\pi/2$，推导$\Gamma(1/2)$与$\Gamma(3/2)$。
+\end{enumerate}
+\chapter{常微分方程（按授课进度选做）}
+\section{简单微分方程}
+\subsection{基本概念}
+\goal{阶数、解、通解、特解与初值。}
+\begin{enumerate}
+\item 判断$y''+y=0$的阶数、线性及齐次性。
+\item 验证$y=e^x$是$y'=y$的解。
+\item 区分$y=Ce^{2x}$与$y=e^{2x}$作为$y'=2y$解的含义。
+\item 求$y'=y$、$y(0)=2$的解。
+\item 对$x^2+y^2=1$隐式求导，写出对应微分方程及可取的函数分支；说明$y=0$处的问题。
+\end{enumerate}
+\subsection{可分离变量方程}
+\goal{分离、积分与零解检查。}
+\begin{enumerate}
+\item 解$y'=xy$，不要漏掉零解。
+\item 解$y'=1+y^2$、$y(0)=0$，写出包含0的最大存在区间。
+\item 解$y'=y(1-y)$，列出平衡解并给出非平衡解。
+\item 解$yy'=x$、$y(0)=1$。
+\item 对$y'=\sqrt y$、$y(0)=0$，构造至少两个不同解，说明初值问题不一定唯一。
+\end{enumerate}
+\subsection{一阶线性方程}
+\goal{积分因子与初值代入。}
+\begin{enumerate}
+\item 解$y'+y=e^x$。
+\item 解$y'-2y=x$。
+\item 解$xy'+y=x^2$，$x>0$。
+\item 解$y'+2y=0$、$y(0)=3$。
+\item 推导$y'+p(x)y=q(x)$的积分因子公式，假设$p,q$连续。
+\end{enumerate}
+\subsection{变量代换法}
+\goal{Bernoulli、齐次型与复合变量。}
+\begin{enumerate}
+\item 解$y'+y=y^2$，先用$z=1/y$，再检查漏解。
+\item 解$y'=1+y/x$，$x>0$，用$y=vx$。
+\item 解$y'=(x+y)^2$，提示令$u=x+y$。
+\item 解$y'=y/x+(y/x)^2$，$x>0$，注明可能漏掉的解。
+\item 解$y'=e^{x+y}$，提示令$u=e^{-y}$，并注明实解区间条件。
+\end{enumerate}
+\subsection{降阶方程}
+\goal{缺少变量时作适当代换。}
+\begin{enumerate}
+\item 解$y''=6x$。
+\item 解$y''=(y')^2$，分别考虑$y'\equiv0$与$y'\ne0$。
+\item 对$y''=y$，令$p=y'$并视为$y$的函数，推导一个一阶守恒关系；不必据此求全部显式解。
+\item 解$yy''=(y')^2$，限定$y>0$。
+\item 解$y'''=0$，说明通解含几个独立常数。
+\end{enumerate}
+\subsection{一阶方程应用}
+\goal{建模、初值、单位和长期行为。}
+\begin{enumerate}
+\item 种群满足$P'=0.1P$、$P(0)=100$，求$P$及翻倍时间。
+\item 环境温度20度，物体满足$T'=-0.2(T-20)$、$T(0)=80$，求$T(t)$。
+\item 100升混合液初含盐10千克，以2升/分流入浓度0.5千克/升的液体，并等速排出充分混合液，求盐量$Q(t)$。
+\item 解$P'=rP(1-P/K)$、$P(0)=P_0>0$，其中$r,K>0$。
+\item 向下为正，物体满足$mv'=mg-kv$、$v(0)=0$，求速度与终端速度，$m,k,g>0$。
+\end{enumerate}
+\section{高阶线性方程}
+\subsection{线性模型与方程识别}
+\goal{从物理关系建立高阶线性方程。}
+\begin{enumerate}
+\item 质量1、弹簧系数4、无阻尼无外力，写出相对平衡位置位移$y(t)$的方程。
+\item 质量2、阻尼系数3、弹簧系数5、外力$\sin t$，写出运动方程。
+\item 串联RLC电路，$L=1$、$R=2$、$C=1$，外加电压$E(t)$，写出电荷$q(t)$的方程。
+\item 判断$y''+xy'+e^xy=x^2$是否为线性方程、是否齐次。
+\item 为什么$y''+(y')^2=0$不是线性方程？
+\end{enumerate}
+\subsection{线性解的结构}
+\goal{叠加、线性无关与非齐次通解。}
+\begin{enumerate}
+\item 验证$C_1e^x+C_2e^{-x}$满足$y''-y=0$。
+\item 计算$e^x,e^{-x}$的Wronskian并判断线性无关性。
+\item 计算$\sin x,\cos x$的Wronskian并判断线性无关性。
+\item 证明同一非齐次线性方程两个解的差满足对应齐次方程。
+\item 已知$y_p=e^{2x}/3$为$y''-y=e^{2x}$的特解，结合齐次基本解组写出通解并说明依据。
+\end{enumerate}
+\subsection{常系数齐次方程}
+\goal{不同实根、重根与共轭复根。}
+\begin{enumerate}
+\item 解$y''-3y'+2y=0$。
+\item 解$y''-2y'+y=0$。
+\item 解$y''+4y=0$。
+\item 解$y''+2y'+5y=0$。
+\item 解$y'''-y'=0$。
+\end{enumerate}
+\subsection{常系数非齐次方程}
+\goal{待定系数与共振修正。}
+\begin{enumerate}
+\item 解$y''-y=e^{2x}$。
+\item 解$y''+y=\sin x$，解释特解为何需乘$x$。
+\item 解$y''-2y'+y=e^x$，解释特解为何需乘$x^2$。
+\item 解$y''=x+\sin x$。
+\item 解$y''+y=1+x$。
+\end{enumerate}
+\subsection{变系数线性方程}
+\goal{Euler方程与已知解降阶。}
+\begin{enumerate}
+\item 解$x^2y''-2xy'+2y=0$，$x>0$，试设$y=x^m$。
+\item 解$x^2y''+xy'-y=0$，$x>0$。
+\item 解$x^2y''+xy'+y=0$，$x>0$，可令$t=\ln x$。
+\item 已知$y_1=x$是$y''-2y'/x+2y/x^2=0$的解，用$y=xv$求第二个线性无关解，$x>0$。
+\item 用$t=\ln x$解$x^2y''+xy'=x^2$，$x>0$。
+\end{enumerate}
+\section{线性方程组（星号选做）}
+\subsection{方程组概念}
+\goal{矩阵形式、解向量与一阶化。}
+\begin{enumerate}
+\item 将$x'=x+2y$、$y'=3x+4y$写成矩阵形式。
+\item 验证$(x,y)=(e^t,e^t)$满足$x'=y$、$y'=x$。
+\item 二维一阶线性系统的初值通常需要给出几个标量？举例说明。
+\item 将$y''+2y'+y=0$改写成二维一阶系统。
+\item 判断$x'=x+y^2$、$y'=-y$是否为线性系统。
+\end{enumerate}
+\subsection{系统解的结构}
+\goal{基本矩阵与叠加。}
+\begin{enumerate}
+\item 判断向量解$(e^t,0)^T$、$(0,e^{2t})^T$是否线性无关。
+\item 验证$\Phi(t)=\operatorname{diag}(e^t,e^{2t})$为$X'=\operatorname{diag}(1,2)X$的基本矩阵。
+\item 证明同一齐次线性系统的解的常系数线性组合仍为解。
+\item 证明同一非齐次线性系统两解之差为对应齐次系统的解。
+\item 对基本矩阵$\Phi$，写出齐次系统初值$X(t_0)=X_0$的解并验证。
+\end{enumerate}
+\subsection{常系数齐次系统}
+\goal{对角、对称、旋转与重根结构。}
+\begin{enumerate}
+\item 解$x'=x$、$y'=2y$。
+\item 解$x'=y$、$y'=x$。
+\item 解$x'=-y$、$y'=x$。
+\item 解$x'=x+y$、$y'=y$。
+\item 解$x'=-x$、$y'=-2y$、$x(0)=y(0)=1$，讨论$t\to+\infty$的行为。
+\end{enumerate}
+\subsection{常系数非齐次系统}
+\goal{特解、共振与常数变易。}
+\begin{enumerate}
+\item 解$x'=x+1$、$y'=2y$，$x(0)=y(0)=0$。
+\item 解$x'=y$、$y'=-x+1$，$x(0)=y(0)=0$。
+\item 解$x'=x+e^t$、$y'=-y+1$。
+\item 对$X'=A(t)X+b(t)$，以$X=\Phi(t)c(t)$推导常数变易公式。
+\item 解$x'=x+t$、$y'=y$，不指定初值。
+\end{enumerate}
+\subsection{系统应用}
+\goal{守恒量、流入流出和动力学解释。}
+\begin{enumerate}
+\item 两个100升混合箱互以2升/分交换充分混合液，初始盐量为10、0千克。建立$x,y$盐量系统并求解。
+\item 两室转移模型$x'=-k_1x+k_2y$、$y'=k_1x-k_2y$，$k_1,k_2>0$。证明总量守恒，并用总量$M$求平衡状态。
+\item 弹簧系统$x'=v$、$v'=-4x$，$x(0)=1$、$v(0)=0$，求位移与速度。
+\item 两室依次转移并排出，模型$x'=-x$、$y'=x-y$，初值1、0。求$x,y$及总量变化率。
+\item 对第2题，求系数矩阵特征值，说明为何只有给定总量后才能确定一个平衡状态。
+\end{enumerate}
+\end{document}
