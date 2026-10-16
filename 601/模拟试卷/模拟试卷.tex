@@ -1,0 +1,249 @@
+\documentclass[11pt,a4paper,fontset=fandol]{ctexart}
+\usepackage{amsmath,amssymb,geometry,enumitem,fancyhdr}
+\geometry{left=22mm,right=22mm,top=22mm,bottom=22mm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{大一上工科数学分析}
+\fancyhead[R]{原创模拟试卷}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{15pt}
+\setlist[enumerate]{leftmargin=2em,itemsep=9pt,topsep=5pt}
+\newcommand{\blank}{\underline{\hspace{22mm}}}
+\newcommand{\paper}[3]{\clearpage\begin{center}{\LARGE\bfseries #1}\par\medskip #2\par 满分100分\quad 建议120分钟\quad 闭卷\end{center}范围：#3\par 姓名：\blank\quad 学号：\blank\quad 得分：\blank\par}
+\newcommand{\parttitle}[1]{\medskip{\large\bfseries #1}\par}
+\begin{document}
+\begin{center}
+{\Huge\bfseries 大一上工科数学分析}\\[8mm]
+{\LARGE 期中、期末模拟试卷}\\[6mm]
+{\Large 期中3套\quad 期末3套}
+\end{center}
+\vspace{10mm}
+本册借鉴本地HDU 601数学分析2022—2026年考研真题中适用于一元微积分的出题方向，按大一上学期范围重新编写。601为考研科目，本册为原创课程模拟卷。
+
+期中范围为极限、连续、导数及应用；期末增加一元积分及应用。A卷侧重基础，B卷侧重综合，C卷侧重提高。
+
+每套试卷的题型与分值均为：填空5题，每题4分，共20分；计算与讨论5题，每题10分，共50分；证明2题，每题15分，共30分。
+
+计算与证明须写出必要过程。可使用已经学习且满足适用条件的定理，不能仅凭图形或数值试算证明结论。涉及端点的导数均指相应单侧导数；题目另有说明时从其说明。除特别注明外，$\ln$为自然对数，$n$为正整数，$C$为任意常数。
+
+答题空间不够时可另附纸，注明试卷名称与题号。解析单独保存在《参考解析》中。
+
+\paper{期中模拟卷 A}{基础巩固}{极限、连续、导数及应用}
+\parttitle{一、填空题（每题4分，共20分）}
+\begin{enumerate}
+\item $\displaystyle\lim_{n\to\infty}\frac{3n^2+1}{2n^2-n}=\blank$。
+\item $\displaystyle\lim_{x\to0}\frac{\sin3x}{\tan2x}=\blank$。
+\item 设$f(x)=(e^{2x}-1)/x$（$x\ne0$），$f(0)=a$。使$f$在$0$连续的$a=\blank$。
+\item $f(x)=\ln(1+x^2)$，则$f'(1)=\blank$。
+\item $f(x)=|x-1|$在$x=1$处的左导数与右导数依次为\blank、\blank。
+\end{enumerate}
+\parttitle{二、计算与讨论（每题10分，共50分）}
+\begin{enumerate}[start=6]
+\item 求下列极限（各5分）：
+\[\text{(1) }\lim_{x\to0}\frac{\sqrt{1+2x}-1}{\sin3x};\qquad
+\text{(2) }\lim_{x\to+\infty}\left(\frac{x^2+1}{x^2-1}\right)^{x^2}.\]
+\vspace{20mm}
+\item 设$a_1=1$，$a_{n+1}=\sqrt{2+a_n}$。证明数列收敛并求其极限。
+\end{enumerate}
+\newpage
+\begin{enumerate}[start=8]
+\item 设$\displaystyle f(x)=\begin{cases}ax+b,&x<0,\\ e^x,&x\ge0.\end{cases}$
+求使$f$在$0$处连续且可导的$a,b$，并写出$f'(0)$。
+\vspace{35mm}
+\item 设$y=x^x$（$x>0$），求$y'$与$y''$。
+\vspace{40mm}
+\item 讨论$f(x)=x^3-3x$的单调区间、极值、凹凸性及拐点；凹凸性用$f''$的正负说明。
+\end{enumerate}
+\newpage
+\parttitle{三、证明题（每题15分，共30分）}
+\begin{enumerate}[start=11]
+\item 证明对任意$x\in\mathbb R$，$e^x\ge1+x$，并求等号成立条件。
+\vspace{65mm}
+\item 证明方程$x=\cos x$在$(0,1)$内恰有一个实根，且该根属于$(1/2,1)$。
+\end{enumerate}
+
+\paper{期中模拟卷 B}{综合训练}{极限、连续、导数及应用}
+\parttitle{一、填空题（每题4分，共20分）}
+\begin{enumerate}
+\item $\displaystyle\lim_{n\to\infty}n\left(\sqrt{1+\frac1n}-1\right)=\blank$。
+\item $\displaystyle\lim_{x\to0}\frac{\ln(1+x)-x}{x^2}=\blank$。
+\item 设$f(x)=x\sin(1/x)$（$x\ne0$），$f(0)=0$，则$f$在$0$处\blank（填“连续且可导”“连续但不可导”或“不连续”）。
+\item 隐函数$x^2+xy+y^2=3$在点$(1,1)$处的$\displaystyle\frac{dy}{dx}=\blank$。
+\item $f(x)=\ln(1+x)$，则$f^{(n)}(0)=\blank$。
+\end{enumerate}
+\parttitle{二、计算与讨论（每题10分，共50分）}
+\begin{enumerate}[start=6]
+\item 求下列极限（各5分）：
+\[\text{(1) }\lim_{x\to0}\frac{\tan x-\sin x}{x^3};\qquad
+\text{(2) }\lim_{x\to0}\frac{\ln(1+x)}{\sin x}.\]
+\vspace{20mm}
+\item 设$a_1=2$，$a_{n+1}=\frac12(a_n+2/a_n)$。证明数列收敛并求极限。
+\end{enumerate}
+\newpage
+\begin{enumerate}[start=8]
+\item 设$f(x)=x^2\sin(1/x)$（$x\ne0$），$f(0)=0$。求$f'(0)$及$x\ne0$时的$f'(x)$，并判断$f'$在$0$处是否连续，给出理由。
+\vspace{35mm}
+\item 曲线由$\ln y+xy=1$（$y>0$）确定。求它在$(0,e)$处的$y'$、$y''$及切线方程。
+\vspace{40mm}
+\item 讨论$f(x)=\ln x/x$（$x>0$）的单调性、全局最大值及值域。
+\end{enumerate}
+\newpage
+\parttitle{三、证明题（每题15分，共30分）}
+\begin{enumerate}[start=11]
+\item 设$0<a<b$。证明
+\[\frac{b-a}{b}<\ln b-\ln a<\frac{b-a}{a}.\]
+\vspace{60mm}
+\item 设$f\in C[a,b]$，在$(a,b)$内可导，且$f(a)=f(b)=0$。证明存在$\xi\in(a,b)$，使
+\[(\xi-a)f'(\xi)+f(\xi)=0.\]
+\end{enumerate}
+
+\paper{期中模拟卷 C}{提高训练}{极限、连续、导数及应用}
+\parttitle{一、填空题（每题4分，共20分）}
+\begin{enumerate}
+\item $\displaystyle\lim_{x\to0}\frac{\sin x-x}{x^3}=\blank$。
+\item $\displaystyle\lim_{x\to0^+}x\ln x=\blank$。
+\item $f(x)=x|x|$，则$f'(0)=\blank$。
+\item $y=\arctan(e^x)$，则$y'(0)=\blank$。
+\item 对在$x_0$邻域可导的函数，条件$f'(x_0)=0$是$x_0$为局部极值点的\blank 条件（填“充分不必要”“必要不充分”或“充要”）。
+\end{enumerate}
+\parttitle{二、计算与讨论（每题10分，共50分）}
+\begin{enumerate}[start=6]
+\item 求下列极限（各5分）：
+\[\text{(1) }\lim_{x\to0}\frac{\ln(1+x)-x+x^2/2}{x^3};\qquad
+\text{(2) }\lim_{x\to0}\frac{(1+x)^{1/x}-e}{x}.\]
+\vspace{20mm}
+\item 设$a_1=1$，$a_{n+1}=(a_n+3)/(a_n+1)$。证明$1\le a_n\le2$，再证明数列收敛并求极限。提示：估计$|a_{n+1}-\sqrt3|$与$|a_n-\sqrt3|$的关系。
+\end{enumerate}
+\newpage
+\begin{enumerate}[start=8]
+\item 设$\displaystyle f(x)=\begin{cases}x^2e^{-1/x^2},&x\ne0,\\0,&x=0.\end{cases}$
+证明$f$在$0$处二阶可导，并求$f'(0)$、$f''(0)$。
+\vspace{40mm}
+\item 讨论参数$a\in\mathbb R$不同时，方程$x^3-3x+a=0$的不同实根个数；有重根时写出根及重数。
+\vspace{40mm}
+\item 用一张边长12厘米的正方形纸板制作无盖长方体盒子：从四角各剪去边长$x$厘米的小正方形，再折起四边。求体积最大时的$x$与最大体积，并说明全局最大性。
+\end{enumerate}
+\newpage
+\parttitle{三、证明题（每题15分，共30分）}
+\begin{enumerate}[start=11]
+\item 证明对任意$x\ge0$，
+\[\ln(1+x)\ge\frac{2x}{2+x},\]
+并求等号成立条件。
+\vspace{60mm}
+\item 设$f\in C[0,1]$，在$(0,1)$内二阶可导，且$f(0)=f(1)=0$、$f(1/2)=1$。证明存在$\xi\in(0,1)$，使$f''(\xi)=-8$。
+\end{enumerate}
+
+\paper{期末模拟卷 A}{基础巩固}{极限、连续、导数及应用，一元积分及应用}
+\parttitle{一、填空题（每题4分，共20分）}
+\begin{enumerate}
+\item $\displaystyle\lim_{x\to0}\frac{1-\cos2x}{x^2}=\blank$。
+\item $\displaystyle\frac{d}{dx}\int_0^{x^2}e^{-t^2}\,dt=\blank$。
+\item $\displaystyle\int_0^1\frac{x}{1+x^2}\,dx=\blank$。
+\item $\displaystyle\int_{-1}^1xe^{x^2}\,dx=\blank$。
+\item 函数$f(x)=x^2$在$[0,2]$上的平均值为\blank。
+\end{enumerate}
+\parttitle{二、计算与讨论（每题10分，共50分）}
+\begin{enumerate}[start=6]
+\item 求不定积分（各5分）：
+\[\text{(1) }\int\frac{2x+1}{x^2+x+1}\,dx;\qquad
+\text{(2) }\int xe^x\,dx.\]
+\vspace{20mm}
+\item 求定积分（各5分）：
+\[\text{(1) }\int_0^1\frac{x^2}{1+x^3}\,dx;\qquad
+\text{(2) }\int_0^{\pi/2}\sin^3x\,dx.\]
+\end{enumerate}
+\newpage
+\begin{enumerate}[start=8]
+\item 设$\displaystyle F(x)=\int_0^x\frac{t^2}{1+t^2}\,dt$（$x\in\mathbb R$）。求$F(x)$、$F'(x)$、$F''(x)$，并讨论单调性及拐点。
+\vspace{40mm}
+\item 求曲线$y=x$与$y=x^2$围成区域的面积，以及该区域绕$x$轴旋转一周所得旋转体的体积。
+\vspace{40mm}
+\item 设$f(x)=xe^{-x}$，$x\in[0,2]$。求它的最大值、最小值及$\displaystyle\int_0^2f(x)\,dx$。
+\end{enumerate}
+\newpage
+\parttitle{三、证明题（每题15分，共30分）}
+\begin{enumerate}[start=11]
+\item 设$f\in C[a,b]$，$a<b$，$f(x)\ge0$，且$\int_a^bf(x)\,dx=0$。证明$f$在$[a,b]$上恒等于零。
+\vspace{60mm}
+\item 设$f\in C[0,1]$。证明存在$c\in(0,1)$，使
+\[f(c)=\int_0^1f(x)\,dx.\]
+要求写出一个使用 Rolle 定理的证明。
+\end{enumerate}
+
+\paper{期末模拟卷 B}{综合训练}{极限、连续、导数及应用，一元积分及应用}
+\parttitle{一、填空题（每题4分，共20分）}
+\begin{enumerate}
+\item $\displaystyle\lim_{x\to0}\frac{\ln(\cos x)}{x^2}=\blank$。
+\item $\displaystyle\int_1^e\frac{dx}{x}=\blank$。
+\item $\displaystyle\int_0^\pi x\sin x\,dx=\blank$。
+\item $\displaystyle\int_0^1\frac{dx}{1+x^2}=\blank$。
+\item $\displaystyle\frac{d}{dx}\int_x^{2x}\ln(1+t^2)\,dt=\blank$。
+\end{enumerate}
+\parttitle{二、计算与讨论（每题10分，共50分）}
+\begin{enumerate}[start=6]
+\item 求不定积分（各5分）：
+\[\text{(1) }\int\ln x\,dx\quad(x>0);\qquad
+\text{(2) }\int\frac{dx}{x(x+1)}\quad(x\ne0,-1).\]
+\vspace{20mm}
+\item 求定积分（各5分）：
+\[\text{(1) }\int_0^1x\arctan x\,dx;\qquad
+\text{(2) }\int_0^{\pi/2}\frac{\sin x}{\sin x+\cos x}\,dx.\]
+\end{enumerate}
+\newpage
+\begin{enumerate}[start=8]
+\item 设$\displaystyle F(x)=\int_0^x(x-t)e^t\,dt$（$x\in\mathbb R$）。先将它改写为两个普通变限积分，求$F'$、$F''$及$F(x)$，再由此证明$e^x\ge1+x$。
+\vspace{40mm}
+\item 用定积分求极限（各5分）：
+\[\text{(1) }\lim_{n\to\infty}\sum_{k=1}^n\frac{k}{n^2+k^2};\qquad
+\text{(2) }\lim_{n\to\infty}\sum_{k=1}^n\frac1{\sqrt{n^2+k^2}}.\]
+\vspace{40mm}
+\item 求由$y=\ln x$、$y=0$及直线$x=e$围成区域的面积；再求该区域绕$x$轴旋转一周所得旋转体的体积。
+\end{enumerate}
+\newpage
+\parttitle{三、证明题（每题15分，共30分）}
+\begin{enumerate}[start=11]
+\item 设$f\in C[0,1]$，在$(0,1)$内可导，且对所有$x\in(0,1)$有$m\le f'(x)\le M$。证明
+\[\frac m2\le\int_0^1f(x)\,dx-f(0)\le\frac M2.\]
+\vspace{60mm}
+\item 设$f\in C[0,1]$，且$\int_0^1f(x)\,dx=0$。证明存在$c\in(0,1)$，使
+\[\int_0^cf(t)\,dt+c f(c)=0.\]
+\end{enumerate}
+
+\paper{期末模拟卷 C}{提高训练}{极限、连续、导数及应用，一元积分及应用}
+\parttitle{一、填空题（每题4分，共20分）}
+\begin{enumerate}
+\item $\displaystyle\lim_{x\to0}\frac{e^x-1-x}{x^2}=\blank$。
+\item $\displaystyle\int_0^1x^2(1-x)^2\,dx=\blank$。
+\item 设$a>0$，则$\displaystyle\int_{-a}^a\frac{dx}{1+e^x}=\blank$。
+\item $\displaystyle\int_0^1\frac{dx}{(1+x)^2}=\blank$。
+\item $\displaystyle\lim_{n\to\infty}n\int_0^{1/n}e^{-x^2}\,dx=\blank$。
+\end{enumerate}
+\parttitle{二、计算与讨论（每题10分，共50分）}
+\begin{enumerate}[start=6]
+\item 求定积分（各5分）：
+\[\text{(1) }\int_0^1\ln(1+x)\,dx;\qquad
+\text{(2) }\int_0^1x^2e^x\,dx.\]
+\vspace{20mm}
+\item 设$\displaystyle I_n=\int_0^1\frac{x^n}{1+x}\,dx$（$n=0,1,2,\ldots$）。证明$I_n+I_{n+1}=1/(n+1)$，并求$\lim_{n\to\infty}nI_n$。
+\end{enumerate}
+\newpage
+\begin{enumerate}[start=8]
+\item 定义$g(0)=0$，$g(t)=(\sin t-t)/t^2$（$t\ne0$），并设$F(x)=\int_0^xg(t)\,dt$。证明$g$在$0$处连续，求$F'(0)$、$F''(0)$与$\lim_{x\to0}F(x)/x^2$。
+\vspace{40mm}
+\item 设$h(x)=x+\ln x$（$x>0$）。证明它有唯一零点$r\in(0,1)$。Newton迭代定义为$x_{n+1}=x_n-h(x_n)/h'(x_n)$，取$x_1=1$。写出迭代公式，并证明从$x_2$起数列递增且收敛到$r$。可利用$h''(x)<0$或相应中值定理。
+\vspace{40mm}
+\item 对$a\in\mathbb R$，求$\displaystyle A(a)=\int_0^1|x-a|\,dx$的分段表达式，并求$A$的全局最小值及对应的$a$。
+\end{enumerate}
+\newpage
+\parttitle{三、证明题（每题15分，共30分）}
+\begin{enumerate}[start=11]
+\item 设$f\in C^1[0,1]$，$f(0)=f(1)=0$，记$M=\max_{x\in[0,1]}|f'(x)|$。证明
+\[\left|\int_0^1f(x)\,dx\right|\le\frac M4.\]
+\vspace{60mm}
+\item 设$f\in C[0,1]$。证明
+\[\left(\int_0^1x f(x)\,dx\right)^2\le\frac13\int_0^1f(x)^2\,dx,\]
+并求等号成立的充要条件。要求给出证明过程，不能只写不等式名称。
+\end{enumerate}
+\end{document}

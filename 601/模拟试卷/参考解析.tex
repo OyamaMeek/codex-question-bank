@@ -1,0 +1,280 @@
+\documentclass[11pt,a4paper,fontset=fandol]{ctexart}
+\usepackage{amsmath,amssymb,geometry,enumitem,fancyhdr}
+\geometry{left=22mm,right=22mm,top=22mm,bottom=22mm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{大一上工科数学分析}
+\fancyhead[R]{参考解析}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{15pt}
+\setlist[enumerate]{leftmargin=2em,itemsep=10pt,topsep=5pt}
+\newcommand{\answerpaper}[1]{\clearpage\begin{center}{\LARGE\bfseries #1}\end{center}}
+\begin{document}
+\begin{center}
+{\Huge\bfseries 大一上工科数学分析}\\[8mm]
+{\LARGE 六套模拟卷参考解析}
+\end{center}
+\vspace{8mm}
+本册与《模拟试卷》按试卷名称和题号一一对应。填空每题4分，计算与讨论每题10分，证明每题15分。除题目明确规定方法外，其他正确且符合适用条件的解法同样给分。
+
+计算题中的两个小问各5分；证明应体现构造、定理条件和结论。各套末尾给出分步给分建议。极限运算中使用 L'Hôpital 法则时，应说明原式的未定式类型及相关可导条件；有限阶展开可作为已学方法使用，无须使用无穷级数。
+
+\answerpaper{期中模拟卷 A 参考解析}
+\begin{enumerate}
+\item $3/2$。分子分母同除以$n^2$。
+\item $3/2$。利用$\sin3x/(3x)\to1$、$\tan2x/(2x)\to1$。
+\item $a=2$，因为$\lim_{x\to0}(e^{2x}-1)/x=2$。
+\item $1$。$f'(x)=2x/(1+x^2)$。
+\item 左导数$-1$，右导数$1$，所以不可导。两个空各2分。
+\item (1) 有理化得
+\[\frac{\sqrt{1+2x}-1}{\sin3x}
+=\frac{2x}{(\sqrt{1+2x}+1)\sin3x}\longrightarrow\frac13.\]
+(2) 设原幂式为$y_x>0$。则
+\[\ln y_x=x^2\ln\left(1+\frac2{x^2-1}\right)\longrightarrow2,\]
+故原极限为$e^2$。
+\item 先归纳证明$1\le a_n<2$：若$a_n<2$，则$1<\sqrt{2+a_n}<2$。又
+\[a_{n+1}-a_n=\frac{2+a_n-a_n^2}{\sqrt{2+a_n}+a_n}
+=\frac{(2-a_n)(a_n+1)}{\sqrt{2+a_n}+a_n}>0.\]
+故数列递增且有上界。设极限为$L\in[1,2]$，递推式取极限得$L^2=2+L$，故$L=2$。
+\item 连续要求$\lim_{x\to0^-}(ax+b)=f(0)=1$，所以$b=1$。
+此时左导数为$a$，右导数为$1$，可导要求$a=1$。因此$a=b=1$，$f'(0)=1$。
+\item 对数求导：$\ln y=x\ln x$，故
+\[y'=x^x(\ln x+1),\qquad
+y''=x^x\left[(\ln x+1)^2+\frac1x\right].\]
+\item $f'(x)=3(x^2-1)$。在$(-\infty,-1)$、$(1,+\infty)$递增，在$(-1,1)$递减；
+局部极大值$f(-1)=2$，局部极小值$f(1)=-2$。
+$f''(x)=6x$，在$x<0$时为负、$x>0$时为正，拐点为$(0,0)$。
+\item 令$g(x)=e^x-1-x$。$g'(x)=e^x-1$，在$x<0$时为负，$x>0$时为正。
+因此$g$在$0$处取得唯一全局最小值$g(0)=0$。结论成立，且等号当且仅当$x=0$。
+\item 令$h(x)=x-\cos x$。$h$在$[0,1]$连续，$h(0)=-1<0$，$h(1)=1-\cos1>0$，由介值定理至少有一根。
+在$(0,1)$有$h'(x)=1+\sin x>0$，故根唯一。
+再由$0<1/2<\pi/3<\pi$及余弦函数在$[0,\pi]$严格递减，得到$\cos(1/2)>\cos(\pi/3)=1/2$，故$h(1/2)<0$。结合$h(1)>0$，根在$(1/2,1)$。
+\end{enumerate}
+\textbf{给分建议：}第7题有界3分、单调3分、收敛与求值4分；第8题连续4分、左右导数4分、结论2分；第9题一阶4分、二阶6分；第10题单调4分、极值3分、二阶导数及拐点3分。第11题构造3分、导数符号6分、最小值与等号6分；第12题存在5分、唯一5分、根的范围5分。
+
+\answerpaper{期中模拟卷 B 参考解析}
+\begin{enumerate}
+\item $1/2$。有理化后为$1/(\sqrt{1+1/n}+1)$。
+\item $-1/2$。在$0$附近原式为$0/0$型，用两次 L'Hôpital 法则：
+\[\lim_{x\to0}\frac{\ln(1+x)-x}{x^2}
+=\lim_{x\to0}\frac{1/(1+x)-1}{2x}=-\frac12.\]
+\item 连续但不可导。$|x\sin(1/x)|\le|x|$，但差商为$\sin(1/x)$，没有极限。
+\item $-1$。隐式求导得$2x+y+(x+2y)y'=0$，代入$(1,1)$。
+\item $(-1)^{n-1}(n-1)!$。由$f^{(n)}(x)=(-1)^{n-1}(n-1)!/(1+x)^n$得到。
+\item (1) 因为$\tan x-\sin x=\sin x(1-\cos x)/\cos x$，所以
+\[\lim_{x\to0}\frac{\tan x-\sin x}{x^3}
+=\lim_{x\to0}\frac{\sin x}{x}\frac{1-\cos x}{x^2}\frac1{\cos x}=\frac12.\]
+(2) 写成$[\ln(1+x)/x]/[\sin x/x]$，结果为$1$。
+\item 正性由递推得到。对任意$a_n>0$，算术几何平均不等式给出$a_{n+1}\ge\sqrt2$，结合$a_1=2$，所有项均不小于$\sqrt2$。
+\[a_{n+1}-a_n=\frac{2-a_n^2}{2a_n}\le0.\]
+故数列递减有下界，极限$L\ge\sqrt2$满足$L=(L+2/L)/2$，所以$L=\sqrt2$。
+\item 根据导数定义
+\[f'(0)=\lim_{h\to0}h\sin(1/h)=0.\]
+当$x\ne0$，$f'(x)=2x\sin(1/x)-\cos(1/x)$。
+取$x_n=1/(2\pi n)$，则$f'(x_n)=-1$；取$z_n=1/((2n+1)\pi)$，则$f'(z_n)=1$。两列都趋于$0$，因此$f'$在$0$不连续。
+\item 设$G(x,y)=\ln y+xy-1$。在$(0,e)$有$G_y=1/e\ne0$，局部可确定二阶可导隐函数。一次求导：
+\[\frac{y'}y+y+xy'=0,\qquad y'(0)=-e^2.\]
+再次求导：
+\[\frac{y''}y-\frac{(y')^2}{y^2}+2y'+xy''=0.\]
+代入得$y''(0)=3e^3$。切线为$y-e=-e^2x$。
+\item $f'(x)=(1-\ln x)/x^2$，故在$(0,e)$递增，在$(e,+\infty)$递减。
+全局最大值为$f(e)=1/e$。又$\lim_{x\to0^+}\ln x/x=-\infty$，$\lim_{x\to+\infty}\ln x/x=0$，连续性与单调性给出值域$(-\infty,1/e]$。
+\item 函数$\ln x$在$[a,b]$连续，在$(a,b)$可导。Lagrange中值定理给出$c\in(a,b)$，使$\ln b-\ln a=(b-a)/c$。
+由$1/b<1/c<1/a$，乘以$b-a>0$即得严格不等式。
+\item 构造$H(x)=(x-a)f(x)$。它在$[a,b]$连续，在$(a,b)$可导，并且$H(a)=H(b)=0$。
+由 Rolle 定理，存在$\xi\in(a,b)$使$H'(\xi)=0$，即$f(\xi)+(\xi-a)f'(\xi)=0$。
+\end{enumerate}
+\textbf{给分建议：}第7题下界3分、单调3分、收敛求值4分；第8题导数定义3分、表达式3分、不连续证据4分；第9题隐函数条件1分、一阶3分、二阶4分、切线2分；第10题单调4分、最大值2分、边界极限和值域4分。第11题定理条件3分、中值表达6分、严格比较6分；第12题构造5分、条件5分、求导结论5分。
+
+\answerpaper{期中模拟卷 C 参考解析}
+\begin{enumerate}
+\item $-1/6$。两次 L'Hôpital 后得到$-\lim_{x\to0}\sin x/(6x)=-1/6$。
+\item $0$。令$t=1/x\to+\infty$，则$x\ln x=-\ln t/t\to0$。
+\item $0$。差商$h|h|/h=|h|\to0$。
+\item $1/2$。$y'=e^x/(1+e^{2x})$。
+\item 必要不充分。可导函数在内点取极值必有导数为零；$f(x)=x^3$在$0$处导数为零但没有极值。
+\item (1) 原式为$0/0$型，先求导并约分：
+\[\lim_{x\to0}\frac{1/(1+x)-1+x}{3x^2}
+=\lim_{x\to0}\frac{x^2/(1+x)}{3x^2}=\frac13.\]
+(2) 令$u(x)=\ln(1+x)/x$，则$u(x)\to1$，且
+\[\frac{u(x)-1}{x}=\frac{\ln(1+x)-x}{x^2}\longrightarrow-\frac12.\]
+利用指数函数的导数定义，
+\[\frac{e^{u(x)}-e}{x}
+=e\frac{e^{u(x)-1}-1}{u(x)-1}\frac{u(x)-1}{x}
+\longrightarrow-\frac e2.\]
+\item 设$T(x)=(x+3)/(x+1)$。在$[1,2]$上$T'(x)=-2/(x+1)^2<0$，故$T([1,2])=[5/3,2]\subset[1,2]$，归纳得$1\le a_n\le2$。
+记$r=\sqrt3$，$T(r)=r$，于是
+\[a_{n+1}-r=\frac{(1-r)(a_n-r)}{a_n+1},\qquad
+|a_{n+1}-r|\le q|a_n-r|,\quad q=\frac{r-1}{2}<1.\]
+反复使用得$|a_n-r|\le q^{n-1}|a_1-r|\to0$，因此$a_n\to\sqrt3$。本题不能由“有界”直接推出收敛。
+\item 首先
+\[f'(0)=\lim_{h\to0}h e^{-1/h^2}=0.\]
+当$x\ne0$，$f'(x)=(2x+2/x)e^{-1/x^2}$。因此
+\[f''(0)=\lim_{h\to0}\frac{f'(h)-f'(0)}h
+=\lim_{h\to0}(2+2/h^2)e^{-1/h^2}=0.\]
+最后一步令$u=1/h^2\to+\infty$，利用$u e^{-u}\to0$。故二阶导数确实按定义存在。
+\item 令$p(x)=x^3-3x+a$。$p$在$(-\infty,-1)$与$(1,+\infty)$递增，在$(-1,1)$递减，且
+\[p(-1)=a+2,\qquad p(1)=a-2,\qquad
+p(-\infty)=-\infty,\quad p(+\infty)=+\infty.\]
+当$|a|<2$，三个单调区间各有一个根，共3个不同实根。
+当$a=2$，$p(x)=(x-1)^2(x+2)$，有$1$（二重）与$-2$（单根）。
+当$a=-2$，$p(x)=(x+1)^2(x-2)$，有$-1$（二重）与$2$（单根）。
+当$|a|>2$，两个极值同号，仅有1个实根。
+\item 允许范围为$0<x<6$，体积$V(x)=x(12-2x)^2$。
+\[V'(x)=(12-2x)(12-6x).\]
+在$(0,2)$递增，在$(2,6)$递减，且两端体积趋于零，故全局最大值在$x=2$取得。
+$V(2)=2\cdot8^2=128$立方厘米。
+\item 设$g(x)=\ln(1+x)-2x/(2+x)$，$x\ge0$。则
+\[g'(x)=\frac1{1+x}-\frac4{(2+x)^2}
+=\frac{x^2}{(1+x)(2+x)^2}\ge0.\]
+因$g(0)=0$，且$x>0$时$g'(x)>0$，不等式成立，等号当且仅当$x=0$。
+\item 构造$g(x)=f(x)-4x(1-x)$，则$g(0)=g(1/2)=g(1)=0$。
+分别在$[0,1/2]$、$[1/2,1]$上用 Rolle 定理，得到$u\in(0,1/2)$、$v\in(1/2,1)$，使$g'(u)=g'(v)=0$。
+因为$g$在$(0,1)$二阶可导，$g'$在$[u,v]$连续且在$(u,v)$可导；再次使用 Rolle 定理，存在$\xi\in(u,v)$使
+\[0=g''(\xi)=f''(\xi)+8.\]
+故$f''(\xi)=-8$。
+\end{enumerate}
+\textbf{给分建议：}第7题不变区间3分、误差恒等式3分、几何估计与极限4分；第8题一阶定义3分、非零处导数3分、二阶定义与极限4分；第9题极值分析4分、根数分类4分、重根2分；第10题模型及范围3分、求导3分、全局性和数值4分。第11题构造3分、导数计算6分、结论等号6分；第12题辅助函数5分、两次定理各4分、结论2分。
+
+\answerpaper{期末模拟卷 A 参考解析}
+\begin{enumerate}
+\item $2$，因为$1-\cos2x=2\sin^2x$。
+\item $2xe^{-x^4}$，应用微积分基本定理与复合函数求导。
+\item $\frac12\ln2$，令$u=1+x^2$。
+\item $0$，被积函数为奇函数。
+\item $4/3$，平均值为$\frac12\int_0^2x^2\,dx$。
+\item (1) $\ln(x^2+x+1)+C$。分母恒正，且分子为分母导数。
+(2) 分部积分得$\int xe^x\,dx=xe^x-e^x+C=(x-1)e^x+C$。
+\item (1) 令$u=1+x^3$，得$\frac13\int_1^2du/u=\frac13\ln2$。
+(2) 写成$\int_0^{\pi/2}(1-\cos^2x)\sin x\,dx$，令$u=\cos x$，得$\int_0^1(1-u^2)\,du=2/3$。
+\item 分解$t^2/(1+t^2)=1-1/(1+t^2)$，故
+\[F(x)=x-\arctan x,\quad F'(x)=\frac{x^2}{1+x^2},\quad
+F''(x)=\frac{2x}{(1+x^2)^2}.\]
+$F'$非负且仅在$0$为零，任意非退化区间上其积分为正，因此$F$在$\mathbb R$严格递增。
+$F''$在$0$两侧异号，拐点为$(0,0)$。
+\item 交点横坐标为$0,1$，在$[0,1]$上$x\ge x^2$。面积
+\[S=\int_0^1(x-x^2)\,dx=\frac16.\]
+绕$x$轴用圆环法，外半径$x$、内半径$x^2$，故
+\[V=\pi\int_0^1(x^2-x^4)\,dx=\frac{2\pi}{15}.\]
+\item $f'(x)=e^{-x}(1-x)$，在$[0,1]$递增，在$[1,2]$递减。
+比较$f(0)=0$、$f(1)=1/e$、$f(2)=2/e^2$，最大值为$1/e$，最小值为$0$。
+\[\int_0^2xe^{-x}\,dx=[-(x+1)e^{-x}]_0^2=1-3e^{-2}.\]
+\item 若存在$x_0\in[a,b]$使$f(x_0)>0$，连续性保证存在$\delta>0$，使在$[a,b]\cap(x_0-\delta,x_0+\delta)$上有$f(x)>f(x_0)/2$。
+该邻域与$[a,b]$的交集中可选取一个正长度闭区间$[u,v]$；端点$x_0=a$或$b$时也成立。
+于是
+\[\int_a^bf(x)\,dx\ge\int_u^vf(x)\,dx\ge\frac{f(x_0)}2(v-u)>0,\]
+矛盾。因此没有正值点，结合非负性，$f\equiv0$。
+\item 记$m=\int_0^1f(t)\,dt$，设$H(x)=\int_0^xf(t)\,dt-mx$。
+$f$连续，由微积分基本定理，$H\in C[0,1]$并在$(0,1)$可导，且$H(0)=H(1)=0$。
+Rolle定理给出$c\in(0,1)$使$H'(c)=f(c)-m=0$，即所求。
+\end{enumerate}
+\textbf{给分建议：}第8题原函数3分、两阶导数4分、单调及拐点3分；第9题交点和面积4分、体积模型与计算6分；第10题求导及极值5分、积分5分。第11题反证设定3分、连续性局部正下界6分、积分矛盾与结论6分；第12题构造5分、定理条件5分、求导结论5分。
+
+\answerpaper{期末模拟卷 B 参考解析}
+\begin{enumerate}
+\item $-1/2$。在$0$附近$\cos x>0$，用 L'Hôpital 法则得$\lim_{x\to0}-\tan x/(2x)=-1/2$。
+\item $1$。
+\item $\pi$，分部积分得$[-x\cos x+\sin x]_0^\pi=\pi$。
+\item $\pi/4$。
+\item $2\ln(1+4x^2)-\ln(1+x^2)$。
+\item (1) 分部积分：$\int\ln x\,dx=x\ln x-x+C$。
+(2) 部分分式$1/[x(x+1)]=1/x-1/(x+1)$，故原函数为
+$\ln|x|-\ln|x+1|+C$；常数可在定义域的不同连通区间分别取值。
+\item (1) 分部积分得
+\[\int_0^1x\arctan x\,dx
+=\left[\frac{x^2}2\arctan x\right]_0^1-\frac12\int_0^1\frac{x^2}{1+x^2}\,dx
+=\frac\pi4-\frac12.\]
+(2) 记原积分为$I$，用$x=\pi/2-t$得
+$I=\int_0^{\pi/2}\cos t/(\sin t+\cos t)\,dt$。
+相加得$2I=\pi/2$，故$I=\pi/4$。
+\item 写成
+\[F(x)=x\int_0^xe^t\,dt-\int_0^xte^t\,dt.\]
+对任意实数$x$均有
+\[F'(x)=\int_0^xe^t\,dt=e^x-1,\qquad F''(x)=e^x.\]
+利用$F(0)=0$或直接积分得到$F(x)=e^x-x-1$。
+因为$F'(x)$在$x<0$时为负、$x>0$时为正，$F(0)=0$是全局最小值，所以$e^x\ge1+x$。
+\item (1) $\sum_{k=1}^n k/(n^2+k^2)=\frac1n\sum_{k=1}^n (k/n)/[1+(k/n)^2]$。
+被积函数连续，Riemann和趋于$\int_0^1x/(1+x^2)\,dx=\frac12\ln2$。
+(2) 同理原和为$\frac1n\sum_{k=1}^n1/\sqrt{1+(k/n)^2}$，极限为
+\[\int_0^1\frac{dx}{\sqrt{1+x^2}}=\left[\ln(x+\sqrt{1+x^2})\right]_0^1
+=\ln(1+\sqrt2).\]
+\item 左端点为$x=1$。面积
+\[S=\int_1^e\ln x\,dx=[x\ln x-x]_1^e=1.\]
+体积
+\[V=\pi\int_1^e(\ln x)^2\,dx
+=\pi\left[x\{(\ln x)^2-2\ln x+2\}\right]_1^e=\pi(e-2).\]
+\item 对每个$x\in(0,1]$，在$[0,x]$上用 Lagrange 中值定理，得到$\xi_x\in(0,x)$满足$f(x)-f(0)=x f'(\xi_x)$。
+因$x\ge0$，$mx\le f(x)-f(0)\le Mx$，在$x=0$也成立。积分得
+\[\frac m2\le\int_0^1[f(x)-f(0)]\,dx\le\frac M2.\]
+中间项即题中表达式。
+\item 设$F(x)=\int_0^xf(t)\,dt$，$H(x)=xF(x)$。
+$H\in C[0,1]$且在$(0,1)$可导，$H(0)=0$，$H(1)=F(1)=0$。
+由 Rolle 定理存在$c\in(0,1)$使
+\[0=H'(c)=F(c)+cF'(c)=\int_0^cf(t)\,dt+c f(c).\]
+\end{enumerate}
+\textbf{给分建议：}第8题拆分2分、导数4分、原函数2分、不等式2分；第9题每小问Riemann和改写3分、积分求值2分；第10题面积4分、体积6分。第11题中值定理条件与表达5分、逐点估计5分、积分5分；第12题两层构造6分、定理条件5分、求导与结论4分。
+
+\answerpaper{期末模拟卷 C 参考解析}
+\begin{enumerate}
+\item $1/2$。两次 L'Hôpital 法则或指数函数二阶有限展开。
+\item $1/30$，展开为$x^2-2x^3+x^4$后积分。
+\item $a$。记$q(x)=1/(1+e^x)$，则$q(x)+q(-x)=1$，故积分为$\int_0^a1\,dx=a$。
+\item $1/2$，由原函数$-1/(1+x)$计算。
+\item $1$。在$[0,1/n]$上$e^{-1/n^2}\le e^{-x^2}\le1$，乘以区间长度并乘$n$，两侧极限均为$1$。
+\item (1) 令$u=1+x$或分部积分，得
+\[\int_0^1\ln(1+x)\,dx=[(1+x)\ln(1+x)-(1+x)]_0^1=2\ln2-1.\]
+(2) 两次分部积分得到
+\[\int_0^1x^2e^x\,dx=[e^x(x^2-2x+2)]_0^1=e-2.\]
+\item 逐项相加得
+\[I_n+I_{n+1}=\int_0^1\frac{x^n+x^{n+1}}{1+x}\,dx
+=\int_0^1x^n\,dx=\frac1{n+1}.\]
+又$0\le I_{n+1}\le I_n$，故$2I_n\ge1/(n+1)$。
+当$n\ge1$时，由$I_{n-1}\ge I_n$及$I_{n-1}+I_n=1/n$，得$2I_n\le1/n$。
+因此
+\[\frac{n}{2(n+1)}\le nI_n\le\frac12,\]
+由夹逼定理，$\lim nI_n=1/2$。
+\item 已知基本极限$\lim_{t\to0}(\sin t-t)/t^3=-1/6$，所以
+\[g(t)=t\frac{\sin t-t}{t^3}\to0=g(0).\]
+由微积分基本定理，$F'(x)=g(x)$，特别地$F'(0)=0$。
+再按导数定义，
+\[F''(0)=\lim_{h\to0}\frac{g(h)-g(0)}h
+=\lim_{h\to0}\frac{\sin h-h}{h^3}=-\frac16.\]
+求最后的极限时，$F(x)/x^2$为$0/0$型，在穿孔邻域分母导数$2x\ne0$；使用 L'Hôpital 法则得
+\[\lim_{x\to0}\frac{F(x)}{x^2}=\lim_{x\to0}\frac{g(x)}{2x}=-\frac1{12}.\]
+\item $h'(x)=1+1/x>0$，$h(x)\to-\infty$（$x\to0^+$），$h(1)=1>0$。介值定理与严格单调性给出唯一零点$r\in(0,1)$。
+Newton公式化为
+\[x_{n+1}=\frac{x_n(1-\ln x_n)}{1+x_n}.\]
+$x_2=1/2$，且$h(1/2)=1/2-\ln2<0$，故$0<x_2<r$。
+这里$\ln2>1/2$可由$\int_1^2dt/t>1/2$得到。
+若$0<x_n<r$，则$h(x_n)<0$，所以$x_{n+1}>x_n$。
+对区间$[x_n,r]$使用中值定理，存在$\xi\in(x_n,r)$使
+\[0-h(x_n)=h'(\xi)(r-x_n)<h'(x_n)(r-x_n),\]
+其中严格不等式来自$h''<0$，故$x_{n+1}=x_n-h(x_n)/h'(x_n)<r$。
+归纳得从$x_2$起严格递增且以$r$为上界，存在极限$L\in[x_2,r]$。
+迭代式取极限得$h(L)=0$，由唯一性$L=r$。
+\item 分三种情况拆开绝对值：
+\[A(a)=\begin{cases}
+\frac12-a,&a\le0,\\
+\frac{a^2}2+\frac{(1-a)^2}2=a^2-a+\frac12,&0<a<1,\\
+a-\frac12,&a\ge1.
+\end{cases}\]
+在$[0,1]$上，$A(a)=(a-1/2)^2+1/4$；区间外$A(a)\ge1/2$。
+故唯一全局最小点为$a=1/2$，最小值为$1/4$。
+\item 对$x\in[0,1]$，分别从两端使用中值定理与$f(0)=f(1)=0$，得到
+\[|f(x)|\le Mx,\qquad |f(x)|\le M(1-x).\]
+因此
+\[\left|\int_0^1f(x)\,dx\right|
+\le\int_0^1|f(x)|\,dx
+\le M\int_0^1\min\{x,1-x\}\,dx
+=M\left(\int_0^{1/2}x\,dx+\int_{1/2}^1(1-x)\,dx\right)=\frac M4.\]
+\item 记$A=\int_0^1x f(x)\,dx$、$B=\int_0^1f(x)^2\,dx$。利用平方非负，
+\[0\le\int_0^1[f(x)-3Ax]^2\,dx
+=B-6A\int_0^1xf(x)\,dx+9A^2\int_0^1x^2\,dx
+=B-3A^2.\]
+所以$A^2\le B/3$。等号成立当且仅当连续非负函数$[f(x)-3Ax]^2$的积分为零，等价于$f(x)=3Ax$在整个$[0,1]$成立。
+因此等号的充要条件是$f(x)=kx$，其中$k\in\mathbb R$；任意这样的函数代入均满足等号。
+\end{enumerate}
+\textbf{给分建议：}第7题递推恒等式3分、单调估计4分、夹逼极限3分；第8题连续2分、一阶2分、二阶3分、极限3分；第9题根的存在唯一2分、迭代公式2分、区间与单调性4分、极限2分；第10题三种情况6分、全局最小值4分。第11题两端估计6分、积分估计5分、常数计算4分；第12题平方构造5分、展开求值5分、等号条件5分。
+\end{document}
