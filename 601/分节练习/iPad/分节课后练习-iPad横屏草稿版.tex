@@ -1,0 +1,73 @@
+% !TeX program = xelatex
+\documentclass[12pt,fontset=fandol]{ctexrep}
+\usepackage{amsmath,amssymb,geometry,fancyhdr,xcolor,hyperref,catchfile}
+\geometry{paperwidth=240mm,paperheight=180mm,left=14mm,right=14mm,top=14mm,bottom=11mm,headheight=14pt,headsep=6pt,footskip=17pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\raggedbottom
+\definecolor{muted}{gray}{0.38}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{muted}工科数学分析基础 · 第四版上册}
+\fancyfoot[C]{\small\color{muted}\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\hypersetup{hidelinks,bookmarksopen=false,bookmarksdepth=3,pdftitle={分节课后练习：iPad横屏草稿版},pdfauthor={原创补充练习},pdfdisplaydoctitle=true}
+\newcounter{ipadquestion}
+\newcommand{\ipadchapter}{}
+\newcommand{\ipadsection}{}
+\newcommand{\ipadsubsection}{}
+\newcommand{\knowledge}[3]{%
+  \expandafter\gdef\csname ipadknowledge@#1\endcsname{%
+    \vspace{3mm}{\large\bfseries 重要知识点}\par #2\par
+    \vspace{3mm}{\large\bfseries 需要掌握}\par #3\par}}
+\input{分节知识点.tex}
+\renewcommand{\chapter}[1]{%
+  \clearpage\refstepcounter{chapter}\gdef\ipadchapter{#1}%
+  \pdfbookmark[0]{第\thechapter 章 #1}{ipad.chapter.\thechapter}}
+\renewcommand{\section}[1]{%
+  \clearpage\refstepcounter{section}\gdef\ipadsection{#1}%
+  \pdfbookmark[1]{\thesection\space #1}{ipad.section.\thesection}}
+\renewcommand{\subsection}[1]{%
+  \clearpage\refstepcounter{subsection}\gdef\ipadsubsection{#1}%
+  \pdfbookmark[2]{\thesubsection\space #1}{ipad.subsection.\thesubsection}%
+  {\small\color{muted}第\thechapter 章\quad\ipadchapter\quad /\quad\ipadsection\par}
+  \vspace{3mm}{\fontsize{20}{27}\selectfont\bfseries\thesubsection\quad #1\par}}
+\newcommand{\goal}[1]{%
+  {\color{muted}本节线索：#1\par}%
+  \ifcsname ipadknowledge@\thesubsection\endcsname
+    \csname ipadknowledge@\thesubsection\endcsname
+  \else
+    \PackageError{ipad}{Missing knowledge for \thesubsection}{Add the section to the knowledge file.}%
+  \fi}
+\newcommand{\ipaditem}{%
+  \clearpage\stepcounter{ipadquestion}%
+  \pdfbookmark[3]{\thesubsection-\arabic{ipadquestion} 第\arabic{ipadquestion}题}{ipad.question.\thesubsection.\arabic{ipadquestion}}%
+  {\small\color{muted}\thesubsection\quad\ipadsubsection\hfill 题号 \thesubsection-\arabic{ipadquestion}\par}%
+  \vspace{3mm}{\large\bfseries 第\arabic{ipadquestion}题\par}\vspace{2mm}}
+\renewenvironment{enumerate}{\setcounter{ipadquestion}{0}\let\item\ipaditem}{\par}
+% 直接读取原题正文，保证横屏版与原题册使用同一份题目。
+\CatchFileDef{\originalpractice}{分节课后练习.tex}{}
+\long\def\printpractice#1\chapter#2\stoppractice{\chapter#2}
+\begin{document}
+\fontsize{14}{21}\selectfont
+\thispagestyle{empty}
+\begin{center}
+\vspace*{9mm}
+{\fontsize{27}{36}\selectfont\bfseries 工科数学分析基础\par}
+\vspace{4mm}
+{\fontsize{22}{30}\selectfont 第四版上册 · 分节课后练习\par}
+\vspace{5mm}
+{\Large iPad 横屏草稿版\par}
+\vspace{5mm}
+4:3 横屏\quad 每页一道题\quad 下方空白草稿区\par
+85个小节知识清单\quad 425道原创补充练习\par
+\end{center}
+\vspace{5mm}
+{\fontsize{11}{17}\selectfont
+每小节先复习知识点与掌握要求，再独立完成5道题。题号沿用原题册，答案请查阅同目录的独立答案册；题页不放答案或提示栏。
+
+正文中的“第1题”“上一题”均指当前小节内的题目，可通过PDF书签跳转。$n$默认为正整数，$\ln$为自然对数，积分中的$C$为任意常数。
+
+依据马知恩、王绵森主编教材第四版上册的章节编写。星号内容及第4章按教师授课进度选做；覆盖范围不代表考试范围。建议导入支持PDF手写批注的应用，横向整页显示后书写。\par}
+\expandafter\printpractice\originalpractice\stoppractice
