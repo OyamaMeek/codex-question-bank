@@ -96,11 +96,12 @@
 - **实际实现的功能与改动**：
   - 将三个目录复制到克隆副本，移除 `601`、`README.md` 和根目录 `.DS_Store`，共删除 21 个旧文件。
   - 暂存文件树仅有三个指定目录，共 12 个文件。`git diff --cached --check` 通过，`output` 与本地原件逐文件比较一致。
+  - 普通推送成功。通过 `git ls-remote` 确认远端 `main` 指向清理提交。
 
 - **涉及文件**：
   - `601/`、`README.md`、`.DS_Store`（删除）
   - `docs/`、`memory/`、`output/`（加入）
 
-- **Git 提交**：待提交。
+- **Git 提交**：`6cdb149a757549d29e7b07ac6edd48edbbaad49c chore: replace repository contents with project deliverables`。
 
 ---
