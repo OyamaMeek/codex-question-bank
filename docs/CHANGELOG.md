@@ -105,3 +105,21 @@
 - **Git 提交**：`6cdb149a757549d29e7b07ac6edd48edbbaad49c chore: replace repository contents with project deliverables`。
 
 ---
+
+## [2026-11-10 12:06] 编排 302 数学二 iPad 横屏版
+
+- **需求/问题描述**：
+  > 新增 iPad 4:3 横屏版。每页上方放一道题，下方留空，每节开头整理对应教材定理。
+
+- **实际实现的功能与改动**：
+  - 生成 432 页 PDF 与同顺序的 LaTeX 源稿。408 道题各占一页，两道跨页题的续题与题干同页。19 个教材节各有定理页，保留四个附录分组。
+  - 核对 85 条编号定理及教材页码、410 个题面裁片、题页留白、29 个书签和 894 个内部链接。PDF 直接生成，未安装或调用 TeX 编译器。
+
+- **涉及文件**：
+  - `output/302数学二分节真题集（iPad横屏版）.pdf`（新增 432 页）
+  - `output/302数学二分节真题集（iPad横屏版）.tex`
+  - `memory/plan.md`、`memory/progress.md`、`memory/verify.md`
+
+- **Git 提交**：待提交。
+
+---
