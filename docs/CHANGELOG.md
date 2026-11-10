@@ -230,6 +230,6 @@
   - `output/302数学二分节真题集（原生LaTeX横屏版）.pdf`（原位更新为 840 页）
   - `memory/plan.md`、`memory/progress.md`、`memory/verify.md`
 
-- **Git 提交**：待提交。
+- **Git 提交**：`22d22704a021a665e52ed250286d9c6822c89cd3 feat: add worked solutions to every exam question`。
 
 ---
