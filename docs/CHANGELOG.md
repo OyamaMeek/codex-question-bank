@@ -265,6 +265,6 @@
   - `output/pdf/27302阶段模拟卷（iPad横屏版）.pdf`（原位更新，新增 186 页解析）
   - `memory/plan.md`、`memory/progress.md`、`memory/verify.md`
 
-- **Git 提交**：待提交。
+- **Git 提交**：`02c3daee420a5320b27b1e9bd9059252f8a9d9aa feat: add worked solutions to the iPad mock exams`。
 
 ---
