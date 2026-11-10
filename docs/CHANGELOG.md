@@ -300,6 +300,6 @@
   - `README.md`
   - `docs/CHANGELOG.md`
 
-- **Git 提交**：待提交。
+- **Git 提交**：`551d624f281f2faa4a33148af58760f95b866f45 docs: add question bank README`。
 
 ---
