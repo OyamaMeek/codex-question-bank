@@ -283,6 +283,6 @@
   - `output/302数学二分节真题集.tex`、`output/302数学二分节真题集（原生LaTeX横屏版）.tex`
   - `memory/plan.md`、`memory/progress.md`、`memory/verify.md`、`memory/gotchas.md`
 
-- **Git 提交**：待提交。
+- **Git 提交**：`f13c25523eb43256691c59d5db6fe966c6089789 fix: standardize LaTeX fractions and textbook notation`。
 
 ---
