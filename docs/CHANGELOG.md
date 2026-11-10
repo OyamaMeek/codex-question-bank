@@ -187,12 +187,13 @@
 
 - **实际实现的功能与改动**：
   - 删除旧版 PDF 和 LaTeX 源稿。检查了引用和删除范围，核对原生版及共用裁片资源的校验值。
+  - 通过 Git 核对远端 `main` 的提交及文件树，确认两份旧版文件均已删除，历史版本仍可恢复。
 
 - **涉及文件**：
   - `output/302数学二分节真题集（iPad横屏版）.pdf`（删除 432 页）
   - `output/302数学二分节真题集（iPad横屏版）.tex`（-649 行）
   - `memory/plan.md`、`memory/progress.md`、`memory/verify.md`
 
-- **Git 提交**：待提交。
+- **Git 提交**：`ad4bdcb23aaf359f8910f257590b03c7ba4e6c13 chore: remove obsolete iPad question bank`。
 
 ---
