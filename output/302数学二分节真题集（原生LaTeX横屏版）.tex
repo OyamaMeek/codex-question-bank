@@ -9,6 +9,7 @@
 \usepackage{amsmath,amssymb,xcolor,fancyhdr,enumitem,tikz}
 \usetikzlibrary{svg.path}
 \DeclareMathOperator{\arcsec}{arcsec}
+\renewcommand{\lim}{\operatorname*{lim}\limits}
 \usepackage[hidelinks,bookmarksopen=true]{hyperref}
 \definecolor{ink}{HTML}{192635}
 \definecolor{muted}{HTML}{45566A}
@@ -55,8 +56,7 @@
 \newcommand{\QuestionPage}[6]{%
   \par\noindent\begin{minipage}{\linewidth}
   \raggedright
-  {\bfseries #3}\enspace{\small\textcolor{accent}{#2\quad #5}}\hfill
-  {\small\textcolor{muted}{原卷 PDF 第 #4 页}}\par\smallskip}
+  {\bfseries #3}\enspace{\small\textcolor{accent}{#2\quad #5}}\par\smallskip}
 \newcommand{\QuestionEnd}{\end{minipage}\par\medskip}
 \else
 \newcommand{\DiagramScale}{1}
@@ -65,7 +65,7 @@
 \newcommand{\QuestionPage}[6]{%
   \clearpage
   {\small\textcolor{accent}{#1\hfill #2}}\par\medskip
-  {\Large\bfseries #3}\hfill {\small\textcolor{muted}{原卷 PDF 第 #4 页}}\par
+  {\Large\bfseries #3}\par
   {\small\textcolor{muted}{#5\hfill #6}}\par\vspace{9bp}}
 \newcommand{\QuestionEnd}{}
 \fi
