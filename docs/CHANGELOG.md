@@ -286,3 +286,20 @@
 - **Git 提交**：`f13c25523eb43256691c59d5db6fe966c6089789 fix: standardize LaTeX fractions and textbook notation`。
 
 ---
+
+## [2026-11-10 23:46] 编写题库 README
+
+- **需求/问题描述**：
+  > 为题库编写 README。
+
+- **实际实现的功能与改动**：
+  - 添加真题集和阶段模拟卷的下载入口，说明各版式、教材范围及 LaTeX 编译方式。
+  - 核对 README 中的相对链接、主要 PDF 的版式及真题集的节数和题量。
+
+- **涉及文件**：
+  - `README.md`
+  - `docs/CHANGELOG.md`
+
+- **Git 提交**：待提交。
+
+---
