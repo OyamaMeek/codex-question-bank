@@ -9,6 +9,7 @@
 \documentclass[UTF8,a4paper,zihao=-4,fontset=fandol]{ctexart}
 \usepackage[margin=20mm]{geometry}
 \usepackage{amsmath,amssymb,enumitem,tabularx}
+\renewcommand{\lim}{\operatorname*{lim}\limits}
 \usepackage[hidelinks]{hyperref}
 \setlength{\parindent}{0pt}
 \setlist[enumerate]{label=\arabic*.,leftmargin=2em,itemsep=.4em,topsep=.4em}
@@ -45,9 +46,9 @@
 \choices{单调函数}{周期函数}{偶函数}{有界函数}
 % 880/2/第一章基础选择4
 \item 若 $x\to+\infty$ 时 $|f(x)|$ 与 $|g(x)|$ 均趋于 $+\infty$，则此时（\quad）。
-\choices{$f-g$ 为无穷小}{$f+g$ 为无穷大}{$g/f\to1$}{$(f+g)/(fg)$ 为无穷小}
+\choices{$f-g$ 为无穷小}{$f+g$ 为无穷大}{$\frac{g}{f}\to1$}{$\frac{f+g}{fg}$ 为无穷小}
 % 500/3/第一章计算6
-\item 设 $c>0$，$f(x)=\begin{cases}x^2-7,&|x|\le c,\\-6/|x|,&|x|>c.\end{cases}$
+\item 设 $c>0$，$f(x)=\begin{cases}x^2-7,&|x|\le c,\\-\frac{6}{|x|},&|x|>c.\end{cases}$
 使 $f$ 在 $\mathbb R$ 上连续的 $c$ 有（\quad）。
 \choices{1 个}{2 个}{3 个}{4 个}
 % 880/7/第一章综合选择9
@@ -55,12 +56,12 @@
 \choices{若 $a_n\to a>1$，则存在 $M>1$，使充分大的 $n$ 满足 $a_n>M$}
 {若 $a_n\to a$、$b_n\to b$ 且 $a<b$，则充分大的 $n$ 满足 $a_n<b_n$}
 {若 $a_n\to a$ 且对所有 $n$ 有 $M\le a_n\le N$，则 $M\le a\le N$}
-{若 $a_n\to a\ne0$，则充分大的 $n$ 满足 $a_n>a-1/n$}
+{若 $a_n\to a\ne0$，则充分大的 $n$ 满足 $a_n>a-\frac{1}{n}$}
 % 500/15/第一章概念8
 \item 对有界数列 $\{x_n\},\{y_n\}$，二者至少有一个趋于 $0$，是 $x_ny_n\to0$ 的（\quad）。
 \choices{充分非必要条件}{必要非充分条件}{充要条件}{既非充分也非必要条件}
 % 880/14/第二章基础选择1
-\item 设 $\varphi$ 有界，$f(x)=\begin{cases}(1-\cos x)/x,&x>0,\\x^2\varphi(x),&x\le0.\end{cases}$
+\item 设 $\varphi$ 有界，$f(x)=\begin{cases}\frac{1-\cos x}{x},&x>0,\\x^2\varphi(x),&x\le0.\end{cases}$
 则 $f$ 在 $x=0$ 处（\quad）。
 \choices{可导}{连续但不可导}{极限存在但不连续}{极限不存在}
 % 880/14/第二章基础选择2
@@ -89,10 +90,10 @@ $\displaystyle\lim_{x\to0}\frac{f(x)}{1-\cos x}=2$，则 $f$ 在 $0$ 处（\quad
 % 500/8/第一章计算19
 \item $\displaystyle\lim_{n\to\infty}\frac{1\cdot1!+2\cdot2!+\cdots+n\cdot n!}{(n+1)!}=\blank$。
 % 880/4/第一章基础填空3
-\item 若 $f(x)=\begin{cases}(\sin 2x+\mathrm{e}^{2ax}-1)/x,&x\ne0,\\a,&x=0\end{cases}$
+\item 若 $f(x)=\begin{cases}\frac{\sin 2x+\mathrm{e}^{2ax}-1}{x},&x\ne0,\\a,&x=0\end{cases}$
 在 $0$ 处连续，则 $a=\blank$。
 % 880/4/第一章基础填空4
-\item 设 $a>0,\ a\ne1$。使 $\displaystyle\lim_{x\to+\infty}x^p(a^{1/x}-a^{1/(x+1)})$
+\item 设 $a>0,\ a\ne1$。使 $\displaystyle\lim_{x\to+\infty}x^p(a^{\frac{1}{x}}-a^{\frac{1}{x+1}})$
 存在且为有限值的 $p$ 的取值范围为 $\blank$。
 % 500/24/第二章计算22
 \item 若 $f(x)=\sin^2x\cdot\mathrm{e}^x\cos x\cdot\ln(2+x)$，则 $f''(0)=\blank$。
@@ -101,7 +102,7 @@ $\displaystyle\lim_{x\to0}\frac{f(x)}{1-\cos x}=2$，则 $f$ 在 $0$ 处（\quad
 则 $y=f(x)$ 在横坐标为 $\mathrm{e}$ 的点处的切线为 $\blank$。
 % 500/29/第二章计算37
 \item 设 $f(x)=\begin{cases}\mathrm{e}^x-1,&x<1,\\x^2+(\mathrm{e}-2)x,&x\ge1.\end{cases}$
-在 $[0,3]$ 上满足拉格朗日中值定理的中值点 $\xi=\blank$。
+在 $[0,3]$ 上满足 Lagrange 中值定理的中值点 $\xi=\blank$。
 \end{enumerate}
 \solvesection
 \begin{enumerate}[start=17]
@@ -119,7 +120,7 @@ $\displaystyle\lim_{x\to0}\frac{f(x)}{1-\cos x}=2$，则 $f$ 在 $0$ 处（\quad
 % 880/21/第二章基础解答3
 \item \textbf{（12 分）} 求各题中的 $\mathrm{d}y$。
 \begin{enumerate}[label=(\arabic*),nosep]
-\item $y=\varphi(\arctan(1/x))$，其中 $\varphi$ 可导。
+\item $y=\varphi(\arctan(\frac{1}{x}))$，其中 $\varphi$ 可导。
 \item $y$ 由 $\mathrm{e}^{x+y}=y\sin x$ 确定，在 $\mathrm{e}^{x+y}-\sin x\ne0$ 处求微分。
 \item $x=2t,\ y=5t^2+1$，将结果写成关于 $\mathrm{d}x$ 的式子。
 \end{enumerate}
@@ -147,14 +148,14 @@ $2f(\xi)+\xi f'(\xi)=0$ 和 $2\eta f(\eta)-f'(\eta)=0$。
 % 880/12/第一章综合解答12
 \item \textbf{（12 分）} 设 $0<x_1<\pi$，$x_{n+1}=\sin x_n$。
 证明 $\{x_n\}$ 收敛并求其极限，再求
-$\displaystyle\lim_{n\to\infty}(x_{n+1}/x_n)^{1/x_n^2}$。
+$\displaystyle\lim_{n\to\infty}(\frac{x_{n+1}}{x_n})^{\frac{1}{x_n^2}}$。
 \end{enumerate}
 
 \newpage
 \paper{三}
 \begin{enumerate}
 % 880/2/第一章基础选择2
-\item 在 $(0,\pi/2)$ 上设 $f(x)=\cos(\sin x)$，$g(x)=\sin(\cos x)$，则（\quad）。
+\item 在 $(0,\frac{\pi}{2})$ 上设 $f(x)=\cos(\sin x)$，$g(x)=\sin(\cos x)$，则（\quad）。
 \choices{$f,g$ 均递减}{$f$ 递减，$g$ 递增}{$f,g$ 均递增}{$f$ 递增，$g$ 递减}
 % 880/2/第一章基础选择5
 \item 当 $x\to0$ 时，$\dfrac{1}{x^2}\sin\dfrac1x$ 是（\quad）。
@@ -163,7 +164,7 @@ $\displaystyle\lim_{n\to\infty}(x_{n+1}/x_n)^{1/x_n^2}$。
 \item 当 $x\to0$ 时，若 $\mathrm{e}^x-\dfrac{1+ax^2}{1+bx}$ 与 $x^3$ 是同阶无穷小，则（\quad）。
 \choices{$a=\tfrac12,\ b=1$}{$a=-\tfrac12,\ b=-1$}{$a=\tfrac12,\ b=-1$}{$a=-\tfrac12,\ b=1$}
 % 500/4/第一章计算7
-\item 函数 $\displaystyle f(x)=\frac{1/x-1/(x+1)}{1/(x-1)-1/x}$ 的可去间断点个数为（\quad）。
+\item 函数 $\displaystyle f(x)=\frac{\frac{1}{x}-\frac{1}{x+1}}{\frac{1}{x-1}-\frac{1}{x}}$ 的可去间断点个数为（\quad）。
 \choices{0}{1}{2}{3}
 % 880/7/第一章综合选择10
 \item 设 $\{x_n\},\{y_n\}$ 为两个数列。下列结论中，正确的是（\quad）。
@@ -199,16 +200,16 @@ $\displaystyle\lim_{x\to x_0}\frac{xf(x_0)-x_0f(x)}{x-x_0}$ 存在的（\quad）
 % 880/4/第一章基础填空5
 \item $\displaystyle\lim_{x\to+\infty}\frac{x^3+x^2+1}{\mathrm{e}^x+x^3}(\sin x+\cos x)=\blank$。
 % 880/10/第一章综合填空7
-\item 设 $0<a_1<a_2$，则 $\displaystyle\lim_{n\to\infty}(a_1^{-n}+a_2^{-n})^{1/n}=\blank$。
+\item 设 $0<a_1<a_2$，则 $\displaystyle\lim_{n\to\infty}(a_1^{-n}+a_2^{-n})^{\frac{1}{n}}=\blank$。
 % 500/8/第一章计算21
-\item $\displaystyle\lim_{x\to\pi/2}(\sin x)^{\tan x}=\blank$。
+\item $\displaystyle\lim_{x\to\frac{\pi}{2}}(\sin x)^{\tan x}=\blank$。
 % 880/19/第二章基础填空19
 \item $f(x)=\cos|x|+x|x|$ 在 $0$ 处存在的最高阶导数的阶数为 $\blank$。
 % 500/24/第二章计算23
 \item 设 $f$ 对任意 $x$ 均满足 $f(1+x)=af(x)$，且 $f'(0)=b$，$ab\ne0$。
 则 $f'(2)=\blank$。
 % 500/33/第二章计算49
-\item 若曲线 $y=x^2\ln x$ 和 $y=a/x$（$a\ne0$）相切，则 $a=\blank$。
+\item 若曲线 $y=x^2\ln x$ 和 $y=\frac{a}{x}$（$a\ne0$）相切，则 $a=\blank$。
 \end{enumerate}
 \solvesection
 \begin{enumerate}[start=17]
@@ -224,7 +225,7 @@ $\displaystyle\lim_{x\to x_0}\frac{xf(x_0)-x_0f(x)}{x-x_0}$ 存在的（\quad）
 \]
 \vspace{4.5cm}
 % 880/21/第二章基础解答8
-\item \textbf{（12 分）} 设 $f(x)=\begin{cases}\mathrm{e}^{-1/x^2},&x\ne0,\\0,&x=0.\end{cases}$
+\item \textbf{（12 分）} 设 $f(x)=\begin{cases}\mathrm{e}^{-\frac{1}{x^2}},&x\ne0,\\0,&x=0.\end{cases}$
 证明 $f^{(n)}(0)$ 对任意正整数 $n$ 都存在，并求其值。
 \end{enumerate}
 \newpage
@@ -264,7 +265,7 @@ $\displaystyle\lim_{x\to x_0}\frac{xf(x_0)-x_0f(x)}{x-x_0}$ 存在的（\quad）
 \choices{充分非必要条件}{必要非充分条件}{充要条件}{既非充分也非必要条件}
 % 500/13/第一章概念4
 \item 设正项数列 $\{a_n\}$ 发散，下列数列中必发散的是（\quad）。
-\choices{$\{a_n+\sin n\}$}{$\{a_n/(1+a_n)\}$}{$\{\ln(a_n+1)\}$}{$\{a_n+1/a_n\}$}
+\choices{$\{a_n+\sin n\}$}{$\{\frac{a_n}{1+a_n}\}$}{$\{\ln(a_n+1)\}$}{$\{a_n+\frac{1}{a_n}\}$}
 % 880/15/第二章基础选择8
 \item 设 $f$ 为二阶可导的奇函数，且在 $(0,+\infty)$ 内有 $f'(x)>0,\ f''(x)>0$。
 则在 $(-\infty,0)$ 内必有（\quad）。
@@ -314,9 +315,9 @@ $\displaystyle\lim_{x\to x_0}\frac{xf(x_0)-x_0f(x)}{x-x_0}$ 存在的（\quad）
 % 880/4–5/第一章基础解答2(I)(VII)(VIII)，末问在原题中重复标作(VII)
 \item \textbf{（10 分）} 求下列极限。
 \[
- \text{(1)}\ \lim_{x\to+\infty}\frac{x^2-x\sin x}{x^2+x\sin(1/x)},
+ \text{(1)}\ \lim_{x\to+\infty}\frac{x^2-x\sin x}{x^2+x\sin(\frac{1}{x})},
  \quad
- \text{(2)}\ \lim_{x\to0}(1-x^2)^{1/(1-\sqrt{1-x^2})},
+ \text{(2)}\ \lim_{x\to0}(1-x^2)^{\frac{1}{1-\sqrt{1-x^2}}},
  \quad
  \text{(3)}\ \lim_{x\to0^+}x^{\sin x}.
 \]
@@ -324,10 +325,10 @@ $\displaystyle\lim_{x\to x_0}\frac{xf(x_0)-x_0f(x)}{x-x_0}$ 存在的（\quad）
 % 880/21/第二章基础解答9；880/22/第二章基础解答10
 \item \textbf{（12 分）} 求下列变化率。
 \begin{enumerate}[label=(\arabic*),nosep]
-\item 气体以 $100\,\mathrm{cm}^3/\mathrm{s}$ 的速率注入球形气球。设压力不变，
+\item 气体以 $100\,\mathrm{cm}^3\,\mathrm{s}^{-1}$ 的速率注入球形气球。设压力不变，
 求半径为 $10\,\mathrm{cm}$ 时半径的增长速率。
 \item 动点 $P$ 在曲线 $9y=4x^2$ 上运动，坐标轴单位为厘米，横坐标增长速率为
-$30\,\mathrm{cm}/\mathrm{s}$。求 $P$ 经过 $(3,4)$ 时其到原点的距离变化率。
+$30\,\mathrm{cm}\,\mathrm{s}^{-1}$。求 $P$ 经过 $(3,4)$ 时其到原点的距离变化率。
 \end{enumerate}
 \vspace{4.5cm}
 % 880/30/第二章综合解答2
@@ -339,7 +340,7 @@ $f(1+\sin x)-3f(1-\sin x)=8x+o(x)$。
 \begin{enumerate}[start=20]
 % 26版/34/第一章拓展题1
 \item \textbf{（12 分）} 设 $f$ 在 $[a,b]$ 上可导，$|f'(x)|<1$ 且 $a<f(x)<b$，
-令 $F(x)=(x+f(x))/2$。证明 $F$ 有唯一不动点 $x_*\in(a,b)$，
+令 $F(x)=\frac{x+f(x)}{2}$。证明 $F$ 有唯一不动点 $x_*\in(a,b)$，
 并证明从任意 $x_0\in[a,b]$ 出发的迭代 $x_{n+1}=F(x_n)$ 都收敛于 $x_*$。
 \vspace{5.5cm}
 % 讲义/71/第三章中值定理例5
@@ -355,7 +356,7 @@ $f(1+\sin x)-3f(1-\sin x)=8x+o(x)$。
 \paper{五}
 \begin{enumerate}
 % 500/2/第一章计算3
-\item 函数 $f(x)=x\sin(1/x^2)$（$x\ne0$）（\quad）。
+\item 函数 $f(x)=x\sin(\frac{1}{x^2})$（$x\ne0$）（\quad）。
 \choices{在 $|x|\to\infty$ 时为无穷大}{在 $x\to0$ 时为无穷大}
 {在定义域上有界}{在定义域上无界}
 % 500/5/第一章计算12
@@ -372,7 +373,7 @@ $f(1+\sin x)-3f(1-\sin x)=8x+o(x)$。
 \choices{充分非必要条件}{必要非充分条件}{充要条件}{既非充分也非必要条件}
 % 880/6/第一章综合选择6
 \item 设 $f$ 在 $0$ 处可导，$f'(0)\ne0,\ f(0)=0$，
-且 $F(x)=\begin{cases}f(x)/x,&x\ne0,\\f(0),&x=0.\end{cases}$
+且 $F(x)=\begin{cases}\frac{f(x)}{x},&x\ne0,\\f(0),&x=0.\end{cases}$
 则 $0$ 对于 $F$ 是（\quad）。
 \choices{连续点}{第一类间断点}{第二类间断点}{以上均不正确}
 % 880/16/第二章基础选择15
@@ -388,14 +389,14 @@ $f(1+\sin x)-3f(1-\sin x)=8x+o(x)$。
 % 880/25/第二章综合选择7
 \item 设 $f$ 在 $(-1,1)$ 内可导，且 $\displaystyle\lim_{x\to0}\frac{f(x)}{x^2}=1$。
 下列结论中必成立的是（\quad）。
-\choices{$\lim_{x\to0}f'(x)/x$ 存在}{$\lim_{x\to0}f'(x)/x$ 不存在}
+\choices{$\lim_{x\to0}\frac{f'(x)}{x}$ 存在}{$\lim_{x\to0}\frac{f'(x)}{x}$ 不存在}
 {$f'(0)=0,\ f''(0)=2$}{$f(0)$ 是极小值}
 % 500/41/第二章概念19
 \item 设 $f$ 在 $[a,b]$ 上可导，且 $|f'(x)|<1$。下列命题中正确的是（\quad）。
 \par (1) 对不同的 $x_1,x_2\in[a,b]$，$|f(x_1)-f(x_2)|<|x_1-x_2|$。
 \par (2) 必有 $c\in(a,b)$ 使 $f'(c)=0$。
 \par (3) 若 $f(a)=a$，则对 $x\in(a,b]$ 有 $f(x)<x$。
-\par (4) 若 $f((a+b)/2)=0$，则对 $x\in[a,b]$ 有 $|f(x)|<(b-a)/2$。
+\par (4) 若 $f(\frac{a+b}{2})=0$，则对 $x\in[a,b]$ 有 $|f(x)|<\frac{b-a}{2}$。
 \choices{(1)(3)}{(1)(4)}{(1)(3)(4)}{(2)(3)(4)}
 % 500/41/第二章概念20
 \item 设 $f$ 在 $[-1,1]$ 上二阶可导且 $f''(x)>0$。
@@ -416,17 +417,17 @@ $f(1+\sin x)-3f(1-\sin x)=8x+o(x)$。
 \item 当 $x\to0$ 时，$\mathrm{e}^x+\ln(1-x)-1$ 与 $x^n$ 同阶，则正整数 $n=\blank$。
 % 500/34/第二章计算54
 \item 球形细胞的体积以每天 $400\,\mu\mathrm{m}^3$ 的速率增长。
-半径为 $10\,\mu\mathrm{m}$ 时，半径的增长速率为 $\blank$ 微米/天。
+半径为 $10\,\mu\mathrm{m}$ 时，半径的增长速率为 $\blank$ $\mu\mathrm{m}\,\mathrm{d}^{-1}$。
 % 880/30/第二章综合填空11
 \item 设 $y=f(x)$ 由 $x=t^2+1,\ y=4t-t^2$（$t\ge0$）确定。
-则 $\displaystyle\lim_{n\to\infty}n\big[f((2n+1)/n)-3\big]=\blank$。
+则 $\displaystyle\lim_{n\to\infty}n\big[f(\frac{2n+1}{n})-3\big]=\blank$。
 \end{enumerate}
 \solvesection
 \begin{enumerate}[start=17]
 % 880/4/第一章基础解答1；讲义/20/第一章数列极限例2
 \item \textbf{（10 分）} 解答下列两问。
 \begin{enumerate}[label=(\arabic*),nosep]
-\item 若对任意 $x\ne0$ 有 $af(x)+bf(1/x)=c/x$，$|a|\ne|b|$，
+\item 若对任意 $x\ne0$ 有 $af(x)+bf(\frac{1}{x})=\frac{c}{x}$，$|a|\ne|b|$，
 求 $f(x)$ 并证明 $f$ 为奇函数。
 \item 设 $a>0$，求 $\displaystyle\lim_{n\to\infty}\sqrt[n]{1+a^n}$。
 \end{enumerate}
@@ -434,7 +435,7 @@ $f(1+\sin x)-3f(1-\sin x)=8x+o(x)$。
 % 880/13/第一章拓展题4
 \item \textbf{（12 分）} 证明对每个正整数 $n$ 有
 $\dfrac1n-\ln(1+\dfrac1n)<\dfrac1{2n^2}$，
-并求 $\displaystyle\lim_{n\to\infty}\prod_{k=1}^n(1+k/n^2)$。
+并求 $\displaystyle\lim_{n\to\infty}\prod_{k=1}^n(1+\frac{k}{n^2})$。
 \vspace{4.5cm}
 % 880/32/第二章综合解答16
 \item \textbf{（12 分）} 设 $f(x)=\sum_{k=1}^{n}a_k\sin(kx)$，其中 $a_k$ 为实数。
@@ -471,14 +472,14 @@ $\displaystyle\lim_{x\to0}\frac{xf(x)-(1+x)^{2x}+1}{x^2}=1$。
 % 500/2/第一章计算1
 \item 非零常数 $a,b$ 满足 $\displaystyle\lim_{x\to1}\left(\frac{x}{x-1}-\frac a{\ln x}\right)=b$。
 则（\quad）。
-\choices{$a=1,\ b=1/2$}{$a=-1,\ b=1/2$}{$a=1,\ b=-1/2$}{$a=-1,\ b=-1/2$}
+\choices{$a=1,\ b=\frac{1}{2}$}{$a=-1,\ b=\frac{1}{2}$}{$a=1,\ b=-\frac{1}{2}$}{$a=-1,\ b=-\frac{1}{2}$}
 % 500/2/第一章计算2
 \item 下列等式中成立的是（\quad）。
-\choices{$\displaystyle\lim_{x\to0^+}(1+1/x)^x=1$}{$\displaystyle\lim_{x\to0^+}(1+1/x)^x=\mathrm e$}
-{$\displaystyle\lim_{x\to+\infty}(1-1/x)^x=-\mathrm e$}{$\displaystyle\lim_{x\to+\infty}(\sin x)/x=1$}
+\choices{$\displaystyle\lim_{x\to0^+}(1+\frac{1}{x})^x=1$}{$\displaystyle\lim_{x\to0^+}(1+\frac{1}{x})^x=\mathrm e$}
+{$\displaystyle\lim_{x\to+\infty}(1-\frac{1}{x})^x=-\mathrm e$}{$\displaystyle\lim_{x\to+\infty}\frac{\sin x}{x}=1$}
 % 880/8/第一章综合选择13
 \item 对正整数 $n$，设 $u_n$ 为 $x(1+\ln x)=n$ 在 $x\ge1$ 的实根。下列结论中正确的是（\quad）。
-\choices{$\{u_n\}$ 收敛}{$\{u_n/n\}$ 发散}{$\{u_n\ln(n)/n\}$ 收敛}{$\{u_n\ln(n)/n\}$ 发散}
+\choices{$\{u_n\}$ 收敛}{$\{\frac{u_n}{n}\}$ 发散}{$\{\frac{u_n\ln(n)}{n}\}$ 收敛}{$\{\frac{u_n\ln(n)}{n}\}$ 发散}
 % 880/8/第一章综合选择14
 \item 设 $\{x_n\}$ 为实数列。判断下列命题。
 \par (1) 若 $\{\arctan x_n\}$ 收敛，则 $\{x_n\}$ 收敛。
@@ -497,7 +498,7 @@ $\displaystyle\lim_{x\to0}\frac{xf(x)-(1+x)^{2x}+1}{x^2}=1$。
 \item 当 $x\to0$ 时，$f(x),g(x),x$ 两两同阶但不等价。下列各量中，必为 $x$ 的高阶无穷小的有（\quad）个。
 \[
  \text{(1)}\ f+g,\qquad\text{(2)}\ fg,\qquad
- \text{(3)}\ f^2,\qquad\text{(4)}\ f(x)\sin x\cos(1/x).
+ \text{(3)}\ f^2,\qquad\text{(4)}\ f(x)\sin x\cos(\frac{1}{x}).
 \]
 \choices{1}{2}{3}{4}
 % 500/16/第一章概念11
@@ -512,7 +513,7 @@ $\displaystyle\lim_{x\to0}\frac{xf(x)-(1+x)^{2x}+1}{x^2}=1$。
 \choices{在 $1$ 与 $-1$ 处均连续}{在 $1$ 处连续、在 $-1$ 处不连续}
 {在 $1$ 与 $-1$ 处均不连续}{在 $1$ 处不连续、在 $-1$ 处连续}
 % 六套卷/6/第二套选择1
-\item 设 $\displaystyle f(x)=\lim_{n\to\infty}\frac{2x^{2n}-1}{1+x^{2n}}\sin(1/x)$（$x\ne0$）。
+\item 设 $\displaystyle f(x)=\lim_{n\to\infty}\frac{2x^{2n}-1}{1+x^{2n}}\sin(\frac{1}{x})$（$x\ne0$）。
 函数 $f$ 的第一类间断点有（\quad）个。
 \choices{0}{1}{2}{3}
 % 六套卷/11/第三套选择2
@@ -524,7 +525,7 @@ $\displaystyle\lim_{x\to0}\frac{\ln[f(1+x)+\mathrm{e}^{x^2}]}{x^2}=2$。则 $x=1
 \choices{1}{2}{3}{4}
 % 880/16/第二章基础选择14
 \item 设 $f$ 在 $a$ 处连续。下列条件中，能推出 $f$ 在 $a$ 处可导的是（\quad）。
-\choices{$\displaystyle\lim_{x\to+\infty}|x|\big[f(a+1/|x|)-f(a)\big]$ 存在}
+\choices{$\displaystyle\lim_{x\to+\infty}|x|\big[f(a+\frac{1}{|x|})-f(a)\big]$ 存在}
 {$\displaystyle\lim_{x\to0}\frac{f(a+x^3)-f(a)}{x^2}$ 存在}
 {$\displaystyle\lim_{h\to0}\frac{f(a+h)-f(a-h)}{2h}$ 存在}
 {$\displaystyle\lim_{x\to0}\frac{f(a+x^3)-f(a)}{\tan^3 x}$ 存在}
@@ -544,20 +545,20 @@ $\displaystyle\lim_{x\to0}\frac{\ln[f(1+x)+\mathrm{e}^{x^2}]}{x^2}=2$。则 $x=1
 {$h(x)<g(x)<f(x)$}{$g(x)<f(x)<h(x)$}
 % 880/6/第一章综合选择1
 \item 使 $\displaystyle\lim_{x\to+\infty}
-\frac{\mathrm{e}^{\sin(1/x)}-1}{(1+1/x)^k-(1+1/x)}$ 存在且非零的充要条件是（\quad）。
+\frac{\mathrm{e}^{\sin(\frac{1}{x})}-1}{(1+\frac{1}{x})^k-(1+\frac{1}{x})}$ 存在且非零的充要条件是（\quad）。
 \choices{$k\ne1$}{$k>1$}{$k>0$}{与 $k$ 无关}
 % 880/6/第一章综合选择2
 \item 设 $a>0$，$\displaystyle\lim_{x\to+\infty}x^a
 \ln\frac{\arctan(x+1)}{\arctan x}=b$。下列哪组 $(a,b)$ 符合等式？
-\choices{$a=2,\ b=2/\pi$}{$a=2,\ b=\pi/2$}{$a=1,\ b=2/\pi$}{$a=1,\ b=\pi/2$}
+\choices{$a=2,\ b=\frac{2}{\pi}$}{$a=2,\ b=\frac{\pi}{2}$}{$a=1,\ b=\frac{2}{\pi}$}{$a=1,\ b=\frac{\pi}{2}$}
 % 880/8/第一章综合选择15
-\item 若正项数列 $\{x_n\}$ 对所有 $n$ 都满足 $x_{n+1}<2-1/x_n$，则 $\{x_n\}$（\quad）。
+\item 若正项数列 $\{x_n\}$ 对所有 $n$ 都满足 $x_{n+1}<2-\frac{1}{x_n}$，则 $\{x_n\}$（\quad）。
 \choices{收敛于 $0$}{收敛于 $1$}{收敛于 $\sqrt 2$}{发散}
 % 880/14/第二章基础选择4
 \item 设 $f(x)=\begin{cases}a\sqrt{x},&0\le x\le b,\\\ln x,&x>b\end{cases}$（$b>0$），
 且 $f$ 在 $(0,+\infty)$ 内可导。则（\quad）。
-\choices{$a=2/\mathrm e,\ b=\mathrm e^2$}{$a=2/\mathrm e,\ b=\mathrm e$}
-{$a=1/\mathrm e,\ b=\mathrm e^2$}{$a=1/\mathrm e,\ b=\mathrm e$}
+\choices{$a=\frac{2}{\mathrm e},\ b=\mathrm e^2$}{$a=\frac{2}{\mathrm e},\ b=\mathrm e$}
+{$a=\frac{1}{\mathrm e},\ b=\mathrm e^2$}{$a=\frac{1}{\mathrm e},\ b=\mathrm e$}
 % 500/20/第二章计算12
 \item 设 $f(x)=\begin{cases}x^{2x},&x>0,\\x\mathrm{e}^x+1,&x\le0.\end{cases}$
 则 $x=0$ 是 $f$ 的（\quad）。
@@ -569,11 +570,11 @@ $\displaystyle\lim_{x\to0}\frac{\ln[f(1+x)+\mathrm{e}^{x^2}]}{x^2}=2$。则 $x=1
 % 880/4/第一章基础填空1
 \item 设 $f(x)=\begin{cases}1,&|x|\le1,\\0,&|x|>1.\end{cases}$ 则 $f(f(f(x)))=\blank$。
 % 880/4/第一章基础填空2
-\item 当 $x\to0$ 时，若 $(1+ax^2)^{1/3}-1\sim\cos x-1$，则 $a=\blank$。
+\item 当 $x\to0$ 时，若 $(1+ax^2)^{\frac{1}{3}}-1\sim\cos x-1$，则 $a=\blank$。
 % 880/9/第一章综合填空1
 \item 当 $x\to0$ 时，$3x-4\sin x+\sin x\cos x$ 是关于 $x$ 的 $\blank$ 阶无穷小。
 % 880/9/第一章综合填空6
-\item 若 $k\ne1/2$，则 $\displaystyle\lim_{n\to\infty}
+\item 若 $k\ne\frac{1}{2}$，则 $\displaystyle\lim_{n\to\infty}
   n\ln\left[\frac{n-2nk+1}{n(1-2k)}\right]=\blank$。
 % 880/10/第一章综合填空8
 \item 若 $\displaystyle\lim_{x\to+\infty}(\sqrt[3]{1-x^6}-ax^2-b)=0$，则 $(a,b)=\blank$。
@@ -584,48 +585,48 @@ $\displaystyle\lim_{x\to0}\frac{\ln[f(1+x)+\mathrm{e}^{x^2}]}{x^2}=2$。则 $x=1
 \item 若 $f''(1)$ 存在且 $f'(1)\ne0$，则 $\displaystyle\lim_{x\to1}
 \left[\frac1{f'(1)(x-1)}-\frac1{f(x)-f(1)}\right]=\blank$。
 % 880/17/第二章基础填空1
-\item 若 $f(x)=\begin{cases}\arctan(1/x),&x>0,\\ax+b,&x\le0\end{cases}$
+\item 若 $f(x)=\begin{cases}\arctan(\frac{1}{x}),&x>0,\\ax+b,&x\le0\end{cases}$
 在 $0$ 处可导，则 $(a,b)=\blank$。
 % 880/18/第二章基础填空7
 \item 设 $f'(0)$ 存在且 $f(0)=0$。若 $\displaystyle\lim_{x\to0}
-\left[1+\frac{1-\cos f(x)}{\sin x}\right]^{1/x}=\mathrm e$，则 $f'(0)$ 的可能取值为 $\blank$。
+\left[1+\frac{1-\cos f(x)}{\sin x}\right]^{\frac{1}{x}}=\mathrm e$，则 $f'(0)$ 的可能取值为 $\blank$。
 % 880/18/第二章基础填空11
-\item 设 $f_n(x)=n^2\mathrm{e}^{x/n}-(1+n)x$ 在 $x=x_n$ 处有水平切线。
+\item 设 $f_n(x)=n^2\mathrm{e}^{\frac{x}{n}}-(1+n)x$ 在 $x=x_n$ 处有水平切线。
 则 $\displaystyle\lim_{n\to\infty}\mathrm{e}^{x_n}=\blank$。
 % 500/25/第二章计算26
 \item 若 $\displaystyle y=\ln\frac{\sqrt{1+x^2}-1}{\sqrt{1+x^2}+1}$（$x\ne0$），则 $y'=\blank$。
 % 500/26/第二章计算29
 \item 设 $y\ge1$ 由 $x=y^{y^2}$ 确定，求用 $\mathrm{d}x$ 表示的 $\mathrm{d}y=\blank$。
 % 500/27/第二章计算31
-\item 对 $x\ne0$ 设 $\displaystyle f(x)=\lim_{t\to0}(1+t\sin x)^{1/(tx)}$，
+\item 对 $x\ne0$ 设 $\displaystyle f(x)=\lim_{t\to0}(1+t\sin x)^{\frac{1}{tx}}$，
 则 $\displaystyle\lim_{x\to0}f'(x)=\blank$。
 % 500/27/第二章计算32
 \item 设 $f$ 可导且 $f'(0)=1$，$y(x)$ 由 $y-x\mathrm{e}^{y-1}=1$ 确定。
 若 $z=f(\ln y+\sin x)$，则 $\left.\dfrac{\mathrm{d}z}{\mathrm{d}x}\right|_{x=0}=\blank$。
 % 500/28/第二章计算34
 \item 设 $y=f(x)$ 由 $\ln(x^2+y)=x^3y+\sin x$ 在 $(0,1)$ 的邻域内确定。
-则 $\displaystyle\lim_{n\to\infty}n[f(2/n)-1]=\blank$。
+则 $\displaystyle\lim_{n\to\infty}n[f(\frac{2}{n})-1]=\blank$。
 % 500/28/第二章计算35
-\item 设 $f(x)=\cos(\cos x)+\cos(\sin x)$，则 $f'''(\pi/2)=\blank$。
+\item 设 $f(x)=\cos(\cos x)+\cos(\sin x)$，则 $f'''(\frac{\pi}{2})=\blank$。
 % 500/30/第二章计算41
 \item 曲线 $x^2+xy+y^3=3$ 在 $x=1$ 的对应点处的法线方程为 $\blank$。
 % 500/31/第二章计算45
-\item 对数螺线 $r=\mathrm{e}^{\theta}$ 在 $\theta=\pi/2$ 处的切线直角坐标方程为 $\blank$。
+\item 对数螺线 $r=\mathrm{e}^{\theta}$ 在 $\theta=\frac{\pi}{2}$ 处的切线直角坐标方程为 $\blank$。
 % 880/30/第二章综合填空10
-\item 设 $f$ 是 $g$ 的反函数，$g(1)=2$，$g'(1)=-\sqrt{3}/3$。则
+\item 设 $f$ 是 $g$ 的反函数，$g(1)=2$，$g'(1)=-\frac{\sqrt{3}}{3}$。则
 $\displaystyle\lim_{y\to2}\frac{(y-2)[f(y)-f(2)]}{(\ln y-\ln 2)^2}=\blank$。
 % 500/10/第一章计算26
-\item $\displaystyle\lim_{x\to0}\left(\frac{1}{x(1+x)^{1/x}}-\frac1{x\mathrm e}\right)=\blank$。
+\item $\displaystyle\lim_{x\to0}\left(\frac{1}{x(1+x)^{\frac{1}{x}}}-\frac1{x\mathrm e}\right)=\blank$。
 % 500/10/第一章计算27
 \item $\displaystyle\lim_{n\to\infty}\sum_{k=1}^{n}\frac{k^2}{\sqrt{n^6+kn}}=\blank$。
 % 500/11/第一章计算29
-\item 若 $\displaystyle\lim_{x\to+\infty}\left(x^{2/3}\sqrt[3]{6-x}-ax-b\right)=0$，则 $ab=\blank$。
+\item 若 $\displaystyle\lim_{x\to+\infty}\left(x^{\frac{2}{3}}\sqrt[3]{6-x}-ax-b\right)=0$，则 $ab=\blank$。
 % 880/18/第二章基础填空2
 \item 设 $f$ 在 $0$ 处可导，且 $f'(0)=2,\ f(0)=0$。则
 $\displaystyle\lim_{x\to0}\frac{f(1-\cos x)}{\ln(1+x^2)}=\blank$。
 % 500/27/第二章计算33
-\item 设 $g(x)=(\mathrm{e}^x+\mathrm{e}^{-x})/2$，对任意实数 $x,y$ 都有
-$f(x+y)=f(x)g(y)+f(y)g(x)$，且 $\displaystyle\lim_{x\to0} f(x)/x=1$。
+\item 设 $g(x)=\frac{\mathrm{e}^x+\mathrm{e}^{-x}}{2}$，对任意实数 $x,y$ 都有
+$f(x+y)=f(x)g(y)+f(y)g(x)$，且 $\displaystyle\lim_{x\to0} \frac{f(x)}{x}=1$。
 则 $f'(x)=\blank$。
 % 500/28/第二章计算36
 \item 设 $f(x)=x^2(1+\sin x)$，则 $f^{(5)}(\pi)=\blank$。
@@ -633,9 +634,9 @@ $f(x+y)=f(x)g(y)+f(y)g(x)$，且 $\displaystyle\lim_{x\to0} f(x)/x=1$。
 \item 过点 $(3,-1)$ 作参数曲线 $x=\mathrm{e}^t+t,\ y=\mathrm{e}^{-t}-t$（$t\le1$）的切线，
 该切线在 $y$ 轴上的截距为 $\blank$。
 % 500/31/第二章计算44
-\item 双纽线 $r=\sqrt{\cos(2\theta)}$ 在 $\theta=\pi/12$ 处的切线斜率为 $\blank$。
+\item 双纽线 $r=\sqrt{\cos(2\theta)}$ 在 $\theta=\frac{\pi}{12}$ 处的切线斜率为 $\blank$。
 % 880/29/第二章综合填空1
-\item 设 $f(x)=\displaystyle\prod_{k=1}^{100}\big[\tan^k(\pi x/4)-k\big]$，
+\item 设 $f(x)=\displaystyle\prod_{k=1}^{100}\big[\tan^k(\frac{\pi x}{4})-k\big]$，
 则 $f'(1)=\blank$。
 \end{enumerate}
 
@@ -643,19 +644,19 @@ $f(x+y)=f(x)g(y)+f(y)g(x)$，且 $\displaystyle\lim_{x\to0} f(x)/x=1$。
 \begin{enumerate}[start=50]
 % 880/4/第一章基础解答2(II)
 \item 设 $a,b,c>0$，求 $\displaystyle\lim_{x\to+\infty}
-\left(\frac{a^{1/x}+b^{1/x}+c^{1/x}}3\right)^x$。
+\left(\frac{a^{\frac{1}{x}}+b^{\frac{1}{x}}+c^{\frac{1}{x}}}3\right)^x$。
 % 880/10/第一章综合解答1
-\item 设数列 $\{a_n\}$ 从某一项起各项均非零，且 $a_{n+1}/a_n\to q$，$|q|<1$。
+\item 设数列 $\{a_n\}$ 从某一项起各项均非零，且 $\frac{a_{n+1}}{a_n}\to q$，$|q|<1$。
 证明 $a_n\to0$。
 % 880/10/第一章综合解答2
-\item 设 $a_k=2^{1/2^k}$，$u_n=\prod_{k=1}^n a_k$。求 $\lim_{n\to\infty}u_n$。
+\item 设 $a_k=2^{\frac{1}{2^k}}$，$u_n=\prod_{k=1}^n a_k$。求 $\lim_{n\to\infty}u_n$。
 % 880/12/第一章综合解答14
 \item 求下列极限。
 \[
 \begin{aligned}
   &\text{(1)}\ \lim_{n\to\infty}\prod_{k=1}^n(1+x^{2^k})\quad (|x|<1),\\
-  &\text{(2)}\ \lim_{n\to\infty}\prod_{k=1}^n\cos(x/2^k)\quad (x\ne0),\\
-  &\text{(3)}\ \lim_{x\to\pi/2}\frac{\prod_{k=2}^{n}(1-\sin^k x)}
+  &\text{(2)}\ \lim_{n\to\infty}\prod_{k=1}^n\cos(\frac{x}{2^k})\quad (x\ne0),\\
+  &\text{(3)}\ \lim_{x\to\frac{\pi}{2}}\frac{\prod_{k=2}^{n}(1-\sin^k x)}
     {(1-\sin x)^{n-1}}\quad (n\ge2).
 \end{aligned}
 \]
@@ -664,14 +665,14 @@ $f(x+y)=f(x)g(y)+f(y)g(x)$，且 $\displaystyle\lim_{x\to0} f(x)/x=1$。
 $\displaystyle\lim_{x\to2a}\frac{f(x)}{x-2a}=\lim_{x\to4a}\frac{f(x)}{x-4a}=1$。
 求 $\displaystyle\lim_{x\to3a}\frac{f(x)}{x-3a}$。
 % 880/12/第一章综合解答16
-\item 设 $x_1=1/2$，$x_{n+1}=x_n+x_n^2$，求 $\displaystyle\lim_{n\to\infty}\sum_{k=1}^n\frac1{x_k+1}$。
+\item 设 $x_1=\frac{1}{2}$，$x_{n+1}=x_n+x_n^2$，求 $\displaystyle\lim_{n\to\infty}\sum_{k=1}^n\frac1{x_k+1}$。
 % 880/13/第一章拓展题1(I)
-\item 设 $x_0\in(-\pi/2,\pi/2)$，$x_{n+1}=(x_n+\arctan x_n)/2$。证明数列收敛并求极限。
+\item 设 $x_0\in(-\frac{\pi}{2},\frac{\pi}{2})$，$x_{n+1}=\frac{x_n+\arctan x_n}{2}$。证明数列收敛并求极限。
 % 880/13/第一章拓展题3(I)
 \item 对每个正整数 $n$，证明 $x^n-\cos x=0$ 在 $(0,1)$ 有唯一实根。
 % 26版/36/第一章拓展题5
 \item 设 $f$ 在 $[0,1]$ 上二阶可导，$f'(x)>0$、$f''(x)>0$，且 $f(0)=0$。
-任取 $x_1\in(0,1)$，令 $x_{n+1}=x_n-f(x_n)/f'(x_n)$。证明数列收敛并求极限。
+任取 $x_1\in(0,1)$，令 $x_{n+1}=x_n-\frac{f(x_n)}{f'(x_n)}$。证明数列收敛并求极限。
 % 880/21/第二章基础解答7
 \item 设 $f$ 在 $(0,+\infty)$ 上满足 $f(xy)=f(x)+f(y)$ 且 $f'(1)=1$。
 证明 $f$ 在 $(0,+\infty)$ 上可导，并求 $f'(x)$。
@@ -680,7 +681,7 @@ $\displaystyle\lim_{x\to2a}\frac{f(x)}{x-2a}=\lim_{x\to4a}\frac{f(x)}{x-4a}=1$�
 $\displaystyle\lim_{x\to0}\frac{f(x)-x}{x^2}$。
 % 880/22/第二章基础解答13
 \item 设 $f(x)=\begin{cases}1+x^2,&0\le x\le1,\\1-x^2,&-1\le x<0.\end{cases}$
-验证拉格朗日中值定理的条件，并求满足定理等式的所有 $\xi$。
+验证 Lagrange 中值定理的条件，并求满足定理等式的所有 $\xi$。
 % 880/22/第二章基础解答15
 \item 设 $f$ 在 $[0,1]$ 上可导，$f(0)=0$，$f(1)=1$，且 $f(x)$ 不恒等于 $x$。
 证明存在 $\xi\in(0,1)$，使 $f'(\xi)>1$。
@@ -690,10 +691,10 @@ $\displaystyle\frac{a\mathrm e^b-b\mathrm e^a}{a-b}=\mathrm e^\xi(1-\xi)$。
 % 880/23/第二章基础解答20
 \item 证明下列不等式。
 \begin{enumerate}[label=(\arabic*),nosep]
-\item 当 $0<x<\pi$ 时，$\sin(x/2)>x/\pi$。
+\item 当 $0<x<\pi$ 时，$\sin(\frac{x}{2})>\frac{x}{\pi}$。
 \item 当 $\mathrm e<a<b$ 时，$a^b>b^a$。
 \item 当 $x>0$ 时，$(x^2-1)\ln x\ge(x-1)^2$。
-\item 若 $f$ 在 $\mathbb R$ 上二阶可导，$f''(x)>0$ 且 $\lim_{x\to0}f(x)/x=1$，则 $f(x)\ge x$。
+\item 若 $f$ 在 $\mathbb R$ 上二阶可导，$f''(x)>0$ 且 $\lim_{x\to0}\frac{f(x)}{x}=1$，则 $f(x)\ge x$。
 \end{enumerate}
 % 880/23/第二章基础解答21
 \item 证明当 $x>0$ 时，$\big(1+\frac1{2x}\big)\big(1+\frac1x\big)^x>\mathrm e$。
@@ -728,7 +729,7 @@ $\displaystyle\lim_{x\to+\infty}[f(x)+f'(x)]=0$。证明 $\displaystyle\lim_{x\t
 \item 分别求 $y=2^{|\sin x|}$ 在 $x\notin\pi\mathbb{Z}$ 处的导数和
 $y=\ln|\tan x+\sec x|$ 在其定义域内的导数。
 % 880/21/第二章基础解答6
-\item 求心形线 $r=1-\cos\theta$ 在 $\theta=\pi/2$ 处的切线直角坐标方程。
+\item 求心形线 $r=1-\cos\theta$ 在 $\theta=\frac{\pi}{2}$ 处的切线直角坐标方程。
 % 讲义/54/第二章反函数求导例8
 \item 已知 $f'(x)=a\mathrm{e}^x$（$a>0$），求 $f$ 的反函数在 $y=f(x)$ 处的二阶导数。
 \end{enumerate}
