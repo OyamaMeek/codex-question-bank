@@ -329,11 +329,12 @@
 - **实际实现的功能与改动**：
   - 在 `main` 启用串行发布工作流，按推送差异编译受影响的 TeX，附件上传成功后公开 Release。同一次运行重试沿用草稿或跳过已发布的版本。
   - 八项回归测试通过，五份现有 TeX 均通过 Tectonic 0.17.0 编译。工作流静态检查单独核对了 `actionlint` 尚未支持的 `queue: max`。
+  - GitHub Actions 首次运行成功。安装工作流的推送未修改 TeX，编译和发布步骤均跳过，远端尚未使用 `v0.0.1`。
 
 - **涉及文件**：
   - `.github/workflows/release-tex.yml`、`.github/scripts/release_tex.py`、`.github/scripts/test_release_tex.py`
   - `.gitignore`、`README.md`、`memory/agents.md`、`memory/plan.md`、`memory/progress.md`、`memory/verify.md`
 
-- **Git 提交**：待提交。
+- **Git 提交**：`829d693157071059f48e9275646aee774d09a0b5 feat: publish changed LaTeX documents as PDFs`。
 
 ---
