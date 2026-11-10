@@ -179,3 +179,20 @@
 - **Git 提交**：`d2781a8dd47cfe18d5197271e6098d9ae3d4c15a fix: unify question headings across layouts`。
 
 ---
+
+## [2026-11-10 13:11] 删除旧版 iPad 横屏真题集
+
+- **需求/问题描述**：
+  > 删除原卷截图排版的旧版 iPad 横屏真题集，并同步到远端仓库。
+
+- **实际实现的功能与改动**：
+  - 删除旧版 PDF 和 LaTeX 源稿。检查了引用和删除范围，核对原生版及共用裁片资源的校验值。
+
+- **涉及文件**：
+  - `output/302数学二分节真题集（iPad横屏版）.pdf`（删除 432 页）
+  - `output/302数学二分节真题集（iPad横屏版）.tex`（-649 行）
+  - `memory/plan.md`、`memory/progress.md`、`memory/verify.md`
+
+- **Git 提交**：待提交。
+
+---
