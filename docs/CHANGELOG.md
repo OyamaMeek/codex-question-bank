@@ -176,6 +176,6 @@
   - `output/302数学二分节真题集（原生LaTeX横屏版）.pdf`（432 页）
   - `memory/plan.md`、`memory/progress.md`、`memory/verify.md`、`memory/gotchas.md`
 
-- **Git 提交**：待提交。
+- **Git 提交**：`d2781a8dd47cfe18d5197271e6098d9ae3d4c15a fix: unify question headings across layouts`。
 
 ---
