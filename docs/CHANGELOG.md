@@ -158,6 +158,6 @@
   - `output/302数学二分节真题集（原生LaTeX横屏版）.pdf`（432 页）
   - `memory/plan.md`、`memory/progress.md`、`memory/verify.md`、`memory/gotchas.md`
 
-- **Git 提交**：待提交。
+- **Git 提交**：`8b1f9612491f6aa98c933e2c1f070cd4a8479296 fix: center limit conditions in the question bank`。
 
 ---
