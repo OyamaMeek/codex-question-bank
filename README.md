@@ -26,6 +26,8 @@ LaTeX 源文件位于 `output/`。使用带有 `ctex`、Fandol 字体和 TikZ �
 - 数学二真题集的 A4 编译入口读取同目录的横屏源稿，两种版式共用题目和解析。
 - 27302 模拟卷提供 [第一卷源稿](output/27302阶段模拟卷.tex) 和 [第二至五卷及补充练习源稿](output/27302阶段模拟卷（第二至五卷及补充练习）.tex)。
 
+推送到 `main` 后，GitHub Actions 会编译本次改动影响的 TeX 文档，并将 PDF 上传到 [Releases](https://github.com/OyamaMeek/codex-question-bank/releases)。自动版本从 `v0.0.1` 递增至 `v0.0.999`。如需注明具体改动，在相关 Git 提交正文的末尾留一个空行，再写 `Release-Note: 补充第二至五卷解析`。没有该字段时，发布说明会列出更新的文档名。
+
 ## 开发记录
 
 资料的编排和修订历史见 [开发记录](docs/CHANGELOG.md)。

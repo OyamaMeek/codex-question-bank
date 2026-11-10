@@ -320,3 +320,20 @@
 - **Git 提交**：`631abfc55ecb85f845999e955829ebdfbbbb2636 docs: organize README by question bank topic`。
 
 ---
+
+## [2026-11-11 00:03] 自动发布 LaTeX PDF
+
+- **需求/问题描述**：
+  > 推送后编译本次改动影响的 TeX，发布 PDF 和简短中文说明。版本从 `v0.0.1` 逐次递增，达到 `v0.0.999` 后等候批准。
+
+- **实际实现的功能与改动**：
+  - 在 `main` 启用串行发布工作流，按推送差异编译受影响的 TeX，附件上传成功后公开 Release。同一次运行重试沿用草稿或跳过已发布的版本。
+  - 八项回归测试通过，五份现有 TeX 均通过 Tectonic 0.17.0 编译。工作流静态检查单独核对了 `actionlint` 尚未支持的 `queue: max`。
+
+- **涉及文件**：
+  - `.github/workflows/release-tex.yml`、`.github/scripts/release_tex.py`、`.github/scripts/test_release_tex.py`
+  - `.gitignore`、`README.md`、`memory/agents.md`、`memory/plan.md`、`memory/progress.md`、`memory/verify.md`
+
+- **Git 提交**：待提交。
+
+---

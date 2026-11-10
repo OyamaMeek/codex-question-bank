@@ -1,0 +1,54 @@
+name: 发布 LaTeX PDF
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: latex-pdf-release
+  queue: max
+
+jobs:
+  release:
+    if: ${{ !github.event.deleted }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: 检查发布计划
+        id: plan
+        env:
+          BEFORE: ${{ github.event.before }}
+        run: |
+          if [[ "$BEFORE" != 0000000000000000000000000000000000000000 ]] && ! git cat-file -e "$BEFORE^{commit}"; then
+            git fetch --no-tags origin "$BEFORE"
+          fi
+          python3 .github/scripts/release_tex.py plan "$BEFORE" "$GITHUB_SHA" > "$RUNNER_TEMP/tex-plan.json"
+          changed=$(jq '.files | length > 0' "$RUNNER_TEMP/tex-plan.json")
+          printf 'changed=%s\n' "$changed" >> "$GITHUB_OUTPUT"
+
+      - name: 安装 Tectonic 并编译 PDF
+        if: steps.plan.outputs.changed == 'true'
+        run: |
+          archive="$RUNNER_TEMP/tectonic.tar.gz"
+          curl -fsSL --retry 3 -o "$archive" https://github.com/tectonic-typesetting/tectonic/releases/download/tectonic%400.17.0/tectonic-0.17.0-x86_64-unknown-linux-gnu.tar.gz
+          echo "1a715688baf591e650c8aeb160ae934e181685eecbb38b317de30b269ac5d606  $archive" | sha256sum --check
+          tar -xzf "$archive" -C "$RUNNER_TEMP" tectonic
+          export PATH="$RUNNER_TEMP:$PATH"
+          python3 .github/scripts/release_tex.py compile "$RUNNER_TEMP/tex-plan.json" "$RUNNER_TEMP/tex-pdfs"
+
+      - name: 上传并发布 Release
+        if: steps.plan.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 .github/scripts/release_tex.py publish "$RUNNER_TEMP/tex-plan.json" "$RUNNER_TEMP/tex-pdfs"
