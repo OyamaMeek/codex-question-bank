@@ -140,6 +140,6 @@
   - `output/302数学二分节真题集（原生LaTeX常规版）.tex`（新增 4 行）
   - `memory/plan.md`、`memory/progress.md`、`memory/verify.md`、`memory/gotchas.md`
 
-- **Git 提交**：待提交。
+- **Git 提交**：`d6e1216ea9368dee11399e44ee8c10799d2150a6 feat: transcribe math questions into native LaTeX`。
 
 ---
