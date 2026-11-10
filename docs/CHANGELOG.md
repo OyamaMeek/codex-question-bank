@@ -120,6 +120,6 @@
   - `output/302数学二分节真题集（iPad横屏版）.tex`
   - `memory/plan.md`、`memory/progress.md`、`memory/verify.md`
 
-- **Git 提交**：待提交。
+- **Git 提交**：`23da9f44541b5dcc275b94ee01b186e194b28d38 feat: add iPad landscape question bank`。
 
 ---
