@@ -317,6 +317,6 @@
   - `README.md`
   - `docs/CHANGELOG.md`
 
-- **Git 提交**：待提交。
+- **Git 提交**：`631abfc55ecb85f845999e955829ebdfbbbb2636 docs: organize README by question bank topic`。
 
 ---
