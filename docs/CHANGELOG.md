@@ -441,3 +441,17 @@
 - **Git 提交**：`937f7e5c052370e37fede71c2825f7bf7a663416 chore: manage project at repository root and save proofread exams`，已通过远端引用核对推送成功；本条哈希补记由后续文档提交保存。
 
 ---
+
+## [2026-11-12 14:54] 停止跟踪 references 目录
+
+- **需求/问题描述**：
+  > references 不纳入 Git。
+- **实际实现的功能与改动**：
+  - 将整个 `/references/` 加入 `.gitignore`，取消四份已跟踪 Markdown 的索引记录，保留本地资料。
+  - 对比取消跟踪前后的文件 SHA-256，检查忽略规则和索引中没有 references 文件。
+- **涉及文件**：
+  - `.gitignore`、`memory/gotchas.md`、`memory/progress.md`、`docs/CHANGELOG.md`。
+  - `references/302模拟27md/往年模拟卷选填精选/` 中四份 Markdown（取消跟踪）。
+- **Git 提交**：待提交。
+
+---
