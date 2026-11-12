@@ -1,0 +1,309 @@
+% !TeX program = xelatex
+% 题源根目录：references/302模拟27md/
+% 武忠祥8月：2027模考/武忠祥/武老师8月突击强化测试/8月强化突击测试.pdf.md
+% 李林：2027模考/李林《六套卷》/数学二/试卷/考研数学冲刺预测6套卷.pdf.md
+% 张宇：2027模考/张宇《八套卷》/张宇八套卷/数二/【紧凑】张宇八套卷-数二（已勘误）.pdf.md
+% 李艳芳：2027模考/李艳芳《三套卷》/数学二/【紧凑版】李艳芳三套卷做题本 .pdf.md
+\documentclass[UTF8,zihao=-4,fontset=fandol]{ctexart}
+\usepackage[paperwidth=800bp,paperheight=600bp,left=48bp,right=48bp,top=40bp,bottom=40bp]{geometry}
+\usepackage{amsmath,amssymb,xcolor,fancyhdr,enumitem}
+\usepackage[hidelinks,bookmarksopen=true]{hyperref}
+\renewcommand{\lim}{\operatorname*{lim}\limits}
+\everymath{\displaystyle}
+\definecolor{accent}{HTML}{175C57}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5bp}\setlength{\headheight}{15bp}
+\setlength{\abovedisplayskip}{6bp}\setlength{\belowdisplayskip}{6bp}
+\pagestyle{fancy}\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{\footnotesize\textcolor{gray}{中值定理阶段模拟卷 2 · 4:3 横屏}}
+\fancyfoot[R]{\footnotesize\thepage}\raggedbottom
+\newcommand{\Question}[4]{\clearpage\def\CurrentNumber{#1}\def\CurrentSource{#4}\pdfbookmark[1]{第#1题}{q#1}{\small\color{accent}模拟卷 2\hfill #2 · #3 分}\par{\Large\bfseries 第 #1 题}\par\medskip\fontsize{14}{22}\selectfont}
+\newcommand{\Solution}{\clearpage\fontsize{12}{18}\selectfont{\large\bfseries 第 \CurrentNumber\ 题解析}\par{\footnotesize\color{gray}题源：\CurrentSource}\par\smallskip}
+\newcommand{\Known}{\par\textbf{已知与目标}\quad}
+\newcommand{\Method}{\par\textbf{方法与条件}\quad}
+\newcommand{\Derive}{\par\textbf{推导}\quad}
+\renewcommand{\Check}{\par\textbf{结论与检查}\quad}
+\newcommand{\Choices}[4]{\par\medskip\begin{minipage}[t]{.48\linewidth}(A)\enspace #1\end{minipage}\hfill\begin{minipage}[t]{.48\linewidth}(B)\enspace #2\end{minipage}\par\medskip\begin{minipage}[t]{.48\linewidth}(C)\enspace #3\end{minipage}\hfill\begin{minipage}[t]{.48\linewidth}(D)\enspace #4\end{minipage}\par}
+\newcommand{\blank}{\underline{\hspace{6em}}}
+\begin{document}
+\pdfbookmark[0]{模拟卷2}{cover}
+{\small\color{accent}工科数学分析基础 · 第三版上册}\par\vspace{20bp}
+{\Huge\bfseries 阶段模拟卷 2}\par\medskip
+{\Large 条件辨析、极限与二阶导数}\par\vspace{18bp}
+\textbf{满分 100 分\qquad 建议用时 120 分钟}
+
+考试范围：第一章；第二章第一至第三节，以及第四节中的 4.1 极值必要条件、4.2 Rolle、Lagrange、Cauchy 中值定理。教材对应 PDF 第 24–153 页。解答只使用这一范围内的方法。
+
+第 1–4 题为单项选择，每题 5 分；第 5–8 题为填空，每题 5 分；第 9–12 题为解答，每题 15 分。解答题请写出理由。
+
+每道题单独一页，下方空白供手写；下一页为该题解析。限时作答时请跳过解析页。题目总体为中等偏上，证明题和条件辨析题具有一定挑战。
+
+题目选自本地 references/302模拟27md，具体作者、卷次与原题号见各题解析。改题型、增设任务或只取原题小问均逐题标注。
+
+\Question{1}{单项选择}{5}{李林六套卷数二，第一套第 2 题；原题}
+设 $a,b,k$ 均为不为零的常数，则
+\[
+\lim_{x\to a}\frac{f(x)-b}{x-a}=k
+\]
+是
+\[
+\lim_{x\to a}\frac{\mathrm e^{f(x)}-\mathrm e^b}{x-a}=k\mathrm e^b
+\]
+的（\quad）。
+\Choices{充分非必要条件}{必要非充分条件}{充分必要条件}{既非充分又非必要条件}
+\Solution
+\Known 要判断两个极限命题能否互相推出。“充分”表示第一个能推出第二个，“必要”表示第二个能推出第一个。
+\Method 充分性用指数函数增量比；必要性先用对数的连续性恢复 $f(x)\to b$，再恢复原差商。无需假定 $f(a)=b$。
+\Derive 若第一个极限成立，则 $f(x)-b\to0$。令
+\[
+E(u)=\begin{cases}\frac{\mathrm e^u-1}u,&u\ne0,\\1,&u=0,\end{cases}
+\quad\text{则 }E(u)\to1.
+\]
+因此
+\[
+\frac{\mathrm e^{f(x)}-\mathrm e^b}{x-a}
+=\mathrm e^b E(f(x)-b)\frac{f(x)-b}{x-a}\to k\mathrm e^b.
+\]
+反过来，第二个极限有限，推出 $\mathrm e^{f(x)}\to\mathrm e^b>0$；取对数得 $f(x)\to b$。再用同一等式除以 $\mathrm e^bE(f(x)-b)$，得到第一个极限。
+\Check 选 \textbf{C}。$E$ 在 $0$ 补值后处理了 $f(x)=b$ 的可能情况，避免了无意义的除零；结论与点值 $f(a)$ 无关。
+
+\Question{2}{单项选择}{5}{李林六套卷数二，第二套第 1 题；补明定义域不含零}
+设
+\[
+f(x)=\lim_{n\to\infty}\frac{2x^{2n}-1}{x^{2n}+1}\sin\frac1x,\qquad x\ne0.
+\]
+则 $f(x)$ 的第一类间断点的个数为（\quad）。
+\Choices{$0$}{$1$}{$2$}{$3$}
+\Solution
+\Known 先对固定 $x$ 求数列极限，再分析所得函数。“第一类间断点”指左右极限都存在且有限的间断点。
+\Method 按 $|x|<1$、$|x|=1$、$|x|>1$ 分类；检查分段边界以及被排除的 $x=0$。
+\Derive 当 $0<|x|<1$ 时，$x^{2n}\to0$；当 $|x|>1$ 时，$x^{2n}\to+\infty$。所以
+\[
+f(x)=\begin{cases}-\sin\frac1x,&0<|x|<1,\\\frac12\sin\frac1x,&|x|=1,\\2\sin\frac1x,&|x|>1.\end{cases}
+\]
+在 $x=1$ 处，左、右极限分别为 $-\sin1$、$2\sin1$，是有限但不相等的两个数，因此是跳跃间断点。在 $x=-1$ 处，左、右极限分别为 $-2\sin1$、$\sin1$，也为跳跃间断点。
+
+在 $0$ 附近，$-\sin\frac1x$ 振荡，连单侧极限也不存在，故 $0$ 不属于第一类间断点；其他点均连续。
+\Check 选 \textbf{C}，共 $2$ 个。端点本身取值为两侧系数之间的值，也不能消除跳跃。
+
+\Question{3}{单项选择}{5}{张宇八套卷数二，卷六第 2 题；原题}
+设 $f(x_0)=g(x_0)$，$f'(x_0)<g'(x_0)$，则必存在 $\delta>0$，使得（\quad）。
+\Choices{在 $x_0$ 两侧的去心邻域内均有 $f(x)<g(x)$。}{在 $x_0$ 两侧的去心邻域内均有 $f(x)>g(x)$。}{左侧 $f(x)<g(x)$，右侧 $f(x)>g(x)$。}{左侧 $f(x)>g(x)$，右侧 $f(x)<g(x)$。}
+\Solution
+\Known 两函数在同一点相交，但该点处 $f$ 的导数较小，要比较交点附近两侧的函数值。
+\Method 令 $h=f-g$，把比较转成差商的保号性：极限为负数时，差商在足够小的去心邻域内也为负。去心邻域表示除去中心点的附近区域。
+\Derive 有
+\[
+h(x_0)=0,\qquad h'(x_0)=f'(x_0)-g'(x_0)<0,
+\]
+于是存在 $\delta>0$，使 $0<|x-x_0|<\delta$ 时
+\[
+\frac{h(x)}{x-x_0}<0.
+\]
+左侧 $x-x_0<0$，故 $h(x)>0$，即 $f(x)>g(x)$；右侧 $x-x_0>0$，故 $h(x)<0$，即 $f(x)<g(x)$。
+\Check 选 \textbf{D}。取 $f(x)=0,g(x)=x-x_0$ 代回，左右不等号与结论相同。推理只用一点处的导数，没有额外假定导函数连续。
+
+\Question{4}{单项选择}{5}{李艳芳三套卷数二，卷一第 1 题；原题}
+若
+\[
+\lim_{x\to\infty}x^2\left(2a-ax\sin\frac1x-b\cos\frac1x\right)=\frac12,
+\]
+则（\quad）。
+\Choices{$a=\frac34,b=\frac34$}{$a=\frac34,b=\frac43$}{$a=\frac43,b=\frac34$}{$a=\frac43,b=\frac43$}
+\Solution
+\Known 无穷远处的极限包含待定系数，要求确定 $a,b$。
+\Method 令 $t=\frac1x\to0$；先让常数项抵消，再用三角恒等式和 Cauchy 中值定理计算高阶比值。
+\Derive 括号必须趋于零，故 $2a-a-b=0$，即 $a=b$。此时原式成为
+\[
+a\frac{2-\frac{\sin t}t-\cos t}{t^2}
+=a\left(\frac{t-\sin t}{t^3}+\frac{1-\cos t}{t^2}\right).
+\]
+对 $u-\sin u$ 与 $u^3$ 在 $0$ 和 $t$ 之间用 Cauchy 定理，存在中间点 $v$，使
+\[
+\frac{t-\sin t}{t^3}=\frac{1-\cos v}{3v^2}\to\frac16.
+\]
+又因 $1-\cos t=2\sin^2\frac t2$，第二个比值趋于 $\frac12$。因此 $a\left(\frac16+\frac12\right)=\frac12$，得 $a=b=\frac34$。
+\Check 选 \textbf{A}。代回两项系数之和为 $\frac34\cdot\frac23=\frac12$；两侧无穷远趋近得到同一值。
+
+\Question{5}{填空}{5}{张宇八套卷数二，卷四第 13 题；原题}
+\[
+\lim_{x\to0}\frac1{x^2}\left(\frac1{x^2+1}-\cos x\right)=\blank.
+\]
+\Solution
+\Known 两项分别趋于 $1$，相减后需要保留二次小量。
+\Method 将 $1$ 加入再减去，拆成可以直接求极限的两个比值。相减时若主项抵消，不能只分别作一阶等价替换。
+\Derive 对 $x\ne0$，有严格恒等式
+\[
+\begin{aligned}
+\frac1{x^2}\left(\frac1{1+x^2}-\cos x\right)
+&=\frac{\frac1{1+x^2}-1}{x^2}+\frac{1-\cos x}{x^2}\\
+&=-\frac1{1+x^2}+\frac{2\sin^2\frac x2}{x^2}.
+\end{aligned}
+\]
+第一项趋于 $-1$，第二项趋于 $\frac12$，所以总极限为 $-\frac12$。
+\Check 填 $\boxed{-\frac12}$。各项分母均在去心邻域内有效；负号来自有理函数下降的二次项，已在恒等式中明确保留。
+
+\Question{6}{填空}{5}{张宇八套卷数二，卷五第 11 题；原题}
+\[
+\lim_{x\to0}\frac1x\left(\frac{\sqrt{1+x^2}}{\sin x}-\cot x\right)=\blank.
+\]
+\Solution
+\Known 两项含同一分母 $\sin x$，要求它们差的极限。
+\Method 先合并，再将根式有理化，即乘以共轭式以消除根式相减。最后使用基本三角极限。
+\Derive 合并后为
+\[
+\frac{\sqrt{1+x^2}-\cos x}{x\sin x}
+=\frac{x}{\sin x}\left(\frac{\sqrt{1+x^2}-1}{x^2}+\frac{1-\cos x}{x^2}\right).
+\]
+其中第一项有理化后为
+\[
+\frac{\sqrt{1+x^2}-1}{x^2}
+=\frac1{\sqrt{1+x^2}+1}\to\frac12,
+\]
+第二项由 $1-\cos x=2\sin^2\frac x2$ 也趋于 $\frac12$。乘上 $\frac{x}{\sin x}\to1$，总极限为 $1$。
+\Check 填 $\boxed{1}$。根式项和三角项都贡献 $\frac12$，两部分都已保留，没有将它们的差提前约掉。
+
+\Question{7}{填空}{5}{李艳芳三套卷数二，卷一第 11 题；原题}
+设函数 $f(x)$ 可导。曲线 $y=\arccos\frac1x-\frac{2\pi}3$ 与 $y=f(x)$ 在 $(-2,0)$ 处相切，且
+\[
+f(x)+f(-x)=-\frac\pi3.
+\]
+则曲线 $y=f(x)$ 在 $(2,f(2))$ 处的切线方程为 $y=$\blank。
+\Solution
+\Known 相切意味着两曲线在给定点的函数值和切线斜率相同。要求将 $-2$ 处的信息转移到 $2$ 处。
+\Method 先求已知曲线的导数，再对函数恒等式求导。反余弦的导数公式为 $\frac{\mathrm d}{\mathrm du}\arccos u=-\frac1{\sqrt{1-u^2}}$，本题在 $x=-2$ 处满足 $\left|\frac1x\right|<1$。
+\Derive 由相切知 $f(-2)=0$。又有
+\[
+\frac{\mathrm d}{\mathrm dx}\arccos\frac1x
+=\frac1{x^2\sqrt{1-\frac1{x^2}}},\qquad
+f'(-2)=\frac1{2\sqrt3}.
+\]
+恒等式代入 $x=2$ 得 $f(2)=-\frac\pi3$。对恒等式求导时，$f(-x)$ 的导数为 $-f'(-x)$，故
+\[
+f'(x)-f'(-x)=0,\qquad f'(2)=f'(-2)=\frac1{2\sqrt3}.
+\]
+切线的点斜式为 $y+\frac\pi3=\frac{x-2}{2\sqrt3}$。
+\Check 填 $\boxed{\frac{x-2}{2\sqrt3}-\frac\pi3}$。令 $x=2$ 确实经过给定点，斜率与 $-2$ 处相同。
+
+\Question{8}{填空}{5}{武忠祥8月强化突击测试，第 1 题；原题}
+设函数 $f(x)$ 连续，给出四个条件：
+\[
+\begin{aligned}
+&\text{(1) }\lim_{x\to0}\frac{|f(x)|-f(0)}x\text{ 存在；}\qquad
+\text{(2) }\lim_{x\to0}\frac{f(x)-|f(0)|}x\text{ 存在；}\\[6bp]
+&\text{(3) }\lim_{x\to0}\frac{|f(x)|}x\text{ 存在；}\qquad
+\text{(4) }\lim_{x\to0}\frac{|f(x)|-|f(0)|}x\text{ 存在。}
+\end{aligned}
+\]
+这里“存在”均指有限极限存在。其中能推出“$f$ 在 $0$ 处可导”的条件个数是\blank。
+\Solution
+\Known 分别判断四个条件，每次只使用其中一个，以及共同的连续条件。
+\Method 先记录一个事实：若 $\lim_{x\to0}\frac{|f(x)|}x=L$ 为有限数，则右侧比值非负、左侧非正，故 $L=0$。于是 $\left|\frac{f(x)}x\right|\to0$，且连续性给出 $f(0)=0$，从而 $f'(0)=0$。
+\Derive （1）有限极限要求 $|f(0)|-f(0)=0$，所以 $f(0)\ge0$。若 $f(0)>0$，连续性保证附近 $f(x)>0$，条件中的差商就是导数差商；若 $f(0)=0$，使用上述事实。
+
+（2）有限极限要求 $f(0)=|f(0)|$，于是分子正是 $f(x)-f(0)$，直接得到导数存在。
+
+（3）正好满足上述事实，故 $f'(0)=0$。
+
+（4）若 $f(0)>0$，附近 $|f(x)|=f(x)$；若 $f(0)<0$，附近 $|f(x)|=-f(x)$。两种情况都把给定差商变成导数差商或其相反数。若 $f(0)=0$，再使用上述事实。
+\Check 填 $\boxed{4}$。关键是双侧极限；只给单侧极限时，“非负、非正迫使极限为零”的论证不能直接使用。
+
+\Question{9}{解答}{15}{李林六套卷数二，第六套第 17 题；原题，分值重设}
+已知当 $x\to0$ 时，
+\[
+a\sin x+bx^2+\ln(1-2x+x^2)
+\]
+与 $1-\mathrm e^{5x^2}$ 是等价无穷小，求 $a,b$。
+\Solution
+\Known 两式之比趋于 $1$，右侧是二次小量，因此左侧的一次项必须消失。
+\Method 在 $|x|<1$ 内，$\ln(1-2x+x^2)=2\ln(1-x)$。先比较一次项，再用 Cauchy 中值定理求二次项系数。
+\Derive 将左侧除以 $x$ 并取极限，得 $a-2$。右侧除以 $x$ 趋于 $0$，故 $a=2$。此时左侧可写成
+\[
+2(\sin x-x)+bx^2+2[\ln(1-x)+x].
+\]
+由 $|\sin x-x|\le\frac{|x|^3}{2}$ 可知第一项除以 $x^2$ 趋于 $0$；该界可由中值定理与 $1-\cos u\le\frac{u^2}{2}$ 得到。
+
+令 $h(x)=\ln(1-x)+x$，对 $h(t)$ 与 $t^2$ 用 Cauchy 定理，有介于 $0,x$ 的 $u$，使
+\[
+\frac{h(x)}{x^2}=\frac{-\frac1{1-u}+1}{2u}
+=-\frac1{2(1-u)}\to-\frac12.
+\]
+因此左侧除以 $x^2$ 趋于 $b-1$，右侧除以 $x^2$ 趋于 $-5$。等价要求 $b-1=-5$，即 $b=-4$。
+\Check $\boxed{a=2,\ b=-4}$。代回后两式都与 $-5x^2$ 等价，系数非零，确实能恢复比值 $1$。
+
+\Question{10}{解答}{15}{张宇八套卷数二，卷八第 17 题；原题，分值重设}
+已知函数 $f(x)$ 在 $x=0$ 处具有一阶导数，且
+\[
+\lim_{x\to0}\frac{xf(x)+\mathrm e^{x^2}\sin x}{x^2}=1.
+\]
+求曲线 $y=f(x)$ 在 $x=0$ 处的切线方程。
+\Solution
+\Known 切线方程需要点 $(0,f(0))$ 和斜率 $f'(0)$，两者都要由给定极限确定。
+\Method 可导蕴含连续。先把给定分子除以 $x$ 求点值，再凑成 $\frac{f(x)-f(0)}x$ 的导数定义。
+\Derive 由给定商有有限极限可知
+\[
+f(x)+\mathrm e^{x^2}\frac{\sin x}x\to0.
+\]
+利用连续性和 $\frac{\sin x}x\to1$，得 $f(0)=-1$。于是
+\[
+\frac{xf(x)+\mathrm e^{x^2}\sin x}{x^2}
+=\frac{f(x)+1}x+\frac{\mathrm e^{x^2}\sin x-x}{x^2}.
+\]
+第二项拆成
+\[
+\frac{(\mathrm e^{x^2}-1)\sin x}{x^2}+\frac{\sin x-x}{x^2}\to0.
+\]
+前一项由 $\frac{\mathrm e^{x^2}-1}{x^2}\to1$、$\sin x\to0$ 得到；后一项用中值定理，写成 $\frac{\cos u-1}{x}$，其中 $|u|\le|x|$，绝对值不超过 $\frac{|x|}{2}$。
+故 $f'(0)=1$，切线为 $y=f(0)+f'(0)x=x-1$。
+\Check $\boxed{y=x-1}$。取 $f(x)=x-1$ 代入，原商趋于 $1$，与条件相容。
+
+\Question{11}{解答}{15}{张宇八套卷数二，卷五第 17 题；原题，分值重设}
+设
+\[
+g(x)=\begin{cases}f'(0),&x=0,\\\frac{f(x)}x,&x\ne0.\end{cases}
+\]
+证明：
+
+（1）若 $f(0)=0$，$f''(0)$ 存在，则 $g'(0)=\frac12f''(0)$。
+
+（2）若 $f(0)=0$，且 $f$ 在实数轴上有连续二阶导数，则 $g'$ 在实数轴上连续。
+\Solution
+\Known 第（1）问求补定义后的导数；第（2）问进一步要求这个导数连续。
+\Method 用 Cauchy 中值定理把二次差商化为一次导数差商。第（1）问只在 $0$ 需要 $f''(0)$，不能擅自假定附近的二阶导数连续。
+\Derive （1）$f''(0)$ 存在意味着 $f'$ 在 $0$ 附近有定义，且在 $0$ 可导。由 $f(0)=0$，有
+\[
+\frac{g(x)-g(0)}x=\frac{f(x)-xf'(0)}{x^2}.
+\]
+对分子函数和 $x^2$ 在 $0,x$ 之间用 Cauchy 定理，存在中间点 $u$，使
+\[
+\frac{f(x)-xf'(0)}{x^2}=\frac{f'(u)-f'(0)}{2u}\to\frac12f''(0).
+\]
+（2）当 $x\ne0$ 时，$g'(x)=\frac{xf'(x)-f(x)}{x^2}$，分子分母连续且分母非零，故连续。记 $H(x)=xf'(x)-f(x)$，则 $H(0)=0$、$H'(x)=xf''(x)$。再用 Cauchy 定理，得
+\[
+g'(x)=\frac{H(x)}{x^2}=\frac{uf''(u)}{2u}=\frac12f''(u)\to\frac12f''(0)=g'(0).
+\]
+\Check 两问均证毕。第（2）问使用了 $f''$ 的连续性；取 $f(x)=x^2$ 时 $g(x)=x$，可核对系数 $\frac12$。
+
+\Question{12}{解答}{15}{武忠祥8月强化突击测试，第 4 题第（2）问；补充 a>0，分值重设}
+设 $a>0$，$f$ 在 $[-a,a]$ 上有二阶连续导数，且在 $(-a,a)$ 内取得极值。证明：存在 $\eta\in(-a,a)$，使得
+\[
+|f''(\eta)|\ge\frac{|f(a)-f(-a)|}{2a^2}.
+\]
+\Solution
+\Known 设极值点为 $c\in(-a,a)$。Fermat 定理，即可导函数在内部极值点的导数为零，给出 $f'(c)=0$。
+\Method 用两次 Rolle 定理求端点相对于 $c$ 的改变量，再取绝对值。先证明所需等式，避免额外引用其他定理。
+\Derive 固定 $t=a$ 或 $t=-a$，令 $K=\frac{f(t)-f(c)}{(t-c)^2}$，并设
+\[
+H(s)=f(s)-f(c)-K(s-c)^2.
+\]
+则 $H(c)=H(t)=0$、$H'(c)=0$。第一次 Rolle 定理给出 $c,t$ 之间的 $u$，使 $H'(u)=0$；再在 $c,u$ 之间对 $H'$ 用 Rolle 定理，得 $v$，使 $H''(v)=0$。所以
+\[
+f(t)-f(c)=\frac12f''(v)(t-c)^2.
+\]
+对两个端点分别得到 $v_+,v_-\in(-a,a)$。令 $M=\max\{|f''(v_+)|,|f''(v_-)|\}$，则
+\[
+|f(a)-f(-a)|\le\frac M2[(a-c)^2+(a+c)^2]
+=M(a^2+c^2)\le2Ma^2.
+\]
+在 $v_+,v_-$ 中选一个使绝对值等于 $M$ 的点作为 $\eta$，即得结论。
+\Check $\eta$ 位于开区间；若两端函数值相等，右端为 $0$，结论仍成立。全过程保留了绝对值，适用于极大值和极小值两种情形。
+\end{document}

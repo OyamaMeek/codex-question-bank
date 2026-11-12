@@ -1,0 +1,321 @@
+% !TeX program = xelatex
+% 题源根目录：references/302模拟27md/
+% 武忠祥基础：2027模考/武忠祥/27考研基础摸底测试（高数、线代）/27考研基础摸底测试（高数、线代）数二.pdf.md
+% 武忠祥8月：2027模考/武忠祥/武老师8月突击强化测试/8月强化突击测试.pdf.md
+% 李林：2027模考/李林《六套卷》/数学二/试卷/考研数学冲刺预测6套卷.pdf.md
+% 张宇：2027模考/张宇《八套卷》/张宇八套卷/数二/【紧凑】张宇八套卷-数二（已勘误）.pdf.md
+% 李艳芳：2027模考/李艳芳《三套卷》/数学二/【紧凑版】李艳芳三套卷做题本 .pdf.md
+\documentclass[UTF8,zihao=-4,fontset=fandol]{ctexart}
+\usepackage[paperwidth=800bp,paperheight=600bp,left=48bp,right=48bp,top=40bp,bottom=40bp]{geometry}
+\usepackage{amsmath,amssymb,xcolor,fancyhdr,enumitem}
+\usepackage[hidelinks,bookmarksopen=true]{hyperref}
+\renewcommand{\lim}{\operatorname*{lim}\limits}
+\everymath{\displaystyle}
+\definecolor{accent}{HTML}{175C57}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5bp}
+\setlength{\headheight}{15bp}
+\setlength{\abovedisplayskip}{6bp}
+\setlength{\belowdisplayskip}{6bp}
+\pagestyle{fancy}\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{\footnotesize\textcolor{gray}{中值定理阶段模拟卷 1 · 4:3 横屏}}
+\fancyfoot[R]{\footnotesize\thepage}
+\raggedbottom
+\newcommand{\Question}[4]{\clearpage\def\CurrentNumber{#1}\def\CurrentSource{#4}\pdfbookmark[1]{第#1题}{q#1}{\small\color{accent}模拟卷 1\hfill #2 · #3 分}\par{\Large\bfseries 第 #1 题}\par\medskip\fontsize{14}{22}\selectfont}
+\newcommand{\Solution}{\clearpage\fontsize{12}{18}\selectfont{\large\bfseries 第 \CurrentNumber\ 题解析}\par{\footnotesize\color{gray}题源：\CurrentSource}\par\smallskip}
+\newcommand{\Known}{\par\textbf{已知与目标}\quad}
+\newcommand{\Method}{\par\textbf{方法与条件}\quad}
+\newcommand{\Derive}{\par\textbf{推导}\quad}
+\renewcommand{\Check}{\par\textbf{结论与检查}\quad}
+\newcommand{\Choices}[4]{\par\medskip\begin{minipage}[t]{.48\linewidth}(A)\enspace #1\end{minipage}\hfill\begin{minipage}[t]{.48\linewidth}(B)\enspace #2\end{minipage}\par\medskip\begin{minipage}[t]{.48\linewidth}(C)\enspace #3\end{minipage}\hfill\begin{minipage}[t]{.48\linewidth}(D)\enspace #4\end{minipage}\par}
+\newcommand{\blank}{\underline{\hspace{6em}}}
+\begin{document}
+\pdfbookmark[0]{模拟卷1}{cover}
+{\small\color{accent}工科数学分析基础 · 第三版上册}\par\vspace{20bp}
+{\Huge\bfseries 阶段模拟卷 1}\par\medskip
+{\Large 极限、可导性与中值定理}\par\vspace{18bp}
+\textbf{满分 100 分\qquad 建议用时 120 分钟}
+
+考试范围：第一章；第二章第一至第三节，以及第四节中的 4.1 极值必要条件、4.2 Rolle、Lagrange、Cauchy 中值定理。教材对应 PDF 第 24–153 页。解答只使用这一范围内的方法。
+
+第 1–4 题为单项选择，每题 5 分；第 5–8 题为填空，每题 5 分；第 9–12 题为解答，每题 15 分。解答题请写出理由。
+
+每道题单独一页，下方空白供手写；下一页为该题解析。限时作答时请跳过解析页。题目总体为中等偏上，证明题和条件辨析题具有一定挑战。
+
+题目选自本地 references/302模拟27md，具体作者、卷次与原题号见各题解析。改题型、增设任务或只取原题小问均逐题标注。
+
+\Question{1}{单项选择}{5}{武忠祥基础摸底测试数二，第 1 题；原题}
+当 $x\to0$ 时，$f(x)=x-\sin ax$ 与 $g(x)=x^2\ln(1-bx)$ 是等价无穷小，则（\quad）。
+\Choices{$a=1,\ b=-\frac16$}{$a=1,\ b=\frac16$}{$a=-1,\ b=-\frac16$}{$a=-1,\ b=\frac16$}
+\Solution
+\Known 已知两式的比值趋于 $1$；这就是“等价无穷小”的含义。要求常数 $a,b$。
+\Method 先比较一次项，再求三次项系数。高阶小量用 Cauchy 中值定理：两个函数在端点间连续、内部可导，且分母函数的导数不为零时，可把增量之比变为同一点的导数之比。
+\Derive 因 $g(x)$ 是比 $x$ 高阶的小量，必有
+\[
+0=\lim_{x\to0}\frac{x-\sin ax}{x}=1-a,\qquad a=1.
+\]
+对 $t-\sin t$ 与 $t^3$ 在 $0$ 与 $x$ 之间使用 Cauchy 定理，得到介于两端的 $u$，使
+\[
+\frac{x-\sin x}{x^3}=\frac{1-\cos u}{3u^2}\longrightarrow\frac16.
+\]
+这里 $u\to0$，且 $1-\cos u=2\sin^2\frac u2$，所以 $\frac{1-\cos u}{u^2}\to\frac12$。另一方面，$\frac{\ln(1-bx)}x\to-b$。
+于是两式比值趋于 $\frac{1}{-6b}$，故 $-b=\frac16$。
+\Check 选 \textbf{A}。代入得两式都与 $\frac{x^3}{6}$ 等价；左右两侧趋近均成立。
+
+\Question{2}{单项选择}{5}{武忠祥基础摸底测试数二，第 2 题；原题}
+函数 $f(x)=\frac{x-x^3}{\sin\pi x}$ 的可去间断点的个数为（\quad）。
+\Choices{$1$}{$2$}{$3$}{无穷多个}
+\Solution
+\Known 分母在整数处为零，要找其中左右极限存在且有限的点。这样的间断点称为可去间断点，重新定义该点函数值即可使它连续。
+\Method 逐个检查分母的零点；分子也为零时，再求比值极限。整数外分母不为零，函数连续。
+\Derive 分子 $x(1-x)(1+x)$ 只在 $0,1,-1$ 为零。在 $x=0$ 处，
+\[
+\lim_{x\to0}\frac{x-x^3}{\sin\pi x}=\frac1\pi.
+\]
+在 $x=1$ 附近令 $h=x-1$，则
+\[
+x-x^3=-2h-3h^2-h^3,\qquad \sin\pi x=-\sin\pi h,
+\]
+所以极限为 $\frac2\pi$。原函数为偶函数，因而在 $-1$ 处的极限同样为 $\frac2\pi$。
+对其余整数 $k$，分子在 $k$ 处非零，分母趋于零，绝对值趋于无穷，不能成为可去间断点。
+\Check 选 \textbf{C}，共 $3$ 个。已经检查了全部整数，并排除了整数外的其他点。
+
+\Question{3}{单项选择}{5}{张宇八套卷数二，卷一第 2 题；原题}
+设函数 $f(x)$ 可导，$F(x)=f(x)[1-|\ln(1+x)|]$，则（\quad）。
+\Choices{$F(x)$ 在 $x=0$ 处不可导。}{当 $F(x)$ 在 $x=0$ 处可导时，$f(0)=0$。}{当 $F(x)$ 在 $x=0$ 处可导时，$f(0)=1$。}{$F'(0)=f'(0)$。}
+\Solution
+\Known 已知 $f$ 可导，要求判断含绝对值的乘积在 $0$ 处的导数。
+\Method 比较左导数和右导数，即分别从左、右求差商极限。可导要求两者相等且有限；可导的 $f$ 必连续。
+\Derive 因为 $F(0)=f(0)$，有
+\[
+\frac{F(x)-F(0)}x=\frac{f(x)-f(0)}x-f(x)\frac{|\ln(1+x)|}x.
+\]
+对充分接近 $0$ 的 $x$，$\ln(1+x)$ 与 $x$ 同号，且 $\frac{\ln(1+x)}x\to1$。因此
+\[
+F'_+(0)=f'(0)-f(0),\qquad F'_-(0)=f'(0)+f(0).
+\]
+二者相等当且仅当 $f(0)=0$；此时共同值确为 $f'(0)$。
+\Check 选 \textbf{B}。D 没有附带“$F$ 可导”的条件；取 $f(x)\equiv1$，$F'(0)$ 就不存在。取 $f(x)=x$ 又可排除 A、C。
+
+\Question{4}{单项选择}{5}{李艳芳三套卷数二，卷二第 2 题；原题}
+设函数 $f(x)$ 二阶可导，$g(x)$ 是 $f(x)$ 的反函数，$y(x)=g(\cos x)$，且
+\[
+f(1)=0,\qquad f'(1)=-\frac12,\qquad f''(1)=\frac12.
+\]
+则 $y'\left(\frac\pi2\right),y''\left(\frac\pi2\right)$ 分别为（\quad）。
+\Choices{$2,2$}{$2,4$}{$-2,2$}{$-2,4$}
+\Solution
+\Known $g$ 为反函数，即 $f(g(u))=u$。因 $f(1)=0$，有 $g(0)=1$；要求复合函数的两个导数。
+\Method 对反函数恒等式求导，再用链式法则。$f'(1)\ne0$，反函数导数中的分母可以使用。
+\Derive 对 $f(g(u))=u$ 连续求导，得
+\[
+f'(g(u))g'(u)=1,
+\qquad f''(g(u))[g'(u)]^2+f'(g(u))g''(u)=0.
+\]
+代入 $u=0$，得到
+\[
+g'(0)=-2,\qquad \frac12\cdot4-\frac12g''(0)=0,\qquad g''(0)=4.
+\]
+再由复合求导法则，
+\[
+y'(x)=-g'(\cos x)\sin x,\quad
+y''(x)=g''(\cos x)\sin^2x-g'(\cos x)\cos x.
+\]
+令 $x=\frac\pi2$，即得 $y'=2,y''=4$。
+\Check 选 \textbf{B}。第一次求导有负号，第二次求导的第一项为正；两处符号均已核对。
+
+\Question{5}{填空}{5}{李林六套卷数二，第一套第 11 题；原题}
+设 $f(x)$ 在 $x=1$ 处连续，且
+\[
+\lim_{x\to1}\frac{f(x)-5x+2}{\ln x}=1.
+\]
+则 $f'(1)=$\blank。
+\Solution
+\Known 给出的是含 $\ln x$ 的极限，要求以 $x-1$ 为分母的导数。
+\Method 有限的商极限与分母趋零共同迫使分子趋零；随后凑成导数定义。连续条件用于确定 $f(1)$。
+\Derive 原极限有限，$\ln x\to0$，所以 $f(x)-5x+2\to0$。由连续性得 $f(1)=3$。于是
+\[
+\begin{aligned}
+\frac{f(x)-f(1)}{x-1}
+&=\frac{f(x)-5x+2+5(x-1)}{x-1}\\
+&=\frac{f(x)-5x+2}{\ln x}\frac{\ln x}{x-1}+5.
+\end{aligned}
+\]
+因为 $\ln x$ 在 $1$ 处的导数为 $1$，第二个比值趋于 $1$，故整个差商趋于 $1\cdot1+5=6$。
+\Check 填 $\boxed{6}$。计算同时证明了导数存在；取 $f(x)=6x-3$ 代入原条件，确实得到极限 $1$。
+
+\Question{6}{填空}{5}{李林六套卷数二，第四套第 12 题；明确 n 为非负整数}
+设 $f(x)=\ln\sqrt{\frac{1-x}{1+x}}$，$n$ 为非负整数，则
+\[
+f^{(2n+1)}(0)=\blank.
+\]
+\Solution
+\Known 求 $0$ 处奇数阶导数，函数在 $(-1,1)$ 内有定义。
+\Method 先拆对数，再写出可重复求导的规律。$m!$ 表示 $1$ 到 $m$ 的连乘积，约定 $0!=1$。
+\Derive 在定义域内，
+\[
+f(x)=\frac12\ln(1-x)-\frac12\ln(1+x).
+\]
+由求导法则并逐次归纳，对正整数 $m$ 有
+\[
+\frac{\mathrm d^m}{\mathrm dx^m}\ln(1-x)
+=-\frac{(m-1)!}{(1-x)^m},\qquad
+\frac{\mathrm d^m}{\mathrm dx^m}\ln(1+x)
+=\frac{(-1)^{m-1}(m-1)!}{(1+x)^m}.
+\]
+取 $m=2n+1$，第二式中的符号为正；再取 $x=0$，
+\[
+f^{(2n+1)}(0)=-\frac{(2n)!}{2}-\frac{(2n)!}{2}=-(2n)!.
+\]
+\Check 填 $\boxed{-(2n)!}$。$n=0$ 时结果为 $-1$；直接计算 $f'(0)=-1$，一致。
+
+\Question{7}{填空}{5}{张宇八套卷数二，卷六第 13 题；原题}
+若 $\begin{cases}x=\ln t,\\y=\mathrm e^{t^2},\end{cases}$ 则
+\[
+\left.\frac{\mathrm d^2y}{\mathrm dx^2}\right|_{t=1}=\blank.
+\]
+\Solution
+\Known $x,y$ 都由参数 $t>0$ 表示，要求的是对 $x$ 的二阶导数。
+\Method 参数求导时，$\frac{\mathrm d}{\mathrm dx}=\frac1{x'(t)}\frac{\mathrm d}{\mathrm dt}$。这里 $x'(t)=\frac1t\ne0$，可用该法则。
+\Derive 一阶导数为
+\[
+\frac{\mathrm dy}{\mathrm dx}=\frac{2t\mathrm e^{t^2}}{\frac1t}
+=2t^2\mathrm e^{t^2}.
+\]
+再对这个一阶导数关于 $x$ 求导，
+\[
+\frac{\mathrm d^2y}{\mathrm dx^2}
+=t\frac{\mathrm d}{\mathrm dt}(2t^2\mathrm e^{t^2})
+=t(4t+4t^3)\mathrm e^{t^2}
+=4t^2(1+t^2)\mathrm e^{t^2}.
+\]
+令 $t=1$，得到 $8\mathrm e$。
+\Check 填 $\boxed{8\mathrm e}$。也可由 $t=\mathrm e^x$ 写出 $y=\mathrm e^{\mathrm e^{2x}}$，在对应的 $x=0$ 处两次求导核对，结果相同。
+
+\Question{8}{填空}{5}{张宇八套卷数二，卷八第 11 题；原题}
+设 $f'(a)=1$，其中 $a>0$，则
+\[
+\lim_{x\to a}\frac{x[f(x)-f(a)]}{\ln x-\ln a}=\blank.
+\]
+\Solution
+\Known 已知 $f$ 在 $a$ 处的导数，要求两个函数增量的比值极限。
+\Method 分子、分母分别除以 $x-a$，应用导数定义。$a>0$ 保证对数在附近有定义，其导数 $\frac1a$ 非零。
+\Derive 当 $x\ne a$ 时，
+\[
+\frac{x[f(x)-f(a)]}{\ln x-\ln a}
+=x\frac{\frac{f(x)-f(a)}{x-a}}{\frac{\ln x-\ln a}{x-a}}.
+\]
+三个部分分别满足
+\[
+x\to a,\qquad
+\frac{f(x)-f(a)}{x-a}\to1,\qquad
+\frac{\ln x-\ln a}{x-a}\to\frac1a.
+\]
+所以所求极限为 $a\cdot\frac{1}{\frac1a}=a^2$。
+\Check 填 $\boxed{a^2}$。以 $f(x)=x$ 检验，得到相同结果；分母导数不为零，求商步骤有效。
+
+\Question{9}{解答}{15}{武忠祥基础摸底测试数二，第 17 题；原题，分值重设}
+求极限
+\[
+\lim_{x\to0}\frac{(1-\cos x)[x-\ln(1+\tan x)]}{\sin^4x}.
+\]
+\Solution
+\Known 分子两部分都趋于零，要求其与四次小量的比值。
+\Method 将极限拆成三个比值。用 Cauchy 中值定理求其中的二次小量系数；在充分小的邻域内，$\cos x\ne0$ 且 $1+\tan x>0$，对数和导数都有效。
+\Derive 令 $h(x)=x-\ln(1+\tan x)$，则 $h(0)=0$，且
+\[
+h'(x)=1-\frac{\sec^2x}{1+\tan x}
+=\frac{\tan x(1-\tan x)}{1+\tan x}.
+\]
+对 $h(t)$ 与 $t^2$ 在 $0$ 和 $x$ 之间用 Cauchy 定理，存在介于两端的 $u$，满足
+\[
+\frac{h(x)}{x^2}=\frac{h'(u)}{2u}
+=\frac{\tan u}{u}\frac{1-\tan u}{2(1+\tan u)}\longrightarrow\frac12.
+\]
+这里 $u\to0$，并使用了 $\frac{\tan u}{u}\to1$。于是原式可写为
+\[
+\frac{1-\cos x}{x^2}\frac{h(x)}{x^2}
+\left(\frac{x}{\sin x}\right)^4
+\longrightarrow\frac12\cdot\frac12\cdot1=\frac14.
+\]
+\Check 答案为 $\boxed{\frac14}$。两个二次项的系数都为正，分母为四次项；结果的符号和阶数相符。
+
+\Question{10}{解答}{15}{李林六套卷数二，第二套第 3 题；选择题改为分步解答}
+设函数 $y=f(x)$ 由参数方程
+\[
+\begin{cases}x=2t-|t|,\\y=t|\mathrm e^t-1|\end{cases}
+\]
+确定。
+
+（1）写出 $f(x)$ 的分段表达式，并求 $f'(0)$。
+
+（2）判断 $f'(x)$ 在 $0$ 处是否连续，以及 $f''(0)$ 是否存在，说明理由。
+\Solution
+\Known 参数中有两个绝对值，需要研究分界点 $t=0$ 对应的 $x=0$。
+\Method 先按 $t$ 的正负去绝对值，再用导数定义判断分界点；二阶导数也必须通过 $f'$ 的差商检查。
+\Derive （1）$t\ge0$ 时 $x=t$；$t<0$ 时 $x=3t$。故
+\[
+f(x)=\begin{cases}\frac x3(1-\mathrm e^{\frac x3}),&x<0,\\x(\mathrm e^x-1),&x\ge0.\end{cases}
+\]
+两侧的 $\frac{f(x)}x$ 都趋于 $0$，所以 $f'(0)=0$。
+
+（2）在两侧分别求导，得到
+\[
+f'(x)=\begin{cases}\frac13(1-\mathrm e^{\frac x3})-\frac x9\mathrm e^{\frac x3},&x<0,\\\mathrm e^x-1+x\mathrm e^x,&x>0.\end{cases}
+\]
+两式都趋于 $0=f'(0)$，所以 $f'$ 在 $0$ 处连续。但
+\[
+\lim_{x\to0^-}\frac{f'(x)-f'(0)}x=-\frac19-\frac19=-\frac29,
+\quad
+\lim_{x\to0^+}\frac{f'(x)-f'(0)}x=1+1=2.
+\]
+\Check $\boxed{f'(0)=0,\ f'\text{ 在 }0\text{ 处连续，}f''(0)\text{ 不存在}}$。两侧的参数变换斜率不同，已经分别计入，不能将对 $t$ 的导数直接视为对 $x$ 的导数。
+
+\Question{11}{解答}{15}{武忠祥8月强化突击测试，第 4 题第（1）问；补充 a>0，分值重设}
+设 $a>0$，$f(x)$ 在 $[-a,a]$ 上有二阶连续导数，且 $f(0)=0$。证明：存在 $\xi\in(-a,a)$，使得
+\[
+f''(\xi)=\frac{f(a)+f(-a)}{a^2}.
+\]
+\Solution
+\Known 已知一个中点值和两个端点值，要求在内部找到一个二阶导数取指定值的点。
+\Method Rolle 定理说：闭区间连续、内部可导且端点值相等时，内部存在导数为零的点。构造一个在 $-a,0,a$ 都为零的函数，连续使用两层 Rolle 定理。
+\Derive 记
+\[
+A=\frac{f(a)+f(-a)}{a^2},\qquad
+B=\frac{f(a)-f(-a)}{2a},\qquad
+H(x)=f(x)-\frac A2x^2-Bx.
+\]
+直接代入可见 $H(0)=0$，并且
+\[
+\begin{aligned}
+H(a)&=f(a)-\frac{f(a)+f(-a)}2-\frac{f(a)-f(-a)}2=0,\\
+H(-a)&=f(-a)-\frac{f(a)+f(-a)}2+\frac{f(a)-f(-a)}2=0.
+\end{aligned}
+\]
+在 $[-a,0]$、$[0,a]$ 分别应用 Rolle 定理，得到 $u\in(-a,0)$、$v\in(0,a)$，使 $H'(u)=H'(v)=0$。
+
+由于 $H'$ 连续且可导，在 $[u,v]$ 上再用 Rolle 定理，存在 $\xi\in(u,v)$，满足 $H''(\xi)=0$。而 $H''(x)=f''(x)-A$，故 $f''(\xi)=A$。
+\Check 结论成立，且 $\xi$ 严格位于 $(-a,a)$。取 $f(x)=x^2$，右端为 $2$，与任一点的二阶导数相同。
+
+\Question{12}{解答}{15}{武忠祥8月强化突击测试，第 5 题第（I）问；只取不含积分的小问}
+设函数 $f(x)$ 在 $[0,1]$ 上具有二阶导数，$f'(0)=f'(1)$，且 $|f''(x)|\le1$。证明：对任意 $x\in(0,1)$，
+\[
+\left|f(x)-f(0)(1-x)-f(1)x\right|\le\frac{x(1-x)}2.
+\]
+\Solution
+\Known 直线 $l(t)=f(0)(1-t)+f(1)t$ 连接两端点；要求估计曲线与这条直线的距离。
+\Method 固定任意内部点 $x$，将误差除以在两端为零的二次式 $t(t-1)$，构造三个零点。只需要 Rolle 定理及二阶导数的上界。
+\Derive 令 $E(t)=f(t)-l(t)$，则 $E(0)=E(1)=0$，$E''(t)=f''(t)$。对固定的 $x\in(0,1)$，令
+\[
+K=\frac{E(x)}{x(x-1)},\qquad H(t)=E(t)-Kt(t-1).
+\]
+此时 $H(0)=H(x)=H(1)=0$。分别在 $[0,x]$ 与 $[x,1]$ 上用 Rolle 定理，得到 $u\in(0,x)$、$v\in(x,1)$，且 $H'(u)=H'(v)=0$。
+
+$f$ 二阶可导保证 $H'$ 在 $[u,v]$ 上连续、内部可导。再次使用 Rolle 定理，得 $\xi\in(u,v)$，满足
+\[
+0=H''(\xi)=f''(\xi)-2K,\qquad
+E(x)=\frac{f''(\xi)}2x(x-1).
+\]
+取绝对值，因 $0<x<1$，故 $|x(x-1)|=x(1-x)$，再用 $|f''(\xi)|\le1$，即得所需不等式。
+\Check 结论成立；延伸至端点时两侧同为 $0$。本小问实际只需二阶导数上界，原题的 $f'(0)=f'(1)$ 条件可以保留而无需使用。
+\end{document}
