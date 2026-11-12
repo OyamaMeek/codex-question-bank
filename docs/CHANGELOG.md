@@ -491,6 +491,6 @@
   - `output/中值定理阶段模拟卷3.tex`、`output/中值定理阶段模拟卷3.pdf`
   - `.github/scripts/test_mean_value_exams.py`、`README.md`
   - `memory/agents.md`、`memory/plan.md`、`memory/progress.md`、`memory/verify.md`
-- **Git 提交**：待提交；编译和验证已完成。
+- **Git 提交**：`763b2e294e7c7396e975a405689fe7bb09301c00 feat: add three mean-value theorem mock exams for iPad`，已普通推送至 `origin/main`；本条实际哈希通过后续文档提交保存。
 
 ---
