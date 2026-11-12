@@ -405,7 +405,7 @@
   - `references/302模拟27md/往年模拟卷选填精选/【A4紧凑】数二模拟卷选填精选.pdf.md`
   - `references/302模拟27md/往年模拟卷选填精选/【A4留白】数二模拟卷选填精选.pdf.md`
   - `memory/agents.md`、`memory/plan.md`、`memory/progress.md`、`memory/verify.md`
-- **Git 提交**：待提交；已将现有仓库迁至项目根目录。
+- **Git 提交**：`937f7e5c052370e37fede71c2825f7bf7a663416 chore: manage project at repository root and save proofread exams`，已推送至 `origin/main`。
 
 ---
 
@@ -438,6 +438,6 @@
 - **涉及文件**：
   - `.gitignore`、`AGENTS.md`、`docs/CHANGELOG.md`、`memory/` 的五份记录。
   - `references/302模拟27md/往年模拟卷选填精选/` 的数一、数二紧凑及留白四份 Markdown。
-- **Git 提交**：待提交。
+- **Git 提交**：`937f7e5c052370e37fede71c2825f7bf7a663416 chore: manage project at repository root and save proofread exams`，已通过远端引用核对推送成功；本条哈希补记由后续文档提交保存。
 
 ---
