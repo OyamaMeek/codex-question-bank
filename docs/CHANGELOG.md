@@ -494,3 +494,18 @@
 - **Git 提交**：`763b2e294e7c7396e975a405689fe7bb09301c00 feat: add three mean-value theorem mock exams for iPad`，已普通推送至 `origin/main`；本条实际哈希通过后续文档提交保存。
 
 ---
+
+## [2026-11-12 22:17] 线性代数第七版 OCR 提取
+
+- **需求/问题描述**：
+  > 将 references 中同济大学《线性代数》第七版 OCR 提取成 Markdown，放入线性代数md。
+- **实际实现的功能与改动**：
+  - 复用本机 Vision 和现有识别缓存，逐页提取 184 页，保存一份 UTF-8 Markdown 至 `references/线性代数md/`，保留原 PDF 页码及链接，共 132,773 字符。
+  - 页码连续、184 个原页链接、源文件路径、页段正文及无替换字符断言通过。第 5 页未识别到文字，像素统计接近全白，正文保留说明；其余 183 页均识别出文字。
+  - 教材及输出仅保存在本地，不纳入 Git。未逐字、逐式或视觉校对；数学公式仍可能存在 OCR 偏差。
+- **涉及文件**：
+  - `references/线性代数md/线性代数第七版 (同济大学线性代数第七版).md`（仅本地）。
+  - `memory/agents.md`、`memory/plan.md`、`memory/progress.md`、`memory/verify.md`、`docs/CHANGELOG.md`。
+- **Git 提交**：待提交；仅提交任务记录，保留已有文件删除和未跟踪文件。
+
+---
