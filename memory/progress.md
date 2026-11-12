@@ -112,4 +112,4 @@
 ## references 仅保存在本地
 
 - [x] 将整个 `/references/` 加入忽略规则。
-- [ ] 取消四份 Markdown 的 Git 跟踪，核对本地文件哈希不变，提交并推送。
+- [x] 取消四份 Markdown 的 Git 跟踪，本地 SHA-256 全部不变；`2f3cdb1` 已推送，远端 main 与本地一致，提交树不含 references。

@@ -452,6 +452,6 @@
 - **涉及文件**：
   - `.gitignore`、`memory/gotchas.md`、`memory/progress.md`、`docs/CHANGELOG.md`。
   - `references/302模拟27md/往年模拟卷选填精选/` 中四份 Markdown（取消跟踪）。
-- **Git 提交**：待提交。
+- **Git 提交**：`2f3cdb1fc6bfee1600df49d5f96d5601c93435d8 chore: keep references local and untracked`，已推送并核对远端 main；哈希补记由后续文档提交保存。
 
 ---
