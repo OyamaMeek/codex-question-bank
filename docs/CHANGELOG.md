@@ -1,3 +1,92 @@
+## [2026-11-12 14:33] 继续逐题校对往年模拟卷
+
+- **需求/问题描述**：
+  > 继续校对指定作者的数一、数二题面，只保留标题和题目。
+- **实际实现的功能与改动**：
+  - 完成往年选填超越数一第六至第十卷 80 题的校对，原位更新紧凑、留白两版。
+  - 修复概率分布表、积分上下限、求和下标及伴随矩阵符号；检查题序及每卷四十个选择项，547 个数学表达式通过 KaTeX 渲染。
+  - 其余往年选填尚待逐题复核，进度已保存至 memory/progress.md。
+- **涉及文件**：
+  - `references/302模拟27md/往年模拟卷选填精选/【A4紧凑】数一模拟卷选填精选.pdf.md`
+  - `references/302模拟27md/往年模拟卷选填精选/【A4留白】数一模拟卷选填精选.pdf.md`
+  - `memory/progress.md`、`memory/verify.md`
+- **Git 提交**：当前目录没有 Git 仓库，无法提交或推送。
+
+---
+
+## [2026-11-10 11:49] 清理远端仓库
+
+- **需求/问题描述**：
+  > 克隆 `OyamaMeek/codex-question-bank`，将远端 `main` 的文件替换为本地 `docs`、`memory` 和 `output`。
+
+- **实际实现的功能与改动**：
+  - 将三个目录复制到克隆副本，移除 `601`、`README.md` 和根目录 `.DS_Store`，共删除 21 个旧文件。
+  - 暂存文件树仅有三个指定目录，共 12 个文件。`git diff --cached --check` 通过，`output` 与本地原件逐文件比较一致。
+  - 普通推送成功。通过 `git ls-remote` 确认远端 `main` 指向清理提交。
+
+- **涉及文件**：
+  - `601/`、`README.md`、`.DS_Store`（删除）
+  - `docs/`、`memory/`、`output/`（加入）
+
+- **Git 提交**：`6cdb149a757549d29e7b07ac6edd48edbbaad49c chore: replace repository contents with project deliverables`。
+
+---
+
+
+## [2026-11-10 23:46] 编写题库 README
+
+- **需求/问题描述**：
+  > 为题库编写 README。
+
+- **实际实现的功能与改动**：
+  - 添加真题集和阶段模拟卷的下载入口，说明各版式、教材范围及 LaTeX 编译方式。
+  - 核对 README 中的相对链接、主要 PDF 的版式及真题集的节数和题量。
+
+- **涉及文件**：
+  - `README.md`
+  - `docs/CHANGELOG.md`
+
+- **Git 提交**：`551d624f281f2faa4a33148af58760f95b866f45 docs: add question bank README`。
+
+---
+
+
+## [2026-11-10 23:59] 将 README 改为 GPT 试题库总览
+
+- **需求/问题描述**：
+  > 说明仓库收录 GPT 生成的试题，并将考研数学归入独立专题。
+
+- **实际实现的功能与改动**：
+  - 在首页介绍 GPT 试题和整理后的真题资料，将下载、练习范围和编译说明归入考研数学专题。
+  - 核对标题层级及 9 个原有相对链接，确认链接均指向 Git 跟踪的文件。
+
+- **涉及文件**：
+  - `README.md`
+  - `docs/CHANGELOG.md`
+
+- **Git 提交**：`631abfc55ecb85f845999e955829ebdfbbbb2636 docs: organize README by question bank topic`。
+
+---
+
+
+## [2026-11-11 00:03] 自动发布 LaTeX PDF
+
+- **需求/问题描述**：
+  > 推送后编译本次改动影响的 TeX，发布 PDF 和简短中文说明。版本从 `v0.0.1` 逐次递增，达到 `v0.0.999` 后等候批准。
+
+- **实际实现的功能与改动**：
+  - 在 `main` 启用串行发布工作流，按推送差异编译受影响的 TeX，附件上传成功后公开 Release。同一次运行重试沿用草稿或跳过已发布的版本。
+  - 八项回归测试通过，五份现有 TeX 均通过 Tectonic 0.17.0 编译。工作流静态检查单独核对了 `actionlint` 尚未支持的 `queue: max`。
+  - GitHub Actions 首次运行成功。安装工作流的推送未修改 TeX，编译和发布步骤均跳过，远端尚未使用 `v0.0.1`。
+
+- **涉及文件**：
+  - `.github/workflows/release-tex.yml`、`.github/scripts/release_tex.py`、`.github/scripts/test_release_tex.py`
+  - `.gitignore`、`README.md`、`memory/agents.md`、`memory/plan.md`、`memory/progress.md`、`memory/verify.md`
+
+- **Git 提交**：`829d693157071059f48e9275646aee774d09a0b5 feat: publish changed LaTeX documents as PDFs`。
+
+---
+
 ## [2026-11-09 23:19] 批量提取李林题本 PDF
 
 - **需求/问题描述**：
@@ -85,24 +174,6 @@
   - `.gitignore`、`memory/plan.md`、`memory/progress.md`、`memory/verify.md`
 
 - **Git 提交**：当前目录没有 Git 仓库，无法提交及推送。
-
----
-
-## [2026-11-10 11:49] 清理远端仓库
-
-- **需求/问题描述**：
-  > 克隆 `OyamaMeek/codex-question-bank`，将远端 `main` 的文件替换为本地 `docs`、`memory` 和 `output`。
-
-- **实际实现的功能与改动**：
-  - 将三个目录复制到克隆副本，移除 `601`、`README.md` 和根目录 `.DS_Store`，共删除 21 个旧文件。
-  - 暂存文件树仅有三个指定目录，共 12 个文件。`git diff --cached --check` 通过，`output` 与本地原件逐文件比较一致。
-  - 普通推送成功。通过 `git ls-remote` 确认远端 `main` 指向清理提交。
-
-- **涉及文件**：
-  - `601/`、`README.md`、`.DS_Store`（删除）
-  - `docs/`、`memory/`、`output/`（加入）
-
-- **Git 提交**：`6cdb149a757549d29e7b07ac6edd48edbbaad49c chore: replace repository contents with project deliverables`。
 
 ---
 
@@ -198,6 +269,21 @@
 
 ---
 
+## [2026-11-10 13:19] 规定在原路径更新已有文件
+
+- **需求/问题描述**：
+  > 将修改后直接覆盖原文件的要求写入 `AGENTS.md`。
+
+- **实际实现的功能与改动**：
+  - 在第 7 节规定在原路径更新已有文件。需要副本、备份或版本文件时，以用户明确要求为准。
+
+- **涉及文件**：
+  - `AGENTS.md`（+1 行）
+
+- **Git 提交**：当前目录没有 Git 仓库，无法提交及推送。
+
+---
+
 ## [2026-11-10 13:35] 合并 27302 阶段模拟卷 iPad 版
 
 - **需求/问题描述**：
@@ -287,54 +373,71 @@
 
 ---
 
-## [2026-11-10 23:46] 编写题库 README
+## [2026-11-11 21:58] 转换 302模拟27 题面
 
 - **需求/问题描述**：
-  > 为题库编写 README。
+  > 将李林、张宇、合工大、超越、武忠祥、李艳芳的题面转成 Markdown，图片文字使用 OCR，解析暂缓。
 
 - **实际实现的功能与改动**：
-  - 添加真题集和阶段模拟卷的下载入口，说明各版式、教材范围及 LaTeX 编译方式。
-  - 核对 README 中的相对链接、主要 PDF 的版式及真题集的节数和题量。
+  - 保留源目录层级及原 PDF 页码。合集按书签或目录筛选指定卷次，题解合订本按分界提取试题页。
+  - 转换 60 份 PDF 的 4,950 页，生成 865 段 OCR 文本。检查全部原页链接、输出编码及题面范围，无失败页或空白页。
 
 - **涉及文件**：
-  - `README.md`
-  - `docs/CHANGELOG.md`
+  - `references/302模拟27md/`（60 份题面 Markdown 和 1 份转换报告）
+  - `memory/plan.md`、`memory/progress.md`、`memory/verify.md`、`memory/gotchas.md`
 
-- **Git 提交**：`551d624f281f2faa4a33148af58760f95b866f45 docs: add question bank README`。
+- **Git 提交**：当前工作目录没有 Git 仓库，未提交。
 
 ---
 
-## [2026-11-10 23:59] 将 README 改为 GPT 试题库总览
+## [2026-11-12 14:44] 校对张宇往年八套数一、数二选填
 
 - **需求/问题描述**：
-  > 说明仓库收录 GPT 生成的试题，并将考研数学归入独立专题。
-
+  > 校对张宇八套数一、数二各八卷。
 - **实际实现的功能与改动**：
-  - 在首页介绍 GPT 试题和整理后的真题资料，将下载、练习范围和编译说明归入考研数学专题。
-  - 核对标题层级及 9 个原有相对链接，确认链接均指向 Git 跟踪的文件。
-
+  - 对照两科紧凑版第 71–94 页，逐题校对 256 题，原位更新紧凑及留白两种版式的题面。
+  - 修正分段函数漏项、积分限、单侧极限、向量与矩阵分量、导数阶数及概率选项上划线，补全图题文字描述，保留各科原选项顺序及来源写法。
+  - 两科留白版第 140–187 页与紧凑版的正文文字层一致，嵌入图示数据哈希一致。四份 Markdown 各有 128 道张宇八套题及 320 个选项，逐卷与校对稿一致，其他作者分组哈希未变；1463 个独立数学表达式通过 KaTeX 检查，无警告。
+  - 未独立复算全部答案，未继续其他作者的校对。
 - **涉及文件**：
-  - `README.md`
-  - `docs/CHANGELOG.md`
-
-- **Git 提交**：`631abfc55ecb85f845999e955829ebdfbbbb2636 docs: organize README by question bank topic`。
+  - `references/302模拟27md/往年模拟卷选填精选/【A4紧凑】数一模拟卷选填精选.pdf.md`
+  - `references/302模拟27md/往年模拟卷选填精选/【A4留白】数一模拟卷选填精选.pdf.md`
+  - `references/302模拟27md/往年模拟卷选填精选/【A4紧凑】数二模拟卷选填精选.pdf.md`
+  - `references/302模拟27md/往年模拟卷选填精选/【A4留白】数二模拟卷选填精选.pdf.md`
+  - `memory/agents.md`、`memory/plan.md`、`memory/progress.md`、`memory/verify.md`
+- **Git 提交**：待提交；已将现有仓库迁至项目根目录。
 
 ---
 
-## [2026-11-11 00:03] 自动发布 LaTeX PDF
+## [2026-11-11 22:08] 精简 302模拟27 题面 Markdown
 
 - **需求/问题描述**：
-  > 推送后编译本次改动影响的 TeX，发布 PDF 和简短中文说明。版本从 `v0.0.1` 逐次递增，达到 `v0.0.999` 后等候批准。
+  > 题面 Markdown 只保留标题和题目。
 
 - **实际实现的功能与改动**：
-  - 在 `main` 启用串行发布工作流，按推送差异编译受影响的 TeX，附件上传成功后公开 Release。同一次运行重试沿用草稿或跳过已发布的版本。
-  - 八项回归测试通过，五份现有 TeX 均通过 Tectonic 0.17.0 编译。工作流静态检查单独核对了 `actionlint` 尚未支持的 `queue: max`。
-  - GitHub Actions 首次运行成功。安装工作流的推送未修改 TeX，编译和发布步骤均跳过，远端尚未使用 `v0.0.1`。
+  - 原位整理 60 份题面。保留卷次、题型、题号、题干、选项和小问，去掉页码、原页链接、OCR 标签、代码框、封面目录、考试说明和水印。移除单独的转换报告。
+  - 用同版文字层核对李林六套卷截图中第 14、15 题的公式。两份 A3 试卷分半页 OCR，按原题序合并。检查 60 份文件格式及合集卷数。
 
 - **涉及文件**：
-  - `.github/workflows/release-tex.yml`、`.github/scripts/release_tex.py`、`.github/scripts/test_release_tex.py`
-  - `.gitignore`、`README.md`、`memory/agents.md`、`memory/plan.md`、`memory/progress.md`、`memory/verify.md`
+  - `references/302模拟27md/`（原位更新 60 份题面 Markdown）
+  - `memory/plan.md`、`memory/progress.md`、`memory/verify.md`、`memory/gotchas.md`
 
-- **Git 提交**：`829d693157071059f48e9275646aee774d09a0b5 feat: publish changed LaTeX documents as PDFs`。
+- **Git 提交**：当前工作目录没有 Git 仓库，未提交。
+
+---
+
+## [2026-11-12 14:51] 在项目根目录管理 Git 仓库
+
+- **需求/问题描述**：
+  > 将当前目录设置为 Git 仓库，按既有规则提交并自动推送校对结果。
+- **实际实现的功能与改动**：
+  - 将 remote-checkout/.git 迁至项目根目录，保留历史、origin 和 main，移入既有 README 和 GitHub Actions。迁移前工作区干净，HEAD 与远端均为 64700e1。
+  - 合并两处开发及验证记录，记录正确仓库位置，加入缓存、原始 PDF、环境文件与日志的忽略规则。
+  - 将四份包含张宇八套校对结果的选填 Markdown、项目规则与相关记录纳入提交。其他既有资料及缺失的裁片 PDF 不纳入本次提交。
+  - 复查题面结构和 1463 个数学表达式；发布脚本与工作流保持原内容。
+- **涉及文件**：
+  - `.gitignore`、`AGENTS.md`、`docs/CHANGELOG.md`、`memory/` 的五份记录。
+  - `references/302模拟27md/往年模拟卷选填精选/` 的数一、数二紧凑及留白四份 Markdown。
+- **Git 提交**：待提交。
 
 ---
