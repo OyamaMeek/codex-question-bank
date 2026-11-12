@@ -506,6 +506,6 @@
 - **涉及文件**：
   - `references/线性代数md/线性代数第七版 (同济大学线性代数第七版).md`（仅本地）。
   - `memory/agents.md`、`memory/plan.md`、`memory/progress.md`、`memory/verify.md`、`docs/CHANGELOG.md`。
-- **Git 提交**：待提交；仅提交任务记录，保留已有文件删除和未跟踪文件。
+- **Git 提交**：`76b06902ecd1d6006043bd05b43fbe9418a5e3ea docs: record linear algebra textbook OCR extraction`，已普通推送至 `origin/main`；仅提交任务记录，保留已有文件删除和未跟踪文件。本条哈希通过后续文档提交保存。
 
 ---
