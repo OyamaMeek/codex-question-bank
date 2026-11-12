@@ -471,6 +471,6 @@
   - `output/iPad/302数学二分节真题集.pdf`
   - `.github/scripts/test_question_bank.py`
   - `memory/agents.md`、`memory/plan.md`、`memory/progress.md`、`memory/verify.md`、`memory/gotchas.md`
-- **Git 提交**：待提交。
+- **Git 提交**：`a8e46659df271d2027e6a038826fe477b28d00a6 feat: grade math questions and expand step-by-step solutions`，已推送至 `origin/main`；本条哈希补记由后续文档提交保存。
 
 ---
