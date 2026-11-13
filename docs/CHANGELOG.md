@@ -571,6 +571,6 @@
 - **涉及文件**：
   - `references/线性代数md/线性代数第七版 (同济大学线性代数第七版).md`、同目录 `assets/`（仅本地）。
   - `.agent/visual/linear-algebra-review.md`、`memory/agents.md`、`memory/plan.md`、`memory/progress.md`、`memory/verify.md`、`memory/gotchas.md`、`docs/CHANGELOG.md`。
-- **Git 提交**：待提交；仅提交校订记录。
+- **Git 提交**：`c38e36a06235695b7de298d40465919f2ba87b51 docs: record proofread linear algebra textbook`，已普通推送至 `origin/main`；仅提交校订记录，教材及输出仅保存在本地。本条实际哈希通过后续文档提交保存。
 
 ---
