@@ -4,7 +4,7 @@
 - **实际结果**：对全部 746 个题面页执行第二次数学 OCR，结合原图复核差异和高风险公式。原位修正 43 页的题面或公式，核实首轮标出的四页，保留原图供查阅。
 - **验证**：14 章、746 条题面与示例、选择题选项及 24 个图像链接通过检查，2,676 个数学表达式通过 KaTeX 语法检查。两次 OCR 一致的部分未逐式人工核对。
 - **涉及文件**：`references/27李林880/md/`、`memory/plan.md`、`memory/progress.md`、`memory/verify.md`。
-- **Git 提交**：待提交。
+- **Git 提交**：`eb27bcc docs: record Li Lin calculus OCR proofreading`。
 
 ---
 
