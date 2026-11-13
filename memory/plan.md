@@ -1,5 +1,9 @@
 # PDF 批量提取
 
+## 27 李林高数做题本 OCR
+
+以 PDF 书签划分 14 章，提取正文图像，使用已有本机数学 OCR 转录题干、公式、选项和小问。按原题号组织一份 Markdown 到源文件旁的 `md/` 目录，逐题保留原页入口，供核对公式及图示。
+
 ## 线性代数第七版 OCR
 
 复用 `.question-bank-work/convert-302.py` 的本机 Vision 识别与缓存，将同济大学线性代数第七版 PDF 全部 184 页按原序提取为一份普通 Markdown，保存到 `references/线性代数md/`，每页保留原 PDF 链接。检查页数、连续页码、非空页及输出编码；不逐式校对公式，不修改原 PDF，不将 references 加入 Git。
