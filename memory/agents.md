@@ -1,5 +1,7 @@
 # 工具
 
+李林高数上册分节题集按微分、积分、微分方程分区编写解析，主代理处理函数与极限并统一编译。复用 Tectonic、ctex、markdown-it-py、PyMuPDF 和既有 KaTeX；用户授权后核对原题图片及最终 PDF 渲染页，记录于 `.agent/visual/`。
+
 线性代数第七版使用现有 PyMuPDF、macOS Vision OCR 可执行文件及识别缓存，由单一代理处理，不新增依赖。
 
 中值定理阶段三套模拟卷由单一代理选编和解析。复用 ctex、amsmath、应用内 Tectonic 与项目缓存；采用源稿检查、数学复算和 PDF 文字几何验证。使用 PDF 与 Ponytail 技能；不调用子代理、截图或图像检查。
