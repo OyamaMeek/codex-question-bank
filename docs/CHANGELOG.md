@@ -4,7 +4,7 @@
 - **实际结果**：覆盖第 2–747 页，按 14 章和原题号整理 746 条题面及示例，附原页链接和 24 张题面或图示。交付文件保存在本地 `references/27李林880/md/`。
 - **验证**：检查了题序、选择题选项和链接，2,682 个数学表达式通过 KaTeX 语法检查。4 处标为待核对并附原题图像。
 - **涉及文件**：`references/27李林880/md/`、`memory/plan.md`、`memory/progress.md`、`memory/verify.md`。
-- **Git 提交**：待提交。
+- **Git 提交**：`af8360b docs: record Li Lin calculus OCR delivery`。
 
 ---
 
