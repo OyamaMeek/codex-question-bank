@@ -555,6 +555,6 @@
   - `output/李林高数上册分节题集.tex`、`output/李林高数上册分节题集.pdf`、`output/lilin-figures/`
   - `.github/scripts/test_lilin_workbook.py`、`README.md`、`.agent/visual/`
   - `memory/agents.md`、`memory/plan.md`、`memory/progress.md`、`memory/verify.md`
-- **Git 提交**：待提交；保留任务开始前的五个删除、未跟踪 iPad 模拟卷及线性代数校对记录修改。
+- **Git 提交**：`e269fbf445c23377cd381965821ebeeca1d2561d feat: add sectioned Lilin calculus workbook for iPad`，已普通推送至 `origin/main`；实际哈希补记通过后续文档提交保存。保留任务开始前的五个删除、未跟踪 iPad 模拟卷及线性代数校对记录修改。
 
 ---
