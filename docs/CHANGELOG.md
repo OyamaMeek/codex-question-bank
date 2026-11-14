@@ -590,6 +590,6 @@
   - `output/李林高数上册分节题集.tex`（+6385/-3153）、同名PDF。
   - `.github/scripts/test_lilin_workbook.py`、`README.md`、`.agent/visual/lilin-ipad-review.md`及七张渲染图。
   - `memory/agents.md`、`memory/plan.md`、`memory/progress.md`、`memory/verify.md`、`memory/gotchas.md`。
-- **Git 提交**：待提交。
+- **Git 提交**：`ae058c9ee66f3f5fffc5da28798b0097479fd621 feat: grade Lilin questions and expand complete solutions`，已普通推送至`origin/main`；实际哈希补记由后续文档提交保存。
 
 ---
