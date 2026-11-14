@@ -1,0 +1,391 @@
+% !TeX program = xelatex
+% 题源：references/杭电27数分/杭电27数分.PNG（截图卷头编号 61）
+\documentclass[UTF8,zihao=-4,fontset=fandol]{ctexart}
+\ifdefined\QuestionBankAfour
+  \usepackage[a4paper,margin=17mm]{geometry}
+\else
+  \usepackage[paperwidth=800bp,paperheight=600bp,left=48bp,right=48bp,top=40bp,bottom=40bp]{geometry}
+\fi
+\usepackage{amsmath,amssymb,xcolor,fancyhdr}
+\usepackage[hidelinks,bookmarksopen=true]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5bp}
+\setlength{\headheight}{15bp}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{\footnotesize\textcolor{gray}{电子科技大学 2026 年数学分析试卷}}
+\fancyfoot[R]{\footnotesize\thepage}
+\raggedbottom
+\allowdisplaybreaks[1]
+\newcommand{\dd}{\mathop{}\!\mathrm{d}}
+\newcommand{\blank}{\underline{\hspace{5em}}}
+\newcommand{\Question}[3]{%
+  \clearpage
+  \def\CurrentNumber{#1}%
+  \pdfbookmark[1]{第 #1 题}{q#1}%
+  {\small #2\hfill #3 分}\par\medskip
+  {\Large\bfseries 第 #1 题}\par\medskip
+  \fontsize{14}{22}\selectfont
+}
+\newcommand{\Solution}{%
+  \clearpage
+  \fontsize{12}{18}\selectfont
+  {\large\bfseries 第 \CurrentNumber\ 题解析}\par\smallskip
+}
+\newcommand{\Known}{\par\textbf{已知与目标}\quad}
+\newcommand{\Method}{\par\textbf{入手思路}\quad}
+\newcommand{\Derive}{\par\textbf{推导}\quad}
+\newcommand{\Verify}{\par\textbf{结论与检查}\quad}
+
+\begin{document}
+\pdfbookmark[0]{电子科技大学 2026 年数学分析试卷}{cover}
+{\Huge\bfseries 电子科技大学\par}
+\medskip
+{\LARGE\bfseries 2026 年数学分析试卷\par}
+\bigskip
+\textbf{共 15 题，满分 150 分。}
+
+一、填空题（第 1 至 6 题）\hfill 每题 5 分，共 30 分\par
+二、计算题（第 7 至 10 题）\hfill 每题 12 分，共 48 分\par
+三、证明题（第 11 至 13 题）\hfill 每题 12 分，共 36 分\par
+四、综合题（第 14 至 15 题）\hfill 每题 18 分，共 36 分\par
+
+\bigskip
+每题下方留有演算空间。翻页可查看解析，长解析接续下一页。
+
+\Question{1}{一、填空题}{5}
+设 $a>0$，求 $\lim\limits_{n\to\infty}n\bigl(\sqrt[n]{a}-\sqrt[2n]{a}\bigr)=\blank$。
+
+\Solution
+\Known 已知 $a>0$，要求两个根式的差乘以 $n$ 的极限。
+\Method 根指数随 $n$ 变化，可以用指数函数把两个根式写成分别含 $\frac{1}{n}$ 和 $\frac{1}{2n}$ 的形式。这两个量都趋于零，正好能用指数函数在零点的导数。
+\Derive 令 $c=\ln a$，并令 $g(t)=e^{ct}$。设 $h_n=\frac{1}{2n}$，则原式为
+\[
+n\bigl(g(2h_n)-g(h_n)\bigr)
+=\frac{g(2h_n)-g(h_n)}{2h_n}.
+\]
+在 $[h_n,2h_n]$ 上，$g$ 连续且可导。由 Lagrange 中值定理，存在 $\xi_n\in(h_n,2h_n)$，使右端等于 $\frac{1}{2}g'(\xi_n)=\frac{1}{2}c e^{c\xi_n}$。因为 $\xi_n\to 0$，指数因子趋于 $1$。
+\Verify 填 $\boxed{\frac{\ln a}{2}}$。取 $a=1$，原式恒为 $0$；当 $0<a<1$ 时，原式为负，和 $\ln a$ 的符号一致。
+
+\Question{2}{一、填空题}{5}
+求 $\lim\limits_{x\to+\infty}\frac{1}{x}\int_{\frac{1}{x}}^1\frac{\cos 2t}{t^2}\dd t=\blank$。
+
+\Solution
+\Known 积分下限随 $x$ 增大而趋于 $0$，要求积分除以 $x$ 后的极限。
+\Method 分母 $t^2$ 在零点附近很小，先找出产生增长的部分。因为 $\cos 2t=1-2\sin^2 t$，减去 $1$ 后的余项恰好可以用 $|\sin t|\le |t|$ 控制。
+\Derive 对 $x\ge 1$，
+\[
+\frac{1}{x}\int_{\frac{1}{x}}^1\frac{\cos 2t}{t^2}\dd t
+=\frac{x-1}{x}-\frac{2}{x}\int_{\frac{1}{x}}^1\left(\frac{\sin t}{t}\right)^2\dd t.
+\]
+第一项来自 $\int_{\frac{1}{x}}^1 t^{-2}\dd t=x-1$。第二项中，被积函数介于 $0$ 与 $1$ 之间，积分区间的长度至多为 $1$，故第二项的绝对值至多为 $\frac{2}{x}$。
+\Verify 填 $\boxed{1}$。整体介于 $1-\frac{3}{x}$ 与 $1-\frac{1}{x}$ 之间，两端都趋于 $1$。
+
+\Question{3}{一、填空题}{5}
+求 $\displaystyle\int\sqrt{x}\,e^{\sqrt{x}}\dd x=\blank$。
+
+\Solution
+\Known 要找 $\sqrt{x}\,e^{\sqrt{x}}$ 的原函数，最后加上任意常数。
+\Method 根号在指数和乘积中同时出现，令 $u=\sqrt{x}$ 可以一次去掉两处根号。所得积分是多项式乘指数函数，用分部积分逐次降低多项式的次数。
+\Derive 对 $x>0$，由 $x=u^2$ 得 $\dd x=2u\dd u$，所以
+\[
+\begin{aligned}
+\int\sqrt{x}\,e^{\sqrt{x}}\dd x
+&=2\int u^2e^u\dd u\\
+&=2u^2e^u-4\int u e^u\dd u\\
+&=2e^u(u^2-2u+2)+C.
+\end{aligned}
+\]
+第二、三行都用到 $\int p(u)e^u\dd u=p(u)e^u-\int p'(u)e^u\dd u$，依次取 $p(u)=u^2$ 和 $p(u)=u$。
+\Verify 填 $\boxed{2e^{\sqrt{x}}(x-2\sqrt{x}+2)+C}$。对 $u$ 求导得 $2u^2e^u$，再乘 $\frac{\dd u}{\dd x}=\frac{1}{2u}$，正好回到 $u e^u$。
+
+\Question{4}{一、填空题}{5}
+令 $u=\ln(x+y)$，则 $\left.\dd u\right|_{(1,2)}=\blank$。
+
+\Solution
+\Known 函数有两个自变量。要求在 $(1,2)$ 的全微分，也就是由 $\dd x$ 和 $\dd y$ 组成的一阶线性表达式。
+\Method 对数只依赖于 $x+y$，而 $x$、$y$ 对这个和的偏导数均为 $1$。用链式法则分别求出两个系数。
+\Derive 由于 $(1,2)$ 的邻域内 $x+y>0$，函数有连续偏导数，故可用全微分公式
+\[
+\dd u=\frac{\partial u}{\partial x}\dd x+\frac{\partial u}{\partial y}\dd y
+=\frac{1}{x+y}\dd x+\frac{1}{x+y}\dd y.
+\]
+代入 $x=1$ 和 $y=2$。
+\Verify 填 $\boxed{\frac{1}{3}(\dd x+\dd y)}$。若两个增量大小相等、符号相反，则和 $x+y$ 保持不变，此式也给出 $\dd u=0$。
+
+\Question{5}{一、填空题}{5}
+求 $\displaystyle\sum_{n=1}^{\infty}\frac{n!}{n^n}x^n$ 的收敛半径 $\blank$。
+
+\Solution
+\Known 给定一个幂级数，要求以 $0$ 为中心的收敛半径。
+\Method 有阶乘时，求相邻两项的比值能直接约去多数因子。先以 $x\ne 0$ 计算绝对值比值，再用比值判别法找出收敛与发散的分界。
+\Derive 令 $a_n=\frac{n!}{n^n}$。化简得
+\[
+\frac{a_{n+1}}{a_n}
+=\frac{(n+1)n^n}{(n+1)^{n+1}}
+=\left(1+\frac1n\right)^{-n}
+\longrightarrow e^{-1}.
+\]
+因此级数相邻项的绝对值比趋于 $\frac{|x|}{e}$。当 $0<|x|<e$ 时比值小于 $1$ 的极限保证绝对收敛；当 $|x|>e$ 时比值的极限大于 $1$，级数发散。$x=0$ 时各项为零。
+\Verify 填 $\boxed{e}$。$|x|=e$ 时比值判别法无法判定，该点是否收敛不影响半径。
+
+\Question{6}{一、填空题}{5}
+求 $\displaystyle\int_0^{+\infty}\frac{\cos x-\cos 2x}{x^2}\dd x=\blank$。
+
+\Solution
+\Known 被积函数含两个余弦频率。要求从 $0$ 到 $+\infty$ 的反常积分。
+\Method 将它写成 $J(2)-J(1)$，其中
+$J(b)=\int_0^{+\infty}\frac{1-\cos bx}{x^2}\dd x$，$b>0$。
+这样每个积分都非负，可以用 $\frac{1}{x^2}=\int_0^{+\infty}t e^{-tx}\dd t$ 把分母换成方便与余弦一起积分的指数。
+\Derive 由 $1-\cos bx=2\sin^2(\frac{bx}{2})$，$J(b)$ 的被积函数在零点附近有界，在无穷远至多为 $\frac{2}{x^2}$，两端均收敛。上面的指数积分恒等式由换元 $s=tx$ 和 $\int_0^{+\infty}se^{-s}\dd s=1$ 得到。展开后被积函数 $t e^{-tx}(1-\cos bx)$ 非负，由 Tonelli 定理可交换积分次序。对 $t>0$，
+\[
+\int_0^{+\infty}e^{-tx}\dd x=\frac{1}{t},\qquad
+\int_0^{+\infty}e^{-tx}\cos bx\dd x=\frac{t}{t^2+b^2}.
+\]
+第二式可积分 $e^{(-t+ib)x}$ 后取实部，$t>0$ 保证无穷远的端点项为零。因此
+\[
+J(b)=\int_0^{+\infty}\frac{b^2}{t^2+b^2}\dd t
+=b\left[\arctan\frac{t}{b}\right]_{0}^{+\infty}
+=\frac{\pi b}{2}.
+\]
+\Verify 填 $\boxed{\frac{\pi}{2}}$。原分子为 $(1-\cos 2x)-(1-\cos x)$，相减顺序给出正号；换元也能单独验证 $J(2)=2J(1)$。
+
+\Question{7}{二、计算题}{12}
+已知 $f(x)$ 在 $[0,+\infty)$ 上连续，且 $\lim\limits_{x\to+\infty}f(x)=A$，求
+\[
+\lim\limits_{n\to\infty}\int_0^1 f(nx)\dd x.
+\]
+
+\Solution
+\Known $f$ 在无穷远趋于 $A$，要求 $f(nx)$ 在固定区间上的积分极限。
+\Method $nx$ 提示作换元，换元后得到 $f$ 在 $[0,n]$ 上的平均值。把积分分成固定的前段和远处的后段：前段除以 $n$ 后趋零，后段的函数值接近 $A$。
+\Derive 令 $t=nx$，则
+\[
+\int_0^1 f(nx)\dd x-A=\frac{1}{n}\int_0^n(f(t)-A)\dd t.
+\]
+任取 $\varepsilon>0$，由已知极限可选 $T>0$，使 $t\ge T$ 时 $|f(t)-A|<\frac{\varepsilon}{2}$。由于 $f$ 在 $[0,T]$ 上连续，$C=\int_0^T|f(t)-A|\dd t$ 有限。对 $n>T$，
+\[
+\left|\frac{1}{n}\int_0^n(f(t)-A)\dd t\right|
+\le \frac{C}{n}+\frac{n-T}{n}\frac{\varepsilon}{2}.
+\]
+再取足够大的 $n$，使 $\frac{C}{n}<\frac{\varepsilon}{2}$，总误差便小于 $\varepsilon$。
+\Verify 极限为 $\boxed{A}$。代入常函数 $f(x)\equiv A$，整个积分始终等于 $A$。
+
+\Question{8}{二、计算题}{12}
+设
+\[
+f(t)=\iint\limits_{0\le x\le t,\;0\le y\le t} e^{-\frac{tx}{y^2}}\dd x\dd y,
+\qquad t>0,
+\]
+求 $f'(t)$。
+
+\Solution
+\Known 积分区域的边长为 $t$，被积函数也含 $t$，要求对 $t$ 的导数。
+\Method 指数中的分子 $tx$ 与分母 $y^2$ 都是二次量。把 $x$、$y$ 同时除以 $t$，指数内的 $t$ 会约去，积分区域也随之固定。
+\Derive 令 $x=tu$、$y=tv$，面积缩放因子为 $t^2$。在 $y>0$ 时，被积函数介于 $0$ 与 $1$ 之间，故可先在避开 $y=0$ 的区域换元，再让下边界趋于 $0$；边界上的取值不影响积分。于是
+\[
+f(t)=t^2\int_0^1\int_0^1 e^{-\frac{u}{v^2}}\dd u\dd v
+=t^2\int_0^1 v^2\bigl(1-e^{-\frac{1}{v^2}}\bigr)\dd v.
+\]
+第二个等号来自对 $u$ 从 $0$ 积到 $1$。剩余积分为常数，因此
+\[
+\boxed{f'(t)=2t\int_0^1 v^2\bigl(1-e^{-\frac{1}{v^2}}\bigr)\dd v}.
+\]
+也可把常数写成高斯尾积分。令 $I_k=\int_1^{+\infty}s^{-k}e^{-s^2}\dd s$。用 $s=\frac{1}{v}$ 换元，得 $\int_0^1 v^2 e^{-\frac{1}{v^2}}\dd v=I_4$。对 $k=2,4$，将
+\[
+\bigl(s^{1-k}e^{-s^2}\bigr)'=-(k-1)s^{-k}e^{-s^2}-2s^{2-k}e^{-s^2}
+\]
+从 $1$ 积到 $+\infty$，得 $(k-1)I_k=e^{-1}-2I_{k-2}$。依次代入 $k=2,4$ 得 $I_4=\frac{-e^{-1}+4I_0}{3}$，因此 $f'(t)=\frac{2t}{3}(1+e^{-1}-4I_0)$。
+\Verify 因 $0<1-e^{-\frac{1}{v^2}}<1$ 对 $0<v\le 1$ 成立，可检查结果满足 $0<f'(t)<\frac{2t}{3}$，且与面积缩放所给出的线性关系一致。
+
+\Question{9}{二、计算题}{12}
+已知曲面
+\[
+\begin{cases}
+x=\frac{1}{2}(e^u+e^{-u})\cos v;\\
+y=\frac{1}{2}(e^u+e^{-u})\sin v;\\
+z=\frac{1}{2}(e^u-e^{-u}).
+\end{cases}
+\]
+求曲面在点 $(u,v)=\left(0,\frac{\pi}{4}\right)$ 处的切平面和法线方程。
+
+\Solution
+\Known 给出曲面的参数表达式和参数值。要先得到空间中的切点，再找一个垂直于切平面的向量。
+\Method $x,y$ 共享系数，平方相加可消去 $v$。再减去 $z^2$ 能消去 $u$，从而用隐式曲面的梯度求法向量。
+\Derive 对任意参数 $u,v$，
+\[
+x^2+y^2-z^2
+=\frac14\bigl((e^u+e^{-u})^2-(e^u-e^{-u})^2\bigr)=1.
+\]
+取 $G(x,y,z)=x^2+y^2-z^2-1$。参数点对应的切点是
+$P=\bigl(\frac{\sqrt2}{2},\frac{\sqrt2}{2},0\bigr)$，
+$\nabla G(P)=(\sqrt2,\sqrt2,0)$。参数的两条坐标曲线在 $P$ 处分别有切向量 $(0,0,1)$ 与 $\bigl(-\frac{\sqrt2}{2},\frac{\sqrt2}{2},0\bigr)$，它们线性无关，且都与 $\nabla G(P)$ 垂直。因此可取 $(1,1,0)$ 为法向量。
+\Verify 切平面为 $\boxed{x+y=\sqrt2}$，法线为
+\[
+\boxed{(x,y,z)=\left(\frac{\sqrt2}{2},\frac{\sqrt2}{2},0\right)+s(1,1,0),\quad s\in\mathbb R}.
+\]
+平面与直线均经过 $P$，直线的方向向量正是平面的法向量。
+
+\Question{10}{二、计算题}{12}
+求曲面积分
+\[
+\iint_\Sigma\frac{1}{x}\dd y\dd z+\frac{1}{y}\dd z\dd x+\frac{1}{z}\dd x\dd y.
+\]
+其中 $\Sigma$ 为椭球面 $\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1$，方向取外侧。
+
+\Solution
+\Known 要求椭球面上向外的通量，按半轴长度取 $a,b,c>0$。原式的三个分量在坐标为零时无定义。
+\Method 第二类曲面积分可以先把向量场与单位外法向量点乘，再对面积积分。椭球的外法向量恰含 $x,y,z$ 三个因子，可以消去分母。
+\Derive 令 $D=\sqrt{\frac{x^2}{a^4}+\frac{y^2}{b^4}+\frac{z^2}{c^4}}$。椭球面的单位外法向量为
+\[
+\mathbf n=\frac{1}{D}\left(\frac{x}{a^2},\frac{y}{b^2},\frac{z}{c^2}\right).
+\]
+在 $xyz\ne0$ 处，通量密度等于 $\frac{1}{D}\bigl(\frac{1}{a^2}+\frac{1}{b^2}+\frac{1}{c^2}\bigr)$。因为 $D>0$，它延拓为整个曲面上的连续函数。三条坐标截线的曲面面积为零，删去其收缩邻域再取极限，也得到同一个积分。
+
+椭球方程给出 $(x,y,z)\cdot\mathbf n=\frac{1}{D}$。向量场 $(x,y,z)$ 在整个椭球体上光滑，散度为 $3$，所以可对它用 Gauss 散度定理，得到 $\iint_\Sigma\frac{1}{D}\dd S=3\cdot\frac{4\pi abc}{3}$。体积公式来自将单位球分别按 $a,b,c$ 缩放。
+\Verify 通量为 $\boxed{4\pi abc\bigl(\frac{1}{a^2}+\frac{1}{b^2}+\frac{1}{c^2}\bigr)}$。单位球上 $\mathbf n=(x,y,z)$，通量密度恒为 $3$，结果为 $12\pi$，与公式一致。
+
+\Question{11}{三、证明题}{12}
+设 $\mathbb R$ 为实数集，$F\subset\mathbb R$ 为非空闭集，定义
+$d(x)=\inf\limits_{t\in F}|x-t|$，证明 $d(x)$ 为连续函数。
+
+\Solution
+\Known $d(x)$ 是 $x$ 到集合 $F$ 的距离，即所有 $|x-t|$ 的下确界。要证明 $x$ 的小变动只会使 $d(x)$ 有小变动。
+\Method 对任意同一个参照点 $t\in F$，用三角不等式比较 $|x-t|$ 与 $|y-t|$，随后对 $t$ 取下确界。
+\Derive $F$ 非空，且每个 $|x-t|$ 非负，所以 $d(x)$ 有限。任取 $x,y\in\mathbb R$。对所有 $t\in F$，
+\[
+|x-t|\le |x-y|+|y-t|.
+\]
+对两侧分别取下确界，常数 $|x-y|$ 可以移到下确界外，得到 $d(x)\le |x-y|+d(y)$。交换 $x$、$y$ 又得 $d(y)\le |x-y|+d(x)$，合起来就是
+\[
+|d(x)-d(y)|\le |x-y|.
+\]
+\Verify $x\to y$ 时，右端趋于 $0$，因此 $d$ 在每一点 $y$ 都连续。这一步也说明了为何不需要先找到实现下确界的点。
+
+\Question{12}{三、证明题}{12}
+设 $f(x)\in R[0,1]$，且 $f$ 在 $x=0$ 处连续，证明
+\[
+\lim\limits_{n\to\infty}\int_0^1 f(x^n)\dd x=f(0).
+\]
+
+\Solution
+\Known $R[0,1]$ 表示 $[0,1]$ 上的 Riemann 可积函数。已知 $f$ 有界，并且在 $0$ 处连续，要证明积分趋于 $f(0)$。
+\Method 对任意固定的 $b<1$，$0\le x\le b$ 时 $x^n\le b^n$，所以 $f(x^n)$ 在这段能统一接近 $f(0)$。靠近 $1$ 的余段用长度控制。
+\Derive 令 $M=\sup_{0\le u\le 1}|f(u)-f(0)|$。对每个 $n$，$x\mapsto x^n$ 在 $[\eta,1]$（$\eta>0$）上是有连续可导逆映射的严格单调换元，故 $f(x^n)$ 在 $[\eta,1]$ 上 Riemann 可积。由于该复合函数有界，让 $\eta$ 趋于零即可用上下和判据补上 $[0,\eta]$。
+
+给定 $\varepsilon>0$，选 $b\in(0,1)$ 使 $M(1-b)<\frac{\varepsilon}{2}$。由 $f$ 在 $0$ 连续，存在 $\delta>0$，使 $0\le u<\delta$ 时 $|f(u)-f(0)|<\frac{\varepsilon}{2}$。取 $n$ 足够大使 $b^n<\delta$，于是
+\[
+\left|\int_0^1 f(x^n)\dd x-f(0)\right|
+\le\int_0^b |f(x^n)-f(0)|\dd x+\int_b^1 |f(x^n)-f(0)|\dd x
+<\frac{\varepsilon b}{2}+M(1-b)\le\varepsilon.
+\]
+\Verify 极限为 $\boxed{f(0)}$。证明只依赖 $0$ 点的连续性；$x=1$ 处的值通过最后一段的长度估计处理。
+
+\Question{13}{三、证明题}{12}
+$x\in[-\pi,\pi]$，判断 $\displaystyle\sum_{n=2}^{\infty}\frac{\cos nx}{\ln n}$ 的敛散性（绝对，条件，发散），并证明其不是某 Riemann 可积函数在 $[-\pi,\pi]$ 上的 Fourier 级数。
+
+\Solution
+\Known 逐个固定 $x$ 判断级数，再判断整组余弦系数能否来自某个 Riemann 可积函数。
+\Method 余弦项有振荡，用 Dirichlet 判别法判断收敛。对绝对值，用 $\cos^2 nx\le|\cos nx|$ 并把平方化成常数项与振荡项。最后用余弦函数的正交性检查系数。
+\Derive \textbf{普通收敛。} $x=0$ 时，$\frac{1}{\ln n}\ge\frac{1}{n}$，由调和级数发散知原级数发散。对 $0<|x|\le\pi$，等比求和给出
+\[
+\left|\sum_{n=2}^{N}\cos nx\right|
+\le\left|\sum_{n=2}^{N} e^{inx}\right|
+\le \frac{2}{|1-e^{ix}|}.
+\]
+这是与 $N$ 无关的界，且 $\frac{1}{\ln n}$ 单调趋于零，满足 Dirichlet 判别法，故级数收敛。
+
+\textbf{绝对收敛。} $x=\pm\pi$ 时，$|\cos nx|=1$，绝对值级数发散。对 $0<|x|<\pi$，用
+\[
+\sum_{n=2}^{N}\frac{|\cos nx|}{\ln n}
+\ge\sum_{n=2}^{N}\frac{\cos^2 nx}{\ln n}
+=\frac12\sum_{n=2}^{N}\frac1{\ln n}
++\frac12\sum_{n=2}^{N}\frac{\cos 2nx}{\ln n}.
+\]
+此时 $e^{2ix}\ne1$，最后一项同样由 Dirichlet 判别法收敛。前一项趋于 $+\infty$，所以左侧发散。
+
+\clearpage
+{\large\bfseries 第 13 题解析（续）}\par\smallskip
+\textbf{Fourier 系数。} 若该级数来自 Riemann 可积函数 $g$，则 $g$ 有界，$|g|^2$ 也可积。其余弦系数 $a_n=\frac1\pi\int_{-\pi}^{\pi}g(x)\cos nx\dd x$ 必须等于 $\frac1{\ln n}$（$n\ge2$）。设 $p_N(x)=\sum_{n=2}^{N}a_n\cos nx$。在 $[-\pi,\pi]$ 上，频率不同的余弦函数乘积积分为零，每个 $\cos^2 nx$ 的积分为 $\pi$。展开平方，由余弦函数的这些正交关系和 $a_n$ 的定义，有
+\[
+0\le\frac1\pi\int_{-\pi}^{\pi}|g(x)-p_N(x)|^2\dd x
+=\frac1\pi\int_{-\pi}^{\pi}|g(x)|^2\dd x-\sum_{n=2}^{N}|a_n|^2.
+\]
+因而系数平方的部分和必须有界。但 $\lim\limits_{n\to\infty}\frac{(\ln n)^2}{n}=0$，所以从某项起 $|a_n|^2=\frac{1}{(\ln n)^2}\ge\frac{1}{n}$，部分和无界，矛盾。
+\Verify $x=0$ 时发散，$0<|x|\le\pi$ 时条件收敛，没有绝对收敛点。$x=\pi$ 处原级数正好是交错级数，吻合端点判定；Fourier 部分用的是整组系数的平方和条件。
+
+\Question{14}{四、综合题}{18}
+设 $K$ 是一个非空紧集，$\{f_n(x)\}$ 为 $K$ 上的连续函数列，且对任意的 $x\in K$，$\{f_n(x)\}$ 关于 $n$ 单调递减趋于 $0$。证明 $\{f_n(x)\}$ 在 $K$ 上一致收敛于 $f(x)=0$。
+
+\Solution
+\Known 每个 $f_n$ 在紧集 $K$ 上连续，且对每个 $x$，$f_n(x)$ 单调递减到零。要证明给定误差后，可以选择同一个下标控制 $K$ 上所有点。
+\Method 一个点的误差达到要求后，连续性让同一个下标控制该点的邻域。紧性把覆盖全体点的邻域缩成有限个，再用单调性将有限个下标统一。
+\Derive 递减且极限为零，故 $f_n(x)\ge 0$。给定 $\varepsilon>0$，定义 $K$ 中的相对开集
+\[
+U_n=\{x\in K:f_n(x)<\varepsilon\}.
+\]
+$U_n$ 相对开是因为 $f_n$ 连续。$f_{n+1}\le f_n$ 说明 $U_n\subseteq U_{n+1}$，逐点收敛又说明每个 $x\in K$ 至少属于某个 $U_n$。这些 $U_n$ 因此构成 $K$ 的开覆盖。
+
+由于 $K$ 紧，存在有限子覆盖 $U_{n_1},\dots,U_{n_m}$。取 $N=\max\{n_1,\dots,n_m\}$。集合递增，故 $U_N$ 包含全部有限子覆盖，因而 $U_N=K$。对任意 $n\ge N$ 和 $x\in K$，
+\[
+|f_n(x)|=f_n(x)\le f_N(x)<\varepsilon.
+\]
+\Verify 得证 $f_n$ 在 $K$ 上一致收敛到 $0$。同一个 $N$ 控制所有 $x$，这正是此题要由紧性和单调性获得的条件。
+
+\Question{15}{四、综合题}{18}
+设 $\Omega$ 为 $\mathbb R^2$ 上的光滑简单连通区域，$f\in C^2(\Omega)$。若
+\[
+\frac{\partial^2f}{\partial x_1^2}+\frac{\partial^2f}{\partial x_2^2}=0,
+\qquad \forall\,\mathbf x=(x_1,x_2)\in\Omega,
+\]
+则称 $f$ 为 $\Omega$ 上的调和函数。
+
+（1）证明
+\[
+\iint_\Omega\left(\frac{\partial^2f}{\partial x_1^2}
++\frac{\partial^2f}{\partial x_2^2}\right)\dd\sigma
+=\int_{\partial\Omega}\frac{\partial f}{\partial\mathbf n}\dd s,
+\]
+其中 $\mathbf n$ 是 $\partial\Omega$ 的单位外法向量。
+
+（2）证明 $f$ 为 $\Omega$ 上的调和函数当且仅当
+\[
+f(\mathbf x)=\frac{1}{2\pi r}\int_{\partial B(\mathbf x,r)}f(\mathbf x)\dd s
+=\frac{1}{\pi r^2}\iint_{B(\mathbf x,r)}f(\mathbf x)\dd\sigma.
+\]
+其中 $B(\mathbf x,r)$ 是以 $\mathbf x$ 为圆心、以 $r$ 为半径的闭球。
+
+\Solution
+\Known 记 $\Delta f=\frac{\partial^2 f}{\partial x_1^2}+\frac{\partial^2 f}{\partial x_2^2}$。第一问联系 $\Delta f$ 的区域积分与边界的法向导数。第二问联系圆心的函数值与圆周、圆盘的平均值。
+\Method $\Delta f=\operatorname{div}(\nabla f)$，因此第一问用平面散度定理。第二问把圆周平均值看作半径的函数，求导后就会出现第一问的法向导数积分。
+
+\textbf{题面校勘。} 第一问原条件 $f\in C^2(\Omega)$ 只规定开区域内部的光滑性，边界上的法向导数可能没有定义。下面对有界光滑区域、$f\in C^2(\overline\Omega)$ 的情形证明，此处的 $C^2(\overline\Omega)$ 指偏导数连续延伸到闭包。第二问对任意 $\mathbf x\in\Omega$ 和满足 $B(\mathbf x,r)\subset\Omega$ 的 $r>0$ 成立。截图在两个积分内也写了 $f(\mathbf x)$，照此字面计算会把圆心值当常数，任何函数都满足等式。证明中将积分点记为 $\mathbf y$，在积分内使用 $f(\mathbf y)$。
+\Derive \textbf{（1）边界积分。} 令 $\mathbf F=\nabla f$。在补足的条件下，$\mathbf F$ 的一阶偏导连续延伸到边界，可以用平面散度定理。由于 $\mathbf F\cdot\mathbf n=\frac{\partial f}{\partial\mathbf n}$，
+\[
+\iint_\Omega\Delta f\dd\sigma
+=\iint_\Omega\operatorname{div}\mathbf F\dd\sigma
+=\int_{\partial\Omega}\mathbf F\cdot\mathbf n\dd s
+=\int_{\partial\Omega}\frac{\partial f}{\partial\mathbf n}\dd s.
+\]
+在第二问的闭圆盘上，$f\in C^2(\Omega)$ 已经提供这个公式所需的光滑性，因为闭圆盘整个包含在 $\Omega$ 内。
+
+\clearpage
+{\large\bfseries 第 15 题解析（续）}\par\smallskip
+\textbf{（2）从调和性到平均值。} 固定 $\mathbf x$，设 $\mathbf e_\theta=(\cos\theta,\sin\theta)$。圆周平均值是
+\[
+A(r)=\frac{1}{2\pi}\int_0^{2\pi} f(\mathbf x+r\mathbf e_\theta)\dd\theta.
+\]
+这里弧长元为 $r\dd\theta$，与平均值的分母 $2\pi r$ 中的 $r$ 约去。在任一允许的正半径附近，函数及其径向导数在紧参数区间内连续，故可在积分号下求导。径向单位向量就是圆周上的外法向量，由（1）得
+\[
+A'(r)=\frac{1}{2\pi r}\int_{\partial B(\mathbf x,r)}\frac{\partial f}{\partial\mathbf n}\dd s
+=\frac{1}{2\pi r}\iint_{B(\mathbf x,r)}\Delta f\dd\sigma.
+\]
+若 $\Delta f=0$，则 $A'(r)=0$。由 $f$ 在圆心连续，$A(r)\to f(\mathbf x)$（$r\to0^+$），所以 $A(r)=f(\mathbf x)$。按半径对各圆周积分，得到圆盘平均值
+\[
+\frac{1}{\pi r^2}\int_0^r 2\pi\rho A(\rho)\dd\rho=f(\mathbf x).
+\]
+
+\textbf{（2）从平均值到调和性。} 若所有允许半径均有 $A(r)=f(\mathbf x)$，则 $A'(r)=0$，由求导式知每个圆盘上的 $\Delta f$ 积分为零。由于 $\Delta f$ 连续，它在收缩圆盘上的平均值趋于 $\Delta f(\mathbf x)$，因此 $\Delta f(\mathbf x)=0$。仅给定圆盘平均值也足够：对 $\int_0^r 2\pi\rho A(\rho)\dd\rho=\pi r^2 f(\mathbf x)$ 的两侧求导即可恢复圆周平均值。圆心任意，故 $f$ 在 $\Omega$ 上调和。
+\Verify 两个平均式分别除以圆周长度 $2\pi r$ 和圆盘面积 $\pi r^2$。取常函数时，两边都给出同一常数；反向证明用到了每个圆心处任意充分小的半径。
+\end{document}
