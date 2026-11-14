@@ -629,6 +629,6 @@
   - 核对规范措辞和文档差异，`git diff --check` 通过。
 - **涉及文件**：
   - `AGENTS.md`、`docs/CHANGELOG.md`。
-- **Git 提交**：待提交。
+- **Git 提交**：`9f156437705fd88a8c719547bcbdfbe8534d8b59 docs: require A4 and iPad workbook editions`，已推送至 `origin/main`。
 
 ---
