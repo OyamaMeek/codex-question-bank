@@ -603,6 +603,6 @@
   - 重新编译 858 页 PDF，逐页核对星号位置和题解分页，22 项测试通过。视觉抽查包含截图中的第 120 题。
 - **涉及文件**：
   - `output/李林高数上册分节题集.tex`、同名 PDF、资料说明及版面核查记录。
-- **Git 提交**：待提交。
+- **Git 提交**：`b6e73cbf8aafdc697e315db5bbdca6e75d453126 fix: align Lilin difficulty stars beside sources`，已推送至 `origin/main`。
 
 ---
