@@ -616,6 +616,6 @@
   - 逐项核对规范内容，`git diff --check` 通过。
 - **涉及文件**：
   - `AGENTS.md`、`docs/CHANGELOG.md`。
-- **Git 提交**：待提交。
+- **Git 提交**：`39ca84da0c2057046209cc7dc35b6ff89e052c5d docs: define math workbook layout requirements`，已推送至 `origin/main`。
 
 ---
