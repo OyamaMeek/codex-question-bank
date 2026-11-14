@@ -642,6 +642,6 @@
   - 两版共用可编辑题解，分别输出 A4 和 iPad 横屏 PDF。实际编译均为 33 页，核对题解分页、公式、文字边界、留白和书签。22 项项目测试和关键结果独立复算通过。
 - **涉及文件**：
   - `output/电子科技大学2026年数学分析试卷.tex`、`output/电子科技大学2026年数学分析试卷（iPad横屏版）.tex`、`output/电子科技大学2026年数学分析试卷.pdf`、`output/iPad/电子科技大学2026年数学分析试卷.pdf`、`memory/agents.md`、`memory/plan.md`、`memory/progress.md`、`memory/verify.md`。
-- **Git 提交**：待提交。
+- **Git 提交**：`d061691bfd62ac3670556b0e52a633b160d57c50 feat: typeset the 2026 UESTC mathematical analysis exam`，已推送至 `origin/main`。
 
 ---
