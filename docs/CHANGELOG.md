@@ -606,3 +606,16 @@
 - **Git 提交**：`b6e73cbf8aafdc697e315db5bbdca6e75d453126 fix: align Lilin difficulty stars beside sources`，已推送至 `origin/main`。
 
 ---
+
+## [2026-11-14 15:21] 记录数学题集与模拟卷排版规范
+
+- **需求/问题描述**：
+  > 将 LaTeX 公式、iPad 4:3 排版、题解分页及面向初学者的详细解析要求写入项目 AGENTS.md。
+- **实际实现的功能与改动**：
+  - 规定上下分式和极限条件下置，每道题单独一页并下方留白，解析从紧接的下一页开始，逐步说明解题线索、方法和推导依据。
+  - 逐项核对规范内容，`git diff --check` 通过。
+- **涉及文件**：
+  - `AGENTS.md`、`docs/CHANGELOG.md`。
+- **Git 提交**：待提交。
+
+---
