@@ -24,8 +24,8 @@
 \newcommand{\Question}[3]{\fancyhead[L]{}
   \def\CurrentNumber{#1}\def\CurrentSource{#2}\def\CurrentDifficulty{#3}
   {\small\color{accent}\CurrentSection}\par
-  {\Large\bfseries 第 #1 题}\hfill{\footnotesize\color{gray}#2}\par
-  {\footnotesize\ttfamily\color{gray}#3}\par\medskip
+  {\Large\bfseries 第 #1 题}\hfill
+  {\footnotesize\color{gray}{\ttfamily #3}\quad #2}\par\medskip
   \fontsize{13}{23}\selectfont}
 \newcommand{\Solution}{\clearpage
   \fancyhead[L]{\footnotesize\color{gray}第 \CurrentNumber\ 题解析}
