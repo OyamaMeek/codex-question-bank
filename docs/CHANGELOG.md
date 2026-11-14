@@ -619,3 +619,16 @@
 - **Git 提交**：`39ca84da0c2057046209cc7dc35b6ff89e052c5d docs: define math workbook layout requirements`，已推送至 `origin/main`。
 
 ---
+
+## [2026-11-14 15:23] 规定题集同时保留 A4 和 iPad 版
+
+- **需求/问题描述**：
+  > 分页规范要求各保留一份 A4 版和 iPad 版。
+- **实际实现的功能与改动**：
+  - 规定每套题集或模拟卷各保留一份 A4 版 PDF 和一份 iPad 4:3 横屏版 PDF，两版均一题一页、下方留白，解析从下一页开始。
+  - 核对规范措辞和文档差异，`git diff --check` 通过。
+- **涉及文件**：
+  - `AGENTS.md`、`docs/CHANGELOG.md`。
+- **Git 提交**：待提交。
+
+---
