@@ -1,6 +1,6 @@
 # 工具
 
-李林高数上册分节题集按微分、积分、微分方程分区编写解析，主代理处理函数与极限并统一编译。复用 Tectonic、ctex、markdown-it-py、PyMuPDF 和既有 KaTeX；用户授权后核对原题图片及最终 PDF 渲染页，记录于 `.agent/visual/`。
+李林高数上册分节题集按微分、积分、微分方程分区编写、评级和复核，主代理处理函数与极限并统一排序编译。复用 Tectonic、ctex、markdown-it-py、PyMuPDF 和既有 KaTeX；用户授权后核对原题图片及最终 PDF 渲染页，记录于 `.agent/visual/`。
 
 线性代数第七版使用现有 PyMuPDF、macOS Vision、MLX PaddleOCR和ONNX Runtime；补充官方PP-DocLayoutV3版面模型，按正文和公式分别识别。采用dispatching-parallel-agents技能按章节对照原页校订，主代理统一组装与检查，避免各代理同时修改最终文件。
 

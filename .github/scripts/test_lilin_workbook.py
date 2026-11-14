@@ -1,6 +1,7 @@
 from pathlib import Path
 import math
 import re
+import subprocess
 import unittest
 
 
@@ -9,6 +10,33 @@ SOURCE = ROOT / "output/李林高数上册分节题集.tex"
 
 
 class LilinWorkbookTests(unittest.TestCase):
+    def test_difficulty_sorting_and_expanded_solutions(self):
+        text = SOURCE.read_text()
+        rows = re.findall(r"^% SOURCE line=(\d+) pdf_page=(\d+) section=([\d.]+)\n\n"
+                          r"\\Question\{(\d+)\}\{([^\n]+)\}\{(\*{1,5})\}\n([\s\S]*?)(?=^% SOURCE|^\\SectionHeading|\\end\{document\}|\Z)", text, re.M)
+        self.assertEqual(len(rows), 419)
+        for section in dict.fromkeys(row[2] for row in rows):
+            entries = [(len(row[5]), int(row[0])) for row in rows if row[2] == section]
+            self.assertEqual(entries, sorted(entries), section)
+        for line, _, _, _, _, _, block in rows:
+            solution = block.split(r"\Solution", 1)[1]
+            with self.subTest(source_line=line):
+                labels = re.findall(r"^\\(Known|Method|Derive|Check)$", solution, re.M)
+                self.assertEqual(labels, ["Known", "Method", "Derive", "Check"])
+
+    def test_question_statements_and_sections_preserved(self):
+        previous = subprocess.check_output(
+            ["git", "show", "e269fbf445c23377cd381965821ebeeca1d2561d:output/李林高数上册分节题集.tex"],
+            cwd=ROOT, encoding="utf-8")
+
+        def statements(text):
+            rows = re.findall(r"^% SOURCE line=(\d+) pdf_page=(\d+) section=([\d.]+)\n\n"
+                              r"\\Question[^\n]+\n\n([\s\S]*?)\n\n\\vfill", text, re.M)
+            return {int(line): (page, section, body) for line, page, section, body in rows}
+
+        self.assertEqual(len(statements(previous)), 419)
+        self.assertEqual(statements(SOURCE.read_text()), statements(previous))
+
     def test_scope_and_separate_solutions(self):
         text = SOURCE.read_text()
         origins = re.findall(r"^% SOURCE line=(\d+) pdf_page=(\d+) section=([\d.]+)$", text, re.M)
