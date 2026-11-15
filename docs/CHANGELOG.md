@@ -670,6 +670,6 @@
 - **涉及文件**
   - `output/数学分析期中1115.tex`、`output/数学分析期中1115（iPad横屏版）.tex`、`output/数学分析期中1115.pdf`、`output/iPad/数学分析期中1115.pdf`。
   - `memory/agents.md`、`memory/plan.md`、`memory/progress.md`、`memory/verify.md`、`docs/CHANGELOG.md`。
-- **Git 提交** 待提交。
+- **Git 提交** `c8d201dfc5207de0d009b9fc1cf521fad054066e feat: typeset the mathematical analysis midterm`。
 
 ---
