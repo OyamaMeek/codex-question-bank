@@ -673,3 +673,18 @@
 - **Git 提交** `c8d201dfc5207de0d009b9fc1cf521fad054066e feat: typeset the mathematical analysis midterm`。
 
 ---
+
+## [2026-11-15 21:54] 选编线性代数前两章三套模拟卷
+
+- **需求**
+  > 从本地 302 真题中的数学一、数学二选用原题，按同济第七版前两章范围编写三套模拟卷。
+- **实际结果**
+  - 选入 12 道完整原题，每卷 4 题、20 分，保留原题型及条件。两科共用题附双题号，各收录一次。
+  - A4 和 iPad 4:3 各三份，每卷 9 页。题目独占一页并留出演算空间，下一页给出原题出处和逐步解析。
+  - 复算全部题目。核验题解顺序、纸张尺寸、书签、留白和编译日志，22 项仓库测试通过。
+- **涉及文件**
+  - `output/` 下三套线性代数试卷的 TeX 源稿、A4 PDF、iPad PDF 和共用排版文件 `linear-algebra-exam.sty`。
+  - `README.md`、`memory/agents.md`、`memory/plan.md`、`memory/progress.md`、`memory/verify.md`、`docs/CHANGELOG.md`。
+- **Git 提交** 待提交。
+
+---

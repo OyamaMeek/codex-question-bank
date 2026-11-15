@@ -1,5 +1,7 @@
 # 工具
 
+线性代数前两章模拟卷用 PyMuPDF 读取逐年原卷的文字与公式字形坐标，结合真题 Markdown、配套解析校核。使用 Tectonic 0.17.0、ctex 和双版式入口编译，用 Python 精确算术复算关键结果并检查 PDF 页序与留白。
+
 数学分析期中1115 使用 PyMuPDF 提取文字层和嵌入图片，使用本机 RapidOCR 识别题面，对照原卷逐题核对，并用既有 KaTeX 脚本检查公式。
 
 数学分析期中1115 的 LaTeX 版复用 Tectonic 0.17.0、ctex 和双入口试卷模板。用 PyMuPDF 检查分页和字形坐标，用 mpmath 独立复算关键结果。

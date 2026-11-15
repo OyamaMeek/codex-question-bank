@@ -1,0 +1,96 @@
+% !TeX program = xelatex
+\documentclass[UTF8,zihao=-4,fontset=fandol]{ctexart}
+\newcommand{\ExamNumber}{3}
+\usepackage{linear-algebra-exam}
+
+\begin{document}
+\ExamCover{第 1 题为单项选择题，第 2–4 题为填空题。每题 5 分。}
+
+\Question{1}{单项选择}{2026 年数学一第 5 题、数学二第 8 题（均为原卷第 1 页）}
+单位矩阵经过若干次互换两行得到的矩阵为置换矩阵。设 $A$ 为 $n$ 阶置换矩阵，$A^*$ 为 $A$ 的伴随矩阵，则（\quad）。
+\Choices
+  {$A^*$ 为置换矩阵。}
+  {$A^{-1}$ 为置换矩阵。}
+  {$A^{-1}=A^*$。}
+  {$A^{-1}=-A^*$。}
+
+\Solution
+\Known 置换矩阵来自单位矩阵的一系列行交换，每行、每列各有一个 $1$，其余元素为 $0$。要求判断哪项对所有置换矩阵都成立。
+\Method 两行互换会使行列式变号，因此 $|A|$ 只能取 $1$ 或 $-1$，$A$ 一定可逆。要识别逆矩阵，可以按乘法定义检查 $AA^{\mathrm T}$。
+\Derive $AA^{\mathrm T}$ 的第 $(i,j)$ 个元素等于 $A$ 的第 $i$ 行与第 $j$ 行逐项相乘后求和。当 $i=j$ 时，唯一的 $1$ 贡献 $1$。当 $i\ne j$ 时，两行的 $1$ 分处不同列，所有乘积皆为零，所以 $AA^{\mathrm T}=E$。故 $A^{-1}=A^{\mathrm T}$。
+
+$A^{\mathrm T}$ 每行也各有一个 $1$，且这些 $1$ 分处不同列。把单位矩阵各行按这些 $1$ 的位置重新排序，就得到 $A^{\mathrm T}$。因此 $A^{-1}$ 为置换矩阵。
+\Verify 选 \textbf{B}。取 $A=\begin{pmatrix}0&1\\1&0\end{pmatrix}$，则 $|A|=-1$，$A^*=-A^{-1}$，可排除 A、C。取 $A=E$，则 $A^*=A^{-1}=E$，可排除 D。
+
+\Question{2}{填空}{2020 年数学二第 14 题、数学一第 13 题（均为原卷第 2 页）}
+行列式
+\[
+\begin{vmatrix}
+a&0&-1&1\\
+0&a&1&-1\\
+-1&1&a&0\\
+1&-1&0&a
+\end{vmatrix}
+=\blank
+\]
+
+\Solution
+\Known 要算一个四阶行列式。把四阶矩阵记为 $M$，其两个对角块同为 $aE$，另外两个块同为 $C=\begin{pmatrix}-1&1\\1&-1\end{pmatrix}$，这里 $E$ 是二阶单位矩阵。
+\Method 相同的两个对角块、相同的两个非对角块提示可以配对相加、相减。右乘分块矩阵 $P=\begin{pmatrix}E&E\\E&-E\end{pmatrix}$ 后，两组分块列分别出现 $aE+C$ 和 $aE-C$。
+\Derive 记 $U=aE+C$、$V=aE-C$。按分块乘法计算，
+\[
+MP=\begin{pmatrix}U&V\\U&-V\end{pmatrix}
+  =P\begin{pmatrix}U&O\\O&V\end{pmatrix}.
+\]
+$P^2=2E_4$，因此 $P^{-1}=\frac{1}{2}P$，$|P|\ne0$。对上式取行列式，两边约去 $|P|$，再用分块对角行列式等于对角块行列式之积，得
+\[
+|M|=|U|\,|V|
+=\bigl[(a-1)^2-1\bigr]\bigl[(a+1)^2-1\bigr]
+=a^2(a^2-4).
+\]
+\Verify 填 $\boxed{a^2(a^2-4)}$。令 $a=0$，原矩阵第一、二行互为相反数，行列式为零，和代入结果一致。
+
+\Question{3}{填空}{2022 年数学一第 15 题（原卷第 2 页）}
+已知矩阵 $A$ 和 $E-A$ 可逆，其中 $E$ 为单位矩阵。若矩阵 $B$ 满足 $[E-(E-A)^{-1}]B=A$，则 $B-A=\blank$。
+
+\Solution
+\Known $A$ 与 $E-A$ 均可逆，给定一个含 $B$ 的矩阵等式，要求 $B-A$。
+\Method 方括号内有 $(E-A)^{-1}$。在等式两边同时左乘 $E-A$，可以用相邻的两个互逆矩阵消去这一项。
+\Derive 左乘 $E-A$ 后，左侧的系数为
+\[
+(E-A)[E-(E-A)^{-1}]=(E-A)-E=-A,
+\]
+所以 $-AB=(E-A)A$。右侧按分配律展开为 $A-A^2=A(E-A)$，故 $-AB=A(E-A)$。因为 $A$ 可逆，在两边左乘 $A^{-1}$ 得 $-B=E-A$，即 $B=A-E$。
+\Verify 填 $\boxed{-E}$。代入 $B=-(E-A)$，左侧化为 $-(E-A)+E=A$，满足原等式。
+
+\Question{4}{填空}{2023 年数学二第 16 题（原卷第 2 页）}
+已知线性方程组
+\[
+\begin{cases}
+ax_1+x_3=1,\\
+x_1+ax_2+x_3=0,\\
+x_1+2x_2+ax_3=0,\\
+ax_1+bx_2=2
+\end{cases}
+\]
+有解，其中 $a,b$ 为常数。若
+$\begin{vmatrix}a&0&1\\1&a&1\\1&2&a\end{vmatrix}=4$，
+则 $\begin{vmatrix}1&a&1\\1&2&a\\a&b&0\end{vmatrix}=\blank$。
+
+\Solution
+\Known 四条方程有一组共同的解。已知前三条方程的系数行列式为 $4$，要求后三条方程的系数行列式。
+\Method 把前三列系数和等号右侧的常数排成四列。题设保证有解，因此第四列是前三列按解的分量加权后相加的结果。用行列式的列加法把第四列变为零列，就能把两个三阶行列式联系起来。
+\Derive 设共同的解为 $(u,v,w)$，四列分别记为 $C_1,C_2,C_3,C_4$。四条方程恰好说明 $C_4=uC_1+vC_2+wC_3$。第四列依次减去前三列的 $u,v,w$ 倍后变为零列，行列式的值保持不变。所以
+\[
+0=\begin{vmatrix}
+a&0&1&1\\
+1&a&1&0\\
+1&2&a&0\\
+a&b&0&2
+\end{vmatrix}
+=-\begin{vmatrix}1&a&1\\1&2&a\\a&b&0\end{vmatrix}
+ +2\begin{vmatrix}a&0&1\\1&a&1\\1&2&a\end{vmatrix}.
+\]
+这里按第四列展开，位置 $(1,4)$ 的符号为 $(-1)^5=-1$，位置 $(4,4)$ 的符号为 $(-1)^8=1$。
+\Verify 填 $\boxed{8}$。代回第四列展开式为 $-8+2\cdot4=0$，符合四条方程有共同解时得到的零行列式。
+\end{document}

@@ -1,0 +1,101 @@
+% !TeX program = xelatex
+\documentclass[UTF8,zihao=-4,fontset=fandol]{ctexart}
+\newcommand{\ExamNumber}{2}
+\usepackage{linear-algebra-exam}
+
+\begin{document}
+\ExamCover{第 1、2 题为单项选择题，第 3、4 题为填空题。每题 5 分。}
+
+\Question{1}{单项选择}{2014 年数学一第 5 题、数学二第 7 题（均为原卷第 1 页）}
+行列式
+\[
+\begin{vmatrix}
+0&a&b&0\\
+a&0&0&b\\
+0&c&d&0\\
+c&0&0&d
+\end{vmatrix}
+=\text{（\qquad）。}
+\]
+\Choices{$(ad-bc)^2$}{$-(ad-bc)^2$}{$a^2d^2-b^2c^2$}{$b^2c^2-a^2d^2$}
+
+\Solution
+\Known 求含 $a,b,c,d$ 的四阶行列式。每行有两个零，其中第 $1$、$3$ 行的零位相同，第 $2$、$4$ 行的零位也相同。
+\Method 把非零元素集中到两个对角块，四阶行列式就可以用两个二阶行列式相乘来计算。每次单独交换两行或两列，整体的行列式都变号。
+\Derive 先交换第 $1$、$2$ 列，行列式变号。再交换第 $2$、$3$ 行，同时交换第 $2$、$3$ 列，这两次交换的符号相互抵消。所得行列式为
+\[
+\begin{vmatrix}
+a&b&0&0\\
+c&d&0&0\\
+0&0&a&b\\
+0&0&c&d
+\end{vmatrix}
+=\begin{vmatrix}a&b\\c&d\end{vmatrix}^{\!2}
+=(ad-bc)^2.
+\]
+总共交换三次，所以原行列式为 $-(ad-bc)^2$。
+\Verify 选 \textbf{B}。取 $a=d=1,\ b=c=0$，原矩阵是单位矩阵交换前两行，行列式为 $-1$，可核对负号。
+
+\Question{2}{单项选择}{2017 年数学一第 5 题（原卷第 1 页）}
+设 $a$ 为 $n$ 维单位列向量，$E$ 为 $n$ 阶单位矩阵，则（\quad）。
+\Choices
+  {$E-aa^{\mathrm T}$ 不可逆。}
+  {$E+aa^{\mathrm T}$ 不可逆。}
+  {$E+2aa^{\mathrm T}$ 不可逆。}
+  {$E-2aa^{\mathrm T}$ 不可逆。}
+
+\Solution
+\Known $a$ 是单位列向量，即各分量平方和为 $1$，因此 $a^{\mathrm T}a=1$。四个选项都在问某个矩阵是否不可逆。
+\Method 四个矩阵都写成 $E+tP$，其中 $P=aa^{\mathrm T}$。由于中间两因子可合成 $a^{\mathrm T}a=1$，$P^2=P$。这意味着可以试用同样结构的 $E+sP$ 作为逆矩阵。
+\Derive 把二者相乘，得
+\[
+(E+tP)(E+sP)=E+(t+s+ts)P.
+\]
+当 $t\ne-1$ 时，取 $s=-\frac{t}{1+t}$ 就能令括号中的系数为零。这个乘积换过顺序也为 $E$，因此 $E+P,E+2P,E-2P$ 都可逆。
+
+当 $t=-1$ 时，$(E-P)a=a-a(a^{\mathrm T}a)=0$。若 $E-P$ 有逆矩阵，两边左乘该逆矩阵就会得出 $a=0$，这与单位列向量的条件矛盾。
+\Verify 选 \textbf{A}。例如 $E-2P$ 的平方为 $E-4P+4P^2=E$，因此它的逆矩阵正是它自身。
+
+\Question{3}{填空}{2016 年数学一第 13 题（原卷第 2 页）}
+行列式
+\[
+\begin{vmatrix}
+\lambda&-1&0&0\\
+0&\lambda&-1&0\\
+0&0&\lambda&-1\\
+4&3&2&\lambda+1
+\end{vmatrix}
+=\blank
+\]
+
+\Solution
+\Known 求含参数 $\lambda$ 的四阶行列式。前三行除主对角线及其上方的 $-1$ 外均为零。
+\Method 先按第一列展开。这一列只有首尾两项，其中 $4$ 的余子式是三角行列式，另一项仍有相同的稀疏结构，可再按第一列展开。
+\Derive 记原行列式为 $D$，则
+\[
+\begin{aligned}
+D&=\lambda\begin{vmatrix}\lambda&-1&0\\0&\lambda&-1\\3&2&\lambda+1\end{vmatrix}
+ -4\begin{vmatrix}-1&0&0\\\lambda&-1&0\\0&\lambda&-1\end{vmatrix}\\
+ &=\lambda\left[\lambda
+ \begin{vmatrix}\lambda&-1\\2&\lambda+1\end{vmatrix}+3\right]+4\\
+ &=\lambda\bigl[\lambda(\lambda^2+\lambda+2)+3\bigr]+4.
+\end{aligned}
+\]
+第一步中 $4$ 的代数余子式符号为 $(-1)^{4+1}=-1$，它的余子式值为 $(-1)^3=-1$，所以贡献 $+4$。第二步中的 $3$ 对应三阶行列式的位置 $(3,1)$，符号为正，余子式的值为 $1$。
+\Verify 填 $\boxed{\lambda^4+\lambda^3+2\lambda^2+3\lambda+4}$。令 $\lambda=0$，原式按首列展开只剩 $4$ 的贡献，和常数项一致。
+
+\Question{4}{填空}{2013 年数学二第 14 题、数学一第 13 题（均为原卷第 2 页）}
+设 $A=(a_{ij})$ 是 $3$ 阶非零矩阵，$|A|$ 为 $A$ 的行列式，$A_{ij}$ 为 $a_{ij}$ 的代数余子式。若 $a_{ij}+A_{ij}=0$（$i,j=1,2,3$），则 $|A|=\blank$。
+
+\Solution
+\Known 各元素与其代数余子式互为相反数。要求 $3$ 阶实矩阵 $A$ 的行列式，题设还保证 $A$ 至少有一个非零元素。
+\Method 题设逐个约束余子式，先将它写成伴随矩阵恒等式。伴随矩阵的第 $(i,j)$ 个元素为 $A_{ji}$，所以用到的转置不能省略。
+\Derive 由 $A_{ij}=-a_{ij}$ 得 $A^*=-A^{\mathrm T}$。设 $d=|A|$，利用 $AA^*=dE$ 可得
+\[
+AA^{\mathrm T}=-dE.
+\]
+左边的第 $i$ 个对角元素是第 $i$ 行各分量的平方和。至少有一行非零，因此至少有一个这样的平方和为正，从而 $-d>0$。这一步保证接下来可以除以 $d^2$。
+
+取等式两边的行列式。转置不改变行列式，右侧三阶对角矩阵的行列式为 $(-d)^3$，所以 $d^2=(-d)^3$。除以 $d^2$ 即得 $d=-1$。
+\Verify 填 $\boxed{-1}$。取 $A=\operatorname{diag}(-1,1,1)$，它的代数余子式矩阵确实为 $-A$，且行列式为 $-1$。
+\end{document}
