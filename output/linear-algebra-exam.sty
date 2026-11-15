@@ -18,24 +18,30 @@
 \fancyfoot[L]{\footnotesize\textcolor{gray}{线性代数前两章模拟卷 \ExamNumber}}
 \fancyfoot[R]{\footnotesize\thepage}
 \raggedbottom
-\newcommand{\ExamCover}[1]{%
+\newcommand{\ExamCover}[4]{%
   \pdfbookmark[0]{线性代数前两章模拟卷 \ExamNumber}{cover}%
   {\small\color{examaccent}同济大学《线性代数》第七版}\par\bigskip
   {\Huge\bfseries 线性代数前两章模拟卷 \ExamNumber}\par\medskip
   {\Large 行列式 · 矩阵及其运算}\par\bigskip
-  \textbf{共 4 题，满分 20 分，建议用时 25 分钟。}\par
-  #1\par
-  范围为教材第 1、2 章（印刷页码 1–55）。题目选自考研数学一、数学二原卷。年份和原题号见对应解析页。\par
+  \textbf{共 #1 题，满分 100 分，建议用时 90 分钟。}\par
+  第 1–5 题为单项选择题，每题 4 分，共 20 分。\par
+  第 #2 题为填空题，每题 #3 分，共 40 分。\par
+  第 #4 题为解答题，每题 20 分，共 40 分。请写出推导步骤。\par
+  范围为教材第 1、2 章（印刷页码 1–55）。各题解析页标注数学一、数学二真题出处。\par
   每道题下方留有演算空间。限时练习时请跳过解析页。%
 }
-\newcommand{\Question}[3]{%
+\newcommand{\Question}[4]{%
   \clearpage
   \def\CurrentNumber{#1}%
   \def\CurrentSource{#3}%
   \pdfbookmark[1]{第 #1 题}{q#1}%
-  {\small\color{examaccent}#2\hfill 5 分}\par\medskip
-  {\Large\bfseries 第 #1 题}\par\medskip
-  \fontsize{14}{22}\selectfont
+  {\small\color{examaccent}#2\hfill #4 分}\par
+  {\Large\bfseries 第 #1 题}\par\smallskip
+  \ifdefined\QuestionBankAfour
+    \fontsize{14}{22}\selectfont
+  \else
+    \fontsize{13}{19}\selectfont
+  \fi
 }
 \newcommand{\Solution}{%
   \clearpage

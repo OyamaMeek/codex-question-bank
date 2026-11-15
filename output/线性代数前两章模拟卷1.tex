@@ -4,30 +4,118 @@
 \usepackage{linear-algebra-exam}
 
 \begin{document}
-\ExamCover{第 1 题为单项选择题，第 2–4 题为填空题。每题 5 分。}
+\ExamCover{12}{6–10}{8}{11–12}
 
-\Question{1}{单项选择}{2009 年数学一第 6 题、数学二第 7 题（均为原卷第 2 页）}
-设 $A,B$ 均为 $2$ 阶矩阵，$A^*,B^*$ 分别为 $A,B$ 的伴随矩阵，若 $|A|=2,\ |B|=3$，则分块矩阵 $\begin{pmatrix}O&A\\ B&O\end{pmatrix}$ 的伴随矩阵为（\quad）。
-\Choices
-  {$\begin{pmatrix}O&3B^*\\2A^*&O\end{pmatrix}$}
-  {$\begin{pmatrix}O&2B^*\\3A^*&O\end{pmatrix}$}
-  {$\begin{pmatrix}O&3A^*\\2B^*&O\end{pmatrix}$}
-  {$\begin{pmatrix}O&2A^*\\3B^*&O\end{pmatrix}$}
+\Question{1}{单项选择}{2014 年数学一第 5 题、数学二第 7 题（均为原卷第 1 页）}{4}
+行列式
+\[
+\begin{vmatrix}
+0&a&b&0\\
+a&0&0&b\\
+0&c&d&0\\
+c&0&0&d
+\end{vmatrix}
+=\text{（\qquad）。}
+\]
+\Choices{$(ad-bc)^2$}{$-(ad-bc)^2$}{$a^2d^2-b^2c^2$}{$b^2c^2-a^2d^2$}
 
 \Solution
-\Known $O$ 表示 $2$ 阶零矩阵。记题中的 $4$ 阶矩阵为 $M$，要求它的伴随矩阵 $M^*$。伴随矩阵由各元素的代数余子式转置排列而成。
-\Method 如果 $M$ 可逆，伴随矩阵可以由 $M^*=|M|M^{-1}$ 得到。题目给出了 $A,B$ 的非零行列式，因此可直接用 $A^{-1},B^{-1}$ 来构造分块矩阵 $M^{-1}$。
-\Derive 将 $M$ 的第 $1$、$3$ 行互换，再将第 $2$、$4$ 行互换，得到分块对角矩阵 $\begin{pmatrix}B&O\\O&A\end{pmatrix}$。两次互换使行列式变号两次，所以
+\Known 求含 $a,b,c,d$ 的四阶行列式。每行有两个零，其中第 $1$、$3$ 行的零位相同，第 $2$、$4$ 行的零位也相同。
+\Method 把非零元素集中到两个对角块，四阶行列式就可以用两个二阶行列式相乘来计算。每次单独交换两行或两列，整体的行列式都变号。
+\Derive 先交换第 $1$、$2$ 列，行列式变号。再交换第 $2$、$3$ 行，同时交换第 $2$、$3$ 列，这两次交换的符号相互抵消。所得行列式为
 \[
-|M|=|B|\,|A|=6.
+\begin{vmatrix}
+a&b&0&0\\
+c&d&0&0\\
+0&0&a&b\\
+0&0&c&d
+\end{vmatrix}
+=\begin{vmatrix}a&b\\c&d\end{vmatrix}^{\!2}
+=(ad-bc)^2.
 \]
-按分块乘法，$M\begin{pmatrix}O&B^{-1}\\A^{-1}&O\end{pmatrix}$ 的左右对角块分别是 $AA^{-1}$ 和 $BB^{-1}$，其余两块都是零。因此右边的分块矩阵就是 $M^{-1}$。再由 $B^{-1}=\frac{B^*}{3}$、$A^{-1}=\frac{A^*}{2}$，得到
-\[
-M^*=6M^{-1}=\begin{pmatrix}O&2B^*\\3A^*&O\end{pmatrix}.
-\]
-\Verify 选 \textbf{B}。把结果左乘 $M$，两个对角块分别是 $3AA^*=6E$ 和 $2BB^*=6E$，得到 $|M|E_4$，其中 $E$、$E_4$ 分别为二阶、四阶单位矩阵。
+总共交换三次，所以原行列式为 $-(ad-bc)^2$。
+\Verify 选 \textbf{B}。取 $a=d=1,\ b=c=0$，原矩阵是单位矩阵交换前两行，行列式为 $-1$，可核对负号。
 
-\Question{2}{填空}{2012 年数学二第 14 题（原卷第 2 页）}
+\Question{2}{单项选择}{2011 年数学一第 5 题、数学二第 7 题（均为原卷第 1 页）}{4}
+设 $A$ 为 $3$ 阶矩阵，将 $A$ 的第 $2$ 列加到第 $1$ 列得矩阵 $B$，再交换 $B$ 的第 $2$ 行与第 $3$ 行得单位矩阵。记 $P_1=\begin{pmatrix}1&0&0\\1&1&0\\0&0&1\end{pmatrix}$，$P_2=\begin{pmatrix}1&0&0\\0&0&1\\0&1&0\end{pmatrix}$，则 $A=$（\quad）。
+\Choices{$P_1P_2$}{$P_1^{-1}P_2$}{$P_2P_1$}{$P_2P_1^{-1}$}
+
+\Solution
+\Known 已知对 $A$ 先做列加法、后交换两行，所得为单位矩阵 $E$，要求把 $A$ 写成选项中的矩阵乘积。
+\Method 矩阵右乘可由右因子的列来判断结果的列，矩阵左乘可由左因子的行来判断结果的行。
+\Derive $AP_1$ 的第一列是 $A$ 的前两列之和，第二、三列分别是 $A$ 的第二、三列，所以 $AP_1=B$。$P_2B$ 的行依次是 $B$ 的第一、三、二行，故 $P_2AP_1=E$。交换同两行两次回到原矩阵，$P_2^2=E$。而 $P_1$ 是对角元全为 $1$ 的三角矩阵，$|P_1|=1$。左乘 $P_2$、右乘 $P_1^{-1}$ 得
+\[
+A=P_2P_1^{-1}.
+\]
+\Verify 选 \textbf{D}。按题目顺序代回，$P_2(P_2P_1^{-1})P_1=P_2^2=E$。
+
+\Question{3}{单项选择}{2017 年数学二第 7 题（原卷第 2 页）}{4}
+设 $A$ 为 $3$ 阶矩阵，$P=(\alpha_1,\alpha_2,\alpha_3)$ 为可逆矩阵，使得 $P^{-1}AP=\begin{pmatrix}0&0&0\\0&1&0\\0&0&2\end{pmatrix}$，则 $A(\alpha_1+\alpha_2+\alpha_3)=$（\quad）。
+\Choices
+  {$\alpha_1+\alpha_2$}
+  {$\alpha_2+2\alpha_3$}
+  {$\alpha_2+\alpha_3$}
+  {$\alpha_1+2\alpha_2$}
+
+\Solution
+\Known $P$ 的三列就是括号里的三个列向量，已知 $P^{-1}AP=D$，其中 $D$ 的对角元为 $0,1,2$。
+\Method 在式子左侧乘 $P$，就可以从所得乘积矩阵中读出 $A$ 左乘各列的结果。
+\Derive 用 $PP^{-1}=E$ 得 $AP=PD$。左侧三列是 $A\alpha_1,A\alpha_2,A\alpha_3$，而右侧是 $0,\alpha_2,2\alpha_3$。把三项相加，利用分配律，
+\[
+A(\alpha_1+\alpha_2+\alpha_3)=0+\alpha_2+2\alpha_3.
+\]
+\Verify 选 \textbf{B}。可将所求式写成 $AP(1,1,1)^{\mathrm T}=PD(1,1,1)^{\mathrm T}$，系数即 $(0,1,2)^{\mathrm T}$。
+
+\Question{4}{单项选择}{2023 年数学二第 8 题（原卷第 2 页）}{4}
+设 $A,B$ 为 $n$ 阶可逆矩阵，$E$ 为 $n$ 阶单位矩阵，$M^*$ 为矩阵 $M$ 的伴随矩阵，则 $\begin{pmatrix}A&E\\O&B\end{pmatrix}^{*}=$（\quad）。
+\Choices
+  {$\begin{pmatrix}|A|B^*&-B^*A^*\\O&|B|A^*\end{pmatrix}$}
+  {$\begin{pmatrix}|A|B^*&-A^*B^*\\O&|B|A^*\end{pmatrix}$}
+  {$\begin{pmatrix}|B|A^*&-B^*A^*\\O&|A|B^*\end{pmatrix}$}
+  {$\begin{pmatrix}|B|A^*&-A^*B^*\\O&|A|B^*\end{pmatrix}$}
+
+\Solution
+\Known $M$ 是分块上三角矩阵，对角块 $A,B$ 的行列式均非零。要求 $M$ 的伴随矩阵。
+\Method 由 $M^*=|M|M^{-1}$，可以把问题拆成求分块行列式和求逆矩阵。逆矩阵右上角应消去乘积中由 $E$ 引入的那一项，因子顺序由分块乘法决定。
+\Derive $|M|=|A|\,|B|$。计算
+\[
+\begin{pmatrix}A&E\\O&B\end{pmatrix}
+\begin{pmatrix}A^{-1}&-A^{-1}B^{-1}\\O&B^{-1}\end{pmatrix}
+=\begin{pmatrix}E&O\\O&E\end{pmatrix}.
+\]
+右上块之和是 $-AA^{-1}B^{-1}+B^{-1}=O$。因此第二个矩阵是 $M^{-1}$。分别代入 $A^{-1}=\frac{A^*}{|A|}$ 和 $B^{-1}=\frac{B^*}{|B|}$，并乘上 $|A|\,|B|$，得到
+\[
+M^*=\begin{pmatrix}|B|A^*&-A^*B^*\\O&|A|B^*\end{pmatrix}.
+\]
+\Verify 选 \textbf{D}。用 $M$ 左乘此结果，右上块为 $-AA^*B^*+|A|B^*=O$，其余各块与 $|M|E_{2n}$ 一致。
+
+\Question{5}{单项选择}{2026 年数学二第 9 题（原卷第 2 页）}{4}
+设矩阵
+\[
+A=\begin{pmatrix}1&0&1\\0&0&1\\1&1&3\\1&1&1\end{pmatrix},
+\qquad C=\begin{pmatrix}2&0\\1&1\\1&1\\a&b\end{pmatrix}\text{。}
+\]
+若存在矩阵 $B$ 满足 $AB=C$，则（\quad）。
+\Choices
+  {$a=-1,\ b=-1$}
+  {$a=2,\ b=2$}
+  {$a=-1,\ b=2$}
+  {$a=2,\ b=-1$}
+
+\Solution
+\Known 已知 $A$ 及乘积 $C=AB$ 的前三行。要求 $C$ 第四行的两个元素 $a,b$。
+\Method 乘积矩阵的第 $i$ 行等于 $A$ 的第 $i$ 行右乘 $B$。若 $A$ 的最后一行能由前面的行相加减得到，右乘 $B$ 后，同样的等式也成立。
+\Derive $A$ 的第三行减去第二行的 $2$ 倍为
+\[
+(1,1,3)-2(0,0,1)=(1,1,1)\text{，}
+\]
+恰好是第四行。右乘 $B$ 并利用分配律，$C$ 的第四行亦为其第三行减去第二行的 $2$ 倍，所以
+\[
+(a,b)=(1,1)-2(1,1)=(-1,-1)\text{。}
+\]
+\Verify 选 \textbf{A}。取 $B=\begin{pmatrix}1&-1\\-3&-1\\1&1\end{pmatrix}$，直接相乘即得含 $a=b=-1$ 的 $C$，因此题设的存在条件也得到验证。
+
+\Question{6}{填空}{2012 年数学二第 14 题（原卷第 2 页）}{8}
 设 $A$ 为 $3$ 阶矩阵，$|A|=3$，$A^*$ 为 $A$ 的伴随矩阵，若交换 $A$ 的第 $1$ 行与第 $2$ 行得矩阵 $B$，则 $|BA^*|=\blank$。
 
 \Solution
@@ -40,49 +128,132 @@ M^*=6M^{-1}=\begin{pmatrix}O&2B^*\\3A^*&O\end{pmatrix}.
 $3E$ 是三阶对角矩阵，所以要乘三次 $3$。于是 $|BA^*|=|B|\,|A^*|=-27$。
 \Verify 填 $\boxed{-27}$。也可直接检查 $BA^*$。它由 $AA^*=3E$ 交换前两行得到，因此行列式等于 $-|3E|=-27$。
 
-\Question{3}{填空}{2015 年数学一第 13 题（原卷第 2 页）}
-$n$ 阶行列式
+\Question{7}{填空}{2016 年数学一第 13 题（原卷第 2 页）}{8}
+行列式
 \[
 \begin{vmatrix}
- 2 & 0 & \cdots & 0 & 2\\
--1 & 2 & \cdots & 0 & 2\\
-\vdots & \vdots & \ddots & \vdots & \vdots\\
-0 & 0 & \cdots & 2 & 2\\
-0 & 0 & \cdots & -1 & 2
+\lambda&-1&0&0\\
+0&\lambda&-1&0\\
+0&0&\lambda&-1\\
+4&3&2&\lambda+1
 \end{vmatrix}
 =\blank
 \]
 
 \Solution
-\Known 记题中的行列式为 $D_n$。主对角线和末列都是 $2$，主对角线正下方是 $-1$，其余位置为零。要求用 $n$ 表示 $D_n$。
-\Method 当 $n\ge3$ 时，首列只有前两项非零。按首列展开，第一项的余子式仍有相同结构，从而可把问题化为低一阶的行列式。
-\Derive 首列第一项为 $2$，其贡献是 $2D_{n-1}$。第二项是 $-1$，代数余子式的符号是 $(-1)^{2+1}=-1$，两个负号相乘为正。对应余子式划掉原第 $2$ 行、第 $1$ 列，剩下的第一行只有末项 $2$。再按这一行展开，得到 $2(-1)^n$ 乘以一个 $n-2$ 阶上三角行列式，其对角线都是原次对角线上的 $-1$。因此第二项的贡献是
+\Known 求含参数 $\lambda$ 的四阶行列式。前三行除主对角线及其上方的 $-1$ 外均为零。
+\Method 先按第一列展开。这一列只有首尾两项，其中 $4$ 的余子式是三角行列式，另一项仍有相同的稀疏结构，可再按第一列展开。
+\Derive 记原行列式为 $D$，则
 \[
-2(-1)^n(-1)^{n-2}=2,
-\qquad D_n=2D_{n-1}+2.
+\begin{aligned}
+D&=\lambda\begin{vmatrix}\lambda&-1&0\\0&\lambda&-1\\3&2&\lambda+1\end{vmatrix}
+ -4\begin{vmatrix}-1&0&0\\\lambda&-1&0\\0&\lambda&-1\end{vmatrix}\\
+ &=\lambda\left[\lambda
+ \begin{vmatrix}\lambda&-1\\2&\lambda+1\end{vmatrix}+3\right]+4\\
+ &=\lambda\bigl[\lambda(\lambda^2+\lambda+2)+3\bigr]+4.
+\end{aligned}
 \]
-直接算得 $D_2=\begin{vmatrix}2&2\\-1&2\end{vmatrix}=6$。将递推写成 $D_n+2=2(D_{n-1}+2)$，得 $D_n+2=2^{n-2}(6+2)=2^{n+1}$。
-\Verify 填 $\boxed{2^{n+1}-2}$。代入 $n=2$ 得到 $6$，和直接计算相同。若把该结构延伸至 $n=1$，公式也给出 $D_1=2$。
+第一步中 $4$ 的代数余子式符号为 $(-1)^{4+1}=-1$，它的余子式值为 $(-1)^3=-1$，所以贡献 $+4$。第二步中的 $3$ 对应三阶行列式的位置 $(3,1)$，符号为正，余子式的值为 $1$。
+\Verify 填 $\boxed{\lambda^4+\lambda^3+2\lambda^2+3\lambda+4}$。令 $\lambda=0$，原式按首列展开只剩 $4$ 的贡献，和常数项一致。
 
-\Question{4}{填空}{2021 年数学二第 16 题（原卷第 2 页）}
-多项式
-\[
-f(x)=\begin{vmatrix}
-x & x & 1 & 2x\\
-1 & x & 2 & -1\\
-2 & 1 & x & 1\\
-2 & -1 & 1 & x
-\end{vmatrix}
-\]
-中 $x^3$ 项的系数为 \blank。
+\Question{8}{填空}{2019 年数学二第 14 题（原卷第 2 页）}{8}
+已知矩阵 $A=\begin{pmatrix}1&-1&0&0\\-2&1&-1&1\\3&-2&2&-1\\0&0&3&4\end{pmatrix}$，$A_{ij}$ 表示 $|A|$ 中 $(i,j)$ 元的代数余子式，则 $A_{11}-A_{12}=\blank$。
 
 \Solution
-\Known $f(x)$ 是一个四阶行列式展开后的多项式。只需找 $x^3$ 项的系数。
-\Method 根据行列式的定义，一个乘积项必须在每行、每列各取一个元素。要形成 $x^3$，四个因子中必须恰好三个含 $x$，另一个是常数。
-\Derive 如果第一行取第 $1$ 列的 $x$，后面三行的含 $x$ 项都在主对角线上。一旦从这三行取了两个 $x$，最后所剩的位置还是对角线上的 $x$，所得次数为四。第一行若取第 $3$ 列的 $1$，它占去了第三行 $x$ 的列，无法从其余三行都取到 $x$。
+\Known 求第一行前两个代数余子式之差。代数余子式是删去对应行列后所得的行列式，再乘位置符号 $(-1)^{i+j}$。
+\Method $(1,1)$ 的符号为正，$(1,2)$ 的符号为负，因此相减会变成两个三阶行列式相加。它们的后两列相同，可以先合并第一列。
+\Derive 删去第一行，并分别删去第一、第二列，得
+\[
+A_{11}-A_{12}=
+\begin{vmatrix}1&-1&1\\-2&2&-1\\0&3&4\end{vmatrix}
++\begin{vmatrix}-2&-1&1\\3&2&-1\\0&3&4\end{vmatrix}
+=\begin{vmatrix}-1&-1&1\\1&2&-1\\0&3&4\end{vmatrix}.
+\]
+沿第一列展开，第一项为 $-1(8+3)=-11$，第二项为 $-1(-4-3)=7$，两项相加得 $-4$。
+\Verify 填 $\boxed{-4}$。也可以按原矩阵第一行展开。该行只有 $1,-1$ 两项非零，所以这个余子式之差正好是 $|A|$。
 
-剩下两种取法。第一行取第 $2$ 列的 $x$ 时，第二行只能取常数，第三、四行必须取各自对角线上的 $x$。列序为 $(2,1,3,4)$，逆序数为 $1$，贡献 $-x\cdot 1\cdot x\cdot x=-x^3$。
+\Question{9}{填空}{2022 年数学一第 15 题（原卷第 2 页）}{8}
+已知矩阵 $A$ 和 $E-A$ 可逆，其中 $E$ 为单位矩阵。若矩阵 $B$ 满足 $[E-(E-A)^{-1}]B=A$，则 $B-A=\blank$。
 
-第一行取第 $4$ 列的 $2x$ 时，第四行只能取常数，第二、三行必须取各自对角线上的 $x$。列序为 $(4,2,3,1)$，逆序数为 $5$，贡献 $-(2x)\cdot x\cdot x\cdot2=-4x^3$。
-\Verify 填 $\boxed{-5}$。两项分别选了第一行的两个非对角含 $x$ 元素，列序均为奇排列，符号均为负。
+\Solution
+\Known $A$ 与 $E-A$ 均可逆，给定一个含 $B$ 的矩阵等式，要求 $B-A$。
+\Method 方括号内有 $(E-A)^{-1}$。在等式两边同时左乘 $E-A$，可以用相邻的两个互逆矩阵消去这一项。
+\Derive 左乘 $E-A$ 后，左侧的系数为
+\[
+(E-A)[E-(E-A)^{-1}]=(E-A)-E=-A,
+\]
+所以 $-AB=(E-A)A$。右侧按分配律展开为 $A-A^2=A(E-A)$，故 $-AB=A(E-A)$。因为 $A$ 可逆，在两边左乘 $A^{-1}$ 得 $-B=E-A$，即 $B=A-E$。
+\Verify 填 $\boxed{-E}$。代入 $B=-(E-A)$，左侧化为 $-(E-A)+E=A$，满足原等式。
+
+\Question{10}{填空}{1994 年数学一（见 2013 年数学二配套解析 PDF 第 26 页）}{8}
+已知 $\alpha=(1,2,3)$，$\beta=\left(1,\frac{1}{2},\frac{1}{3}\right)$，设 $A=\alpha^{\mathrm T}\beta$，其中 $\alpha^{\mathrm T}$ 是 $\alpha$ 的转置，则 $A^n=\blank$。
+
+\Solution
+\Known $\alpha,\beta$ 是行矩阵，$A$ 是列矩阵 $\alpha^{\mathrm T}$ 与行矩阵 $\beta$ 相乘得到的三阶矩阵。要求正整数 $n$ 次幂。
+\Method 相乘两个 $A$ 时，中间碰到的是行乘列 $\beta\alpha^{\mathrm T}$。这是一个数，可先把它算出来，之后每多乘一个 $A$ 都会产生同样的因子。
+\Derive $\beta\alpha^{\mathrm T}=1+1+1=3$。由结合律，$A^2=\alpha^{\mathrm T}(\beta\alpha^{\mathrm T})\beta=3A$。若 $A^n=3^{n-1}A$，则 $A^{n+1}=3^{n-1}A^2=3^nA$，所以
+\[
+A^n=3^{n-1}\begin{pmatrix}
+1&\frac{1}{2}&\frac{1}{3}\\
+2&1&\frac{2}{3}\\
+3&\frac{3}{2}&1
+\end{pmatrix}.
+\]
+\Verify 取 $n=1$ 回到列矩阵乘行矩阵的原式，取 $n=2$ 对应上面直接算出的 $3A$。
+
+\Question{11}{解答}{2013 年数学一第 20 题（第 3 页）、数学二第 22 题（第 4 页）}{20}
+设 $A=\begin{pmatrix}1&a\\1&0\end{pmatrix}$，$B=\begin{pmatrix}0&1\\1&b\end{pmatrix}$。当 $a,b$ 为何值时，存在矩阵 $C$ 使得 $AC-CA=B$，并求所有矩阵 $C$。
+
+\Solution
+\Known $A,B$ 是二阶矩阵，题设的两个乘法都要求 $C$ 也是二阶矩阵。先找能使等式成立的 $a,b$，再求此时全部的 $C$。
+\Method 令 $C=\begin{pmatrix}x&y\\z&w\end{pmatrix}$，直接做矩阵乘法。两个矩阵相等意味着对应位置的元素相等，可以逐项代入，判断哪些未知数被约束、哪些可以任取。
+\Derive 按矩阵乘法计算，
+\[
+AC-CA=\begin{pmatrix}
+az-y & y+a(w-x)\\
+x-z-w & y-az
+\end{pmatrix}\text{。}
+\]
+左上角等于 $0$，所以 $y=az$。右下角恰好是左上角的相反数，因此 $b=0$。左下角等于 $1$，所以 $x-w=1+z$。把这两个等式代入右上角，得到
+\[
+1=y+a(w-x)=az-a(1+z)=-a\text{，}
+\]
+因此 $a=-1$。此时 $y=-z$、$x=w+z+1$，其余等式对 $z,w$ 没有额外限制。
+\Verify 当 $a=-1,\ b=0$ 时，所有解为
+\[
+C=\begin{pmatrix}s+t+1&-t\\t&s\end{pmatrix},\qquad s,t\in\mathbb R\text{。}
+\]
+将它代回差矩阵，任意 $s,t$ 都给出 $\begin{pmatrix}0&1\\1&0\end{pmatrix}$，因此上述条件既必要也足够。
+
+\Question{12}{解答}{2024 年数学一第 21 题（原卷第 3 页）}{20}
+已知数列 $\{x_n\}$、$\{y_n\}$、$\{z_n\}$ 满足 $x_0=-1$，$y_0=0$，$z_0=2$，且
+\[
+\begin{cases}
+x_n=-2x_{n-1}+2z_{n-1},\\
+y_n=-2y_{n-1}-2z_{n-1},\\
+z_n=-6x_{n-1}-3y_{n-1}+3z_{n-1}.
+\end{cases}
+\]
+记 $\alpha_n=(x_n,y_n,z_n)^{\mathrm T}$，写出满足 $\alpha_n=A\alpha_{n-1}$ 的矩阵 $A$，并求 $A^n$ 及 $x_n,y_n,z_n$（$n=1,2,\ldots$）。
+
+\Solution
+\Known 每条递推式给出 $A$ 的一行。写出 $A$ 后，反复代入有 $\alpha_n=A^n\alpha_0$，因此只需求出 $A^n$ 并乘初值列。
+\Method 计算前几次幂，发现三次幂可以用前两次幂表示。拟用两个由 $A,A^2$ 组成的矩阵写出每一阶幂，并通过左乘 $A$ 验证。
+\Derive 读取三条式子的系数，得
+\[
+A=\begin{pmatrix}-2&0&2\\0&-2&-2\\-6&-3&3\end{pmatrix},
+\qquad
+A^2=\begin{pmatrix}-8&-6&2\\12&10&-2\\-6&-3&3\end{pmatrix}.
+\]
+再算得 $A^3=-A^2+2A$。取 $U=\frac{1}{3}(A^2+2A)$、$V=\frac{1}{6}(A^2-A)$，则 $AU=U$，$AV=-2V$，且 $U-2V=A$。因此由归纳法，
+\[
+A^n=U+(-2)^nV
+=\begin{pmatrix}-4&-2&2\\4&2&-2\\-6&-3&3\end{pmatrix}
++(-2)^n\begin{pmatrix}-1&-1&0\\2&2&0\\0&0&0\end{pmatrix}.
+\]
+第一项左乘初值列得到 $(8,-8,12)^{\mathrm T}$，第二个矩阵乘初值列得到 $(1,-2,0)^{\mathrm T}$。故
+\[
+x_n=8+(-2)^n,\qquad y_n=-8-2(-2)^n,\qquad z_n=12.
+\]
+\Verify 初值直接代入原递推式得 $(x_1,y_1,z_1)=(6,-4,12)$，与公式一致。公式只用于 $n\ge1$，起点仍采用题给的 $\alpha_0$。
 \end{document}

@@ -4,87 +4,145 @@
 \usepackage{linear-algebra-exam}
 
 \begin{document}
-\ExamCover{第 1、2 题为单项选择题，第 3、4 题为填空题。每题 5 分。}
+\ExamCover{12}{6–10}{8}{11–12}
 
-\Question{1}{单项选择}{2014 年数学一第 5 题、数学二第 7 题（均为原卷第 1 页）}
-行列式
-\[
-\begin{vmatrix}
-0&a&b&0\\
-a&0&0&b\\
-0&c&d&0\\
-c&0&0&d
-\end{vmatrix}
-=\text{（\qquad）。}
-\]
-\Choices{$(ad-bc)^2$}{$-(ad-bc)^2$}{$a^2d^2-b^2c^2$}{$b^2c^2-a^2d^2$}
-
-\Solution
-\Known 求含 $a,b,c,d$ 的四阶行列式。每行有两个零，其中第 $1$、$3$ 行的零位相同，第 $2$、$4$ 行的零位也相同。
-\Method 把非零元素集中到两个对角块，四阶行列式就可以用两个二阶行列式相乘来计算。每次单独交换两行或两列，整体的行列式都变号。
-\Derive 先交换第 $1$、$2$ 列，行列式变号。再交换第 $2$、$3$ 行，同时交换第 $2$、$3$ 列，这两次交换的符号相互抵消。所得行列式为
-\[
-\begin{vmatrix}
-a&b&0&0\\
-c&d&0&0\\
-0&0&a&b\\
-0&0&c&d
-\end{vmatrix}
-=\begin{vmatrix}a&b\\c&d\end{vmatrix}^{\!2}
-=(ad-bc)^2.
-\]
-总共交换三次，所以原行列式为 $-(ad-bc)^2$。
-\Verify 选 \textbf{B}。取 $a=d=1,\ b=c=0$，原矩阵是单位矩阵交换前两行，行列式为 $-1$，可核对负号。
-
-\Question{2}{单项选择}{2017 年数学一第 5 题（原卷第 1 页）}
-设 $a$ 为 $n$ 维单位列向量，$E$ 为 $n$ 阶单位矩阵，则（\quad）。
+\Question{1}{单项选择}{2009 年数学一第 6 题、数学二第 7 题（均为原卷第 2 页）}{4}
+设 $A,B$ 均为 $2$ 阶矩阵，$A^*,B^*$ 分别为 $A,B$ 的伴随矩阵，若 $|A|=2,\ |B|=3$，则分块矩阵 $\begin{pmatrix}O&A\\ B&O\end{pmatrix}$ 的伴随矩阵为（\quad）。
 \Choices
-  {$E-aa^{\mathrm T}$ 不可逆。}
-  {$E+aa^{\mathrm T}$ 不可逆。}
-  {$E+2aa^{\mathrm T}$ 不可逆。}
-  {$E-2aa^{\mathrm T}$ 不可逆。}
+  {$\begin{pmatrix}O&3B^*\\2A^*&O\end{pmatrix}$}
+  {$\begin{pmatrix}O&2B^*\\3A^*&O\end{pmatrix}$}
+  {$\begin{pmatrix}O&3A^*\\2B^*&O\end{pmatrix}$}
+  {$\begin{pmatrix}O&2A^*\\3B^*&O\end{pmatrix}$}
 
 \Solution
-\Known $a$ 是单位列向量，即各分量平方和为 $1$，因此 $a^{\mathrm T}a=1$。四个选项都在问某个矩阵是否不可逆。
-\Method 四个矩阵都写成 $E+tP$，其中 $P=aa^{\mathrm T}$。由于中间两因子可合成 $a^{\mathrm T}a=1$，$P^2=P$。这意味着可以试用同样结构的 $E+sP$ 作为逆矩阵。
-\Derive 把二者相乘，得
+\Known $O$ 表示 $2$ 阶零矩阵。记题中的 $4$ 阶矩阵为 $M$，要求它的伴随矩阵 $M^*$。伴随矩阵由各元素的代数余子式转置排列而成。
+\Method 如果 $M$ 可逆，伴随矩阵可以由 $M^*=|M|M^{-1}$ 得到。题目给出了 $A,B$ 的非零行列式，因此可直接用 $A^{-1},B^{-1}$ 来构造分块矩阵 $M^{-1}$。
+\Derive 将 $M$ 的第 $1$、$3$ 行互换，再将第 $2$、$4$ 行互换，得到分块对角矩阵 $\begin{pmatrix}B&O\\O&A\end{pmatrix}$。两次互换使行列式变号两次，所以
 \[
-(E+tP)(E+sP)=E+(t+s+ts)P.
+|M|=|B|\,|A|=6.
 \]
-当 $t\ne-1$ 时，取 $s=-\frac{t}{1+t}$ 就能令括号中的系数为零。这个乘积换过顺序也为 $E$，因此 $E+P,E+2P,E-2P$ 都可逆。
-
-当 $t=-1$ 时，$(E-P)a=a-a(a^{\mathrm T}a)=0$。若 $E-P$ 有逆矩阵，两边左乘该逆矩阵就会得出 $a=0$，这与单位列向量的条件矛盾。
-\Verify 选 \textbf{A}。例如 $E-2P$ 的平方为 $E-4P+4P^2=E$，因此它的逆矩阵正是它自身。
-
-\Question{3}{填空}{2016 年数学一第 13 题（原卷第 2 页）}
-行列式
+按分块乘法，$M\begin{pmatrix}O&B^{-1}\\A^{-1}&O\end{pmatrix}$ 的左右对角块分别是 $AA^{-1}$ 和 $BB^{-1}$，其余两块都是零。因此右边的分块矩阵就是 $M^{-1}$。再由 $B^{-1}=\frac{B^*}{3}$、$A^{-1}=\frac{A^*}{2}$，得到
 \[
-\begin{vmatrix}
-\lambda&-1&0&0\\
-0&\lambda&-1&0\\
-0&0&\lambda&-1\\
-4&3&2&\lambda+1
+M^*=6M^{-1}=\begin{pmatrix}O&2B^*\\3A^*&O\end{pmatrix}.
+\]
+\Verify 选 \textbf{B}。把结果左乘 $M$，两个对角块分别是 $3AA^*=6E$ 和 $2BB^*=6E$，得到 $|M|E_4$，其中 $E$、$E_4$ 分别为二阶、四阶单位矩阵。
+
+\Question{2}{单项选择}{2012 年数学一第 6 题、数学二第 8 题（均为原卷第 1 页）}{4}
+设 $A$ 为 $3$ 阶矩阵，$P$ 为 $3$ 阶可逆矩阵，且 $P^{-1}AP=\begin{pmatrix}1&0&0\\0&1&0\\0&0&2\end{pmatrix}$。若 $P=(\alpha_1,\alpha_2,\alpha_3)$，$Q=(\alpha_1+\alpha_2,\alpha_2,\alpha_3)$，则 $Q^{-1}AQ=$（\quad）。
+\Choices
+  {$\begin{pmatrix}1&0&0\\0&2&0\\0&0&1\end{pmatrix}$}
+  {$\begin{pmatrix}1&0&0\\0&1&0\\0&0&2\end{pmatrix}$}
+  {$\begin{pmatrix}2&0&0\\0&1&0\\0&0&2\end{pmatrix}$}
+  {$\begin{pmatrix}2&0&0\\0&2&0\\0&0&1\end{pmatrix}$}
+
+\Solution
+\Known 题目给出 $P^{-1}AP$，要求把 $P$ 换成 $Q$ 后的矩阵。$Q$ 只将 $P$ 的第一列改成前两列之和。
+\Method 把列相加写成一次右乘 $S$，使 $Q=PS$。再用矩阵乘积的求逆公式，引入已知的 $P^{-1}AP$。
+\Derive 取 $S=\begin{pmatrix}1&0&0\\1&1&0\\0&0&1\end{pmatrix}$，则 $Q=PS$，且 $|S|=1$，故 $Q$ 可逆。记题设的对角矩阵为 $D$。按乘法计算，$DS=SD$，因为 $S$ 只在前两行和前两列之间改变元素，而 $D$ 在这两处的缩放因子都是 $1$。于是
+\[
+Q^{-1}AQ=S^{-1}DS=S^{-1}SD=D.
+\]
+\Verify 选 \textbf{B}。也可检查 $AP=PD$ 的列，$A$ 左乘 $\alpha_1$、$\alpha_2$ 时均得到该列本身，因此左乘 $\alpha_1+\alpha_2$ 也得到它本身，$Q$ 三列的缩放因子仍为 $1,1,2$。
+
+\Question{3}{单项选择}{2015 年数学一第 5 题、数学二第 7 题（均为原卷第 1 页）}{4}
+设矩阵 $A=\begin{pmatrix}1&1&1\\1&2&a\\1&4&a^2\end{pmatrix}$，$b=\begin{pmatrix}1\\d\\d^2\end{pmatrix}$。若集合 $\Omega=\{1,2\}$，则线性方程组 $Ax=b$ 有无穷多解的充分必要条件为（\quad）。
+\Choices
+  {$a\notin\Omega,\ d\notin\Omega$}
+  {$a\notin\Omega,\ d\in\Omega$}
+  {$a\in\Omega,\ d\notin\Omega$}
+  {$a\in\Omega,\ d\in\Omega$}
+
+\Solution
+\Known 系数矩阵中的参数是 $a$，方程右侧的参数是 $d$。要求同时判定何时有解、何时能有无穷多组解。
+\Method 三条方程第一项的系数都是 $1$。先用第一式分别消去后两式中的 $x_1$，再比较所剩的两式能否同时成立。
+\Derive 第二、三式分别减去第一式，得到
+\[
+x_2+(a-1)x_3=d-1,\qquad
+3x_2+(a^2-1)x_3=d^2-1.
+\]
+后式减去前式的三倍，得到 $(a-1)(a-2)x_3=(d-1)(d-2)$。左侧系数非零时，$x_3$ 唯一，再由前式和原第一式依次得到唯一的 $x_2,x_1$。左侧系数为零时，右侧若非零便无解；若右侧也为零，可以任取 $x_3$，再由两条式子确定 $x_2,x_1$。
+\Verify 选 \textbf{D}。无穷多解恰好要求两边的参数因式都为零。取 $a=d=1$ 检查，此时 $x_2=0$，$x_1+x_3=1$，确有无穷多组解。
+
+\Question{4}{单项选择}{2021 年数学二第 10 题（原卷第 2 页）}{4}
+已知矩阵 $A=\begin{pmatrix}1&0&-1\\2&-1&1\\-1&2&-5\end{pmatrix}$，若存在下三角可逆矩阵 $P$ 与上三角可逆矩阵 $Q$，使 $PAQ$ 为对角矩阵，则 $P,Q$ 可分别为（\quad）。
+\Choices
+  {$\begin{pmatrix}1&0&0\\0&1&0\\0&0&1\end{pmatrix},\ \begin{pmatrix}1&0&1\\0&1&3\\0&0&1\end{pmatrix}$}
+  {$\begin{pmatrix}1&0&0\\2&-1&0\\-3&2&1\end{pmatrix},\ \begin{pmatrix}1&0&0\\0&1&0\\0&0&1\end{pmatrix}$}
+  {$\begin{pmatrix}1&0&0\\2&-1&0\\-3&2&1\end{pmatrix},\ \begin{pmatrix}1&0&1\\0&1&3\\0&0&1\end{pmatrix}$}
+  {$\begin{pmatrix}1&0&0\\0&1&0\\1&3&1\end{pmatrix},\ \begin{pmatrix}1&2&-3\\0&-1&2\\0&0&1\end{pmatrix}$}
+
+\Solution
+\Known 每个选项给出一对矩阵。要求选出满足三角形、可逆性及乘积为对角矩阵三个条件的一对。
+\Method $P$、$Q$ 的形式和可逆性可直接看出。对角矩阵的非对角元必须为零，可先计算少数位置来排除选项。
+\Derive A 选项中 $P=E$，右乘 $Q$ 不改第一列，故 $PAQ$ 的 $(2,1)$ 元仍为 $2$。D 选项的 $P$ 不改第一行，$(PAQ)_{12}=(1,0,-1)(2,-1,0)^{\mathrm T}=2$。B、C 的 $P$ 相同，算得
+\[
+PA=\begin{pmatrix}1&0&-1\\0&1&-3\\0&0&0\end{pmatrix}.
+\]
+B 选项的 $Q=E$，非对角元 $-1,-3$ 仍存在。C 的 $Q$ 将 $PA$ 的第三列加上第一列与第二列的三倍，第三列变为零，前两列仍是单位矩阵的前两列。
+\Verify 选 \textbf{C}。此时 $PAQ=\operatorname{diag}(1,1,0)$，而 $P,Q$ 的对角元都非零，故两者可逆。
+
+\Question{5}{单项选择}{2024 年数学二第 8 题（原卷第 2 页）}{4}
+设 $A$ 为 $3$ 阶矩阵，$P=\begin{pmatrix}1&0&0\\0&1&0\\1&0&1\end{pmatrix}$，若 $P^{\mathrm T}AP^2=\begin{pmatrix}a+2c&0&c\\0&b&0\\2c&0&c\end{pmatrix}$，则 $A=$（\quad）。
+\Choices
+  {$\begin{pmatrix}c&0&0\\0&a&0\\0&0&b\end{pmatrix}$}
+  {$\begin{pmatrix}b&0&0\\0&c&0\\0&0&a\end{pmatrix}$}
+  {$\begin{pmatrix}a&0&0\\0&b&0\\0&0&c\end{pmatrix}$}
+  {$\begin{pmatrix}c&0&0\\0&b&0\\0&0&a\end{pmatrix}$}
+
+\Solution
+\Known 已知 $P$ 和乘积 $P^{\mathrm T}AP^2$，要求还原 $A$。四个选项都是对角矩阵。
+\Method $|P|=1$，因此 $P^{\mathrm T}$、$P^2$ 都可逆，只要有一个矩阵产生题给乘积，它就是唯一的 $A$。可以直接代入可能的对角矩阵，比较乘积的三个对角参数。
+\Derive 写 $D=\operatorname{diag}(u,v,w)$。计算 $P^2=\begin{pmatrix}1&0&0\\0&1&0\\2&0&1\end{pmatrix}$，于是
+\[
+DP^2=\begin{pmatrix}u&0&0\\0&v&0\\2w&0&w\end{pmatrix},
+\qquad
+P^{\mathrm T}DP^2=\begin{pmatrix}u+2w&0&w\\0&v&0\\2w&0&w\end{pmatrix}.
+\]
+比较第三行第三列、第二行第二列和第一行第一列，依次得到 $w=c,\ v=b,\ u=a$。
+\Verify 选 \textbf{C}。将这三个值代回，所有九个位置都与题给矩阵一致。
+
+\Question{6}{填空}{2021 年数学二第 16 题（原卷第 2 页）}{8}
+多项式
+\[
+f(x)=\begin{vmatrix}
+x & x & 1 & 2x\\
+1 & x & 2 & -1\\
+2 & 1 & x & 1\\
+2 & -1 & 1 & x
 \end{vmatrix}
-=\blank
 \]
+中 $x^3$ 项的系数为 \blank。
 
 \Solution
-\Known 求含参数 $\lambda$ 的四阶行列式。前三行除主对角线及其上方的 $-1$ 外均为零。
-\Method 先按第一列展开。这一列只有首尾两项，其中 $4$ 的余子式是三角行列式，另一项仍有相同的稀疏结构，可再按第一列展开。
-\Derive 记原行列式为 $D$，则
-\[
-\begin{aligned}
-D&=\lambda\begin{vmatrix}\lambda&-1&0\\0&\lambda&-1\\3&2&\lambda+1\end{vmatrix}
- -4\begin{vmatrix}-1&0&0\\\lambda&-1&0\\0&\lambda&-1\end{vmatrix}\\
- &=\lambda\left[\lambda
- \begin{vmatrix}\lambda&-1\\2&\lambda+1\end{vmatrix}+3\right]+4\\
- &=\lambda\bigl[\lambda(\lambda^2+\lambda+2)+3\bigr]+4.
-\end{aligned}
-\]
-第一步中 $4$ 的代数余子式符号为 $(-1)^{4+1}=-1$，它的余子式值为 $(-1)^3=-1$，所以贡献 $+4$。第二步中的 $3$ 对应三阶行列式的位置 $(3,1)$，符号为正，余子式的值为 $1$。
-\Verify 填 $\boxed{\lambda^4+\lambda^3+2\lambda^2+3\lambda+4}$。令 $\lambda=0$，原式按首列展开只剩 $4$ 的贡献，和常数项一致。
+\Known $f(x)$ 是一个四阶行列式展开后的多项式。只需找 $x^3$ 项的系数。
+\Method 根据行列式的定义，一个乘积项必须在每行、每列各取一个元素。要形成 $x^3$，四个因子中必须恰好三个含 $x$，另一个是常数。
+\Derive 如果第一行取第 $1$ 列的 $x$，后面三行的含 $x$ 项都在主对角线上。一旦从这三行取了两个 $x$，最后所剩的位置还是对角线上的 $x$，所得次数为四。第一行若取第 $3$ 列的 $1$，它占去了第三行 $x$ 的列，无法从其余三行都取到 $x$。
 
-\Question{4}{填空}{2013 年数学二第 14 题、数学一第 13 题（均为原卷第 2 页）}
+剩下两种取法。第一行取第 $2$ 列的 $x$ 时，第二行只能取常数，第三、四行必须取各自对角线上的 $x$。列序为 $(2,1,3,4)$，逆序数为 $1$，贡献 $-x\cdot 1\cdot x\cdot x=-x^3$。
+
+第一行取第 $4$ 列的 $2x$ 时，第四行只能取常数，第二、三行必须取各自对角线上的 $x$。列序为 $(4,2,3,1)$，逆序数为 $5$，贡献 $-(2x)\cdot x\cdot x\cdot2=-4x^3$。
+\Verify 填 $\boxed{-5}$。两项分别选了第一行的两个非对角含 $x$ 元素，列序均为奇排列，符号均为负。
+
+\Question{7}{填空}{2010 年数学二第 14 题（原卷第 2 页）}{8}
+设 $A,B$ 为 $3$ 阶矩阵，且 $|A|=3,\ |B|=2,\ |A^{-1}+B|=2$，则 $|A+B^{-1}|=\blank$。
+
+\Solution
+\Known 已知 $A,B$ 的行列式以及 $A^{-1}+B$ 的行列式，要求 $A+B^{-1}$ 的行列式。因 $|A|$、$|B|$ 均非零，两个逆矩阵都存在。
+\Method 已知的行列式含 $A^{-1}$ 和 $B$，所求的含 $A$ 和 $B^{-1}$。试从左侧乘以 $A$、右侧乘以 $B^{-1}$，用互逆关系把中间的两项化为所求的两项。
+\Derive 按矩阵乘法的结合律、分配律，
+\[
+A(A^{-1}+B)B^{-1}
+=AA^{-1}B^{-1}+ABB^{-1}
+=B^{-1}+A\text{。}
+\]
+因此可用乘积的行列式公式。又因 $BB^{-1}=E$，有 $|B^{-1}|=\frac{1}{|B|}=\frac{1}{2}$，从而
+\[
+|A+B^{-1}|=|A|\,|A^{-1}+B|\,|B^{-1}|
+=3\cdot2\cdot\frac{1}{2}=3\text{。}
+\]
+\Verify 填 $\boxed{3}$。把等式反向写成 $A^{-1}(A+B^{-1})B=A^{-1}+B$，取行列式后也得 $\frac{1}{3}\cdot3\cdot2=2$，符合已知条件。
+
+\Question{8}{填空}{2013 年数学二第 14 题、数学一第 13 题（均为原卷第 2 页）}{8}
 设 $A=(a_{ij})$ 是 $3$ 阶非零矩阵，$|A|$ 为 $A$ 的行列式，$A_{ij}$ 为 $a_{ij}$ 的代数余子式。若 $a_{ij}+A_{ij}=0$（$i,j=1,2,3$），则 $|A|=\blank$。
 
 \Solution
@@ -98,4 +156,90 @@ AA^{\mathrm T}=-dE.
 
 取等式两边的行列式。转置不改变行列式，右侧三阶对角矩阵的行列式为 $(-d)^3$，所以 $d^2=(-d)^3$。除以 $d^2$ 即得 $d=-1$。
 \Verify 填 $\boxed{-1}$。取 $A=\operatorname{diag}(-1,1,1)$，它的代数余子式矩阵确实为 $-A$，且行列式为 $-1$。
+
+\Question{9}{填空}{2023 年数学一第 15 题（原卷第 2 页）}{8}
+已知向量
+\[
+\alpha_1=\begin{pmatrix}1\\0\\1\\1\end{pmatrix},\quad
+\alpha_2=\begin{pmatrix}-1\\-1\\0\\1\end{pmatrix},\quad
+\alpha_3=\begin{pmatrix}0\\1\\-1\\1\end{pmatrix},\quad
+\beta=\begin{pmatrix}1\\1\\1\\-1\end{pmatrix},
+\]
+$\gamma=k_1\alpha_1+k_2\alpha_2+k_3\alpha_3$。若 $\gamma^{\mathrm T}\alpha_i=\beta^{\mathrm T}\alpha_i\ (i=1,2,3)$，则 $k_1^2+k_2^2+k_3^2=\blank$。
+
+\Solution
+\Known 三个列向量加权相加得到 $\gamma$。已知 $\gamma^{\mathrm T}$ 左乘这三列的结果分别等于 $\beta^{\mathrm T}$ 的相应乘积，要求权重的平方和。
+\Method 把三列并成矩阵 $S$，将权重记为列矩阵 $k$。由 $\gamma=Sk$，可把题给的三个标量等式合写为
+\[
+k^{\mathrm T}S^{\mathrm T}S=\beta^{\mathrm T}S.
+\]
+\Derive 利用题给元素直接做行乘列，可得
+\[
+S^{\mathrm T}S=3E,\qquad \beta^{\mathrm T}S=(1,-3,-1).
+\]
+例如，$(1,2)$ 元是 $1\cdot(-1)+0\cdot(-1)+1\cdot0+1\cdot1=0$，而 $(1,1)$ 元是 $1^2+0^2+1^2+1^2=3$。因此
+\[
+k^{\mathrm T}=\left(\frac{1}{3},-1,-\frac{1}{3}\right).
+\]
+\Verify 填 $\boxed{\frac{11}{9}}$。把这个 $k$ 代回，$3k^{\mathrm T}=(1,-3,-1)$，同时满足题目给出的三个等式。
+
+\Question{10}{填空}{2025 年数学一第 15 题（原卷第 2 页）}{8}
+设矩阵 $A=\begin{pmatrix}4&2&-3\\a&3&-4\\b&5&-7\end{pmatrix}$，若方程组 $A^2x=0$ 与 $Ax=0$ 不同解，则 $a-b=\blank$。
+
+\Solution
+\Known $Ax=0$ 的每个解都会使 $A^2x=0$。题设指出两者的解不全相同，要求参数之差。
+\Method 如果 $A$ 可逆，从 $A^2x=0$ 左乘 $A^{-1}$ 就得到 $Ax=0$，两者会同解。这与题设矛盾，所以可以用 $|A|=0$ 求参数关系。
+\Derive 按第一列展开，
+\[
+|A|=4(-21+20)-a(-14+15)+b(-8+9)=-4-a+b.
+\]
+令其为零，得到 $a-b=-4$。
+\Verify 填 $\boxed{-4}$。例如取 $a=5,\ b=9$，令 $x=(1,-1,0)^{\mathrm T}$，则 $Ax=(2,2,4)^{\mathrm T}\ne0$，再左乘 $A$ 得零，确实可以出现题设情况。
+
+\Question{11}{解答}{2003 年数学一（见 2019 年数学一配套解析 PDF 第 9 页）}{20}
+已知平面上三条不同直线的方程分别为
+\[
+l_1:\ ax+2by+3c=0,\qquad
+l_2:\ bx+2cy+3a=0,\qquad
+l_3:\ cx+2ay+3b=0.
+\]
+试证这三条直线交于一点的充分必要条件为 $a+b+c=0$。
+
+\Solution
+\Known 三条直线互不相同。交于一点意味着三式有同一组 $(x,y)$，并且这一组解唯一。需要证明交点条件与 $a+b+c=0$ 可以互推。
+\Method 证明必要性时，有共同解意味着三式的常数列可由系数两列加权相加得到，所以三列组成的行列式为零。证明充分性时，利用三式的和为零，把问题化为前两式是否有唯一解。
+\Derive 若有共同解，则在下列行列式中把第一列的 $x$ 倍、第二列的 $y$ 倍加到第三列，第三列变为零。因此
+\[
+0=\begin{vmatrix}a&2b&3c\\b&2c&3a\\c&2a&3b\end{vmatrix}
+=-6(a+b+c)(a^2+b^2+c^2-ab-bc-ca).
+\]
+最后一个因式为 $\frac{1}{2}\big((a-b)^2+(b-c)^2+(c-a)^2\big)$。若它为零，则 $a=b=c$，三式相同，违背题设。所以 $a+b+c=0$。
+
+反过来，若 $a+b+c=0$，三式左端相加恒为零。前两式的系数行列式为 $2(ac-b^2)=-2(a^2+ab+b^2)$。由于 $a^2+ab+b^2=(a+\frac{b}{2})^2+\frac{3b^2}{4}$，其为零只可能是 $a=b=0$，继而 $c=0$，此时无法给出三条不同直线。因此该系数行列式非零，前两式有唯一公共解，它也自动满足第三式。
+\Verify 两个方向均成立。例如 $a=1,b=0,c=-1$ 时，前两式给出 $x=3,\ y=\frac{3}{2}$，代入第三式也成立。
+
+\Question{12}{解答}{2016 年数学一第 20 题（原卷第 3 页）}{20}
+设矩阵 $A=\begin{pmatrix}1&-1&-1\\2&a&1\\-1&1&a\end{pmatrix}$，$B=\begin{pmatrix}2&2\\1&a\\-a-1&-2\end{pmatrix}$。当 $a$ 为何值时，方程 $AX=B$ 无解、有唯一解、有无穷多解？在有解时，求解此方程。
+
+\Solution
+\Known $X$ 应是 $3\times 2$ 矩阵。两列互不混合，每列须分别满足一个三元方程组，右侧取 $B$ 的对应列。
+\Method 先做一次通用计算。把 $X$ 的任一列记为 $(x,y,z)^{\mathrm T}$，右侧对应列记为 $(u,v,w)^{\mathrm T}$。第一式能直接解出 $x$，代入另两式后即可看见哪些参数决定 $y,z$ 能否唯一确定。
+\Derive 第一式为 $x=y+z+u$。把它代入第二、三式，得
+\[
+(a+2)y+3z=v-2u,\qquad (a-1)z=w+u.
+\]
+两列的 $(u,v,w)$ 分别为 $(2,1,-a-1)$ 与 $(2,a,-2)$。
+
+当 $a\ne1,-2$ 时，第二个等式先给出两列的 $z$ 为 $-1,0$。代入第一个等式，两列的 $y$ 为 $0,\frac{a-4}{a+2}$。于是唯一解为
+\[
+X=\begin{pmatrix}
+1&\frac{3a}{a+2}\\
+0&\frac{a-4}{a+2}\\
+-1&0
+\end{pmatrix}.
+\]
+当 $a=-2$ 时，第二列的第二个等式给出 $z=0$，第一个等式却要求 $3z=-6$，所以矩阵方程无解。
+
+当 $a=1$ 时，两列的第二个等式均成为 $0=0$，第一个等式都为 $y+z=-1$，因而 $x=1$。令两列的 $z$ 分别为任意实数 $s,t$，得全部解 $X=\begin{pmatrix}1&1\\-1-s&-1-t\\s&t\end{pmatrix}$。
+\Verify 对唯一解，代入两条简化等式可同时恢复原三式。$a=1$ 时，两列各自可取任意的末分量，且代回 $AX$ 恒等于 $B$。
 \end{document}
