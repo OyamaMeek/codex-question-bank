@@ -703,3 +703,17 @@
 - **Git 提交** `c339a8d88bf4f90ecea866f866aacc2382a6abac feat: expand linear algebra exams to 35 past questions`，已推送至 `origin/main`。
 
 ---
+
+## [2026-11-15 22:42] 调整线性代数试卷 TeX 的题头与详解
+
+- **需求**
+  > 在 TeX 中把出处移到题目页，出处右侧用文字星号显示难度，并扩写解析。
+- **实际结果**
+  - 三卷 35 题逐题评级，出处和星号与题号同行。解析补充公式依据、选项排除、参数分支、代入和验算。
+  - 在独立目录编译六个入口，检查 35 题的出处与星号、题解分页和留白。第三卷 iPad 版两道长解析有题号续页。22 项仓库测试与补充算例通过。
+- **涉及文件**
+  - `output/线性代数前两章模拟卷1.tex`、`output/线性代数前两章模拟卷2.tex`、`output/线性代数前两章模拟卷3.tex`、`output/linear-algebra-exam.sty`。
+  - `memory/` 相关记录和 `docs/CHANGELOG.md`。
+- **Git 提交** 待提交。
+
+---

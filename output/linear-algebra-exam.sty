@@ -27,16 +27,16 @@
   第 1–5 题为单项选择题，每题 4 分，共 20 分。\par
   第 #2 题为填空题，每题 #3 分，共 40 分。\par
   第 #4 题为解答题，每题 20 分，共 40 分。请写出推导步骤。\par
-  范围为教材第 1、2 章（印刷页码 1–55）。各题解析页标注数学一、数学二真题出处。\par
+  范围为教材第 1、2 章（印刷页码 1–55）。题目页标有真题出处，难度由 \texttt{*} 至 \texttt{*****} 递增。\par
   每道题下方留有演算空间。限时练习时请跳过解析页。%
 }
-\newcommand{\Question}[4]{%
+\newcommand{\Question}[5]{%
   \clearpage
   \def\CurrentNumber{#1}%
-  \def\CurrentSource{#3}%
   \pdfbookmark[1]{第 #1 题}{q#1}%
   {\small\color{examaccent}#2\hfill #4 分}\par
-  {\Large\bfseries 第 #1 题}\par\smallskip
+  {\Large\bfseries 第 #1 题}\hfill
+  {\footnotesize\color{gray}#3\enspace\texttt{#5}}\par\smallskip
   \ifdefined\QuestionBankAfour
     \fontsize{14}{22}\selectfont
   \else
@@ -46,8 +46,13 @@
 \newcommand{\Solution}{%
   \clearpage
   \fontsize{12}{18}\selectfont
-  {\large\bfseries 第 \CurrentNumber\ 题解析}\par
-  {\footnotesize\color{gray}原题出处\quad \CurrentSource}\par\smallskip
+  {\large\bfseries 第 \CurrentNumber\ 题解析}\par\smallskip
+}
+\newcommand{\SolutionContinued}{%
+  \ifdefined\QuestionBankAfour\else
+    \clearpage
+    {\large\bfseries 第 \CurrentNumber\ 题解析（续）}\par\smallskip
+  \fi
 }
 \newcommand{\Known}{\par\textbf{已知与目标}\quad}
 \newcommand{\Method}{\par\textbf{入手思路}\quad}
