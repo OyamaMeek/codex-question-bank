@@ -717,3 +717,17 @@
 - **Git 提交** `62b0109c64a72e9096e103e71420b9a93b0ce058 docs: expand linear algebra TeX solutions and rate questions`，已推送至 `origin/main`。
 
 ---
+
+## [2026-11-15 22:51] 重编并覆盖三卷线性代数 PDF
+
+- **需求**
+  > 依据已更新的 TeX 编译，并覆盖原 PDF。
+- **实际结果**
+  - 覆盖三卷 A4 与 iPad 共六份 PDF。题目页显示出处及右侧星号，解析为扩写版。
+  - 六个入口编译通过，逐题检查题头、题解页序、续页和留白，交付文件与验证产物逐字节一致。22 项仓库测试通过。
+- **涉及文件**
+  - `output/` 和 `output/iPad/` 下六份线性代数模拟卷 PDF。
+  - `README.md`、`memory/plan.md`、`memory/progress.md`、`memory/verify.md`、`docs/CHANGELOG.md`。
+- **Git 提交** 待提交。
+
+---
