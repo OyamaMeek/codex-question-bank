@@ -658,3 +658,18 @@
 - **Git 提交** `8fb958cae80c64b21c92f2c0fa9377b2729f5e1a docs: record midterm exam OCR and proofreading`，已推送至 `origin/main`。Markdown 按仓库约定保存在本地 `references/`。
 
 ---
+
+## [2026-11-15 21:50] 排版数学分析期中1115并编写详解
+
+- **需求**
+  > 按项目要求将已校对的数学分析期中1115转为 TeX。
+- **实际结果**
+  - 以一份可编辑正文生成 A4 和 iPad 4:3 两版。30 道题共 75 分，每道题独占一页并留出手写区，下一页给出详细解析。
+  - 前两组按实际题型命名。第 4 题的正弦和第 18 题 B 项的对数按题意补入自变量，两处原字样在对应解析注明。
+  - 两版各 61 页。题序、选项、分页、留白、31 个书签及公式字形位置通过检查，编译无缺字或溢出。关键极限和导数通过独立复算，22 项项目测试通过。
+- **涉及文件**
+  - `output/数学分析期中1115.tex`、`output/数学分析期中1115（iPad横屏版）.tex`、`output/数学分析期中1115.pdf`、`output/iPad/数学分析期中1115.pdf`。
+  - `memory/agents.md`、`memory/plan.md`、`memory/progress.md`、`memory/verify.md`、`docs/CHANGELOG.md`。
+- **Git 提交** 待提交。
+
+---

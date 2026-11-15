@@ -1,0 +1,571 @@
+% !TeX program = xelatex
+% 题源：references/数学分析期中1115.pdf；逐题对照同名 Markdown。
+\documentclass[UTF8,zihao=-4,fontset=fandol]{ctexart}
+\ifdefined\QuestionBankAfour
+  \usepackage[a4paper,margin=17mm]{geometry}
+\else
+  \usepackage[paperwidth=800bp,paperheight=600bp,left=48bp,right=48bp,top=40bp,bottom=40bp]{geometry}
+\fi
+\usepackage{amsmath,amssymb,xcolor,fancyhdr}
+\usepackage[hidelinks,bookmarksopen=true]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5bp}
+\setlength{\headheight}{15bp}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{\footnotesize\textcolor{gray}{工科数学分析 1 H · 2026 年 11 月期中试卷}}
+\fancyfoot[R]{\footnotesize\thepage}
+\raggedbottom
+\allowdisplaybreaks[1]
+\newcommand{\dd}{\mathop{}\!\mathrm{d}}
+\newcommand{\blank}{\underline{\hspace{5em}}}
+\newcommand{\choiceblank}{（\hspace{2em}）}
+\newcommand{\Choices}[4]{\par A.~#1\par B.~#2\par C.~#3\par D.~#4\par}
+\newcommand{\Question}[4]{%
+  \clearpage
+  \def\CurrentNumber{#1}%
+  \pdfbookmark[1]{第 #1 题}{q#1}%
+  {\small #2 · 第 #3 小题\hfill #4 分}\par\medskip
+  {\Large\bfseries 第 #1 题}\par\medskip
+  \fontsize{14}{22}\selectfont
+}
+\newcommand{\Solution}{%
+  \clearpage
+  \fontsize{12}{18}\selectfont
+  {\large\bfseries 第 \CurrentNumber\ 题解析}\par\smallskip
+}
+\newcommand{\Known}{\par\textbf{已知与目标}\quad}
+\newcommand{\Method}{\par\textbf{入手思路}\quad}
+\newcommand{\Derive}{\par\textbf{推导}\quad}
+\newcommand{\Verify}{\par\textbf{结论与检查}\quad}
+
+\begin{document}
+\pdfbookmark[0]{工科数学分析 1 H 期中试卷}{cover}
+{\Large\bfseries 杭州电子科技大学信息工程学院\par}
+\medskip
+{\Huge\bfseries 工科数学分析 1 H 期中试卷\par}
+\medskip
+2026 年 11 月 · 闭卷
+
+\bigskip
+\textbf{共 30 题，满分 75 分。}
+
+一、填空题（第 1 至 10 题）\hfill 每题 2 分，共 20 分\par
+二、选择题（第 11 至 20 题）\hfill 每题 2 分，共 20 分\par
+三、判断题（第 21 至 25 题）\hfill 每题 1 分，共 5 分\par
+四、计算题（第 26 至 29 题）\hfill 每题 5 分，共 20 分\par
+五、证明题（第 30 题）\hfill 共 10 分\par
+
+\bigskip
+前两部分按实际题型命名，原卷将两部分标题互换。第 4 题的正弦和第 18 题 B 项的对数按题意补入自变量 $x$，原字样见对应解析。
+
+每道题独占一页，下方留作演算。下一页开始本题解析。
+
+\Question{1}{一、填空题}{1}{2}
+$\lim\limits_{n\to\infty}\sqrt{n}\bigl(\sqrt{n+3}-\sqrt{n}\bigr)=\blank$。
+
+\Solution
+\Known 两个根式随着 $n$ 增大都趋向无穷，但要计算的是它们先相减、再乘 $\sqrt n$ 的结果。
+\Method 根式的差适合用平方差公式。乘以共轭式后，分子变成 $(n+3)-n$，就可以比较剩下各项的大小。
+\Derive 对 $n\ge 1$，共轭式 $\sqrt{n+3}+\sqrt n>0$，因此
+\[
+\sqrt n(\sqrt{n+3}-\sqrt n)
+=\frac{3\sqrt n}{\sqrt{n+3}+\sqrt n}
+=\frac{3}{\sqrt{1+\frac{3}{n}}+1}.
+\]
+因为 $\frac{3}{n}\to0$，而平方根在 $1$ 处连续，最后的分母趋于 $2$。
+\Verify 填 $\boxed{\frac32}$。任意有限的正整数 $n$ 都使分母大于 $2$，所以原式为正且小于这个极限。
+
+\Question{2}{一、填空题}{2}{2}
+$\lim\limits_{n\to\infty}\left(\frac{n+2}{n+3}\right)^{4n}=\blank$。
+
+\Solution
+\Known 底数趋于 $1$，指数趋于无穷。要求整个幂的极限。
+\Method 底数始终为正，可以先取自然对数，把指数变成乘数。将底数写成 $1$ 加一个趋于零的量，以便用 $\lim\limits_{u\to0}\frac{\ln(1+u)}{u}=1$。
+\Derive 令 $u_n=-\frac{1}{n+3}$，则 $1+u_n=\frac{n+2}{n+3}>0$。原幂的对数为
+\[
+4n\ln(1+u_n)
+=-\frac{4n}{n+3}\cdot\frac{\ln(1+u_n)}{u_n}
+\longrightarrow -4.
+\]
+对数极限来自 $\ln(1+u)$ 在 $u=0$ 处的导数。用指数函数的连续性，将对数的极限还原为原幂的极限。
+\Verify 填 $\boxed{e^{-4}}$。底数在 $0$ 和 $1$ 之间，指数为正，结果也应在 $0$ 和 $1$ 之间。
+
+\Question{3}{一、填空题}{3}{2}
+$\lim\limits_{x\to0}\frac{\sqrt{1+x}-\sqrt{1-x}}{x}=\blank$。
+
+\Solution
+\Known 当 $x\to0$ 时，两个根式都趋于 $1$，分子和分母同时趋零。
+\Method 根式的差乘以根式的和，可以化成一次式。化出的 $x$ 便能与分母约去。
+\Derive 对 $0<|x|<1$，两个根号内的数都为正，乘以共轭式并化简得
+\[
+\frac{\sqrt{1+x}-\sqrt{1-x}}{x}
+=\frac{(1+x)-(1-x)}{x\bigl(\sqrt{1+x}+\sqrt{1-x}\bigr)}
+=\frac{2}{\sqrt{1+x}+\sqrt{1-x}}.
+\]
+右端的分母趋于 $2$，因此可以直接求商的极限。
+\Verify 填 $\boxed{1}$。把 $x$ 换成 $-x$ 时，原式分子和分母都变号，商保持相同，左右两侧的计算一致。
+
+\Question{4}{一、填空题}{4}{2}
+$\lim\limits_{x\to0}(1+3x)^{\frac{1}{\sin x}}=\blank$。
+
+\Solution
+\Known 原卷的指数分母印为 $\sin$，这里按题意补为 $\sin x$。底数趋于 $1$，要求补全后幂函数表达式的两侧极限。
+\Method 对正底数的幂先取对数，可以把指数变成分母 $\sin x$。对数的分子含 $3x$，拆出 $3x$ 和 $x$ 可以分别使用两个基本极限。
+\Derive 在 $x=0$ 附近取充分小的非零 $x$，此时 $1+3x>0$ 且 $\sin x\ne0$。利用 $\frac{\ln(1+u)}{u}\to1$（$u\to0$）与 $\frac{\sin x}{x}\to1$，得
+\[
+\ln\!\left((1+3x)^{\frac{1}{\sin x}}\right)
+=\frac{\ln(1+3x)}{\sin x}
+=\frac{\ln(1+3x)}{3x}\cdot 3\cdot\frac{x}{\sin x}
+\longrightarrow 3.
+\]
+指数函数连续，因此可将对数极限还原。
+\Verify 补字后的答案为 $\boxed{e^3}$。在零点附近，$\ln(1+3x)$ 和 $\sin x$ 同号，所以对数为正，这与所得极限一致。
+
+\Question{5}{一、填空题}{5}{2}
+$\lim\limits_{x\to0}\frac{\tan x-\sin x}{\ln(1+x^3)}=\blank$。
+
+\Solution
+\Known 分子是两个一阶大小相同的三角函数之差，分母也趋于零。要求看清分子中相消后留下的量。
+\Method 把 $\tan x$ 写成 $\frac{\sin x}{\cos x}$，分子就能提出 $\sin x$，余下的 $1-\cos x$ 可用半角公式判断大小。
+\Derive 在 $0$ 附近，$\cos x\ne0$。又因为 $1-\cos x=2\sin^2\bigl(\frac{x}{2}\bigr)$，
+\[
+\frac{1-\cos x}{x^2}
+=\frac12\left(\frac{\sin\bigl(\frac{x}{2}\bigr)}{\frac{x}{2}}\right)^2
+\longrightarrow \frac12.
+\]
+对充分小的非零 $x$，$1+x^3>0$，且 $\ln(1+x^3)\ne0$。于是
+\[
+\frac{\tan x-\sin x}{\ln(1+x^3)}
+=\frac{\sin x}{x}\cdot\frac{1-\cos x}{x^2}
+\cdot\frac{1}{\cos x}\cdot\frac{x^3}{\ln(1+x^3)}
+\longrightarrow 1\cdot\frac12\cdot1\cdot1.
+\]
+最后一个因子趋于 $1$，因为 $\ln(1+u)$ 在 $u=0$ 处的导数为 $1$。
+\Verify 填 $\boxed{\frac12}$。分子和分母在零点附近的首项分别为 $\frac12x^3$ 和 $x^3$，与比值一致。
+
+\Question{6}{一、填空题}{6}{2}
+设
+\[
+f(x)=
+\begin{cases}
+e^{2x}, & x\le0,\\
+a+x^2, & x>0.
+\end{cases}
+\]
+若 $f$ 在 $x=0$ 处连续，则 $a=\blank$。
+
+\Solution
+\Known $f$ 在 $0$ 两侧用不同公式。要求选取 $a$，让函数在分段点连续。
+\Method 点的连续性要求左右极限都等于该点的函数值。先看含等号的不等式，确定 $x=0$ 应代入哪一段。
+\Derive 左段含 $x=0$，所以 $f(0)=e^0=1$。指数函数连续，故
+\[
+\lim\limits_{x\to0^-}f(x)=1.
+\]
+右段中 $x^2\to0$，故 $\lim\limits_{x\to0^+}f(x)=a$。要求右极限也等于 $f(0)$，得到 $a=1$。
+\Verify 填 $\boxed{1}$。代入后左极限、右极限和函数值都等于 $1$，连续性成立。
+
+\Question{7}{一、填空题}{7}{2}
+设 $y=\ln\sin x$，则 $y'=\blank$。
+
+\Solution
+\Known $y$ 是对 $\sin x$ 取自然对数。实数范围内须有 $\sin x>0$，要求在这个定义域内求导。
+\Method 对数是外层函数，正弦是内层函数。链式法则要求先对外层求导，再乘上内层的导数。
+\Derive 设 $u=\sin x$。由于 $u>0$，对数在该处可导且 $\frac{\dd}{\dd u}\ln u=\frac{1}{u}$。而 $u'=\cos x$，所以
+\[
+y'=\frac{1}{\sin x}\cos x=\frac{\cos x}{\sin x}=\cot x.
+\]
+\Verify 填 $\boxed{\cot x}$。在 $x=\frac{\pi}{2}$ 处，$\sin x$ 取局部最大值，所得导数为 $0$，与该点的切线水平一致。
+
+\Question{8}{一、填空题}{8}{2}
+设 $y=y(x)$ 由方程 $xy=e^{x+y}$ 确定，则 $\frac{dy}{dx}=\blank$。
+
+\Solution
+\Known 方程把 $x$ 与 $y(x)$ 联系起来。目标是求 $y'$，可以保留 $x$ 和 $y$ 在结果中。
+\Method 等式两侧都对 $x$ 求导。左边是乘积，右边是指数复合函数，两个位置都会出现 $y'$。
+\Derive 利用乘积法则和链式法则，
+\[
+y+xy'=e^{x+y}(1+y'),
+\qquad
+(x-e^{x+y})y'=e^{x+y}-y.
+\]
+在实数解上有 $x\ne0$，且 $x-e^{x+y}=x(1-y)$。若 $y=1$，原式要求 $x=e^{x+1}>0$；但 $x>0$ 时 $e^{x+1}>1+x>x$，所以这种情况不可能。由于方程左移后对 $y$ 的偏导数 $x-e^{x+y}$ 非零，隐函数定理保证局部可导，也可以除以这个系数。
+\Verify 填 $\boxed{\frac{e^{x+y}-y}{x-e^{x+y}}}$。用 $e^{x+y}=xy$ 也可写成 $\frac{y(x-1)}{x(1-y)}$，乘回分母会恢复求导后的方程。
+
+\Question{9}{一、填空题}{9}{2}
+设
+\[
+\begin{cases}
+x=2t^2,\\
+y=t^3,
+\end{cases}
+\]
+则 $\frac{d^2y}{dx^2}=\blank$。
+
+\Solution
+\Known $x$、$y$ 都由参数 $t$ 给出。二阶导数是对 $x$ 再求一次导数。
+\Method 当 $\frac{\dd x}{\dd t}\ne0$ 时，可在该点附近把 $t$ 看成 $x$ 的函数。每次对 $x$ 求导，都先对 $t$ 求导，再除以 $\frac{\dd x}{\dd t}$。
+\Derive 对 $t\ne0$，$\frac{\dd x}{\dd t}=4t$，所以
+\[
+\frac{\dd y}{\dd x}=\frac{3t^2}{4t}=\frac{3t}{4},
+\qquad
+\frac{\dd^2 y}{\dd x^2}=\frac{\frac{\dd}{\dd t}(\frac{3t}{4})}{4t}
+=\frac{3}{16t}.
+\]
+\Verify 填 $\boxed{\frac{3}{16t}\quad(t\ne0)}$。在 $t>0$ 的分支，$x$ 随 $t$ 增大，一阶导数也增大，因此二阶导数为正。$t=0$ 处参数求导的分母为零，且两支的二阶导数趋于不同符号的无穷。
+
+\Question{10}{一、填空题}{10}{2}
+设 $f(x)=\frac{1}{x^2-x}$，则 $f^{(n)}(x)=\blank$。
+
+\Solution
+\Known 原函数是有理函数，定义域排除 $0$ 和 $1$。要求任意阶的导数。
+\Method 分母分解成 $x(x-1)$ 后，可拆成两个简单分式。简单分式每求一次导，幂指数减一，且系数形成阶乘。
+\Derive 通分可验证
+\[
+f(x)=\frac{1}{x-1}-\frac{1}{x}.
+\]
+对任意固定 $c$，在 $x\ne c$ 时，
+\[
+\frac{\dd^n}{\dd x^n}\frac{1}{x-c}
+=\frac{(-1)^n n!}{(x-c)^{n+1}}.
+\]
+该式在 $n=0$ 时给出原函数。再求一次导时乘上 $-(n+1)$，分母的幂增一，因此对一般 $n$ 也成立。
+\Verify 填 $\boxed{(-1)^n n!\left(\frac{1}{(x-1)^{n+1}}-\frac{1}{x^{n+1}}\right)}$。令 $n=1$，通分得 $\frac{1-2x}{(x^2-x)^2}$，与直接求导相同。
+
+\Question{11}{二、选择题}{1}{2}
+数列 $\{a_n\}$ 收敛于 $A$ 是数列 $\{a_n\}$ 有界的\choiceblank。
+
+\Choices{充分必要条件}{充分条件}{必要条件}{无关条件}
+
+\Solution
+\Known 比较两个条件。先看收敛能否推出有界，再看有界能否推出收敛于 $A$。
+\Method 收敛使数列从某项起全部靠近 $A$，因此尾部有界。想检验反方向，可以找一个有界却不断振荡的例子。
+\Derive 若 $a_n\to A$，取误差为 $1$。存在 $N$，使得 $n\ge N$ 时 $|a_n-A|<1$，于是 $|a_n|\le |A|+1$。前面有限项的绝对值也有最大值，取两者中较大的值便可约束所有项。
+
+取 $a_n=(-1)^n$。每项绝对值均为 $1$，但奇数项与偶数项分别恒为 $-1$ 和 $1$，所以该数列不收敛。
+\Verify 选 \textbf{B}。收敛于 $A$ 足以保证有界，反向有明确反例，因此排除 A 和 C。
+
+\Question{12}{二、选择题}{2}{2}
+当 $x\to0$ 时，$1-\cos 2x$ 是 $x^2$ 的\choiceblank。
+
+\Choices{等价无穷小}{同阶但不等价无穷小}{高阶无穷小}{低阶无穷小}
+
+\Solution
+\Known 两个量都在 $x\to0$ 时趋于零。要用它们的比值区分阶数及是否等价。
+\Method 分子中的 $1-\cos 2x$ 可以用半角公式直接化成 $\sin^2 x$，然后使用 $\frac{\sin x}{x}\to1$。
+\Derive 对 $x\ne0$，
+\[
+\frac{1-\cos 2x}{x^2}
+=\frac{2\sin^2 x}{x^2}
+=2\left(\frac{\sin x}{x}\right)^2\longrightarrow 2.
+\]
+比值有有限且非零的极限，所以两者同阶。等价还要求比值趋于 $1$，这里得到的是 $2$。
+\Verify 选 \textbf{B}。按等价无穷小的定义，$1-\cos 2x$ 与 $2x^2$ 等价，恰好解释了比值中的系数 $2$。
+
+\Question{13}{二、选择题}{3}{2}
+$\lim\limits_{x\to\frac{\pi}{2}}(\sin x)^{\frac{2}{\cos x}}=$\choiceblank。
+
+\Choices{$e$}{$e^{-2}$}{$e^2$}{$1$}
+
+\Solution
+\Known 当 $x$ 趋于 $\frac{\pi}{2}$ 时，$\sin x$ 趋于 $1$，而 $\cos x$ 趋于零并可能变号。要求幂的两侧极限。
+\Method 在该点附近 $\sin x>0$，可以取对数。令 $u=\cos x$，用 $\sin^2x=1-u^2$ 表达对数的分子，就能比较它与分母 $u$ 的阶数。
+\Derive 在 $\frac{\pi}{2}$ 附近有 $\sin x=\sqrt{1-u^2}$。故当 $u\ne0$ 时，幂的对数为
+\[
+\frac{2\ln(\sin x)}{\cos x}
+=\frac{\ln(1-u^2)}{u}
+=-u\cdot\frac{\ln(1-u^2)}{-u^2}\longrightarrow0.
+\]
+这里的对数比值趋于 $1$。再用指数函数在 $0$ 处的连续性，原幂趋于 $e^0=1$。
+\Verify 选 \textbf{D}。对数的极限用的是任意趋于零的非零 $u$，所以 $\cos x$ 从两侧趋零都得到同一结果。
+
+\Question{14}{二、选择题}{4}{2}
+$\lim\limits_{x\to\infty}\left(\frac{1+x^2+x^3}{x+x^2+2x^3}\right)=$\choiceblank。
+
+\Choices{$1$}{$\frac{1}{2}$}{$0$}{$\infty$}
+
+\Solution
+\Known 分子与分母都是三次多项式。要求当 $x$ 趋向无穷时，这两个多项式的比值。
+\Method 最高次项在无穷远处主导增长。将分子和分母都除以 $x^3$，低次项就会变成趋于零的小量。
+\Derive 对充分大的 $x$，$x^3\ne0$，因此
+\[
+\frac{1+x^2+x^3}{x+x^2+2x^3}
+=\frac{\frac{1}{x^3}+\frac1x+1}{\frac{1}{x^2}+\frac1x+2}
+\longrightarrow\frac12.
+\]
+分母的极限是 $2\ne0$，满足商的极限法则。
+\Verify 选 \textbf{B}。两个最高次项的系数分别为 $1$ 和 $2$，与计算结果吻合。
+
+\Question{15}{二、选择题}{5}{2}
+函数 $f(x)=x\sin\frac{1}{x}$ 在 $x=0$ 处\choiceblank。
+
+\Choices{连续}{可去间断}{跳跃间断}{第二类间断}
+
+\Solution
+\Known 原式在 $x=0$ 无定义。判断间断类型，要先确定零点两侧的极限是否存在、是否相同。
+\Method 正弦项在零点附近不断振荡，但它的绝对值始终不超过 $1$，乘上 $x$ 后可用夹逼定理。
+\Derive 对每个 $x\ne0$，有
+\[
+-|x|\le x\sin\frac1x\le |x|.
+\]
+两端当 $x\to0$ 时都趋于 $0$，所以 $f(x)$ 的两侧极限都等于 $0$。原函数只缺零点处的函数值。
+\Verify 选 \textbf{B}。令 $f(0)=0$ 后，新定义的值等于两侧极限，函数就在 $0$ 处连续。
+
+\Question{16}{二、选择题}{6}{2}
+设
+\[
+f(x)=
+\begin{cases}
+\frac{\sin ax}{x}, & x>0,\\
+2, & x=0,\\
+\frac{1}{bx}\ln(1-2x), & x<0.
+\end{cases}
+\]
+若 $f$ 在 $x=0$ 处连续，则\choiceblank。
+
+\Choices{$a=2,\,b=-1$}{$a=2,\,b=1$}{$a=1,\,b=-1$}{$a=0,\,b=1$}
+
+\Solution
+\Known $f(0)=2$，左右两段各含一个参数。要求它们的极限分别等于 $2$。
+\Method 右段拆出 $\frac{\sin ax}{ax}$，左段拆出 $\frac{\ln(1-2x)}{-2x}$，这样可以分别使用两个基本极限。
+\Derive 若 $a\ne0$，右段为 $a\frac{\sin ax}{ax}$，其中 $ax\to0$，故右极限为 $a$。若 $a=0$，右段恒为零，结论仍成立。左段要求 $b\ne0$，且 $x<0$ 时 $1-2x>0$，故
+\[
+\lim\limits_{x\to0^-}\frac{\ln(1-2x)}{bx}
+=-\frac{2}{b}\lim\limits_{x\to0^-}\frac{\ln(1-2x)}{-2x}
+=-\frac{2}{b}.
+\]
+于是 $a=2$ 且 $-\frac{2}{b}=2$，解得 $b=-1$。
+\Verify 选 \textbf{A}。代回后右极限为 $2$，左极限也为 $2$，和函数值一致。
+
+\Question{17}{二、选择题}{7}{2}
+设 $y=\arctan e^x$，则 $y'=$\choiceblank。
+
+\Choices{$\frac{e^x}{1+e^{2x}}$}{$\frac{1}{1+e^{2x}}$}{$\frac{e^x}{1+e^x}$}{$\frac{2e^x}{1+e^{2x}}$}
+
+\Solution
+\Known 反正切的输入是 $e^x$。两层函数在各自的定义域都可导，要求复合后的导数。
+\Method 令 $u=e^x$，应用链式法则。反正切求导时分母会出现 $u^2$，分子还要乘上 $u'$。
+\Derive $\arctan u$ 是 $\tan v$ 在 $v\in(-\frac{\pi}{2},\frac{\pi}{2})$ 上的反函数。将 $\tan v=u$ 求导并用 $1+\tan^2v=\frac{1}{\cos^2v}$，得 $\frac{\dd v}{\dd u}=\frac{1}{1+u^2}$。因此
+\[
+y'=\frac{1}{1+(e^x)^2}\,e^x=\frac{e^x}{1+e^{2x}}.
+\]
+\Verify 选 \textbf{A}。等价形式 $\frac{1}{e^{-x}+e^x}$ 在所有实数上为正，与两层函数都递增一致。
+
+\Question{18}{二、选择题}{8}{2}
+设 $f$ 可导，$y=f(\ln x)$，则 $y'=$\choiceblank。
+
+\Choices{$f'(\ln x)$}{$\frac{f'(\ln x)}{x}$}{$xf'(\ln x)$}{$\frac{f'(\ln x)}{\ln x}$}
+
+\Solution
+\Known $x>0$ 时 $\ln x$ 有定义。原卷 B 项的分子印为 $f'(\ln\,)$，这里按复合函数补写为 $f'(\ln x)$。
+\Method 令 $u=\ln x$。链式法则要求先把 $\ln x$ 代入外层的导函数 $f'$，然后乘上内层导数 $u'$。
+\Derive 由于 $f$ 在相应的 $u$ 处可导，且 $u'=\frac1x$，所以
+\[
+y'=f'(u)\frac{\dd u}{\dd x}=f'(\ln x)\cdot\frac1x.
+\]
+代入 $\ln x$ 只完成外层求导，乘上 $\frac1x$ 才得到对原变量 $x$ 的导数。
+\Verify 补字后选 \textbf{B}。例如取 $f(u)=u$，公式给出 $y'=\frac1x$，正是 $\ln x$ 的导数。
+
+\Question{19}{二、选择题}{9}{2}
+当 $x\to0$ 时，变量 $\frac{1}{x^2}\sin\frac{1}{x}$ 是\choiceblank。
+
+\Choices{无穷小}{无穷大}{有界但非无穷小}{无界但非无穷大}
+
+\Solution
+\Known 正弦因子会反复取零和取 $1$，同时 $\frac{1}{x^2}$ 会增大。要区分无界和无穷大，需判断绝对值是否沿所有趋零的路径都增大到任意程度。
+\Method 构造两列趋于零的正数，分别让正弦恒为 $0$、恒为 $1$，比较两列上的函数值。
+\Derive 令 $x_n=\frac{1}{2\pi n}$ 与 $z_n=\frac{1}{2\pi n+\frac{\pi}{2}}$。二者都趋于 $0$。在 $x_n$ 处，正弦等于 $0$，整个表达式等于 $0$；在 $z_n$ 处，正弦等于 $1$，整个表达式等于 $\bigl(2\pi n+\frac{\pi}{2}\bigr)^2$，趋于 $+\infty$。
+\Verify 选 \textbf{D}。第二列证明每个零点邻域内均无界，第一列说明绝对值无法随着 $x\to0$ 始终增大到任意给定的界。
+
+\Question{20}{二、选择题}{10}{2}
+当 $x\to0$ 时，$\sqrt{1+\tan x}-\sqrt{1+\sin x}$ 与 $cx^3$ 等价，则 $c=$\choiceblank。
+
+\Choices{$\frac{1}{4}$}{$\frac{1}{2}$}{$1$}{$\frac{1}{8}$}
+
+\Solution
+\Known 要找根式之差相对于 $x^3$ 的系数。当 $x$ 充分接近零时，两个根号内的数均为正。
+\Method 先用共轭式有理化，分子会化成 $\tan x-\sin x$，再拆成便于计算的三角因子。
+\Derive 对充分小的非零 $x$，
+\[
+\begin{aligned}
+\frac{\sqrt{1+\tan x}-\sqrt{1+\sin x}}{x^3}
+&=\frac{\tan x-\sin x}{x^3}
+\cdot\frac{1}{\sqrt{1+\tan x}+\sqrt{1+\sin x}}\\
+&=\frac{\sin x}{x}\cdot\frac{1-\cos x}{x^2}
+\cdot\frac{1}{\cos x}
+\cdot\frac{1}{\sqrt{1+\tan x}+\sqrt{1+\sin x}}.
+\end{aligned}
+\]
+利用 $\frac{\sin x}{x}\to1$ 和 $1-\cos x=2\sin^2\bigl(\frac{x}{2}\bigr)$，前两个因子分别趋于 $1$ 和 $\frac12$，后两个因子分别趋于 $1$ 和 $\frac12$。
+\Verify 选 \textbf{A}，即 $c=\frac14$。将原差除以 $\frac14x^3$，比值趋于 $1$，满足等价的定义。
+
+\Question{21}{三、判断题}{1}{1}
+若 $\lim\limits_{n\to\infty}a_n=A$，则 $\lim\limits_{n\to\infty}|a_n|=|A|$；反之亦然。\choiceblank
+
+\Solution
+\Known 题目把数列的收敛与其绝对值的收敛互相推出。整句为真需要两个方向都成立。
+\Method 正向可用绝对值的反三角不等式。考察反向时，绝对值抹掉了符号，可以用正负交替的数列作反例。
+\Derive 若 $a_n\to A$，则 $0\le\bigl||a_n|-|A|\bigr|\le|a_n-A|\to0$，故 $|a_n|\to|A|$。反过来，取 $A=1$、$a_n=(-1)^n$，则 $|a_n|=1=|A|$，但奇数项为 $-1$、偶数项为 $1$，两个子列的极限不同，$a_n$ 不收敛。
+\Verify 判 \textbf{错}。反例满足反向推理的前提，却得不出 $a_n\to A$，所以整句错误。
+
+\Question{22}{三、判断题}{2}{1}
+无穷多个无穷小量之和仍是无穷小量。\choiceblank
+
+\Solution
+\Known 每一项单独都趋于零。题目问无穷多项求和后，结果是否一定还趋于零。
+\Method 用等比级数构造反例。让每一项都带一个趋于零的因子，同时让公比趋于 $1$，使求和公式的分母正好约掉这个因子。
+\Derive 对 $0<|x|<1$，取 $u_n(x)=x^2(1-x^2)^{n-1}$，$n=1,2,\ldots$。固定任何一个 $n$，$\lim\limits_{x\to0}u_n(x)=0$。但对每个固定的非零 $x$，公比 $1-x^2$ 介于 $0$ 和 $1$ 之间，所以
+\[
+\sum_{n=1}^{\infty}u_n(x)=\frac{x^2}{1-(1-x^2)}=1.
+\]
+这个和在 $x\to0$ 时仍为 $1$。
+\Verify 判 \textbf{错}。固定前 $N$ 项的和是 $1-(1-x^2)^N$，趋于零。取无穷多项时，上面的和给出另一个结果。
+
+\Question{23}{三、判断题}{3}{1}
+若函数 $f$ 在 $x_0$ 处连续，则 $|f|$ 在 $x_0$ 处也连续。\choiceblank
+
+\Solution
+\Known 已知 $f(x)\to f(x_0)$，要判断 $|f(x)|$ 是否趋于 $|f(x_0)|$。
+\Method 可以直接用不等式控制取绝对值前后的误差。这样同一个估计对 $f(x_0)=0$ 和 $f(x_0)\ne0$ 都适用。
+\Derive 对实数 $u,v$，由三角不等式有 $|u|-|v|\le|u-v|$；交换 $u,v$ 又得 $|v|-|u|\le|u-v|$。合起来有
+\[
+0\le\bigl||f(x)|-|f(x_0)|\bigr|\le|f(x)-f(x_0)|.
+\]
+当 $x\to x_0$ 时，右边由已知连续性趋于零，故左边的误差也趋于零。
+\Verify 判 \textbf{对}。即使 $f$ 在 $x_0$ 两侧改变符号，这个误差上界也成立。
+
+\Question{24}{三、判断题}{4}{1}
+若函数 $f$ 在 $x_0$ 处可导，则 $f$ 在 $x_0$ 处的某邻域内必连续。\choiceblank
+
+\Solution
+\Known 只给出在 $x_0$ 这一点可导。题目要求在包含 $x_0$ 的一段区间上每一点都连续。
+\Method 构造一个在 $0$ 附近迅速趋零的函数，让零点处的差商也趋零，同时在其他点保留两种不同的取值规律。
+\Derive 取 $x_0=0$，令
+\[
+f(x)=
+\begin{cases}
+x^2,& x\text{ 为有理数},\\
+0,& x\text{ 为无理数}.
+\end{cases}
+\]
+$f(0)=0$，对非零 $h$ 有 $\left|\frac{f(h)-f(0)}{h}\right|\le|h|$，故 $f'(0)=0$。任取 $a\ne0$，有理数和无理数都可任意接近 $a$。沿有理数趋于 $a$ 时，函数值趋于 $a^2$；沿无理数趋于 $a$ 时，函数值恒为 $0$。所以 $f$ 在每个 $a\ne0$ 处都不连续。
+\Verify 判 \textbf{错}。任意包含 $0$ 的开区间都有非零点，因此这个例子在 $0$ 可导，却没有题目要求的邻域。
+
+\Question{25}{三、判断题}{5}{1}
+可微的函数必连续。\choiceblank
+
+\Solution
+\Known 对一元函数，在 $x_0$ 可微意味着函数增量可写成一个线性项加一个比增量更小的余项。要证明函数值在该点连续。
+\Method 将自变量的增量 $h$ 趋向零。线性项和余项只要分别趋于零，函数增量就趋于零。
+\Derive 根据可微的定义，存在常数 $A$，使
+\[
+f(x_0+h)-f(x_0)=Ah+r(h),
+\qquad
+\lim\limits_{h\to0}\frac{r(h)}{h}=0.
+\]
+显然 $Ah\to0$。对 $h\ne0$，$r(h)=h\cdot\frac{r(h)}{h}\to0$。两项相加仍趋于零，故 $f(x_0+h)\to f(x_0)$。
+\Verify 判 \textbf{对}。若函数在区间每一点都可微，上述证明可以在区间内逐点应用。
+
+\Question{26}{四、计算题}{1}{5}
+求极限 $\lim\limits_{x\to0}\left(\cot x-\frac{e^{3x}}{\sin x}\right)$。
+
+\Solution
+\Known 两项分母都含 $\sin x$，且分子常数项相同。目标是求相减之后的极限。
+\Method 将 $\cot x$ 写成 $\frac{\cos x}{\sin x}$ 后通分，再在分子加减 $1$，分别比较余弦和指数函数在 $0$ 附近的变化。
+\Derive 对充分小的非零 $x$，$\sin x\ne0$，原式可以写为
+\[
+\frac{\cos x-e^{3x}}{\sin x}
+=\left(\frac{\cos x-1}{x}-\frac{e^{3x}-1}{x}\right)\frac{x}{\sin x}.
+\]
+第一个商趋于 $\cos x$ 在 $0$ 处的导数 $0$。第二个商趋于 $e^{3x}$ 在 $0$ 处的导数 $3$。最后一因子由 $\frac{\sin x}{x}\to1$ 得到极限 $1$。
+\Verify 极限为 $\boxed{-3}$。通分后分子的一次项为 $-3x$，分母的一次项为 $x$，也给出相同结果。
+
+\Question{27}{四、计算题}{2}{5}
+求导数 $y=\frac{1}{\sin x\cos x}$ 及 $y=\left(\arccos\frac{1}{x}\right)^2$。
+
+\Solution
+\Known 要分别求两个函数的导数。第一个要求 $\sin x\cos x\ne0$，第二个定义在 $|x|\ge1$，通常的两侧导数在定义域内部 $|x|>1$ 计算。
+\Method 第一式是乘积的倒数，先对乘积求导再对倒数求导。第二式依次经过倒数、反余弦、平方，链式法则应覆盖这三层。
+\Derive 对第一式，令 $u=\sin x\cos x$，则 $u'=\cos^2x-\sin^2x=\cos 2x$，故
+\[
+\boxed{y'=-\frac{\cos 2x}{\sin^2x\cos^2x}}\qquad(\sin x\cos x\ne0).
+\]
+对第二式，令 $v=\arccos(\frac1x)$。当 $|x|>1$ 时，$0<v<\pi$。由 $\cos v=\frac1x$ 求导，得到 $-\sin v\cdot v'=-\frac1{x^2}$。取正根 $\sin v=\sqrt{1-\frac1{x^2}}$，再乘上平方的导数 $2v$，故
+\[
+\boxed{y'=\frac{2\arccos(\frac1x)}{x^2\sqrt{1-\frac1{x^2}}}}\qquad(|x|>1).
+\]
+\Verify 第一式用 $\sin x\cos x=\frac12\sin 2x$ 也能得到相同导数。第二式的两个负号分别来自反余弦和倒数，求得的导数为正。
+
+\Question{28}{四、计算题}{3}{5}
+设 $y=f(e^{2x})e^{g(x)}$，其中 $f$、$g$ 均可导，求 $\frac{dy}{dx}$。
+
+\Solution
+\Known $y$ 等于两个关于 $x$ 的函数相乘，每个因子内部又有一层复合。题目只给出 $f$、$g$ 可导，结果应保留 $f'$、$g'$。
+\Method 用乘积法则分成两项。每一项只对一个因子求导，而这个因子的导数再用链式法则求。
+\Derive 设 $u=f(e^{2x})$、$v=e^{g(x)}$。由链式法则，
+\[
+u'=f'(e^{2x})\cdot 2e^{2x},\qquad
+v'=e^{g(x)}g'(x).
+\]
+代入 $y'=u'v+uv'$，提出公共因子 $e^{g(x)}$。
+\Verify 得
+\[
+\boxed{\frac{\dd y}{\dd x}=e^{g(x)}
+\bigl(2e^{2x}f'(e^{2x})+f(e^{2x})g'(x)\bigr)}.
+\]
+若 $f$ 为常数，第一项消失，退化为常数乘 $e^{g(x)}$ 的导数；若 $g$ 为常数，第二项消失，留下对第一个复合函数的求导。
+
+\Question{29}{四、计算题}{4}{5}
+求下列函数的微分。
+
+（1）$y=\frac{x}{\sqrt{x^2+1}}$；
+
+（2）由方程 $xy+y^2=1$ 确定的隐函数 $y=y(x)$。
+
+\Solution
+\Known 一元函数的微分是 $\dd y=y'\dd x$。第一问直接给出 $y$，第二问要从方程求 $y'$。
+\Method 第一问将分母写成负幂，与 $x$ 使用乘积法则；第二问对等式两侧求导，将含 $y'$ 的项归到一起。
+\Derive （1）$x^2+1>0$，所以负幂在全体实数上可导，且
+\[
+y'=(x^2+1)^{-\frac12}-x^2(x^2+1)^{-\frac32}
+=\frac{1}{(x^2+1)^{\frac32}}.
+\]
+因此 $\boxed{\dd y=\frac{\dd x}{(x^2+1)^{\frac32}}}$。
+
+（2）由原方程得 $(x+2y)^2=x^2+4>0$。开方可见各分支在每个 $x$ 附近均可导，且 $x+2y\ne0$。对 $xy+y^2=1$ 求导得 $y+(x+2y)y'=0$，解得
+\[
+\boxed{\dd y=-\frac{y}{x+2y}\dd x}.
+\]
+\Verify 第一问在 $x=0$ 处给出 $y'=1$，和差商 $\frac{1}{\sqrt{1+x^2}}$ 在 $0$ 的极限一致。第二问将所得 $\dd y$ 代入 $y\dd x+(x+2y)\dd y$，恰好得到零。
+
+\Question{30}{五、证明题}{1}{10}
+设函数 $f$ 具有一阶连续导数，$f''(0)$ 存在，且 $f'(0)=0$、$f(0)=0$。令
+\[
+g(x)=
+\begin{cases}
+\frac{f(x)}{x},& x\ne0,\\
+a,& x=0.
+\end{cases}
+\]
+（1）确定 $a$，使 $g(x)$ 在 $x=0$ 处连续。
+
+（2）对以上确定的 $a$，证明 $g(x)$ 具有一阶连续导数。
+
+\Solution
+\Known 已知 $f$ 的一阶导数连续，并且零点处的二阶导数存在。先补齐 $g(0)$，再证明 $g'$ 在零点存在且连续。
+\Method 第一问的 $\frac{f(x)}{x}$ 就是 $f$ 在零点的差商。第二问对 $g$ 作差商又多出一层 $x$，因此先求出 $\frac{f(x)}{x^2}$ 的极限。
+\Derive （1）由 $f(0)=0$，有 $\lim\limits_{x\to0}\frac{f(x)}{x}=f'(0)=0$，所以连续性要求且只要求 $\boxed{a=0}$。
+
+（2）对 $x\ne0$，在连接 $0$ 与 $x$ 的区间上对 $f(t)$ 和 $t^2$ 用 Cauchy 中值定理。两函数在闭区间连续、在开区间可导，且 $(t^2)'=2t$ 在开区间内非零。故存在严格位于 $0$ 和 $x$ 之间的 $\xi$，使
+\[
+\frac{f(x)}{x^2}=\frac{f'(\xi)}{2\xi}.
+\]
+当 $x\to0$，有 $\xi\to0$。用 $f'(0)=0$ 和 $f''(0)$ 的定义，右边趋于 $\frac12 f''(0)$。这个极限等于 $\lim\limits_{x\to0}\frac{g(x)-g(0)}{x}$，故 $g'(0)=\frac12 f''(0)$。在 $x\ne0$ 处，商法则给出连续的导函数
+\[
+g'(x)=\frac{f'(x)}{x}-\frac{f(x)}{x^2}.
+\]
+第一项趋于 $f''(0)$，第二项趋于 $\frac12 f''(0)$，所以 $g'(x)\to g'(0)$。
+\Verify $g'$ 在零点和非零点都连续。取 $f(x)=x^2$ 检验，此时 $a=0$，$g(x)=x$，且 $g'(0)=1=\frac12 f''(0)$。
+
+\end{document}
