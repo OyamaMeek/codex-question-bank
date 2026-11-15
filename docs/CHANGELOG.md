@@ -728,6 +728,6 @@
 - **涉及文件**
   - `output/` 和 `output/iPad/` 下六份线性代数模拟卷 PDF。
   - `README.md`、`memory/plan.md`、`memory/progress.md`、`memory/verify.md`、`docs/CHANGELOG.md`。
-- **Git 提交** 待提交。
+- **Git 提交** `22414b3021cdf99ad56a41e62ce77c088a895e6a docs: rebuild the linear algebra exam PDFs`，已推送至 `origin/main`。
 
 ---
