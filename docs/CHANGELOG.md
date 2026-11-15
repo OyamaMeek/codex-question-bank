@@ -645,3 +645,16 @@
 - **Git 提交**：`d061691bfd62ac3670556b0e52a633b160d57c50 feat: typeset the 2026 UESTC mathematical analysis exam`，已推送至 `origin/main`。
 
 ---
+
+## [2026-11-15 21:26] 转录并核对数学分析期中1115
+
+- **需求**
+  > 将数学分析期中1115逐题 OCR 为 Markdown，并逐题核对。
+- **实际结果**
+  - 逐题对照四页原 PDF，转录五部分 30 道题及全部选项和小问。按原文保留题型标题，标记两处公式缺自变量及题型名称差异。
+  - 核对 40 个选项、75 分、4 个编号小问及 4 条原页链接。98 个 LaTeX 表达式通过 KaTeX 渲染。
+- **涉及文件**
+  - `references/数学分析期中1115.md`、`memory/agents.md`、`memory/plan.md`、`memory/progress.md`、`memory/verify.md`、`docs/CHANGELOG.md`。
+- **Git 提交** 待提交。Markdown 按仓库约定保存在本地 `references/`。
+
+---

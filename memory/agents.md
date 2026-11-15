@@ -1,5 +1,7 @@
 # 工具
 
+数学分析期中1115 使用 PyMuPDF 提取文字层和嵌入图片，使用本机 RapidOCR 识别题面，对照原卷逐题核对，并用既有 KaTeX 脚本检查公式。
+
 电子科技大学 2026 年数学分析试卷使用 CPU 版 RapidOCR 识别截图分区，对照放大的原图校勘公式。使用 Tectonic、ctex 编译两版，使用 PyMuPDF 核对分页与文字位置，使用 mpmath 独立复算关键结果。
 
 李林高数上册分节题集按微分、积分、微分方程分区编写、评级和复核，主代理处理函数与极限并统一排序编译。复用 Tectonic、ctex、markdown-it-py、PyMuPDF 和既有 KaTeX；用户授权后核对原题图片及最终 PDF 渲染页，记录于 `.agent/visual/`。
