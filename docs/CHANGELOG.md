@@ -756,10 +756,11 @@
   - 按六个系列归类，成品 PDF 放入 `A4/` 或 `iPad/`，LaTeX 源稿与编译资源留在同一系列目录。合并两组逐字节相同的 PDF，编译副产物和卷一本地预览移入 `.question-bank-work/output整理/`。五个原本缺失的文件只迁移已跟踪版本，本地仍保持缺失。
   - 更新 README 下载链接、项目测试和自动发布路径。原内容相同的文件迁移不触发 PDF 发布。
   - 23 项仓库测试通过。核对 26 条 README 链接、18 份成品 PDF 的版式及哈希，19 个 LaTeX 入口从新路径编译成功。
+  - GitHub Actions 运行 `43773515662` 成功，发布计划为空，编译和上传步骤依条件跳过。
 
 - **涉及文件**：
   - `output/`、`README.md`、`.github/scripts/`、`.agent/visual/lilin-integrals-source-review.md`、`memory/`、`docs/CHANGELOG.md`。
 
-- **Git 提交**：待提交。
+- **Git 提交**：`d5bb77c1b5ad36d144c10081a8d68c85560b4ca6 docs: organize question bank outputs`，已推送至 `origin/main`。
 
 ---
