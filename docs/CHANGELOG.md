@@ -743,6 +743,6 @@
 - **涉及文件**
   - `output/` 和 `output/iPad/` 下三卷 TeX、排版文件及六份正式 PDF。
   - `README.md`、真题索引、`memory/` 中的任务记录、`docs/CHANGELOG.md`。
-- **Git 提交** 待提交。
+- **Git 提交** `061342776048645a74c33951c85d631d101cc189 docs: remove matrix transformation questions from the exams`，已推送至 `origin/main`。
 
 ---
