@@ -5,7 +5,7 @@ import unittest
 
 
 ROOT = Path(__file__).resolve().parents[2]
-FILES = [ROOT / f"output/中值定理阶段模拟卷{number}.tex" for number in (1, 2, 3)]
+FILES = [ROOT / f"output/中值定理阶段模拟卷/中值定理阶段模拟卷{number}.tex" for number in (1, 2, 3)]
 
 
 class MeanValueExamTests(unittest.TestCase):

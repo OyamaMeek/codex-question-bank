@@ -4,7 +4,8 @@ import re
 import unittest
 
 
-SOURCE = Path(__file__).resolve().parents[2] / "output/302数学二分节真题集（原生LaTeX横屏版）.tex"
+SOURCE = (Path(__file__).resolve().parents[2] / "output/302数学二分节真题集"
+          / "302数学二分节真题集（原生LaTeX横屏版）.tex")
 COUNTS = [1, 10, 5, 23, 8, 8, 28, 0, 12, 9, 25, 11, 11, 12, 25, 13, 17, 16, 0]
 HEAD = re.compile(
     r"\\QuestionPage\{([^{}]+)\}\{([^{}]+)\}\{(\d+) 年第 (\d+) 题\}"

@@ -6,7 +6,7 @@ import unittest
 
 
 ROOT = Path(__file__).resolve().parents[2]
-SOURCE = ROOT / "output/李林高数上册分节题集.tex"
+SOURCE = ROOT / "output/李林高数上册分节题集/李林高数上册分节题集.tex"
 
 
 class LilinWorkbookTests(unittest.TestCase):

@@ -8,17 +8,19 @@ from pathlib import Path
 from urllib.parse import urlencode
 
 
-WIDE_SOURCE = "output/302数学二分节真题集（原生LaTeX横屏版）.tex"
+MATH_II = "output/302数学二分节真题集"
+WIDE_SOURCE = f"{MATH_II}/302数学二分节真题集（原生LaTeX横屏版）.tex"
+FACSIMILES = f"{MATH_II}/302-question-facsimiles.pdf"
 DEPENDENTS = {
-    WIDE_SOURCE: "output/302数学二分节真题集（原生LaTeX常规版）.tex",
-    "output/302-question-facsimiles.pdf": "output/302数学二分节真题集.tex",
+    WIDE_SOURCE: f"{MATH_II}/302数学二分节真题集（原生LaTeX常规版）.tex",
+    FACSIMILES: f"{MATH_II}/302数学二分节真题集.tex",
 }
 ASSET_NAMES = {
     WIDE_SOURCE: "math-ii-past-exams-landscape.pdf",
     DEPENDENTS[WIDE_SOURCE]: "math-ii-past-exams-a4.pdf",
-    DEPENDENTS["output/302-question-facsimiles.pdf"]: "math-ii-past-exams-facsimile.pdf",
-    "output/27302阶段模拟卷.tex": "27302-mock-exam-1.pdf",
-    "output/27302阶段模拟卷（第二至五卷及补充练习）.tex": "27302-mock-exams-2-5.pdf",
+    DEPENDENTS[FACSIMILES]: "math-ii-past-exams-facsimile.pdf",
+    "output/27302阶段模拟卷/27302阶段模拟卷.tex": "27302-mock-exam-1.pdf",
+    "output/27302阶段模拟卷/27302阶段模拟卷（第二至五卷及补充练习）.tex": "27302-mock-exams-2-5.pdf",
 }
 VERSION = re.compile(r"v0\.0\.([1-9][0-9]*)")
 
@@ -31,7 +33,8 @@ def plan(repo, before, after):
     tracked = set(git(repo, "ls-tree", "-rz", "--name-only", after, "--", "output/").split("\0"))
     initial = before == "0" * 40
     changed = tracked if initial else set(git(
-        repo, "diff", "--no-renames", "--name-only", "-z", before, after, "--", "output/"
+        repo, "diff", "--find-renames=100%", "--diff-filter=AMDT", "--name-only", "-z",
+        before, after, "--", "output/"
     ).split("\0"))
     affected = changed | {DEPENDENTS[path] for path in changed & DEPENDENTS.keys()}
     files = sorted(path for path in affected & tracked if path.endswith(".tex"))

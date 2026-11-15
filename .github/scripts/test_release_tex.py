@@ -17,11 +17,11 @@ class PushPlanTests(unittest.TestCase):
         self.git("config", "user.name", "Release Tests")
         self.git("config", "user.email", "release-tests@example.invalid")
         self.git("config", "commit.gpgsign", "false")
-        self.first = "output/27302阶段模拟卷.tex"
-        self.wide = "output/302数学二分节真题集（原生LaTeX横屏版）.tex"
-        self.a4 = "output/302数学二分节真题集（原生LaTeX常规版）.tex"
-        self.facsimile = "output/302数学二分节真题集.tex"
-        self.resource = "output/302-question-facsimiles.pdf"
+        self.first = "output/27302阶段模拟卷/27302阶段模拟卷.tex"
+        self.wide = "output/302数学二分节真题集/302数学二分节真题集（原生LaTeX横屏版）.tex"
+        self.a4 = "output/302数学二分节真题集/302数学二分节真题集（原生LaTeX常规版）.tex"
+        self.facsimile = "output/302数学二分节真题集/302数学二分节真题集.tex"
+        self.resource = "output/302数学二分节真题集/302-question-facsimiles.pdf"
         for path in (self.first, self.wide, self.a4, self.facsimile, self.resource):
             self.write(path, "initial")
         self.before = self.commit()
@@ -31,7 +31,7 @@ class PushPlanTests(unittest.TestCase):
 
     def write(self, name, contents):
         path = self.repo / name
-        path.parent.mkdir(exist_ok=True)
+        path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(contents, encoding="utf-8")
 
     def commit(self, note=""):
@@ -59,6 +59,14 @@ class PushPlanTests(unittest.TestCase):
         (self.repo / self.first).unlink()
         plan = release_tex.plan(self.repo, self.before, self.commit())
         self.assertEqual(plan["files"], [])
+
+    def test_ignores_source_moved_without_changes(self):
+        source = self.repo / self.first
+        target = source.parent / "分类" / source.name
+        target.parent.mkdir()
+        source.rename(target)
+        plan = release_tex.plan(self.repo, self.before, self.commit())
+        self.assertEqual(plan, {"files": [], "notes": ""})
 
     def test_missing_shared_source_still_selects_its_dependent(self):
         (self.repo / self.wide).unlink()
