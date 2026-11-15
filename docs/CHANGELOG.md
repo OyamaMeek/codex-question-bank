@@ -655,6 +655,6 @@
   - 核对 40 个选项、75 分、4 个编号小问及 4 条原页链接。98 个 LaTeX 表达式通过 KaTeX 渲染。
 - **涉及文件**
   - `references/数学分析期中1115.md`、`memory/agents.md`、`memory/plan.md`、`memory/progress.md`、`memory/verify.md`、`docs/CHANGELOG.md`。
-- **Git 提交** 待提交。Markdown 按仓库约定保存在本地 `references/`。
+- **Git 提交** `8fb958cae80c64b21c92f2c0fa9377b2729f5e1a docs: record midterm exam OCR and proofreading`，已推送至 `origin/main`。Markdown 按仓库约定保存在本地 `references/`。
 
 ---
