@@ -685,6 +685,6 @@
 - **涉及文件**
   - `output/` 下三套线性代数试卷的 TeX 源稿、A4 PDF、iPad PDF 和共用排版文件 `linear-algebra-exam.sty`。
   - `README.md`、`memory/agents.md`、`memory/plan.md`、`memory/progress.md`、`memory/verify.md`、`docs/CHANGELOG.md`。
-- **Git 提交** 待提交。
+- **Git 提交** `011d190484826595e04419457980e8ae1056742a feat: add three linear algebra practice exams`，已推送至 `origin/main`。
 
 ---
