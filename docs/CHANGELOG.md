@@ -714,6 +714,6 @@
 - **涉及文件**
   - `output/线性代数前两章模拟卷1.tex`、`output/线性代数前两章模拟卷2.tex`、`output/线性代数前两章模拟卷3.tex`、`output/linear-algebra-exam.sty`。
   - `memory/` 相关记录和 `docs/CHANGELOG.md`。
-- **Git 提交** 待提交。
+- **Git 提交** `62b0109c64a72e9096e103e71420b9a93b0ce058 docs: expand linear algebra TeX solutions and rate questions`，已推送至 `origin/main`。
 
 ---
