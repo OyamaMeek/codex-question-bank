@@ -700,6 +700,6 @@
 - **涉及文件**
   - `output/` 下三卷源稿、两种版式 PDF 和 `linear-algebra-exam.sty`。
   - `docs/线性代数前两章真题索引.md`、`README.md`、`memory/` 中的任务记录、`docs/CHANGELOG.md`。
-- **Git 提交** 待提交。
+- **Git 提交** `c339a8d88bf4f90ecea866f866aacc2382a6abac feat: expand linear algebra exams to 35 past questions`，已推送至 `origin/main`。
 
 ---
