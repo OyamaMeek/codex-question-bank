@@ -777,6 +777,6 @@
 - **涉及文件**
   - `AGENTS.md`、`docs/CHANGELOG.md`。
 
-- **Git 提交** 待提交。
+- **Git 提交** `a2f678d721f095c975308b38649ea621007440eb docs: record math question formatting rules`。
 
 ---
