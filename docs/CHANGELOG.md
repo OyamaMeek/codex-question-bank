@@ -807,6 +807,6 @@
 - **实际结果**：新写或修订题解时，先就题目线索提问，再分步提示，最后展开完整推导并按需验算。
 - **验证**：核对写作规范、适用范围和文档差异。23 项仓库测试通过。
 - **涉及文件**：`AGENTS.md`、`memory/`、`docs/CHANGELOG.md`。
-- **Git 提交**：待提交。
+- **Git 提交**：`187998e31154f4893a836b6cfc11c8ed78c8957e docs: default to guided math solutions`。
 
 ---
