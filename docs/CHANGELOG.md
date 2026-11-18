@@ -787,6 +787,6 @@
 - **实际结果**：对 16 张照片执行本机 OCR，逐题核对行列式和矩阵及其运算两章的 A、B 卷，按原题序转写 68 道题。行列式 B 卷第 13 题保留第三行第三列的原印刷指数并加注。
 - **验证**：题号、分值、80 个选项、4 个编号小问和 16 条原图链接通过检查，264 个 LaTeX 表达式通过 KaTeX 渲染。
 - **涉及文件**：`references/同济线代/同步测试卷/行列式同步测试.md`、`references/同济线代/同步测试卷/矩阵及其运算同步测试.md`、`memory/`、`docs/CHANGELOG.md`。
-- **Git 提交**：题面按 `references/` 规则保存在本地。开发记录待提交。
+- **Git 提交**：`65beaf2e4ed04a797febef1a27f4e16487df747d docs: record Tongji linear algebra test transcription`。题面按 `references/` 规则保存在本地。
 
 ---
