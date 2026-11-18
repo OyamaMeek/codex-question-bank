@@ -817,6 +817,6 @@
 - **实际结果**：四卷共 68 道解析逐题加入可动手尝试的问题和提示，复杂题补充第二条提示或推导中的判断问题。原位更新 TeX 以及 A4、iPad 两版 PDF。
 - **验证**：核对 68 道题面、80 个选项和 20 道单选答案。124 项数值复验、23 项仓库测试通过。两版各 137 页、73 个书签，逐题检查题解相邻与演算留白，编译无警告。
 - **涉及文件**：`references/同济线代/同步测试卷/`、`memory/plan.md`、`memory/progress.md`、`memory/verify.md`、`docs/CHANGELOG.md`。
-- **Git 提交**：待提交。TeX 与 PDF 随题源保存在本地。
+- **Git 提交**：`8703588737f43820b678f07974122b7b89aee31b docs: record guided Tongji linear algebra solutions`。TeX 与 PDF 随题源保存在本地。
 
 ---
